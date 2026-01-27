@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Zenith Studio",
+    "image": "/zenith-studio-preview.webp",
+    "description": "A modern portfolio and creative agency website built with Next.js, featuring animated transitions, scroll-based interactions, and responsive design. Showcases a collection of projects with immersive visual experiences.",
+    "url": "",
+    "date": "2025",
+    "service": "Frontend Development",
+    "status": true,
+    "color": { "h": "270", "s": "100%", "l": "90%" },
+    "techStack": ["Next.js", "React", "Tailwind CSS", "Framer Motion", "GSAP"],
+    "role": "Frontend Developer",
+    "challenge": "Implementing smooth scroll-triggered animations and parallax effects for an immersive user experience",
+    "solution": "Integrated Framer Motion and GSAP for advanced animations, with scroll-based interactions that engage users throughout the journey"
+  }
+]
