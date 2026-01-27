@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+// 1. Import motion
+import { motion } from "framer-motion";
 
 const chips = {
   row1: ["Naming", "Strategy & Positioning"],
@@ -9,10 +11,29 @@ const chips = {
 };
 
 export default function BrandIdentitySection() {
+  // 2. Define the scroll animation physics
+  const revealVariants = {
+    hidden: {
+      opacity: 0,
+      y: 100, // Starts 100px lower
+      scale: 0.95, // Starts slightly smaller
+    },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: i * 0.15, // Staggers each image by 0.15s
+        duration: 1.0, // Slow duration for that "smooth" feel
+        ease: [0.25, 1, 0.5, 1], // Cinematic easing curve
+      },
+    }),
+  };
+
   return (
     <section className="w-full px-4 md:px-8 py-20 md:py-18">
-      <div className="mx-auto  rounded-[28px] border border-black/40 bg-white/75 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] p-6 sm:p-8 md:p-10 lg:p-20">
-        {/* Header row */}
+      <div className="mx-auto rounded-[28px] border border-black/40 bg-white/75 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] p-6 sm:p-8 md:p-10 lg:p-20">
+        {/* Header row (Unchanged) */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <div className="max-w-3xl">
             <h3
@@ -35,7 +56,7 @@ export default function BrandIdentitySection() {
             className="w-full lg:w-auto"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            {/* Large screens: custom-staggered rows */}
+            {/* Chips (Unchanged) */}
             <div className="hidden lg:flex flex-col gap-4">
               <div className="flex justify-center gap-4 translate-x-20">
                 {chips.row1.map((c) => (
@@ -72,7 +93,6 @@ export default function BrandIdentitySection() {
                 ))}
               </div>
             </div>
-            {/* Mobile/tablet simple wrap */}
             <div className="lg:hidden flex flex-wrap gap-3 items-start">
               {[...chips.row1, ...chips.row2, ...chips.row3].map((c) => (
                 <span
@@ -86,22 +106,27 @@ export default function BrandIdentitySection() {
           </div>
         </div>
 
-        {/* Image row */}
+        {/* Image row - ANIMATION ADDED HERE */}
         <div className="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {["/services1.webp", "/services2.webp", "/services3.webp"].map(
             (src, idx) => (
-              <div
+              <motion.div
                 key={idx}
+                custom={idx} // Pass index for stagger delay
+                variants={revealVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
                 className="relative aspect-[16/12] rounded-2xl overflow-hidden border border-black/10 bg-black/5"
               >
                 <Image
                   src={src}
                   alt={`Service ${idx + 1}`}
                   fill
-                  sizes="(min-width: 768px) 33vw, 150vw"
+                  sizes="(min-width: 768px) 33vw, 200vw"
                   className="object-cover"
                 />
-              </div>
+              </motion.div>
             ),
           )}
         </div>
