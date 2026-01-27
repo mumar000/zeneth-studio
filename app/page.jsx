@@ -4,6 +4,7 @@ import Hero from "@/components/home/hero";
 import GifSection from "@/components/home/gif-section";
 import ProblemSolution from "@/components/home/problem-solution";
 import FocusSection from "@/components/home/focus-section";
+import BrandIdentitySection from "@/components/home/brand-identity";
 import { IntroProjectsSection } from "./sections/intro";
 import JourneySection from "./sections/discover/journey-section";
 import Loader from "./components/loader";
@@ -26,6 +27,7 @@ export default function Home() {
         <ProblemSolution />
         <ProjectsSection />
         <FocusSection />
+        <BrandIdentitySection />
         {/* <HeroSection startAnimation={!isLoading} />
         <IntroProjectsSection />
         <JourneySection />

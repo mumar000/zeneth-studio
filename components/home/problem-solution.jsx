@@ -6,7 +6,7 @@ export default function ProblemSolution() {
   const [active, setActive] = useState("problem");
 
   return (
-    <section className="w-full px-4 md:px-8 py-16 md:py-8">
+    <section className="w-full px-4 md:px-14 py-16 md:py-8">
       <div className="mx-auto  rounded-[28px] border border-black/20 bg-white/70 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] overflow-hidden">
         {/* Top split tabs */}
         <div
