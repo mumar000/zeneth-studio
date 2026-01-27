@@ -116,8 +116,6 @@
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
   --primary: #8a38f5;
 
   --primary-rgb: 138, 56, 245;
@@ -178,7 +176,7 @@ html.lenis body {
 
 body {
   /* Plain background; image handled in ::before at low opacity */
-  background-color: var(--background);
+  /* ensure texture shows */
   position: relative;
   isolation: isolate;
   color: var(--foreground);
@@ -204,7 +202,7 @@ body::before {
   background-repeat: repeat;
   background-position: center;
   background-size: auto;
-  opacity: 0.05; /* 5% */
+  opacity: 0.08; /* 5% */
   pointer-events: none;
-  z-index: -1;
+  z-index: 0; /* above body paint, below content */
 }
