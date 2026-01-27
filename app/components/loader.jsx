@@ -13,7 +13,7 @@ export default function Loader({ onLoadingComplete }) {
 
   useEffect(() => {
     // 2 seconds loading simulation
-    const duration = 2000;
+    const duration = 1500;
     const steps = 100;
     const stepDuration = duration / steps;
 

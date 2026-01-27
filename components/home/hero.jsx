@@ -11,7 +11,7 @@ export default function Hero() {
   ];
 
   // Adjust this delay to match exactly when your loader shutter finishes
-  const INITIAL_DELAY = 2.5;
+  const INITIAL_DELAY = 2.2;
 
   const containerVariants = {
     hidden: { opacity: 0 },
