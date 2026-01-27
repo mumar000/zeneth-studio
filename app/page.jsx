@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <>
-      {/* {isLoading && <Loader onLoadingComplete={() => setIsLoading(false)} />} */}
+      {isLoading && <Loader onLoadingComplete={() => setIsLoading(false)} />}
       <div className="relative">
         <Hero />
         <GifSection />

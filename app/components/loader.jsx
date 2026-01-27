@@ -8,9 +8,12 @@ export default function Loader({ onLoadingComplete }) {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
+  // Number of columns for the shutter effect
+  const columns = 5;
+
   useEffect(() => {
-    // Smooth progress animation
-    const duration = 2000; // 2 seconds
+    // 2 seconds loading simulation
+    const duration = 2000;
     const steps = 100;
     const stepDuration = duration / steps;
 
@@ -21,11 +24,13 @@ export default function Loader({ onLoadingComplete }) {
 
       if (currentProgress >= 100) {
         clearInterval(interval);
+        // Slight buffer before starting the exit animation
         setTimeout(() => {
           setIsComplete(true);
+          // Trigger the parent callback after the exit animation finishes (approx 1s)
           setTimeout(() => {
             if (onLoadingComplete) onLoadingComplete();
-          }, 600);
+          }, 1000);
         }, 200);
       }
     }, stepDuration);
@@ -33,77 +38,87 @@ export default function Loader({ onLoadingComplete }) {
     return () => clearInterval(interval);
   }, [onLoadingComplete]);
 
+  // Variants for the column animations
+  const columnVariants = {
+    initial: {
+      y: 0,
+    },
+    exit: (i) => ({
+      y: "-100%",
+      transition: {
+        duration: 0.8,
+        ease: [0.76, 0, 0.24, 1], // Custom bezier for that "premium" snappy feel
+        delay: i * 0.05, // Stagger effect based on column index
+      },
+    }),
+  };
+
   return (
     <AnimatePresence mode="wait">
       {!isComplete && (
-        <>
-          {/* Left Door */}
-          <motion.div
-            className="fixed top-0 left-0 bottom-0 w-1/2 z-[9998] bg-[#0a0a0a]"
-            initial={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          />
+        <div className="fixed inset-0 z-[9999] pointer-events-none flex">
+          {/* Background Shutters */}
+          {Array.from({ length: columns }).map((_, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              variants={columnVariants}
+              initial="initial"
+              exit="exit"
+              className="relative h-full bg-zinc-900 border-r border-zinc-800/50 last:border-r-0"
+              style={{ width: `${100 / columns}%` }}
+            />
+          ))}
 
-          {/* Right Door */}
+          {/* Centered Content Container */}
+          {/* This sits absolutely on top of the shutters but fades out BEFORE the shutters move */}
           <motion.div
-            className="fixed top-0 right-0 bottom-0 w-1/2 z-[9998] bg-[#0a0a0a]"
-            initial={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          />
-
-          {/* Centered Content (on top of doors) */}
-          <motion.div
-            className="fixed inset-0 z-9999 flex items-center justify-center pointer-events-none"
+            className="absolute inset-0 flex items-center justify-center z-50"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.3 }} // Fade out content quickly before shutters lift
           >
             <div className="flex flex-col items-center gap-8">
-              {/* Big Centered Logo */}
+              {/* Logo */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, ease: "circOut" }}
               >
+                {/* Note: Invert logo color since background is dark, or keep standard if bg is light */}
                 <Image
-                  src="/logo.png"
+                  src="/logo-2.png"
                   alt="Zenith Logo"
                   width={300}
                   height={150}
-                  className="object-contain"
+                  className="object-contain invert brightness-0 filter" // Makes black logo white
                   priority
                 />
               </motion.div>
 
-              {/* Progress Bar */}
-              <motion.div
-                className="w-64 md:w-80 h-px bg-white/10 relative overflow-hidden"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
+              {/* Progress Bar Container */}
+              <div className="w-64 md:w-80 h-[2px] bg-zinc-800 rounded-full overflow-hidden">
                 <motion.div
-                  className="absolute left-0 top-0 h-full bg-white"
+                  className="h-full bg-white"
                   style={{ width: `${progress}%` }}
-                  transition={{ duration: 0.1 }}
+                  transition={{ duration: 0.1, ease: "linear" }}
                 />
-              </motion.div>
+              </div>
 
               {/* Counter */}
-              <motion.p
-                className="text-sm text-white/40 font-light"
-                style={{ fontFamily: "var(--font-sora)" }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-              >
-                {progress}%
-              </motion.p>
+              <div className="flex items-center gap-2 text-zinc-400 font-mono text-sm">
+                <span>LOADING</span>
+                <motion.span
+                  key={progress} // Key change triggers slight animation on number change
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  {progress.toString().padStart(3, "0")}%
+                </motion.span>
+              </div>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

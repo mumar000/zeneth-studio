@@ -13,7 +13,7 @@ export default function SmoothScroll({ children }) {
   useEffect(() => {
     // Initialize Lenis with smooth scroll settings
     const lenis = new Lenis({
-      duration: 1.2, // How long the scroll animation takes (higher = slower)
+      duration: 1, // How long the scroll animation takes (higher = slower)
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smooth easing function
       orientation: "vertical", // Vertical scrolling
       gestureOrientation: "vertical",
