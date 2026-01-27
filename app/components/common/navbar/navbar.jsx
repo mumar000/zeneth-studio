@@ -16,7 +16,7 @@ export default function Navbar() {
   const navItems = ["Home", "About", "Work", "Contact"];
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50">
+    <header className="fixed top-0 inset-x-0 z-80">
       <div
         className={
           `mx-auto transition-all duration-700 ease-out ` +
@@ -29,7 +29,7 @@ export default function Navbar() {
           className={
             `w-full flex items-center justify-between gap-3 transition-all duration-700 ` +
             (collapsed
-              ? "rounded-full bg-white/80 backdrop-blur border border-black/10 shadow-sm px-3 py-1.5"
+              ? "rounded-full bg-white/80 backdrop-blur  border-black/10 shadow-sm px-3 py-1.5"
               : "bg-transparent px-0 py-0")
           }
         >

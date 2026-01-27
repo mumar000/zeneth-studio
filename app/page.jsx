@@ -2,6 +2,8 @@
 
 import Hero from "@/components/home/hero";
 import GifSection from "@/components/home/gif-section";
+import ProblemSolution from "@/components/home/problem-solution";
+import FocusSection from "@/components/home/focus-section";
 import { IntroProjectsSection } from "./sections/intro";
 import JourneySection from "./sections/discover/journey-section";
 import Loader from "./components/loader";
@@ -10,6 +12,7 @@ import ServicesSection from "./sections/services/services-section";
 import TestimonialSlider from "./sections/testimonial/testimonial";
 import FaqSection from "./sections/faqs/faqs-section";
 import ContactSection from "./sections/contact/contact";
+import { ProjectsSection } from "./sections/projects";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,6 +23,9 @@ export default function Home() {
       <div className="relative">
         <Hero />
         <GifSection />
+        <ProblemSolution />
+        <ProjectsSection />
+        <FocusSection />
         {/* <HeroSection startAnimation={!isLoading} />
         <IntroProjectsSection />
         <JourneySection />
