@@ -11,33 +11,29 @@ export default function SmoothScroll({ children }) {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    // Initialize Lenis with smooth scroll settings
     const lenis = new Lenis({
-      duration: 1, // How long the scroll animation takes (higher = slower)
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smooth easing function
-      orientation: "vertical", // Vertical scrolling
-      gestureOrientation: "vertical",
-      smoothWheel: true, // Smooth mouse wheel scrolling
-      wheelMultiplier: 1, // Scroll speed multiplier (lower = slower)
-      touchMultiplier: 2,
+      duration: 0.8, // faster & lighter
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+      smoothWheel: true,
+      wheelMultiplier: 1.3, // easier scroll
+      touchMultiplier: 1.5,
       infinite: false,
     });
 
     lenisRef.current = lenis;
 
-    // Integrate Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000); // Convert to milliseconds
-    });
+    const raf = (time) => {
+      lenis.raf(time * 1000);
+    };
 
+    gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
-    // Cleanup
     return () => {
+      gsap.ticker.remove(raf);
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
     };
   }, []);
 
