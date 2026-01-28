@@ -1,11 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRef } from "react";
 
 const defaultTitle = (
   <>
@@ -35,7 +31,6 @@ export default function BrandIdentitySection({
   chips = defaultChips,
   chipRows,
   images = defaultImages,
-  transitionVariant = "first",
 }) {
   const sectionRef = useRef(null);
 
@@ -48,151 +43,6 @@ export default function BrandIdentitySection({
           resolvedChips.slice(2, 5),
           resolvedChips.slice(5),
         ].filter((row) => row.length > 0);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const q = gsap.utils.selector(sectionRef);
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          end: "bottom top+=100%",
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
-
-      if (transitionVariant === "second") {
-        tl.from(q(".bi-title"), {
-          y: 60,
-          opacity: 0,
-          scale: 0.98,
-          duration: 0.8,
-          ease: "power2.out",
-        })
-          .from(
-            q(".bi-desc"),
-            {
-              y: 40,
-              opacity: 0,
-              duration: 0.7,
-              ease: "power2.out",
-            },
-            "-=0.45",
-          )
-          .from(
-            q(".bi-chip"),
-            {
-              y: 24,
-              opacity: 0,
-              duration: 0.6,
-              stagger: 0.05,
-              ease: "power2.out",
-            },
-            "-=0.4",
-          )
-          .from(
-            q(".bi-image"),
-            {
-              y: 80,
-              opacity: 0,
-              scale: 0.94,
-              duration: 0.9,
-              stagger: 0.12,
-              ease: "power2.out",
-            },
-            "-=0.25",
-          );
-      } else if (transitionVariant === "third") {
-        tl.from(q(".bi-title"), {
-          x: -80,
-          skewX: -6,
-          rotateZ: -2,
-          filter: "blur(10px)",
-          duration: 0.9,
-          ease: "power3.out",
-        })
-          .from(
-            q(".bi-desc"),
-            {
-              x: -60,
-              skewX: -4,
-              filter: "blur(8px)",
-              duration: 0.8,
-              ease: "power3.out",
-            },
-            "-=0.5",
-          )
-          .from(
-            q(".bi-chip"),
-            {
-              x: -40,
-              skewX: -3,
-              filter: "blur(6px)",
-              duration: 0.6,
-              stagger: 0.05,
-              ease: "power3.out",
-            },
-            "-=0.4",
-          )
-          .from(
-            q(".bi-image"),
-            {
-              x: 60,
-              rotateZ: 1.5,
-              filter: "blur(10px)",
-              duration: 0.9,
-              stagger: 0.12,
-              ease: "power3.out",
-            },
-            "-=0.3",
-          );
-      } else {
-        tl.from(q(".bi-title"), {
-          y: 40,
-          opacity: 0,
-          duration: 0.7,
-          ease: "power3.out",
-        })
-          .from(
-            q(".bi-desc"),
-            {
-              y: 30,
-              opacity: 0,
-              duration: 0.7,
-              ease: "power3.out",
-            },
-            "-=0.4",
-          )
-          .from(
-            q(".bi-chip"),
-            {
-              y: 20,
-              opacity: 0,
-              duration: 0.5,
-              stagger: 0.06,
-              ease: "power3.out",
-            },
-            "-=0.4",
-          )
-          .from(
-            q(".bi-image"),
-            {
-              y: 60,
-              opacity: 0,
-              scale: 0.96,
-              duration: 0.8,
-              stagger: 0.12,
-              ease: "power3.out",
-            },
-            "-=0.2",
-          );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <section
