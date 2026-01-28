@@ -120,7 +120,7 @@ export default function FeaturedProjectsSection() {
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/15 rounded-full opacity-30 blur-[150px] pointer-events-none" />
 
       <div className="projects-sticky-container top-0 h-screen w-full flex items-center justify-center px-4 md:px-12 lg:px-8 -mt-10">
-        <div className="relative w-full max-w-[1800px] h-[80vh] bg-slate-950 backdrop-blur-sm border border-white/20 rounded-[28px] overflow-hidden shadow-2xl shadow-purple-500/10">
+        <div className="relative w-full max-w-[1800px] h-[80vh] bg-[#060606] backdrop-blur-sm border border-white/20 rounded-[28px] overflow-hidden shadow-2xl shadow-purple-500/10">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 h-full">
             {/* --- LEFT SIDE (TEXT) --- */}
             <div className="flex flex-col h-full relative justify-center p-6 lg:p-12 z-20">
