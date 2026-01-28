@@ -63,7 +63,6 @@ export default function FeaturedProjectsSection() {
     const textContainer = textContainerRef.current;
 
     let ctx = gsap.context(() => {
-      // --- DIMENSIONS ---
       const imageItemHeight = 70; // 70vh
       const imageGap = 5; // 5vh
       const imageUnit = imageItemHeight + imageGap; // 75vh total per scroll unit
@@ -114,7 +113,7 @@ export default function FeaturedProjectsSection() {
   return (
     <section
       ref={projectsSectionRef}
-      className="relative  z-60"
+      className="relative  z-50"
       style={{ height: `${projects.length * 100}vh` }}
     >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full opacity-40 blur-[150px] pointer-events-none" />
@@ -136,7 +135,7 @@ export default function FeaturedProjectsSection() {
 
               {/* Text Window Container (55vh height) */}
               <div
-                className="relative w-full h-[55vh] overflow-hidden flex flex-col"
+                className="relative w-full h-[30vh] overflow-hidden flex flex-col"
                 style={{
                   maskImage:
                     "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
@@ -150,7 +149,7 @@ export default function FeaturedProjectsSection() {
                   style={{
                     willChange: "transform",
 
-                    paddingTop: "22.5vh",
+                    paddingTop: "20vh",
                   }}
                 >
                   {displayProjects.map((project, index) => {
@@ -160,13 +159,13 @@ export default function FeaturedProjectsSection() {
                     return (
                       <div
                         key={index}
+                        style={{ height: "5vh" }}
                         className="flex items-baseline gap-3 shrink-0 cursor-pointer group"
-                        style={{ height: "10vh" }} // Fixed Height
                         onMouseEnter={() => setHoveredIndex(realIndex)}
                         onMouseLeave={() => setHoveredIndex(null)}
                       >
                         <h3
-                          className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight transition-all duration-300 ${
+                          className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight transition-all duration-300 ${
                             isHovered
                               ? "text-purple-400 translate-x-4"
                               : "text-white"
@@ -192,7 +191,7 @@ export default function FeaturedProjectsSection() {
 
               <div className="absolute bottom-0 left-0 w-full p-8 lg:p-12 z-40">
                 <motion.button
-                  className="bg-[#8b5cf6] hover:bg-[#7c3aed] text-white font-medium py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+                  className="bg-[#8b5cf6] hover:bg-[#7c3aed] text-white font-medium py-3 lg:px-8 px-6 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.3)]"
                   style={{ fontFamily: "var(--font-sora)" }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -209,7 +208,6 @@ export default function FeaturedProjectsSection() {
                 className="flex flex-col w-full"
                 style={{
                   willChange: "transform",
-
                   marginTop: "calc(50% - 35vh)",
                   gap: "5vh",
                 }}
