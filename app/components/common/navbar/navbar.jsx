@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // This state forces the "pill" shape initially, regardless of scroll
   const [isIntroCollapsed, setIsIntroCollapsed] = useState(true);
@@ -77,14 +78,14 @@ export default function Navbar() {
             <img
               src="/logo-2.png"
               alt="Zeneth Studio"
-              className="h-7 md:h-14 w-auto"
+              className="h-7 sm:h-9 md:h-14 w-auto"
             />
           </div>
 
           {/* Center Nav */}
           <nav
             className={
-              `transition-all duration-[800ms] cubic-bezier(0.25, 1, 0.5, 1) rounded-full bg-black/10 backdrop-blur flex items-center gap-1 shadow-sm ` +
+              `hidden md:flex transition-all duration-[800ms] cubic-bezier(0.25, 1, 0.5, 1) rounded-full bg-black/10 backdrop-blur items-center gap-1 shadow-sm ` +
               (collapsed ? "px-2 py-1" : "px-3 py-2")
             }
           >
@@ -99,11 +100,23 @@ export default function Navbar() {
             ))}
           </nav>
 
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle navigation menu"
+            className="md:hidden inline-flex items-center justify-center rounded-full border border-black/20 px-3 py-2 text-sm text-black/80 transition-all duration-300 hover:border-black/40 hover:text-black"
+            style={{ fontFamily: "var(--font-sora)" }}
+          >
+            {isMenuOpen ? "Close" : "Menu"}
+          </button>
+
           {/* CTA Button */}
           <a
             href="#contact"
             className={
-              `rounded-full bg-black text-white transition-all duration-[800ms] cubic-bezier(0.25, 1, 0.5, 1) shrink-0 ` +
+              `hidden sm:inline-flex rounded-full bg-black text-white transition-all duration-[800ms] cubic-bezier(0.25, 1, 0.5, 1) shrink-0 ` +
               (collapsed
                 ? "px-4 py-1.5 text-sm"
                 : "px-5 py-2 text-sm md:text-base")
@@ -112,6 +125,36 @@ export default function Navbar() {
           >
             Lets Work →
           </a>
+        </div>
+
+        {/* Mobile Menu Panel */}
+        <div
+          className={`md:hidden mt-2 transition-all duration-300 ${
+            isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
+          }`}
+        >
+          <div className="rounded-2xl bg-white/90 backdrop-blur border border-black/10 shadow-sm p-3">
+            <nav className="flex flex-col gap-1">
+              {navItems.map((label) => (
+                <button
+                  key={label}
+                  className="rounded-full px-4 py-2 text-left text-sm text-black/80 hover:text-black hover:bg-black/5 transition-colors"
+                  style={{ fontFamily: "var(--font-sora)" }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
+            <a
+              href="#contact"
+              className="mt-3 inline-flex w-full items-center justify-center rounded-full bg-black px-4 py-2 text-sm text-white"
+              style={{ fontFamily: "var(--font-sora)" }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Lets Work →
+            </a>
+          </div>
         </div>
       </div>
     </motion.header>
