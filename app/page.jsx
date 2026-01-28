@@ -14,6 +14,7 @@ import TestimonialSlider from "./sections/testimonial/testimonial";
 import FaqSection from "./sections/faqs/faqs-section";
 import ContactSection from "./sections/contact/contact";
 import { ProjectsSection } from "./sections/projects";
+import HowWeWork from "@/components/home/how-we-works";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -101,6 +102,7 @@ export default function Home() {
             }
           />
         ))}
+        <HowWeWork />
         {/* <HeroSection startAnimation={!isLoading} />
         <IntroProjectsSection />
         <JourneySection />
