@@ -25,7 +25,7 @@ export default function ProblemSolution() {
     if (!sectionRef.current || hasAnimated.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
@@ -90,7 +90,7 @@ export default function ProblemSolution() {
           duration: 1.0,
           ease: "power2.out",
         },
-        0
+        0,
       );
 
       // Animate problem words
@@ -106,7 +106,7 @@ export default function ProblemSolution() {
             duration: 0.8,
             ease: "power3.out",
           },
-          0.3 + i * 0.04
+          0.3 + i * 0.04,
         );
       });
 
@@ -122,7 +122,7 @@ export default function ProblemSolution() {
             duration: 0.6,
             ease: "power2.out",
           },
-          0.6 + i * 0.02
+          0.6 + i * 0.02,
         );
       });
 
@@ -144,7 +144,7 @@ export default function ProblemSolution() {
     if (!hasAnimated.current) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) return;
@@ -185,7 +185,7 @@ export default function ProblemSolution() {
               duration: 0.7,
               ease: "power3.out",
             },
-            i * 0.04
+            i * 0.04,
           );
         });
 
@@ -200,7 +200,7 @@ export default function ProblemSolution() {
               duration: 0.5,
               ease: "power2.out",
             },
-            0.3 + i * 0.02
+            0.3 + i * 0.02,
           );
         });
       }
@@ -242,7 +242,7 @@ export default function ProblemSolution() {
     <section ref={sectionRef} className="w-full px-4 md:px-14 py-16 md:py-8">
       <div
         ref={containerRef}
-        className="mx-auto rounded-[28px] border border-black/20 bg-white/70 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] overflow-hidden"
+        className="mx-auto rounded-[28px] border border-black/40 bg-white/70 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] overflow-hidden"
       >
         {/* Top split tabs */}
         <div
@@ -287,12 +287,12 @@ export default function ProblemSolution() {
               >
                 {renderAnimatedText(
                   "Most brands don't have a",
-                  problemWordsRef
+                  problemWordsRef,
                 )}{" "}
                 {renderAnimatedText(
                   "design problem",
                   { current: problemWordsRef.current.slice(5, 7) },
-                  true
+                  true,
                 )}
                 .
                 <br />
@@ -300,7 +300,7 @@ export default function ProblemSolution() {
                 {renderAnimatedText(
                   "perception",
                   { current: problemWordsRef.current.slice(7, 8) },
-                  true
+                  true,
                 )}{" "}
                 problem.
               </h2>
@@ -311,7 +311,7 @@ export default function ProblemSolution() {
               >
                 {renderAnimatedDescription(
                   "Your product might be solid. Your service might be great. But if your brand, website, or visuals feel unclear, inconsistent, or outdated people hesitate. And hesitation kills trust.",
-                  problemDescWordsRef
+                  problemDescWordsRef,
                 )}
               </p>
             </div>
@@ -327,7 +327,7 @@ export default function ProblemSolution() {
               >
                 {renderAnimatedText(
                   "Clarify, systemize, and express your brand with intent.",
-                  solutionWordsRef
+                  solutionWordsRef,
                 )}
               </h2>
               <p
@@ -337,7 +337,7 @@ export default function ProblemSolution() {
               >
                 {renderAnimatedDescription(
                   "We help you craft perception through sharp messaging, modern visuals, and a design system that scales.",
-                  solutionDescWordsRef
+                  solutionDescWordsRef,
                 )}
               </p>
             </div>

@@ -18,11 +18,10 @@ const Footer = () => {
         {/* TOP SECTION: content grid */}
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-10 mb-14">
           {/* LEFT: Newsletter & Socials */}
-          <div className="w-full lg:w-[35%] flex flex-col gap-8">3
+          <div className="w-full lg:w-[35%] flex flex-col gap-8">
             <h3 className="text-2xl md:text-3xl font-medium tracking-tight">
               Stay updated with Zenith news
             </h3>
-
             {/* Input Field - Pill Shape with Button Inside */}
             <div className="relative w-full max-w-md">
               <input
@@ -34,7 +33,6 @@ const Footer = () => {
                 <ArrowUpRight size={20} strokeWidth={2.5} />
               </button>
             </div>
-
             {/* Social Pills - Small, White, Black Icons */}
             <div className="flex flex-wrap gap-2">
               <SocialPill icon={<Facebook size={12} fill="currentColor" />} />

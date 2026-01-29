@@ -15,6 +15,7 @@ import FaqSection from "./sections/faqs/faqs-section";
 import ContactSection from "./sections/contact/contact";
 import { ProjectsSection } from "./sections/projects";
 import HowWeWork from "@/components/home/how-we-works";
+import AlignmentCTA from "@/components/home/alignment-cta";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -103,6 +104,7 @@ export default function Home() {
           />
         ))}
         <HowWeWork />
+        <AlignmentCTA />
         {/* <HeroSection startAnimation={!isLoading} />
         <IntroProjectsSection />
         <JourneySection />
