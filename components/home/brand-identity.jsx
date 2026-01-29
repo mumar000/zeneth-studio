@@ -1,7 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const defaultTitle = (
   <>
@@ -33,6 +37,11 @@ export default function BrandIdentitySection({
   images = defaultImages,
 }) {
   const sectionRef = useRef(null);
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
+  const chipsRef = useRef([]);
+  const imagesRef = useRef([]);
 
   const resolvedChips = chips?.length ? chips : defaultChips;
   const resolvedChipRows =
@@ -44,22 +53,214 @@ export default function BrandIdentitySection({
           resolvedChips.slice(5),
         ].filter((row) => row.length > 0);
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      // Simple fade-in for accessibility
+      gsap.set(containerRef.current, { opacity: 0 });
+      gsap.to(containerRef.current, {
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
+      return;
+    }
+
+    // Use gsap.context to scope animations to this component instance
+    const ctx = gsap.context(() => {
+      // Set initial states
+      gsap.set(containerRef.current, {
+        scale: 0.92,
+        opacity: 0,
+        rotateX: 8,
+        transformPerspective: 1000,
+      });
+
+      if (titleRef.current) {
+        gsap.set(titleRef.current, {
+          y: 60,
+          opacity: 0,
+          rotateX: 15,
+        });
+      }
+
+      if (descRef.current) {
+        gsap.set(descRef.current, {
+          y: 40,
+          x: -20,
+          opacity: 0,
+        });
+      }
+
+      // Set chips initial states
+      const allChips = chipsRef.current.filter((el) => el);
+      allChips.forEach((chip, i) => {
+        const row = Math.floor(i / 3);
+        const direction = row % 2 === 0 ? 1 : -1;
+
+        gsap.set(chip, {
+          x: 50 * direction,
+          y: 30,
+          opacity: 0,
+          scale: 0.8,
+          rotation: 5 * direction,
+        });
+      });
+
+      // Set images initial states
+      imagesRef.current.forEach((img, i) => {
+        if (!img) return;
+
+        const reveals = [
+          { clipPath: "inset(100% 0% 0% 0%)", y: 80 },
+          { clipPath: "inset(0% 0% 100% 0%)", y: -60 },
+          { clipPath: "inset(100% 0% 0% 0%)", y: 80 },
+        ];
+
+        gsap.set(img, {
+          ...reveals[i],
+          scale: 0.85,
+          rotation: i % 2 === 0 ? 3 : -3,
+          opacity: 0,
+        });
+      });
+
+      // Create timeline with ScrollTrigger
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+          once: true,
+          id: `brand-identity-${Math.random()}`, // Unique ID for each instance
+        },
+      });
+
+      // Container animation
+      tl.to(
+        containerRef.current,
+        {
+          scale: 1,
+          opacity: 1,
+          rotateX: 0,
+          duration: 1.2,
+          ease: "power2.out",
+        },
+        0
+      );
+
+      // Title animation
+      if (titleRef.current) {
+        tl.to(
+          titleRef.current,
+          {
+            y: 0,
+            opacity: 1,
+            rotateX: 0,
+            duration: 1.0,
+            ease: "power3.out",
+          },
+          0.1
+        );
+      }
+
+      // Description animation
+      if (descRef.current) {
+        tl.to(
+          descRef.current,
+          {
+            y: 0,
+            x: 0,
+            opacity: 1,
+            duration: 1.0,
+            ease: "power2.out",
+          },
+          0.2
+        );
+      }
+
+      // Chips animations
+      allChips.forEach((chip, i) => {
+        tl.to(
+          chip,
+          {
+            x: 0,
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.8,
+            ease: "back.out(1.2)",
+          },
+          0.3 + i * 0.05
+        );
+      });
+
+      // Images animations
+      imagesRef.current.forEach((img, i) => {
+        if (!img) return;
+
+        tl.to(
+          img,
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+            y: 0,
+            scale: 1,
+            rotation: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: "power3.out",
+          },
+          0.4 + i * 0.1
+        );
+      });
+    }, sectionRef);
+
+    return () => {
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === sectionRef.current) {
+          trigger.kill();
+        }
+      });
+    };
+  }, []);
+
   return (
     <section
       ref={sectionRef}
       className="w-full px-4 md:px-8 py-20 md:py-18"
     >
-      <div className="mx-auto rounded-[28px] border border-black/40 bg-white/75 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] p-6 sm:p-8 md:p-10 lg:p-20">
-        {/* Header row (Unchanged) */}
+      <div
+        ref={containerRef}
+        className="mx-auto rounded-[28px] border border-black/40 bg-white/75 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] p-6 sm:p-8 md:p-10 lg:p-20"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* Header row */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <div className="max-w-3xl">
             <h3
+              ref={titleRef}
               className="bi-title text-[10vw] sm:text-[7vw] md:text-[5vw] lg:text-[3.2vw] leading-[1.05] tracking-tight text-black"
-              style={{ fontFamily: "var(--font-sora)" }}
+              style={{
+                fontFamily: "var(--font-sora)",
+                transformStyle: "preserve-3d",
+              }}
             >
               {title}
             </h3>
             <p
+              ref={descRef}
               className="bi-desc mt-5 md:mt-6 text-black/70 text-base sm:text-lg md:text-2xl"
               style={{ fontFamily: "var(--font-sora)" }}
             >
@@ -70,12 +271,13 @@ export default function BrandIdentitySection({
             className="w-full lg:w-auto"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            {/* Chips (Unchanged) */}
+            {/* Chips */}
             <div className="hidden lg:flex flex-col gap-4">
               <div className="flex justify-center gap-4 translate-x-20">
-                {(resolvedChipRows[0] || []).map((c) => (
+                {(resolvedChipRows[0] || []).map((c, i) => (
                   <span
                     key={c}
+                    ref={(el) => (chipsRef.current[i] = el)}
                     className="bi-chip inline-flex items-center rounded-full border border-black/50 px-6 py-3 bg-white text-black text-2xl "
                   >
                     {c}
@@ -83,9 +285,10 @@ export default function BrandIdentitySection({
                 ))}
               </div>
               <div className="flex justify-center gap-4">
-                {(resolvedChipRows[1] || []).map((c) => (
+                {(resolvedChipRows[1] || []).map((c, i) => (
                   <span
                     key={c}
+                    ref={(el) => (chipsRef.current[i + 2] = el)}
                     className="bi-chip inline-flex items-center rounded-full border border-black/50 px-6 py-3 bg-white text-black text-2xl "
                   >
                     {c}
@@ -96,6 +299,7 @@ export default function BrandIdentitySection({
                 {(resolvedChipRows[2] || []).map((c, i) => (
                   <span
                     key={c}
+                    ref={(el) => (chipsRef.current[i + 5] = el)}
                     className={
                       "bi-chip inline-flex items-center translate-x-14 rounded-full border border-black/50 px-6 py-3 bg-white text-black text-2xl  " +
                       (i === 0 ? "-translate-x-1" : "")
@@ -123,7 +327,9 @@ export default function BrandIdentitySection({
           {images.map((src, idx) => (
             <div
               key={src}
+              ref={(el) => (imagesRef.current[idx] = el)}
               className="bi-image relative aspect-[16/12] rounded-2xl overflow-hidden border border-black/10 bg-black/5"
+              style={{ willChange: "transform" }}
             >
               <Image
                 src={src}
