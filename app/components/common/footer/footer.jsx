@@ -10,15 +10,15 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#0f0a1a] to-primary/30 py-6 px-4 md:px-6  flex flex-col justify-end">
+    <footer className="py-6 px-4 md:px-6  flex flex-col justify-end">
       <div
-        className="relative w-full overflow-hidden rounded-[3rem] bg-[#0b0b0b] text-white pt-16 pb-6 px-6 md:px-12 lg:px-16"
+        className="relative w-full overflow-hidden rounded-[3rem] bg-[#15011b] text-white pt-16 pb-6 px-6 md:px-12 lg:px-16"
         style={{ fontFamily: "var(--font-sora)" }}
       >
         {/* TOP SECTION: content grid */}
         <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-10 mb-14">
           {/* LEFT: Newsletter & Socials */}
-          <div className="w-full lg:w-[35%] flex flex-col gap-8">
+          <div className="w-full lg:w-[35%] flex flex-col gap-8">3
             <h3 className="text-2xl md:text-3xl font-medium tracking-tight">
               Stay updated with Zenith news
             </h3>
