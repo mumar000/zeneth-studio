@@ -12,13 +12,12 @@ export default function SmoothScroll({ children }) {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 3.0, // Smoother, more consistent timing
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out for buttery smooth feel
+      duration: 0.9, // Webflow-like speed
+      easing: (t) => 1 - Math.pow(1 - t, 4), // sharp ease-out
       smoothWheel: true,
-      wheelMultiplier: 1.0, // Consistent 1:1 scroll ratio
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1.8, // Webflow wheel feel
+      touchMultiplier: 2.2, // natural mobile swipe
       infinite: false,
-      syncTouch: true, // Better mobile scroll sync
     });
 
     lenisRef.current = lenis;
