@@ -81,7 +81,7 @@ export default function FeaturedProjectsSection() {
           start: "top top",
           end: "bottom bottom",
           pin: ".projects-sticky-container",
-          scrub: 1,
+          scrub: 0.5, // Reduced from 1 to match global smooth scroll speed
           invalidateOnRefresh: true,
         },
       });
@@ -117,10 +117,10 @@ export default function FeaturedProjectsSection() {
       style={{ height: `${projects.length * 100}vh` }}
     >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full opacity-40 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/15 rounded-full opacity-30 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0  w-[600px] h-[600px] bg-primary/15 rounded-full opacity-30 blur-[150px] pointer-events-none" />
 
       <div className="projects-sticky-container top-0 h-screen w-full flex items-center justify-center px-4 md:px-12 lg:px-8 -mt-10">
-        <div className="relative w-full max-w-[1800px] h-[80vh] bg-[#060606] backdrop-blur-sm border border-white/20 rounded-[28px] overflow-hidden shadow-2xl shadow-purple-500/10">
+        <div className="relative w-full max-w-[1800px]  h-[80vh] bg-[#060606] backdrop-blur-sm border border-white/20 rounded-[28px] overflow-hidden shadow-2xl shadow-purple-500/10">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 h-full">
             {/* --- LEFT SIDE (TEXT) --- */}
             <div className="flex flex-col h-full relative justify-center p-6 lg:p-12 z-20">
@@ -135,7 +135,7 @@ export default function FeaturedProjectsSection() {
 
               {/* Text Window Container (55vh height) */}
               <div
-                className="relative w-full h-[30vh] overflow-hidden flex flex-col"
+                className="relative w-full h-[50vh] overflow-hidden flex flex-col"
                 style={{
                   maskImage:
                     "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
@@ -185,7 +185,7 @@ export default function FeaturedProjectsSection() {
                   })}
                 </div>
 
-                <div className="absolute bottom-0 left-0 w-full h-[15vh] bg-gradient-to-t from-black  via-black/80 to-transparent z-20 pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-full h-[15vh]  bg-gradient-to-t from-black  via-black/80 to-transparent z-20 pointer-events-none" />
               </div>
 
               <div className="absolute bottom-0 left-0 w-full p-8 lg:p-12 z-40">
@@ -207,7 +207,7 @@ export default function FeaturedProjectsSection() {
                 className="flex flex-col w-full"
                 style={{
                   willChange: "transform",
-                  marginTop: "calc(50% - 35vh)",
+                  marginTop: "calc(50% - 30vh)",
                   gap: "5vh",
                 }}
               >
@@ -218,7 +218,7 @@ export default function FeaturedProjectsSection() {
                     <div
                       key={index}
                       className="relative w-full shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group"
-                      style={{ height: "70vh" }}
+                      style={{ height: "65vh" }}
                     >
                       <div
                         className={`relative w-full h-full transition-transform duration-700 ease-out ${

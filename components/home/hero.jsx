@@ -86,14 +86,14 @@ export default function Hero() {
 
       {/* Bottom marquee/ticker using react-fast-marquee */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 border-y border-black/80 bg-white/70 backdrop-blur-sm"
+        className="absolute bottom-0 left-0 right-0  bg-white/70 backdrop-blur-sm"
         variants={marqueeVariants}
         initial="hidden"
         animate="visible"
       >
         <Marquee
           gradient={false}
-          speed={55}
+          speed={90}
           pauseOnHover={false}
           className="py-2 sm:py-3 md:py-4"
         >

@@ -35,6 +35,7 @@ export default function BrandIdentitySection({
   chips = defaultChips,
   chipRows,
   images = defaultImages,
+  transitionVariant = "first", // "first", "second", or "third"
 }) {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
@@ -58,7 +59,7 @@ export default function BrandIdentitySection({
 
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
@@ -75,6 +76,27 @@ export default function BrandIdentitySection({
         },
       });
       return;
+    }
+
+    // Sticky card stacking scroll effect - smooth and consistent
+    let stickyScrollTrigger;
+    if (transitionVariant !== "third") {
+      // Pin cards so next one slides over smoothly
+      stickyScrollTrigger = ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top top",
+        end: () => {
+          // Calculate end based on next section
+          const nextSection = sectionRef.current.nextElementSibling;
+          if (nextSection) {
+            return `+=${nextSection.offsetHeight}`;
+          }
+          return "+=100%";
+        },
+        pin: true,
+        pinSpacing: false,
+        id: `brand-sticky-${transitionVariant}`,
+      });
     }
 
     // Use gsap.context to scope animations to this component instance
@@ -156,7 +178,7 @@ export default function BrandIdentitySection({
           duration: 1.2,
           ease: "power2.out",
         },
-        0
+        0,
       );
 
       // Title animation
@@ -170,7 +192,7 @@ export default function BrandIdentitySection({
             duration: 1.0,
             ease: "power3.out",
           },
-          0.1
+          0.1,
         );
       }
 
@@ -185,7 +207,7 @@ export default function BrandIdentitySection({
             duration: 1.0,
             ease: "power2.out",
           },
-          0.2
+          0.2,
         );
       }
 
@@ -202,7 +224,7 @@ export default function BrandIdentitySection({
             duration: 0.8,
             ease: "back.out(1.2)",
           },
-          0.3 + i * 0.05
+          0.3 + i * 0.05,
         );
       });
 
@@ -221,29 +243,57 @@ export default function BrandIdentitySection({
             duration: 1.2,
             ease: "power3.out",
           },
-          0.4 + i * 0.1
+          0.4 + i * 0.1,
         );
       });
     }, sectionRef);
 
     return () => {
       ctx.revert();
+      if (stickyScrollTrigger) {
+        stickyScrollTrigger.kill();
+      }
       ScrollTrigger.getAll().forEach((trigger) => {
         if (trigger.trigger === sectionRef.current) {
           trigger.kill();
         }
       });
     };
-  }, []);
+  }, [transitionVariant]);
+
+  // Calculate z-index based on variant (first card on bottom, third on top)
+  const zIndexMap = {
+    first: 10,
+    second: 20,
+    third: 30,
+  };
+
+  // Different background colors for each card
+  const colorMap = {
+    first: "bg-gradient-to-br from-blue-100/90 to-indigo-100/90", // Soft blue gradient
+    second: "bg-gradient-to-br from-purple-100/90 to-pink-100/90", // Soft purple-pink gradient
+    third: "bg-gradient-to-br from-amber-100/90 to-orange-100/90", // Soft warm gradient
+  };
+
+  // Border colors to match the background
+  const borderColorMap = {
+    first: "border-blue-200/60",
+    second: "border-purple-200/60",
+    third: "border-amber-200/60",
+  };
 
   return (
     <section
       ref={sectionRef}
       className="w-full px-4 md:px-8 py-20 md:py-18"
+      style={{
+        zIndex: zIndexMap[transitionVariant] || 10,
+        position: "relative",
+      }}
     >
       <div
         ref={containerRef}
-        className="mx-auto rounded-[28px] border border-black/40 bg-white/75 backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] p-6 sm:p-8 md:p-10 lg:p-20"
+        className={`mx-auto rounded-[28px] border ${borderColorMap[transitionVariant] || "border-black/40"} ${colorMap[transitionVariant] || "bg-white"} backdrop-blur-sm shadow-[0_1px_0_rgba(0,0,0,0.06)] mt-5 p-6 sm:p-8 md:p-10 lg:p-20`}
         style={{ transformStyle: "preserve-3d" }}
       >
         {/* Header row */}

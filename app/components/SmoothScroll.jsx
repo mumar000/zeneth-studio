@@ -12,12 +12,13 @@ export default function SmoothScroll({ children }) {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.8, // faster & lighter
-      easing: (t) => 1 - Math.pow(1 - t, 3),
+      duration: 1.0, // Smoother, more consistent timing
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential ease-out for buttery smooth feel
       smoothWheel: true,
-      wheelMultiplier: 1.3, // easier scroll
+      wheelMultiplier: 1.0, // Consistent 1:1 scroll ratio
       touchMultiplier: 1.5,
       infinite: false,
+      syncTouch: true, // Better mobile scroll sync
     });
 
     lenisRef.current = lenis;
