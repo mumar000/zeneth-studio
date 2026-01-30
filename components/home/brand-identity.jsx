@@ -78,21 +78,26 @@ export default function BrandIdentitySection({
       return;
     }
 
-    // Sticky card stacking scroll effect - smooth and consistent
+    // Sticky card stacking scroll effect - desktop only
     let stickyScrollTrigger;
-    if (transitionVariant !== "third") {
-      // Pin cards so next one slides over smoothly
+    const isDesktop = window.innerWidth >= 1024; // Only on lg screens and above
+
+    if (isDesktop && transitionVariant === "first") {
+      // First card stays pinned longest (until third card is fully visible)
       stickyScrollTrigger = ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
-        end: () => {
-          // Calculate end based on next section
-          const nextSection = sectionRef.current.nextElementSibling;
-          if (nextSection) {
-            return `+=${nextSection.offsetHeight}`;
-          }
-          return "+=100%";
-        },
+        end: "+=200%", // Extended pin duration
+        pin: true,
+        pinSpacing: false,
+        id: `brand-sticky-${transitionVariant}`,
+      });
+    } else if (isDesktop && transitionVariant === "second") {
+      // Second card pins after first
+      stickyScrollTrigger = ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "+=100%", // Pin until third covers it
         pin: true,
         pinSpacing: false,
         id: `brand-sticky-${transitionVariant}`,
