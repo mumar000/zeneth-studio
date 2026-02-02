@@ -69,10 +69,10 @@ export default function Hero() {
           className="leading-[0.95] tracking-[-0.05em] text-4xl sm:text-6xl md:text-[7vw] lg:text-[5vw] font-[500] text-black"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          <span className="italic font-[400] text-primary">Design</span> that
+          <span className="italic font-romie  text-primary">Design</span> that
           makes <br className="hidden md:block" />
           brands look{" "}
-          <span className="italic font-[400] text-primary">serious.</span>
+          <span className="italic font-romie text-primary">serious.</span>
         </motion.h1>
 
         <motion.p

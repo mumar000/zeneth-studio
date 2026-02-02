@@ -67,8 +67,10 @@ export default function AlignmentCTA() {
               className="text-4xl md:text-5xl lg:text-6xl text-[#1a1a1a] leading-tight mb-8"
               style={{ fontFamily: "var(--font-sora)" }}
             >
-              <span className="italic font-[400]">Let's see if </span>
-              <span className="font-[600]">this makes sense.</span>
+              <span className="italic font-romie font-[400]">
+                Let's see if{" "}
+              </span>
+              <span className="font-[400]">this makes sense.</span>
             </motion.h2>
 
             {/* Description */}

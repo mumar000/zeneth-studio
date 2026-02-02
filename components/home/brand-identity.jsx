@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const defaultTitle = (
   <>
-    <span className="italic font-[400]">Brand</span>&nbsp;&
+    <span className="italic font-romie font-[400]">Brand</span>&nbsp;&
     <span className="font-[600]"> Visual Identity</span>
   </>
 );

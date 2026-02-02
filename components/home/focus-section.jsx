@@ -5,12 +5,12 @@ export default function FocusSection() {
     <section className="w-full px-4 md:px-6 py-24 md:py-32 text-center">
       <div className="mx-auto max-w-[1200px]">
         <h2
-          className="tracking-tighter  leading-[1] text-black text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[3.5vw] font-[500]"
+          className="tracking-tighter  leading-[1] text-black text-[10vw] sm:text-[8vw] md:text-[6vw] lg:text-[3.5vw] font-[400]"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          We’re a <span className="italic font-[300]">team</span> built on
+          We’re a <span className="italic font-romie ">team</span> built on
           focus,
-          <br /> not <span className="italic font-[300]">noise</span>.
+          <br /> not <span className="italic font-romie ">noise</span>.
         </h2>
 
         <p

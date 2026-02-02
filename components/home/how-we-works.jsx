@@ -40,7 +40,7 @@ export default function HowWeWork() {
             style={{ fontFamily: "var(--font-sora)" }}
           >
             <br />
-            How we <span className="italic font-[300]">works</span>.
+            How we <span className="italic font-romie font-[400]">works</span>.
           </h2>
         </motion.div>
 
@@ -98,7 +98,7 @@ function StepItem({ step, index }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-serif italic text-[#1a1a1a] leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-romie italic text-[#1a1a1a] leading-tight"
           >
             — {step.title}
           </motion.h3>

@@ -23,8 +23,8 @@ export default function Home() {
     {
       title: (
         <>
-          <span className="italic font-[400]">Brand</span>&nbsp;&
-          <span className="font-[600]"> Visual Identity</span>
+          <span className="italic font-romie font-[400]">Brand</span>&nbsp;&
+          <span className="font-[400]"> Visual Identity</span>
         </>
       ),
       description:
@@ -43,8 +43,8 @@ export default function Home() {
     {
       title: (
         <>
-          <span className="italic font-[400]">Product</span>&nbsp;&
-          <span className="font-[600]"> Experience</span>
+          <span className="italic font-romie font-[400]">Product</span>&nbsp;&
+          <span className="font-[400]"> Experience</span>
         </>
       ),
       description:
@@ -63,8 +63,8 @@ export default function Home() {
     {
       title: (
         <>
-          <span className="italic font-[400]">Web</span>&nbsp;&
-          <span className="font-[600]"> Presence</span>
+          <span className="italic font-romie font-[400]">Web</span>&nbsp;&
+          <span className="font-[400]"> Presence</span>
         </>
       ),
       description:

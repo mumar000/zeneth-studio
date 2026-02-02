@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Local Romie Trial font face */
+@font-face {
+  font-family: "Romie Trial";
+  src: url("/romie-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Local Helvetica Neue font faces */
 @font-face {
   font-family: "Helvetica Neue";
@@ -123,6 +132,7 @@
   --font-sora:
     "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Arial, sans-serif;
+  --font-romie: "Romie Trial", "Helvetica Neue", Arial, sans-serif;
 }
 
 @theme inline {
@@ -191,6 +201,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+.font-romie {
+  font-family: var(--font-romie);
 }
 
 /* Background image at ~5% opacity without tint */
