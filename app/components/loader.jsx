@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-export default function Loader({ onLoadingComplete }) {
+export default function Loader() {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
@@ -28,15 +28,12 @@ export default function Loader({ onLoadingComplete }) {
         setTimeout(() => {
           setIsComplete(true);
           // Trigger the parent callback after the exit animation finishes (approx 1s)
-          setTimeout(() => {
-            if (onLoadingComplete) onLoadingComplete();
-          }, 1000);
         }, 200);
       }
     }, stepDuration);
 
     return () => clearInterval(interval);
-  }, [onLoadingComplete]);
+  }, []);
 
   // Variants for the column animations
   const columnVariants = {

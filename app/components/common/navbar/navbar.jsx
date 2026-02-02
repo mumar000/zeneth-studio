@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react"; // Make sure you have lucide-react installed
+import Link from "next/link";
 
 export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -38,7 +39,7 @@ export default function Navbar() {
     },
   };
 
-  const navItems = ["Home", "About", "Work", "Contact"];
+  const navItems = ["Home", "About", "Works", "Contact"];
 
   // Mobile Menu Animation Variants
   const menuVariants = {
@@ -110,13 +111,14 @@ export default function Navbar() {
             }
           >
             {navItems.map((label) => (
-              <button
+              <Link
                 key={label}
+                href={label.toLowerCase()}
                 className={`transition-all duration-300 rounded-full px-4 py-1.5 text-sm md:text-base text-black/80 hover:text-black`}
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 {label}
-              </button>
+              </Link>
             ))}
           </nav>
 
