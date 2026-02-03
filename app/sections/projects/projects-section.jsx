@@ -164,18 +164,18 @@ export default function FeaturedProjectsSection() {
                         onMouseLeave={() => setHoveredIndex(null)}
                       >
                         <h3
-                          className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight transition-all duration-300 ${
+                          className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight transition-all duration-500 ease-out ${
                             isHovered
-                              ? "text-purple-400 translate-x-4"
-                              : "text-white"
+                              ? "text-purple-400 translate-x-4 scale-105 drop-shadow-[0_0_25px_rgba(139,92,246,0.8)]"
+                              : "text-white scale-100"
                           }`}
                           style={{ fontFamily: "var(--font-sora)" }}
                         >
                           {project.name}
                         </h3>
                         <span
-                          className={`text-xs md:text-sm font-mono transition-colors duration-300 mb-auto mt-2 ${
-                            isHovered ? "text-white" : "text-gray-500"
+                          className={`text-xs md:text-sm font-mono transition-all duration-500 mb-auto mt-2 ${
+                            isHovered ? "text-purple-300 scale-110 font-semibold" : "text-gray-500 scale-100"
                           }`}
                         >
                           {project.year}
@@ -217,8 +217,10 @@ export default function FeaturedProjectsSection() {
                   return (
                     <div
                       key={index}
-                      className="relative w-full shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group"
+                      className="relative w-full shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer"
                       style={{ height: "65vh" }}
+                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseLeave={() => setHoveredIndex(null)}
                     >
                       <div
                         className={`relative w-full h-full transition-transform duration-700 ease-out ${
