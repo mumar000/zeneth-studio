@@ -16,8 +16,14 @@ export default function ContactForm() {
     deadline: "",
   });
 
+  const [focusedField, setFocusedField] = useState(null);
+
   const updateFormData = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const isFieldActive = (fieldName) => {
+    return focusedField === fieldName || formData[fieldName];
   };
 
   const handleSubmit = (e) => {
@@ -66,37 +72,67 @@ export default function ContactForm() {
             Tell us a bit about yourself.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            <div>
-              <label className="block text-gray-800 text-xl md:text-2xl mb-4">
+            <div className="relative pt-6">
+              <motion.label
+                animate={{
+                  y: isFieldActive("name") ? -28 : 0,
+                  scale: isFieldActive("name") ? 0.85 : 1,
+                  color: isFieldActive("name") ? "#000000" : "#6b7280",
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
+              >
                 Name
-              </label>
+              </motion.label>
               <input
                 type="text"
                 value={formData.name}
                 onChange={(e) => updateFormData("name", e.target.value)}
-                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl  focus:outline-none focus:border-black transition-colors"
+                onFocus={() => setFocusedField("name")}
+                onBlur={() => setFocusedField(null)}
+                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-2 focus:outline-none focus:border-black transition-colors"
               />
             </div>
-            <div>
-              <label className="block text-gray-800 text-xl md:text-2xl">
+            <div className="relative pt-6">
+              <motion.label
+                animate={{
+                  y: isFieldActive("email") ? -28 : 0,
+                  scale: isFieldActive("email") ? 0.85 : 1,
+                  color: isFieldActive("email") ? "#000000" : "#6b7280",
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
+              >
                 Email
-              </label>
+              </motion.label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => updateFormData("email", e.target.value)}
-                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-4 focus:outline-none focus:border-black transition-colors"
+                onFocus={() => setFocusedField("email")}
+                onBlur={() => setFocusedField(null)}
+                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-2 focus:outline-none focus:border-black transition-colors"
               />
             </div>
-            <div>
-              <label className="block text-gray-800 text-xl md:text-2xl">
+            <div className="relative pt-6">
+              <motion.label
+                animate={{
+                  y: isFieldActive("companyName") ? -28 : 0,
+                  scale: isFieldActive("companyName") ? 0.85 : 1,
+                  color: isFieldActive("companyName") ? "#000000" : "#6b7280",
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
+              >
                 Company Name
-              </label>
+              </motion.label>
               <input
                 type="text"
                 value={formData.companyName}
                 onChange={(e) => updateFormData("companyName", e.target.value)}
-                className="w-full bg-transparent border-b  border-gray-300 text-gray-800 text-xl pb-4 focus:outline-none focus:border-black transition-colors"
+                onFocus={() => setFocusedField("companyName")}
+                onBlur={() => setFocusedField(null)}
+                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-2 focus:outline-none focus:border-black transition-colors"
               />
             </div>
           </div>
@@ -114,25 +150,51 @@ export default function ContactForm() {
             Tell us about your company in 2-3 sentences.
           </h2>
           <div className="space-y-12">
-            <div>
-              <label className="block text-gray-800 text-xl md:text-2xl mb-4">
+            <div className="relative pt-6">
+              <motion.label
+                animate={{
+                  y: isFieldActive("companyName") ? -28 : 0,
+                  scale: isFieldActive("companyName") ? 0.85 : 1,
+                  color: isFieldActive("companyName") ? "#000000" : "#6b7280",
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
+              >
                 Company Name
-              </label>
+              </motion.label>
               <input
                 type="text"
                 value={formData.companyName}
                 onChange={(e) => updateFormData("companyName", e.target.value)}
-                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-4 focus:outline-none focus:border-black transition-colors"
+                onFocus={() => setFocusedField("companyName")}
+                onBlur={() => setFocusedField(null)}
+                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-2 focus:outline-none focus:border-black transition-colors"
               />
             </div>
-            <textarea
-              value={formData.companyDescription}
-              onChange={(e) =>
-                updateFormData("companyDescription", e.target.value)
-              }
-              placeholder="Start typing here...."
-              className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-6 focus:outline-none focus:border-black transition-colors placeholder:text-gray-400 resize-none min-h-[120px]"
-            />
+            <div className="relative pt-6">
+              <motion.label
+                animate={{
+                  y: isFieldActive("companyDescription") ? -28 : 0,
+                  scale: isFieldActive("companyDescription") ? 0.85 : 1,
+                  color: isFieldActive("companyDescription")
+                    ? "#000000"
+                    : "#6b7280",
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
+              >
+                Start typing here....
+              </motion.label>
+              <textarea
+                value={formData.companyDescription}
+                onChange={(e) =>
+                  updateFormData("companyDescription", e.target.value)
+                }
+                onFocus={() => setFocusedField("companyDescription")}
+                onBlur={() => setFocusedField(null)}
+                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-6 focus:outline-none focus:border-black transition-colors resize-none min-h-[120px]"
+              />
+            </div>
           </div>
         </motion.section>
 
@@ -158,11 +220,26 @@ export default function ContactForm() {
               </p>
             </div>
           </div>
-          <textarea
-            value={formData.creativeVision}
-            onChange={(e) => updateFormData("creativeVision", e.target.value)}
-            className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-6 focus:outline-none focus:border-black transition-colors resize-none min-h-[120px]"
-          />
+          <div className="relative pt-6">
+            <motion.label
+              animate={{
+                y: isFieldActive("creativeVision") ? -28 : 0,
+                scale: isFieldActive("creativeVision") ? 0.85 : 1,
+                color: isFieldActive("creativeVision") ? "#000000" : "#6b7280",
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
+            >
+              Type your vision here...
+            </motion.label>
+            <textarea
+              value={formData.creativeVision}
+              onChange={(e) => updateFormData("creativeVision", e.target.value)}
+              onFocus={() => setFocusedField("creativeVision")}
+              onBlur={() => setFocusedField(null)}
+              className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-6 focus:outline-none focus:border-black transition-colors resize-none min-h-[120px]"
+            />
+          </div>
         </motion.section>
 
         {/* Step 5: Services */}
@@ -213,15 +290,25 @@ export default function ContactForm() {
           <h2 className="text-2xl text-center lg:text-4xl font-romie font-[300] text-black leading-tight">
             When would you ideally like your new brand to be ready?
           </h2>
-          <div>
-            <label className="block text-gray-800 text-xl md:text-2xl mb-4">
+          <div className="relative pt-6">
+            <motion.label
+              animate={{
+                y: isFieldActive("deadline") ? -28 : 0,
+                scale: isFieldActive("deadline") ? 0.85 : 1,
+                color: isFieldActive("deadline") ? "#000000" : "#6b7280",
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
+            >
               Deadline in...
-            </label>
+            </motion.label>
             <input
               type="text"
               value={formData.deadline}
               onChange={(e) => updateFormData("deadline", e.target.value)}
-              className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-4 focus:outline-none focus:border-black transition-colors"
+              onFocus={() => setFocusedField("deadline")}
+              onBlur={() => setFocusedField(null)}
+              className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-2 focus:outline-none focus:border-black transition-colors"
             />
           </div>
         </motion.section>
@@ -232,11 +319,11 @@ export default function ContactForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="pt-12"
+          className="pt-12 flex justify-center"
         >
           <motion.button
             type="submit"
-            className="inline-flex  items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full text-xl font-[500] shadow-lg hover:shadow-xl transition-all"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full text-xl font-[500] shadow-lg hover:shadow-xl transition-all"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
