@@ -153,27 +153,6 @@ export default function ContactForm() {
             <div className="relative pt-6">
               <motion.label
                 animate={{
-                  y: isFieldActive("companyName") ? -28 : 0,
-                  scale: isFieldActive("companyName") ? 0.85 : 1,
-                  color: isFieldActive("companyName") ? "#000000" : "#6b7280",
-                }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="absolute left-0 text-xl md:text-2xl pointer-events-none origin-left"
-              >
-                Company Name
-              </motion.label>
-              <input
-                type="text"
-                value={formData.companyName}
-                onChange={(e) => updateFormData("companyName", e.target.value)}
-                onFocus={() => setFocusedField("companyName")}
-                onBlur={() => setFocusedField(null)}
-                className="w-full bg-transparent border-b border-gray-300 text-gray-800 text-xl pb-2 focus:outline-none focus:border-black transition-colors"
-              />
-            </div>
-            <div className="relative pt-6">
-              <motion.label
-                animate={{
                   y: isFieldActive("companyDescription") ? -28 : 0,
                   scale: isFieldActive("companyDescription") ? 0.85 : 1,
                   color: isFieldActive("companyDescription")

@@ -113,8 +113,8 @@ export default function Navbar() {
             {navItems.map((label) => (
               <Link
                 key={label}
-                href={label.toLowerCase()}
-                className={`transition-all duration-300 rounded-full px-4 py-1.5 text-sm md:text-base text-black/80 hover:text-black`}
+                href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
+                className={`transition-all duration-300 rounded-full px-4 py-1.5 text-sm md:text-base text-black/80 hover:text-black hover:bg-white/60 hover:shadow-md hover:scale-105 active:scale-95`}
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 {label}
@@ -182,17 +182,21 @@ export default function Navbar() {
               <div className="rounded-3xl bg-white/90 backdrop-blur-xl border border-black/10 shadow-2xl p-4 overflow-hidden">
                 <nav className="flex flex-col gap-2">
                   {navItems.map((label) => (
-                    <motion.button
+                    <Link
                       key={label}
-                      variants={itemVariants}
-                      className="group flex items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium text-black/70 hover:text-black hover:bg-black/5 transition-all"
-                      style={{ fontFamily: "var(--font-sora)" }}
+                      href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      {label}
-                      {/* Hover Arrow Effect */}
-                      <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
-                    </motion.button>
+                      <motion.div
+                        variants={itemVariants}
+                        className="group flex items-center justify-between rounded-xl px-4 py-3 text-left text-base font-medium text-black/70 hover:text-black hover:bg-black/5 transition-all"
+                        style={{ fontFamily: "var(--font-sora)" }}
+                      >
+                        {label}
+                        {/* Hover Arrow Effect */}
+                        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                      </motion.div>
+                    </Link>
                   ))}
 
                   <motion.div
