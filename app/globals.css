@@ -216,7 +216,7 @@ body::before {
   background-repeat: repeat;
   background-position: center;
   background-size: auto;
-  opacity: 0.08; /* 5% */
+  opacity: 0.2; /* 5% */
   pointer-events: none;
   z-index: 0; /* above body paint, below content */
 }
