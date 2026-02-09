@@ -41,11 +41,7 @@ export default function GifSection() {
     reduceAnimations ? [1, 1, 1] : [0.98, 1.03, 1.0],
   );
   const opacity = useTransform(smooth, [0, 0.12], [0, 1]);
-  const y = useTransform(
-    smooth,
-    [0, 1],
-    reduceAnimations ? [0, 0] : [24, -24],
-  );
+  const y = useTransform(smooth, [0, 1], reduceAnimations ? [0, 0] : [24, -24]);
   const radius = useTransform(
     smooth,
     [0, 0.3, 1],
@@ -87,9 +83,8 @@ export default function GifSection() {
 
           {/* Optimized media with device detection */}
           <OptimizedMedia
-            videoSrc="/hero-image.mp4"
             gifSrc="/hero-image.gif"
-            fallbackSrc="/hero-image-fallback.jpg"
+            fallbackSrc="/hero-image.gif"
             alt="Showcase animation"
             fill={true}
             sizes="100vw"
