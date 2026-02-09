@@ -15,7 +15,11 @@ export default function RootLayout({ children }) {
       <head>
         {/* Preconnect to external domains for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
 
         {/* Resource hints for performance */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
