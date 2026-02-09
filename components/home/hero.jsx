@@ -3,22 +3,25 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
+import { useAnimationConfig } from "@/hooks/use-performance";
 
 export default function Hero() {
+  const animConfig = useAnimationConfig();
+
   const marqueeTexts = [
     "We design and build digital experiences",
-    "for founders who care about how they’re perceived.",
+    "for founders who care about how they're perceived.",
   ];
 
   // Adjust this delay to match exactly when your loader shutter finishes
-  const INITIAL_DELAY = 2.2;
+  const INITIAL_DELAY = animConfig.enabled ? 2.2 : 0.5;
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Time between each element revealing
+        staggerChildren: animConfig.enabled ? 0.2 : 0.1,
         delayChildren: INITIAL_DELAY,
       },
     },
@@ -26,10 +29,10 @@ export default function Hero() {
 
   const itemVariants = {
     hidden: {
-      y: 100,
+      y: animConfig.enabled ? 100 : 20,
       opacity: 0,
-      filter: "blur(20px)",
-      rotateX: 20,
+      filter: animConfig.useBlur ? "blur(20px)" : "blur(0px)",
+      rotateX: animConfig.useComplexTransforms ? 20 : 0,
     },
     visible: {
       y: 0,
@@ -38,20 +41,20 @@ export default function Hero() {
       rotateX: 0,
       transition: {
         type: "tween",
-        duration: 1.2,
-        ease: [0.25, 1, 0.5, 1], // "Luxury" ease curve
+        duration: 1.2 * animConfig.durationMultiplier,
+        ease: [0.25, 1, 0.5, 1],
       },
     },
   };
 
   const marqueeVariants = {
-    hidden: { y: "100%" },
+    hidden: { y: animConfig.enabled ? "100%" : "0%" },
     visible: {
       y: "0%",
       transition: {
-        duration: 1.5,
+        duration: 1.5 * animConfig.durationMultiplier,
         ease: [0.22, 1, 0.36, 1],
-        delay: INITIAL_DELAY + 0.6, // Enters slightly after the text
+        delay: INITIAL_DELAY + (animConfig.enabled ? 0.6 : 0),
       },
     },
   };
@@ -67,7 +70,10 @@ export default function Hero() {
         <motion.h1
           variants={itemVariants}
           className="leading-[0.95] tracking-[-0.05em] text-4xl sm:text-6xl md:text-[7vw] lg:text-[5vw] font-[500] text-black"
-          style={{ fontFamily: "var(--font-sora)" }}
+          style={{
+            fontFamily: "var(--font-sora)",
+            willChange: animConfig.useWillChange ? "transform, opacity" : "auto",
+          }}
         >
           <span className="italic font-romie  text-primary">Design</span> that
           makes <br className="hidden md:block" />
@@ -93,7 +99,7 @@ export default function Hero() {
       >
         <Marquee
           gradient={false}
-          speed={90}
+          speed={animConfig.enabled ? 90 : 60}
           pauseOnHover={false}
           className="py-2 sm:py-3 md:py-4"
         >

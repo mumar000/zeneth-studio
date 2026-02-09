@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { usePerformance } from "@/hooks/use-performance";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,6 +38,7 @@ export default function BrandIdentitySection({
   images = defaultImages,
   transitionVariant = "first", // "first", "second", or "third"
 }) {
+  const perf = usePerformance();
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
   const titleRef = useRef(null);
@@ -57,17 +59,12 @@ export default function BrandIdentitySection({
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    // Check for reduced motion preference
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (prefersReducedMotion) {
-      // Simple fade-in for accessibility
+    // Simple fade-in for low-end devices or reduced motion
+    if (perf.isLowEnd || perf.prefersReducedMotion) {
       gsap.set(containerRef.current, { opacity: 0 });
       gsap.to(containerRef.current, {
         opacity: 1,
-        duration: 0.6,
+        duration: 0.4,
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -78,26 +75,25 @@ export default function BrandIdentitySection({
       return;
     }
 
-    // Sticky card stacking scroll effect - desktop only
+    // Sticky card stacking scroll effect - desktop only, disabled on low-end
     let stickyScrollTrigger;
-    const isDesktop = window.innerWidth >= 1024; // Only on lg screens and above
+    const isDesktop = window.innerWidth >= 1024;
+    const enableStickyScroll = isDesktop && perf.isHighEnd;
 
-    if (isDesktop && transitionVariant === "first") {
-      // First card stays pinned longest (until third card is fully visible)
+    if (enableStickyScroll && transitionVariant === "first") {
       stickyScrollTrigger = ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=200%", // Extended pin duration
+        end: "+=200%",
         pin: true,
         pinSpacing: false,
         id: `brand-sticky-${transitionVariant}`,
       });
-    } else if (isDesktop && transitionVariant === "second") {
-      // Second card pins after first
+    } else if (enableStickyScroll && transitionVariant === "second") {
       stickyScrollTrigger = ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
-        end: "+=100%", // Pin until third covers it
+        end: "+=100%",
         pin: true,
         pinSpacing: false,
         id: `brand-sticky-${transitionVariant}`,
@@ -106,26 +102,29 @@ export default function BrandIdentitySection({
 
     // Use gsap.context to scope animations to this component instance
     const ctx = gsap.context(() => {
+      // Simplified animations for mid-range devices
+      const useLightAnimations = perf.isMidRange;
+
       // Set initial states
       gsap.set(containerRef.current, {
-        scale: 0.92,
+        scale: useLightAnimations ? 0.97 : 0.92,
         opacity: 0,
-        rotateX: 8,
-        transformPerspective: 1000,
+        rotateX: useLightAnimations ? 0 : 8,
+        transformPerspective: useLightAnimations ? 0 : 1000,
       });
 
       if (titleRef.current) {
         gsap.set(titleRef.current, {
-          y: 60,
+          y: useLightAnimations ? 30 : 60,
           opacity: 0,
-          rotateX: 15,
+          rotateX: useLightAnimations ? 0 : 15,
         });
       }
 
       if (descRef.current) {
         gsap.set(descRef.current, {
-          y: 40,
-          x: -20,
+          y: useLightAnimations ? 20 : 40,
+          x: useLightAnimations ? 0 : -20,
           opacity: 0,
         });
       }
@@ -137,11 +136,11 @@ export default function BrandIdentitySection({
         const direction = row % 2 === 0 ? 1 : -1;
 
         gsap.set(chip, {
-          x: 50 * direction,
-          y: 30,
+          x: useLightAnimations ? 20 * direction : 50 * direction,
+          y: useLightAnimations ? 15 : 30,
           opacity: 0,
-          scale: 0.8,
-          rotation: 5 * direction,
+          scale: useLightAnimations ? 0.95 : 0.8,
+          rotation: useLightAnimations ? 0 : 5 * direction,
         });
       });
 
@@ -149,27 +148,35 @@ export default function BrandIdentitySection({
       imagesRef.current.forEach((img, i) => {
         if (!img) return;
 
-        const reveals = [
-          { clipPath: "inset(100% 0% 0% 0%)", y: 80 },
-          { clipPath: "inset(0% 0% 100% 0%)", y: -60 },
-          { clipPath: "inset(100% 0% 0% 0%)", y: 80 },
-        ];
+        const reveals = useLightAnimations
+          ? [
+              { clipPath: "inset(0% 0% 0% 0%)", y: 20 },
+              { clipPath: "inset(0% 0% 0% 0%)", y: 20 },
+              { clipPath: "inset(0% 0% 0% 0%)", y: 20 },
+            ]
+          : [
+              { clipPath: "inset(100% 0% 0% 0%)", y: 80 },
+              { clipPath: "inset(0% 0% 100% 0%)", y: -60 },
+              { clipPath: "inset(100% 0% 0% 0%)", y: 80 },
+            ];
 
         gsap.set(img, {
           ...reveals[i],
-          scale: 0.85,
-          rotation: i % 2 === 0 ? 3 : -3,
+          scale: useLightAnimations ? 0.98 : 0.85,
+          rotation: useLightAnimations ? 0 : i % 2 === 0 ? 3 : -3,
           opacity: 0,
         });
       });
 
       // Create timeline with ScrollTrigger
+      const durationMultiplier = useLightAnimations ? 0.7 : 1;
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 75%",
           once: true,
-          id: `brand-identity-${Math.random()}`, // Unique ID for each instance
+          id: `brand-identity-${Math.random()}`,
         },
       });
 
@@ -180,7 +187,7 @@ export default function BrandIdentitySection({
           scale: 1,
           opacity: 1,
           rotateX: 0,
-          duration: 1.2,
+          duration: 1.2 * durationMultiplier,
           ease: "power2.out",
         },
         0,
@@ -194,7 +201,7 @@ export default function BrandIdentitySection({
             y: 0,
             opacity: 1,
             rotateX: 0,
-            duration: 1.0,
+            duration: 1.0 * durationMultiplier,
             ease: "power3.out",
           },
           0.1,
@@ -209,14 +216,14 @@ export default function BrandIdentitySection({
             y: 0,
             x: 0,
             opacity: 1,
-            duration: 1.0,
+            duration: 1.0 * durationMultiplier,
             ease: "power2.out",
           },
           0.2,
         );
       }
 
-      // Chips animations
+      // Chips animations (simplified on mid-range)
       allChips.forEach((chip, i) => {
         tl.to(
           chip,
@@ -226,10 +233,10 @@ export default function BrandIdentitySection({
             opacity: 1,
             scale: 1,
             rotation: 0,
-            duration: 0.8,
-            ease: "back.out(1.2)",
+            duration: 0.8 * durationMultiplier,
+            ease: useLightAnimations ? "power2.out" : "back.out(1.2)",
           },
-          0.3 + i * 0.05,
+          0.3 + i * (useLightAnimations ? 0.03 : 0.05),
         );
       });
 
@@ -245,10 +252,10 @@ export default function BrandIdentitySection({
             scale: 1,
             rotation: 0,
             opacity: 1,
-            duration: 1.2,
+            duration: 1.2 * durationMultiplier,
             ease: "power3.out",
           },
-          0.4 + i * 0.1,
+          0.4 + i * (useLightAnimations ? 0.05 : 0.1),
         );
       });
     }, sectionRef);
