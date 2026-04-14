@@ -211,13 +211,18 @@ export default function ProblemSolution() {
     return () => ctx.revert();
   }, [active]);
 
-  const renderAnimatedText = (text, wordsRef, isItalic = false) => {
+  const renderAnimatedText = (
+    text,
+    wordsRef,
+    isItalic = false,
+    startIndex = 0,
+  ) => {
     const words = text.split(" ");
     return words.map((word, i) => (
       <span
-        key={i}
-        ref={(el) => (wordsRef.current[i] = el)}
-        className={`inline-block ${isItalic ? "italic font-[300]" : ""}`}
+        key={startIndex + i}
+        ref={(el) => (wordsRef.current[startIndex + i] = el)}
+        className={`inline-block ${isItalic ? "italic font-romie font-[300]" : ""}`}
         style={{ transformStyle: "preserve-3d" }}
       >
         {word}
@@ -287,10 +292,16 @@ export default function ProblemSolution() {
                   transformStyle: "preserve-3d",
                 }}
               >
+                {renderAnimatedText("A", problemWordsRef)}{" "}
                 {renderAnimatedText(
-                  "A fragmented digital presence is costing you money.",
+                  "fragmented digital presence",
                   problemWordsRef,
-                )}
+                  true,
+                  1,
+                )}{" "}
+                {renderAnimatedText("is", problemWordsRef, false, 4)}{" "}
+                {renderAnimatedText("costing", problemWordsRef, true, 5)}{" "}
+                {renderAnimatedText("you money.", problemWordsRef, false, 6)}
               </h2>
               <p
                 ref={problemDescRef}
@@ -307,16 +318,21 @@ export default function ProblemSolution() {
             <div className="text-center">
               <h2
                 ref={solutionTitleRef}
-                className="leading-[1.05] text-black tracking-[-0.02em] text-[8vw] sm:text-[6.5vw] md:text-[5vw] lg:text-[3.6vw] font-[700]"
+                className="leading-[1.05] text-black tracking-[-0.02em] text-[8vw] sm:text-[6.5vw] md:text-[5vw] lg:text-[3.6vw] font-[500]"
                 style={{
                   fontFamily: "var(--font-sora)",
                   transformStyle: "preserve-3d",
                 }}
               >
+                {renderAnimatedText("End-to-end", solutionWordsRef)}{" "}
                 {renderAnimatedText(
-                  "End-to-end visual authority built at velocity.",
+                  "visual authority",
                   solutionWordsRef,
-                )}
+                  true,
+                  1,
+                )}{" "}
+                {renderAnimatedText("built at", solutionWordsRef, false, 3)}{" "}
+                {renderAnimatedText("velocity.", solutionWordsRef, true, 5)}
               </h2>
               <p
                 ref={solutionDescRef}
