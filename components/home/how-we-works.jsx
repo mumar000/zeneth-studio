@@ -5,21 +5,21 @@ import { motion } from "framer-motion";
 const steps = [
   {
     id: "01",
-    title: "Understand the signal",
+    title: "Diagnose the Friction",
     description:
-      "We study how your brand is currently perceived and where it breaks.",
+      "We don't guess. We audit your current brand to find exactly where trust is leaking and why your product feels disjointed.",
   },
   {
     id: "02",
-    title: "Design the system",
+    title: "Architect the System",
     description:
-      "Not one-off screens. A visual system that holds up as you grow.",
+      'We don\'t design "pages." We engineer a cohesive visual language and UI framework that scales with your growth, not against it.',
   },
   {
     id: "03",
-    title: "Build with intent",
+    title: "Deploy the Asset",
     description:
-      "Execution that respects the design, the brand, and the end user.",
+      "High-performance development on premium CMS platforms. We launch a live manifestation of your authority that your team actually controls.",
   },
 ];
 

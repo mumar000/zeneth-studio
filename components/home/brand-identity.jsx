@@ -10,22 +10,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const defaultTitle = (
   <>
-    <span className="italic font-romie font-[400]">Brand</span>&nbsp;&
-    <span className="font-[600]"> Visual Identity</span>
+    <span className="italic font-romie font-[400]">Strategic</span>&nbsp;
+    <span className="font-[600]">Visual DNA.</span>
   </>
 );
 
 const defaultDescription =
-  "We help brands stand out and grow. By mixing smart strategy, thoughtful design, and clear messaging, we build identities that people actually remember and connect with.";
+  'Don\'t wrap your product in a generic shell. We architect cohesive brand systems designed to command authority and eliminate market hesitation. We don\'t just "design"; we define your competitive edge.';
 
 const defaultChips = [
-  "Naming",
-  "Strategy & Positioning",
-  "Voice & Tone",
-  "Packaging Design",
-  "Visual Identity",
-  "Customer Experience",
-  "Brand Messaging",
+  "Identity Architecture",
+  "Positioning Strategy",
+  "Visual Systems",
+  "Brand Guidelines",
+  "Verbal Identity",
+  "Packaging",
 ];
 
 const defaultImages = ["/services1.webp", "/services2.webp", "/services3.webp"];

@@ -32,17 +32,17 @@ export default function AboutPage() {
           className="text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-[500] leading-[1.2] tracking-tight text-foreground"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          The{" "}
+          Logic dictates the{" "}
           <span className="italic font-romie font-semibold text-primary">
-            work speaks.
+            aesthetic.
           </span>{" "}
-          We just make sure it says the right thing. Every brand here started
-          with a problem we{" "}
+          We don't believe in design as decoration. We build visual systems that
+          isolate your brand's{" "}
           <span className="italic font-romie font-semibold text-primary">
-            designed
+            signal
           </span>{" "}
-          the solution. Clean, confident, and built to stand the test of
-          relevance.
+          from the noise. Every project is a rigorous exercise in architecting
+          authority and eliminating market friction.
         </motion.h1>
       </section>
 

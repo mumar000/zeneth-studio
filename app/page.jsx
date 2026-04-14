@@ -24,60 +24,58 @@ export default function Home() {
     {
       title: (
         <>
-          <span className="italic font-romie font-[400]">Brand</span>&nbsp;&
-          <span className="font-[400]"> Visual Identity</span>
+          <span className="italic font-romie font-[400]">Strategic</span>&nbsp;
+          <span className="font-[400]">Visual DNA.</span>
         </>
       ),
       description:
-        "We help brands stand out and grow. By mixing smart strategy, thoughtful design, and clear messaging, we build identities that people actually remember and connect with.",
+        'Don\'t wrap your product in a generic shell. We architect cohesive brand systems designed to command authority and eliminate market hesitation. We don\'t just "design"; we define your competitive edge.',
       chips: [
-        "Naming",
-        "Strategy & Positioning",
-        "Voice & Tone",
-        "Packaging Design",
-        "Visual Identity",
-        "Customer Experience",
-        "Brand Messaging",
+        "Identity Architecture",
+        "Positioning Strategy",
+        "Visual Systems",
+        "Brand Guidelines",
+        "Verbal Identity",
+        "Packaging",
       ],
       images: ["/services1.webp", "/services2.webp", "/services3.webp"],
     },
     {
       title: (
         <>
-          <span className="italic font-romie font-[400]">Product</span>&nbsp;&
-          <span className="font-[400]"> Experience</span>
+          <span className="italic font-romie font-[400]">High-Fidelity</span>
+          &nbsp;
+          <span className="font-[400]">Interface Design.</span>
         </>
       ),
       description:
-        "We shape digital products that feel effortless. From flows to UI to micro-details, every screen is designed to reduce friction and build trust.",
+        "Your interface is your brand's handshake. We engineer digital experiences that remove friction and turn passive users into active advocates. Every pixel is a calculated move toward trust.",
       chips: [
-        "UX Audits",
-        "Product Strategy",
-        "User Flows",
-        "UI Design",
+        "UI Architecture",
+        "UX Strategy",
+        "SaaS Product Design",
+        "Interaction Design",
         "Prototyping",
         "Design Systems",
-        "Usability Testing",
       ],
       images: ["/services2.webp", "/services3.webp", "/services1.webp"],
     },
     {
       title: (
         <>
-          <span className="italic font-romie font-[400]">Web</span>&nbsp;&
-          <span className="font-[400]"> Presence</span>
+          <span className="italic font-romie font-[400]">Premium</span>&nbsp;
+          <span className="font-[400]">CMS Architecture.</span>
         </>
       ),
       description:
-        "We build web experiences that look premium and convert. Storytelling, performance, and clarity all working together.",
+        "We build the live manifestation of your authority. High-performance, lightning-fast web experiences developed for scale without the technical debt or bloated agency overhead.",
       chips: [
-        "Web Strategy",
-        "Landing Pages",
-        "CMS Builds",
+        "Webflow Development",
+        "Shopify Architecture",
+        "High-Converting Landing Pages",
         "Motion Design",
         "SEO Foundations",
-        "Analytics",
-        "Conversion",
+        "CMS Build",
       ],
       images: ["/services3.webp", "/services1.webp", "/services2.webp"],
     },

@@ -9,8 +9,9 @@ export default function Hero() {
   const animConfig = useAnimationConfig();
 
   const marqueeTexts = [
-    "We design and build digital experiences",
-    "for founders who care about how they're perceived.",
+    "Cohesive Brand Systems",
+    "Conversion-Focused Web",
+    "Zero Handoff Friction",
   ];
 
   // Adjust this delay to match exactly when your loader shutter finishes
@@ -72,13 +73,15 @@ export default function Hero() {
           className="leading-[0.95] tracking-[-0.05em] text-4xl sm:text-6xl md:text-[7vw] lg:text-[5vw] font-[500] text-black"
           style={{
             fontFamily: "var(--font-sora)",
-            willChange: animConfig.useWillChange ? "transform, opacity" : "auto",
+            willChange: animConfig.useWillChange
+              ? "transform, opacity"
+              : "auto",
           }}
         >
-          <span className="italic font-romie  text-primary">Design</span> that
-          makes <br className="hidden md:block" />
-          brands look{" "}
-          <span className="italic font-romie text-primary">serious.</span>
+          <span className="italic font-romie text-primary">Identities</span>{" "}
+          that make <br className="hidden md:block" />
+          your product{" "}
+          <span className="italic font-romie text-primary">undeniable</span>
         </motion.h1>
 
         <motion.p
@@ -86,7 +89,8 @@ export default function Hero() {
           className="mt-5 sm:mt-7 md:mt-10 text-sm sm:text-base md:text-xl font-[400] text-neutral-800"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          Brand, product, web, and systems done properly.
+          You built a world-class product. Don't wrap it in a disjointed brand.
+          We unify your visual DNA in one pipeline.
         </motion.p>
       </motion.div>
 

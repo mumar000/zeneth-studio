@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -286,23 +288,9 @@ export default function ProblemSolution() {
                 }}
               >
                 {renderAnimatedText(
-                  "Most brands don't have a",
+                  "A fragmented digital presence is costing you money.",
                   problemWordsRef,
-                )}{" "}
-                {renderAnimatedText(
-                  "design problem",
-                  { current: problemWordsRef.current.slice(5, 7) },
-                  true,
                 )}
-                .
-                <br />
-                They have a{" "}
-                {renderAnimatedText(
-                  "perception",
-                  { current: problemWordsRef.current.slice(7, 8) },
-                  true,
-                )}{" "}
-                problem.
               </h2>
               <p
                 ref={problemDescRef}
@@ -310,7 +298,7 @@ export default function ProblemSolution() {
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 {renderAnimatedDescription(
-                  "Your product might be solid. Your service might be great. But if your brand, website, or visuals feel unclear, inconsistent, or outdated people hesitate. And hesitation kills trust.",
+                  "A logo from one freelancer, a website from another, and UI that doesn't match. When your brand looks like a disjointed Frankenstein, enterprise clients assume your product is too.",
                   problemDescWordsRef,
                 )}
               </p>
@@ -326,7 +314,7 @@ export default function ProblemSolution() {
                 }}
               >
                 {renderAnimatedText(
-                  "Clarify, systemize, and express your brand with intent.",
+                  "End-to-end visual authority built at velocity.",
                   solutionWordsRef,
                 )}
               </h2>
@@ -336,10 +324,18 @@ export default function ProblemSolution() {
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 {renderAnimatedDescription(
-                  "We help you craft perception through sharp messaging, modern visuals, and a design system that scales.",
+                  "We strip away the bloat. You get a single, cohesive team executing your Brand Identity, Interface Design, and Platform Architecture. No handoffs. No friction",
                   solutionDescWordsRef,
                 )}
               </p>
+              <Link
+                href="/works"
+                className="mt-10 inline-flex items-center justify-center gap-2 rounded-[8px] bg-black px-6 py-3 text-sm font-[500] tracking-tight text-white transition-colors hover:bg-black/85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black sm:text-base"
+                style={{ fontFamily: "var(--font-sora)" }}
+              >
+                View our pipeline in action
+                <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
+              </Link>
             </div>
           )}
         </div>

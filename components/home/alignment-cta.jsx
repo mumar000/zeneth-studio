@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
 
 export default function AlignmentCTA() {
@@ -67,10 +68,10 @@ export default function AlignmentCTA() {
               className="text-4xl md:text-5xl lg:text-6xl text-[#1a1a1a] leading-tight mb-8"
               style={{ fontFamily: "var(--font-sora)" }}
             >
-              <span className="italic font-romie font-[400]">
-                Let's see if{" "}
+              <span className="italic font-romie font-[400]">Only</span>{" "}
+              <span className="font-[400]">
+                for those who demand the undeniable.
               </span>
-              <span className="font-[400]">this makes sense.</span>
             </motion.h2>
 
             {/* Description */}
@@ -81,10 +82,9 @@ export default function AlignmentCTA() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10">
-                If you think there's alignment, tell us a bit about your
-                project.
-                <br />
-                We'll let you know honestly if we can help.
+                We don't take on every project. We look for founders who have
+                built something great and need the visual authority to match it.
+                If that's you, let's talk.
               </p>
             </motion.div>
 
@@ -132,17 +132,17 @@ export default function AlignmentCTA() {
                 />
 
                 {/* Button text */}
-                <span className="relative z-10">Start a conversation</span>
+                <span className="relative z-10">Apply for a Pipeline</span>
                 <motion.span
-                  className="relative z-10 inline-block"
-                  animate={{ x: [0, 3, 0] }}
+                  className="relative z-10 inline-flex"
+                  animate={{ x: [0, 3, 0], y: [0, -3, 0] }}
                   transition={{
                     duration: 1.5,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
                 >
-                  →
+                  <ArrowUpRight className="h-5 w-5" strokeWidth={2} />
                 </motion.span>
 
                 {/* Glow effect */}
