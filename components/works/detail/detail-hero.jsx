@@ -25,8 +25,8 @@ export default function DetailHero({ project }) {
   const imgLeft = useTransform(scrollYProgress, [0, 0.7], ["38%", "6rem"]);
 
   return (
-    <section ref={ref} className="relative h-[120vh]">
-      <div className="sticky top-0 h-screen overflow-hidden">
+    <section ref={ref} className="relative lg:h-[120vh]">
+      <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden">
         {/* Animated image — expands leftward to fill the container */}
         <motion.div
           style={{ left: imgLeft }}
@@ -85,7 +85,7 @@ export default function DetailHero({ project }) {
         </motion.div>
 
         {/* Mobile / tablet stacked layout */}
-        <div className="lg:hidden h-full overflow-y-auto px-6 md:px-12 pt-28 pb-10">
+        <div className="lg:hidden px-6 md:px-12 pt-28 pb-12">
           <p className="text-[11px] tracking-[0.22em] font-[600] uppercase text-black/70 mb-3">
             {title}
           </p>
