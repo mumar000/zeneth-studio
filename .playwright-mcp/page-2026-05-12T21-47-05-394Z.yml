@@ -1,0 +1,184 @@
+- generic [ref=e1]:
+  - region "Notifications alt+T"
+  - generic [ref=e2]:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+        - generic:
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+          - generic:
+            - img
+      - generic:
+        - generic:
+          - img
+        - generic:
+          - img
+        - generic:
+          - img
+    - generic:
+      - generic:
+        - generic:
+          - img
+        - generic:
+          - img
+        - generic:
+          - img
+    - banner [ref=e71]:
+      - link "Home" [active] [ref=e72] [cursor=pointer]:
+        - /url: /
+        - img [ref=e73]
+      - generic [ref=e75]:
+        - generic [ref=e76]: Award winning
+        - generic [ref=e77]:
+          - text: (
+          - generic [ref=e78]: desigd
+          - text: )
+        - generic [ref=e79]: agency
+      - button "Menu CLOSE" [ref=e80] [cursor=pointer]:
+        - generic [ref=e86]: Menu
+        - generic [ref=e90]: CLOSE
+    - generic [ref=e91]:
+      - generic [ref=e92]:
+        - link "Our Work B2b, Saas, eCom, Brands, Startups" [ref=e93] [cursor=pointer]:
+          - /url: /work
+          - generic [ref=e94]: Our Work
+          - img [ref=e95]
+          - generic [ref=e97]: B2b, Saas, eCom, Brands, Startups
+        - link "About Us All pinkies up, We live in the details!" [ref=e98] [cursor=pointer]:
+          - /url: /about
+          - generic [ref=e99]: About Us
+          - img [ref=e100]
+          - generic [ref=e102]: All pinkies up, We live in the details!
+        - link "Reform Nova An accelerator built just for startups." [ref=e103] [cursor=pointer]:
+          - /url: /nova
+          - generic [ref=e104]: Reform Nova
+          - img [ref=e105]
+          - generic [ref=e107]: An accelerator built just for startups.
+      - link "Start a Project Start a Project" [ref=e108] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: Start a Project
+            - img [ref=e112]
+          - generic [ref=e115]:
+            - generic [ref=e116]: Start a Project
+            - img [ref=e117]
+      - generic [ref=e120]:
+        - link "LinkedIn" [ref=e121] [cursor=pointer]:
+          - /url: https://www.linkedin.com/company/reformcollective/
+        - link "Awwwards" [ref=e122] [cursor=pointer]:
+          - /url: https://www.awwwards.com/reformco/
+        - link "Instagram" [ref=e123] [cursor=pointer]:
+          - /url: https://www.instagram.com/reformco/
+        - link "X / Twitter" [ref=e124] [cursor=pointer]:
+          - /url: https://x.com/reformco
+        - link "Dribbble" [ref=e125] [cursor=pointer]:
+          - /url: https://dribbble.com/ReformCollective
+    - main [ref=e126]:
+      - generic [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - heading "Runway" [level=1] [ref=e132]
+              - paragraph [ref=e133]: The finance platform your team doesn't hate
+              - generic [ref=e134]:
+                - generic [ref=e135]: Art Direction
+                - generic [ref=e136]: Branding
+                - generic [ref=e137]: Web Design
+                - generic [ref=e138]: Web Development
+            - generic [ref=e139]:
+              - paragraph [ref=e140]: We partnered with Runway Financial to craft a new identity and website that has users running to grab a window seat. Drawing inspiration from airport signage, wayfinding, and the air flight experience, the team created a first-class brand that stands out from the crowd.
+              - link "See Runway See Runway" [ref=e141] [cursor=pointer]:
+                - /url: https://runway.reformcollective.com/
+                - generic [ref=e142]:
+                  - generic [ref=e143]:
+                    - generic [ref=e144]: See Runway
+                    - img [ref=e145]
+                  - generic [ref=e147]:
+                    - generic [ref=e148]: See Runway
+                    - img [ref=e149]
+          - generic [ref=e152]:
+            - img "hero" [ref=e212]
+            - img "clouds" [ref=e213]
+            - img "arrow" [ref=e214]
+            - img "pass" [ref=e215]
+            - img "sign-1" [ref=e216]
+            - img "ui" [ref=e217]
+            - img "icons" [ref=e218]
+            - img "roll" [ref=e219]
+            - img "cards" [ref=e220]
+            - img "banner" [ref=e221]
+        - generic [ref=e179]:
+          - link "Back Back to All Work" [ref=e180] [cursor=pointer]:
+            - /url: /work
+            - img "Back" [ref=e181]
+            - generic [ref=e182]: Back to All Work
+          - generic [ref=e183]: Interested to see more?
+          - link "See next case study Next" [ref=e184] [cursor=pointer]:
+            - /url: /titan-intake
+            - generic [ref=e185]: See next case study
+            - img "Next" [ref=e186]
+        - generic [ref=e187]:
+          - link "Reform Co Homepage" [ref=e188] [cursor=pointer]:
+            - /url: /
+            - img [ref=e189]
+          - generic [ref=e191]:
+            - link "Our Work" [ref=e192] [cursor=pointer]:
+              - /url: /work
+            - link "About Us" [ref=e193] [cursor=pointer]:
+              - /url: /about
+            - link "Reform Nova" [ref=e194] [cursor=pointer]:
+              - /url: /nova
+            - link "Contact Us" [ref=e195] [cursor=pointer]:
+              - /url: /contact
+            - link "Careers" [ref=e196] [cursor=pointer]:
+              - /url: https://bit.ly/40erE19
+          - generic [ref=e197]: Ready to build something with us?
+          - link "Let's Chat" [ref=e199] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e200]: Let's Chat
+            - img [ref=e201]
+          - generic [ref=e203]:
+            - link "LinkedIn" [ref=e204] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/reformcollective/
+            - link "Instagram" [ref=e205] [cursor=pointer]:
+              - /url: https://www.instagram.com/reformco/
+            - link "Awwwards" [ref=e206] [cursor=pointer]:
+              - /url: https://www.awwwards.com/reformco/
+            - link "X" [ref=e207] [cursor=pointer]:
+              - /url: https://x.com/reformco
+            - link "Dribbble" [ref=e208] [cursor=pointer]:
+              - /url: https://dribbble.com/ReformCollective
+          - link "Home" [ref=e209] [cursor=pointer]:
+            - /url: /
+            - img "Reform Co" [ref=e210]
+  - alert [ref=e222]

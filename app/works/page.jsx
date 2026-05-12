@@ -1,97 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Navbar } from "../components/common/navbar";
 import ProjectCard from "../../components/works/project-card";
 import CustomCursor from "../../components/works/custom-cursor";
 import AlignmentCTA from "@/components/home/alignment-cta";
-
-const projects = [
-  {
-    id: 1,
-    title: "GoldBug",
-    category: "Brand & Visual Identity",
-    image: "/services1.webp",
-    cursorText: "View Project",
-  },
-  {
-    id: 2,
-    title: "Feroce",
-    category: "Web & Product Design",
-    image: "/services2.webp",
-    cursorText: "Explore",
-  },
-  {
-    id: 3,
-    title: "Lido Honey",
-    category: "Package Design",
-    image: "/services3.webp",
-    cursorText: "See Details",
-  },
-  {
-    id: 4,
-    title: "Vido Design",
-    category: "Brand & Visual Identity",
-    image: "/services4.webp",
-    cursorText: "Discover",
-  },
-  {
-    id: 5,
-    title: "TechStart",
-    category: "Build & Execution",
-    image: "/services1.webp",
-    cursorText: "Learn More",
-  },
-  {
-    id: 6,
-    title: "Digital Wave",
-    category: "Web & Product Design",
-    image: "/services2.webp",
-    cursorText: "View Work",
-  },
-  {
-    id: 7,
-    title: "Aura Studio",
-    category: "Creative Direction",
-    image: "/services3.webp",
-    cursorText: "Explore",
-  },
-  {
-    id: 8,
-    title: "Velvet Co.",
-    category: "Visual Identity",
-    image: "/services4.webp",
-    cursorText: "Open",
-  },
-  {
-    id: 9,
-    title: "Nova Labs",
-    category: "UI/UX Strategy",
-    image: "/services1.webp",
-    cursorText: "View Case",
-  },
-  {
-    id: 10,
-    title: "Zenith",
-    category: "Brand Architecture",
-    image: "/services2.webp",
-    cursorText: "Discover",
-  },
-  {
-    id: 11,
-    title: "Nexus",
-    category: "Digital Experience",
-    image: "/services3.webp",
-    cursorText: "See More",
-  },
-  {
-    id: 12,
-    title: "Oasis",
-    category: "E-commerce Design",
-    image: "/services4.webp",
-    cursorText: "View",
-  },
-];
+import { projects } from "../../lib/projects-data";
 
 const categories = [
   "All",
@@ -151,7 +64,7 @@ export default function WorksPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 space-y-15">
             {filteredProjects.map((project) => (
               <ProjectCard
-                key={project.id}
+                key={project.slug}
                 project={project}
                 onHover={() => handleProjectHover(project.cursorText)}
                 onLeave={handleProjectLeave}

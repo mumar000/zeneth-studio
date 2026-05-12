@@ -2,12 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function ProjectCard({ project, onHover, onLeave }) {
   return (
     <motion.div
-      // Reduced max-width to 320px for a smaller card
       className="group relative overflow-hidden rounded-[2rem]  border-slate-200 border bg-white cursor-none w-full max-w-[320px]"
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
@@ -16,6 +16,7 @@ export default function ProjectCard({ project, onHover, onLeave }) {
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
+    <Link href={`/works/${project.slug}`} className="block">
       {/* Image Container - Reduced margin/padding to match the slim border in the image */}
       <div className="relative aspect-[4/5] overflow-hidden  rounded-[1.8rem]">
         <motion.div
@@ -47,6 +48,7 @@ export default function ProjectCard({ project, onHover, onLeave }) {
           <ArrowRight strokeWidth={1.5} className="w-8 h-8 text-black" />
         </motion.div>
       </div>
+    </Link>
     </motion.div>
   );
 }

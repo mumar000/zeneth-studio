@@ -36,10 +36,10 @@ export default function CustomCursor({ variant = "default", text = "" }) {
 
   const cursorVariants = {
     default: {
-      width: 16,
-      height: 16,
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      mixBlendMode: "difference",
+      width: 20,
+      height: 20,
+      backgroundColor: "#000000",
+      mixBlendMode: "normal",
     },
     project: {
       width: 120,
