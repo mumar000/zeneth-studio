@@ -1,5 +1,9 @@
 import { notFound } from "next/navigation";
-import { projects, getProjectBySlug, getNextProject } from "../../../lib/projects-data";
+import {
+  projects,
+  getProjectBySlug,
+  getNextProject,
+} from "../../../lib/projects-data";
 import LeftRail from "../../../components/works/detail/left-rail";
 import DetailHero from "../../../components/works/detail/detail-hero";
 import ImagePair from "../../../components/works/detail/image-pair";
@@ -9,6 +13,7 @@ import TrioRow from "../../../components/works/detail/trio-row";
 import SystemBoard from "../../../components/works/detail/system-board";
 import ClosingQuote from "../../../components/works/detail/closing-quote";
 import NextCaseStudy from "../../../components/works/detail/next-case-study";
+import FloatingCTA from "../../../components/works/detail/floating-cta";
 import AlignmentCTA from "@/components/home/alignment-cta";
 
 export function generateStaticParams() {
@@ -87,9 +92,11 @@ export default async function ProjectDetailPage({ params }) {
         bg={project.bg}
       />
 
-      <NextCaseStudy nextSlug={next.slug} nextTitle={next.title} />
+      {/* <NextCaseStudy nextSlug={next.slug} nextTitle={next.title} /> */}
 
       <AlignmentCTA />
+
+      <FloatingCTA accent={project.accent} projectTitle={project.title} />
     </div>
   );
 }

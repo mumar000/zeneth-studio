@@ -11,18 +11,21 @@ function TrioImage({ src, index, progress }) {
   const scale = useTransform(
     progress,
     [0, 0.5, 1],
-    index === 1 ? [1.03, 1, 1.03] : [1, 1.04, 1]
+    index === 1 ? [1.03, 1, 1.03] : [1, 1.04, 1],
   );
   const rotate = useTransform(
     progress,
     [0, 1],
-    [index === 0 ? -0.8 : index === 2 ? 0.8 : 0, index === 0 ? 0.8 : index === 2 ? -0.8 : 0]
+    [
+      index === 0 ? -0.8 : index === 2 ? 0.8 : 0,
+      index === 0 ? 0.8 : index === 2 ? -0.8 : 0,
+    ],
   );
 
   return (
     <motion.div
       style={{ y, rotate }}
-      className="relative aspect-[3/4] rounded-3xl overflow-hidden bg-black/5 will-change-transform"
+      className="relative aspect-[5/4] rounded-3xl overflow-hidden bg-black/5 will-change-transform"
     >
       <motion.div style={{ scale }} className="absolute inset-0">
         <Image
@@ -30,7 +33,7 @@ function TrioImage({ src, index, progress }) {
           alt=""
           fill
           className="object-cover"
-          sizes="(min-width: 768px) 33vw, 100vw"
+          sizes="(min-width: 1500px) 33vw, 100vw"
         />
       </motion.div>
     </motion.div>

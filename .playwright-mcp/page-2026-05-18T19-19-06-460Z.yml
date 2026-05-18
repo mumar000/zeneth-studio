@@ -1,0 +1,117 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - img "Zeneth Studio" [ref=e6]
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "About" [ref=e9] [cursor=pointer]:
+          - /url: /about
+        - link "Works" [ref=e10] [cursor=pointer]:
+          - /url: /works
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact
+      - link "Lets Work →" [ref=e12] [cursor=pointer]:
+        - /url: "#contact"
+  - generic [ref=e13]:
+    - complementary:
+      - generic [ref=e14]: Mogulbay
+      - link "View Site" [ref=e15] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e16]
+        - generic [ref=e19]: View Site
+    - generic [ref=e21]:
+      - img "Mogulbay" [ref=e24]
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - paragraph [ref=e27]: Mogulbay
+          - heading "A coastal hospitality brand built around quiet luxury." [level=1] [ref=e28]
+          - generic [ref=e29]:
+            - generic [ref=e30]: Brand Identity
+            - generic [ref=e31]: Art Direction
+            - generic [ref=e32]: Web Design
+        - generic [ref=e33]:
+          - paragraph [ref=e34]: Mogulbay came to us with a stretch of coastline and a feeling. We translated it into a complete identity system — wordmark, palette, photography direction, web — built to age like the timber and salt the property is made of. Every surface speaks softly, and the brand never raises its voice.
+          - link "See Mogulbay" [ref=e35] [cursor=pointer]:
+            - /url: "#"
+            - text: See Mogulbay
+            - img [ref=e36]
+    - generic [ref=e55]:
+      - generic [ref=e58]:
+        - paragraph [ref=e59]: “They listened to the place before they drew a single line. The brand feels like it has always been here.”
+        - generic [ref=e60]:
+          - generic [ref=e61]: EXL
+          - img [ref=e62]
+          - generic [ref=e64]: RNW
+        - generic [ref=e65]:
+          - paragraph [ref=e66]: Rohan Mehta
+          - paragraph [ref=e67]: Founder, Mogulbay
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - generic [ref=e72]: "# MGB0042"
+          - generic [ref=e73]: DATE 18 APR 2026
+        - generic [ref=e74]:
+          - generic [ref=e75]: Status
+          - generic [ref=e76]: Seat
+          - generic [ref=e77]: Group
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - paragraph [ref=e80]: Status
+            - paragraph [ref=e81]: Verified
+          - generic [ref=e82]:
+            - paragraph [ref=e83]: Class
+            - paragraph [ref=e84]: First
+    - heading "What does a place sound like, written down?" [level=2] [ref=e147]
+    - generic [ref=e151]:
+      - link "Back to all work" [ref=e152] [cursor=pointer]:
+        - /url: /works
+        - img [ref=e153]
+        - text: Back to all work
+      - heading "Interested to see more?" [level=3] [ref=e155]
+      - 'link "See next: GoldBug" [ref=e156] [cursor=pointer]':
+        - /url: /works/goldbug
+        - generic [ref=e157]: "See next: GoldBug"
+        - img [ref=e158]
+    - generic [ref=e163]:
+      - heading "Only for those who demand the undeniable." [level=2] [ref=e164]
+      - paragraph [ref=e166]: We don't take on every project. We look for founders who have built something great and need the visual authority to match it. If that's you, let's talk.
+      - button "Apply for a Pipeline" [ref=e168]:
+        - generic [ref=e171]: Apply for a Pipeline
+        - img [ref=e173]
+  - contentinfo [ref=e177]:
+    - generic [ref=e178]:
+      - generic [ref=e179]:
+        - generic [ref=e180]:
+          - paragraph [ref=e181]: Navigation
+          - generic [ref=e182]:
+            - link "Work" [ref=e183] [cursor=pointer]:
+              - /url: "#"
+            - link "Process" [ref=e184] [cursor=pointer]:
+              - /url: "#"
+            - link "Pipeline" [ref=e185] [cursor=pointer]:
+              - /url: "#"
+            - link "Contact" [ref=e186] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e187]:
+          - paragraph [ref=e188]: Socials
+          - generic [ref=e189]:
+            - link "LinkedIn" [ref=e190] [cursor=pointer]:
+              - /url: "#"
+            - link "Instagram" [ref=e191] [cursor=pointer]:
+              - /url: "#"
+            - link "Layers/Dribbble" [ref=e192] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e193]:
+          - paragraph [ref=e194]: Availability
+          - generic [ref=e195]:
+            - paragraph [ref=e196]: "Currently: Accepting projects for Q3"
+            - paragraph [ref=e197]:
+              - text: "Location: PK"
+              - img [ref=e198]
+              - text: Global
+      - generic [ref=e201]:
+        - generic [ref=e202]: © 2026 Zeneth Studio. All rights reserved.
+        - generic [ref=e203]: Built for the undeniable.
+  - button "Open Next.js Dev Tools" [ref=e209] [cursor=pointer]:
+    - img [ref=e210]
+  - alert [ref=e213]

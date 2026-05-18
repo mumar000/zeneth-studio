@@ -12,7 +12,7 @@ export default function WordmarkBlock({ image }) {
   });
 
   // Subtle vertical parallax — minimal scale, image stays sharp
-  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.04]);
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1]);
   const imgY = useTransform(scrollYProgress, [0, 1], [-20, 20]);
 
   return (
@@ -26,8 +26,8 @@ export default function WordmarkBlock({ image }) {
             src={image}
             alt=""
             fill
-            className="object-cover"
-            sizes="100vw"
+            className="object-contain"
+            sizes="200vw"
           />
         </motion.div>
       </div>

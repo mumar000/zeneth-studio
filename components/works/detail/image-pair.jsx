@@ -19,10 +19,7 @@ export default function ImagePair({ left, right }) {
   const rightScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.04, 1]);
 
   return (
-    <section
-      ref={ref}
-      className="px-6 md:px-12 lg:pl-24 lg:pr-12 pb-6"
-    >
+    <section ref={ref} className="px-6 md:px-12 lg:pl-24 lg:pr-12 pb-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <motion.div
           style={{ y: leftY }}
@@ -33,8 +30,8 @@ export default function ImagePair({ left, right }) {
               src={left.image}
               alt=""
               fill
-              className="object-cover"
-              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover "
+              sizes="(min-width: 1500px) 50vw, 10vw"
             />
           </motion.div>
         </motion.div>
@@ -56,7 +53,7 @@ export default function ImagePair({ left, right }) {
               alt=""
               fill
               className="object-cover mix-blend-multiply opacity-95"
-              sizes="(min-width: 768px) 50vw, 100vw"
+              sizes="(min-width: 1500px) 50vw, 100vw"
             />
           </motion.div>
         </motion.div>
