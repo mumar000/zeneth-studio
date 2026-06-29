@@ -1,18 +1,28 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import { useAnimationConfig } from "@/hooks/use-performance";
 
+// Widths are pre-scaled so every logo renders at a uniform 30px height
+// (no CSS dimension override => no next/image aspect-ratio warning, no CLS).
+const LOGO_HEIGHT = 30;
+const clientLogos = [
+  { src: "/home-logo/home-logo1.png", w: 204 },
+  { src: "/home-logo/home-logo2.png", w: 95 },
+  { src: "/home-logo/home-logo3.png", w: 117 },
+  { src: "/home-logo/home-logo4.png", w: 116 },
+  { src: "/home-logo/home-logo5.png", w: 96 },
+  { src: "/home-logo/home-logo6.png", w: 74 },
+  { src: "/home-logo/home-logo7.png", w: 95 },
+  { src: "/home-logo/home-logo8.png", w: 129 },
+];
+
 export default function Hero() {
   const animConfig = useAnimationConfig();
-
-  const marqueeTexts = [
-    "Cohesive Brand Systems",
-    "Conversion-Focused Web",
-    "Zero Handoff Friction",
-  ];
 
   // Adjust this delay to match exactly when your loader shutter finishes
   const INITIAL_DELAY = animConfig.enabled ? 2.2 : 0.5;
@@ -61,70 +71,73 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[78vh] sm:min-h-[85vh] md:min-h-[90vh] flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-center overflow-hidden">
+    <section className="relative w-full min-h-[85vh] md:min-h-[90vh] flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-center overflow-hidden">
       <motion.div
-        className="max-w-7xl w-full mx-auto perspective-1000"
+        className="max-w-5xl w-full mx-auto perspective-1000"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
           variants={itemVariants}
-          className="leading-[0.95] tracking-[-0.05em] text-4xl sm:text-6xl md:text-[7vw] lg:text-[5vw] font-[500] text-black"
+          className="leading-[1.02] tracking-[-0.03em] text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-[700] text-[#1a1a1a]"
           style={{
-            fontFamily: "var(--font-sora)",
+            fontFamily: "var(--font-display)",
             willChange: animConfig.useWillChange
               ? "transform, opacity"
               : "auto",
           }}
         >
-          <span className="italic font-romie text-primary">Identities</span>{" "}
-          that make <br className="hidden md:block" />
-          your product{" "}
-          <span className="italic font-romie text-primary">undeniable</span>
+          Your <span className="text-primary">brand</span> and website{" "}
+          <br className="hidden md:block" />
+          finally working as <span className="text-primary">one.</span>
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="mt-5 sm:mt-7 md:mt-10 text-sm sm:text-base md:text-xl font-[400] text-neutral-800"
+          className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg md:text-xl font-[400] text-neutral-700"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          You built a world-class product. Don't wrap it in a disjointed brand.
-          We unify your visual DNA in one pipeline.
+          For founders and small teams who need a sharper identity, cleaner
+          site, and less back-and-forth getting there.
         </motion.p>
+
+        <motion.div variants={itemVariants} className="mt-9 sm:mt-11">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 py-3.5 text-xs sm:text-sm font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            Book a 15-min site review
+          </Link>
+        </motion.div>
       </motion.div>
 
-      {/* Bottom marquee/ticker using react-fast-marquee */}
+      {/* Bottom marquee — grayscale client logos */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0  bg-white/70 backdrop-blur-sm"
+        className="absolute bottom-0 left-0 right-0 border-t border-black/5 bg-white/60 backdrop-blur-sm"
         variants={marqueeVariants}
         initial="hidden"
         animate="visible"
       >
         <Marquee
-          gradient={false}
-          speed={animConfig.enabled ? 90 : 60}
+          gradient={true}
+          gradientColor="#ffffff"
+          gradientWidth={64}
+          speed={animConfig.enabled ? 55 : 40}
           pauseOnHover={false}
-          className="py-2 sm:py-3 md:py-4"
+          className="py-4 sm:py-5 md:py-6"
         >
-          <div className="flex items-center">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <React.Fragment key={i}>
-                <span
-                  className="inline-flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black text-white text-sm sm:text-base md:text-lg font-[400] tracking-wide mr-6 sm:mr-10 md:mr-12"
-                  style={{ fontFamily: "var(--font-sora)" }}
-                >
-                  ZENETH STUDIO
-                </span>
-                <span
-                  className="inline-flex items-center justify-center text-sm sm:text-base md:text-lg text-black/80 mr-6 sm:mr-10 md:mr-12"
-                  style={{ fontFamily: "var(--font-sora)" }}
-                >
-                  {marqueeTexts[i % marqueeTexts.length]}
-                </span>
-              </React.Fragment>
-            ))}
-          </div>
+          {[...clientLogos, ...clientLogos].map((logo, i) => (
+            <Image
+              key={i}
+              src={logo.src}
+              width={logo.w}
+              height={LOGO_HEIGHT}
+              alt="Client logo"
+              className="mx-7 sm:mx-9 md:mx-12 object-contain opacity-60 grayscale transition-opacity"
+            />
+          ))}
         </Marquee>
       </motion.div>
     </section>

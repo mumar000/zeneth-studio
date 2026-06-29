@@ -20,6 +20,10 @@ export default function FeaturedProjectsSection() {
       year: "",
       category: "Branding",
       description: "Reinventing fast food culture with a modern twist.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Packaging", tone: "yellow" },
+      ],
     },
     {
       name: "LidoHoney",
@@ -27,27 +31,43 @@ export default function FeaturedProjectsSection() {
       year: "",
       category: "E-Commerce",
       description: "Sweet digital experiences for a luxury honey brand.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Shopify Build", tone: "yellow" },
+      ],
     },
     {
-      name: "Feroce",
-      image: "/services3.webp",
+      name: "Mogul Bay",
+      image: "/mogulbay/1.webp",
       year: "",
-      category: "Web Design",
-      description: "Bold aesthetics for a high-end fashion label.",
+      category: "Brand + Web App",
+      description: "A fintech identity that tracks finances with clarity.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Website + Web App", tone: "yellow" },
+      ],
     },
     {
-      name: "Keenbyte",
-      image: "/services1.webp",
-      year: "",
-      category: "SaaS Product",
-      description: "Streamlining data analytics for enterprise.",
-    },
-    {
-      name: "LetsGrub",
+      name: "Lets Grub",
       image: "/services3.webp",
       year: "",
       category: "Mobile App",
       description: "Social dining app connecting foodies globally.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Mobile App", tone: "yellow" },
+      ],
+    },
+    {
+      name: "Feroce",
+      image: "/services1.webp",
+      year: "",
+      category: "Web Design",
+      description: "Bold aesthetics for a high-end fashion label.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Website", tone: "yellow" },
+      ],
     },
   ];
 
@@ -63,9 +83,9 @@ export default function FeaturedProjectsSection() {
     const textContainer = textContainerRef.current;
 
     let ctx = gsap.context(() => {
-      const imageItemHeight = 70; // 70vh
+      const imageItemHeight = 77; // tracks the enlarged 72vh image (+5 offset, as before)
       const imageGap = 5; // 5vh
-      const imageUnit = imageItemHeight + imageGap; // 75vh total per scroll unit
+      const imageUnit = imageItemHeight + imageGap; // total per scroll unit
 
       const textItemHeight = 10; // 10vh
 
@@ -159,27 +179,44 @@ export default function FeaturedProjectsSection() {
                     return (
                       <div
                         key={index}
-                        className="flex items-baseline gap-3 lg:h-[10vh] shrink-0 cursor-pointer group"
+                        className="flex items-center gap-4 lg:h-[10vh] shrink-0 cursor-pointer group"
                         onMouseEnter={() => setHoveredIndex(realIndex)}
                         onMouseLeave={() => setHoveredIndex(null)}
                       >
                         <h3
                           className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight transition-all duration-500 ease-out ${
                             isHovered
-                              ? "text-purple-400 translate-x-4 scale-105 drop-shadow-[0_0_25px_rgba(139,92,246,0.8)]"
-                              : "text-white scale-100"
+                              ? "text-white translate-x-2 scale-105"
+                              : "text-white/30 scale-100"
                           }`}
-                          style={{ fontFamily: "var(--font-sora)" }}
+                          style={{ fontFamily: "var(--font-display)" }}
                         >
                           {project.name}
                         </h3>
-                        <span
-                          className={`text-xs md:text-sm font-mono transition-all duration-500 mb-auto mt-2 ${
-                            isHovered ? "text-purple-300 scale-110 font-semibold" : "text-gray-500 scale-100"
+                        <div
+                          className={`flex items-center gap-2 transition-all duration-500 ${
+                            isHovered
+                              ? "opacity-100 translate-x-0"
+                              : "opacity-0 -translate-x-3 pointer-events-none"
                           }`}
                         >
-                          {project.year}
-                        </span>
+                          {project.tags?.map((tag) => (
+                            <span
+                              key={tag.label}
+                              className="whitespace-nowrap rounded-md px-2.5 py-1.5 text-[10px] md:text-xs font-medium uppercase tracking-wider"
+                              style={{
+                                fontFamily: "var(--font-mono)",
+                                backgroundColor:
+                                  tag.tone === "yellow"
+                                    ? "var(--accent-yellow)"
+                                    : "var(--primary)",
+                                color: tag.tone === "yellow" ? "#1a1a1a" : "#fff",
+                              }}
+                            >
+                              {tag.label}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     );
                   })}
@@ -207,7 +244,7 @@ export default function FeaturedProjectsSection() {
                 className="flex flex-col w-full"
                 style={{
                   willChange: "transform",
-                  marginTop: "calc(50% - 30vh)",
+                  marginTop: "calc(50% - 34vh)",
                   gap: "5vh",
                 }}
               >
@@ -218,7 +255,7 @@ export default function FeaturedProjectsSection() {
                     <div
                       key={index}
                       className="relative w-full shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer"
-                      style={{ height: "65vh" }}
+                      style={{ height: "72vh" }}
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(null)}
                     >

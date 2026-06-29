@@ -124,8 +124,93 @@
   font-display: swap;
 }
 
+/* Local Helvetica Now Display font faces (hero display heading) */
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-Light.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-Regular.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-RegIta.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-RegIta.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-Medium.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-MedIta.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-MedIta.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-Bold.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-BoldIta.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-BoldIta.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-ExtraBold.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Helvetica Now Display";
+  src:
+    url("/font/HelveticaNowDisplay-Black.woff2") format("woff2"),
+    url("/font/HelveticaNowDisplay-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --primary: #8a38f5;
+  /* Yellow accent — sampled from the hover-button design */
+  --accent-yellow: #f8e574;
 
   --primary-rgb: 138, 56, 245;
   /* Use Helvetica Neue stack for the former Sora variable */
@@ -133,6 +218,13 @@
     "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Arial, sans-serif;
   --font-romie: "Romie Trial", "Helvetica Neue", Arial, sans-serif;
+  /* Hero heading — Helvetica Now Display (drop files in /public/helvetica-now/) */
+  --font-display:
+    "Helvetica Now Display", "Helvetica Neue", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  /* Button — JetBrains Mono loaded via next/font in layout.jsx */
+  --font-mono:
+    var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @theme inline {
@@ -185,8 +277,8 @@ html.lenis body {
 }
 
 body {
-  /* Plain background; image handled in ::before at low opacity */
-  /* ensure texture shows */
+  /* Very subtle purple wash (home-button purple) under the ::before texture */
+  background-color: rgba(var(--primary-rgb), 0.04);
   position: relative;
   isolation: isolate;
   color: var(--foreground);
@@ -207,6 +299,14 @@ body {
   font-family: var(--font-romie);
 }
 
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
 /* Background image at ~5% opacity without tint */
 body::before {
   content: "";
@@ -216,7 +316,7 @@ body::before {
   background-repeat: repeat;
   background-position: center;
   background-size: auto;
-  opacity: 0.05; /* 5% */
+  opacity: 0.1; /* 5% */
   pointer-events: none;
   z-index: 0; /* above body paint, below content */
 }
