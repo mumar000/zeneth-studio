@@ -4,8 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const LAVENDER = "#E9DCFF";
-const CREAM = "#FFFDF8";
+const LAVENDER = "#C9B8F5";
+const CREAM = "#FFFFFF";
 
 const QUOTE =
   "This is our 2nd project with Zeneth. Simply put, they're best in the game.";
@@ -18,7 +18,7 @@ const testimonials = [
   { tone: LAVENDER, logo: FEROCE, avatar: "/testimonials/avatar1.png" },
   { tone: CREAM, logo: RESIGHT, avatar: "/testimonials/avatar2.png" },
   { tone: LAVENDER, logo: FEROCE, avatar: "/testimonials/avatar3.png" },
-  { tone: CREAM, logo: RESIGHT, avatar: "/testimonials/avatar4.png" },
+  { tone: "#FFFDF8", logo: RESIGHT, avatar: "/testimonials/avatar4.png" },
 ].map((t) => ({
   ...t,
   quote: QUOTE,
@@ -28,7 +28,7 @@ const testimonials = [
 
 export default function HappyBrands() {
   return (
-    <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-20 md:py-28">
+    <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-20 md:py-28 bg-[#F0EBFB]/50">
       <div className="mx-auto max-w-[1800px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
@@ -41,7 +41,7 @@ export default function HappyBrands() {
           300+ Happy Brands Worldwide
         </motion.h2>
 
-        <div className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        <div className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">
           {testimonials.map((t, i) => (
             <motion.figure
               key={i}
@@ -53,7 +53,7 @@ export default function HappyBrands() {
                 delay: i * 0.08,
                 ease: [0.25, 1, 0.5, 1],
               }}
-              className="flex min-h-[360px] md:min-h-[380px] flex-col rounded-[20px] border border-black/10 p-7 md:p-9"
+              className="flex min-h-[400px] md:min-h-[420px] flex-col rounded-[15px] border-y border-r border-black p-8 md:p-10"
               style={{ backgroundColor: t.tone }}
             >
               <Image
@@ -64,14 +64,16 @@ export default function HappyBrands() {
                 className="object-contain object-left"
               />
 
+              <div className="flex-1" />
+
               <blockquote
-                className="flex flex-1 items-center text-lg md:text-xl leading-[1.45] text-[#1a1a1a]"
+                className="text-xl md:text-2xl  leading-[1.4] text-[#1a1a1a]"
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 <span>&ldquo;{t.quote}&rdquo;</span>
               </blockquote>
 
-              <figcaption className="mt-6 flex items-center gap-3">
+              <figcaption className="mt-8 flex items-center gap-3">
                 <Image
                   src={t.avatar}
                   width={40}
