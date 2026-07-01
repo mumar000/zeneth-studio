@@ -30,7 +30,7 @@ export default function ContactSection() {
             <div className="relative w-full  bg-white rounded-2xl p-3 md:p-4 shadow-2xl  hover:rotate-0 transition-transform duration-500 ease-out">
               <div className="relative w-full h-full bg-[#e5e5e5] overflow-hidden">
                 <img
-                  src="/contact.gif"
+                  src="/frame-1.webp"
                   alt="Project Preview"
                   className="w-full h-full object-cover"
                 />

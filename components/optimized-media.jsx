@@ -67,27 +67,28 @@ export default function OptimizedMedia({
       // Check device memory (if available)
       const deviceMemory = navigator.deviceMemory; // In GB
       if (deviceMemory && deviceMemory < 4) {
-        // Low memory device - use gif or static
-        return videoSrc && deviceMemory >= 2 ? "gif" : "static";
+        return videoSrc && deviceMemory >= 2 ? "video" : "static";
       }
 
       // Check CPU cores (if available)
       const hardwareConcurrency = navigator.hardwareConcurrency;
       if (hardwareConcurrency && hardwareConcurrency < 4) {
-        // Low-end CPU - prefer gif over video
-        return "gif";
+        return videoSrc ? "video" : "static";
       }
 
-      // High-end device - use video if available, otherwise gif
       return videoSrc ? "video" : "gif";
     };
 
-    const capability = detectDeviceCapability();
-    setMediaType(capability);
+    const mediaTypeTimeout = setTimeout(() => {
+      setMediaType(detectDeviceCapability());
+    }, 0);
+
+    let visibleTimeout;
+    let observer;
 
     // Setup Intersection Observer for lazy loading
     if (!priority && containerRef.current) {
-      const observer = new IntersectionObserver(
+      observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -102,11 +103,17 @@ export default function OptimizedMedia({
       );
 
       observer.observe(containerRef.current);
-
-      return () => observer.disconnect();
     } else {
-      setIsVisible(true);
+      visibleTimeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 0);
     }
+
+    return () => {
+      clearTimeout(mediaTypeTimeout);
+      clearTimeout(visibleTimeout);
+      observer?.disconnect();
+    };
   }, [priority, videoSrc]);
 
   // Auto-play video when visible
@@ -212,6 +219,33 @@ export default function OptimizedMedia({
             height={height}
             sizes={sizes}
             unoptimized
+            className={`object-${objectFit}`}
+            priority={priority}
+          />
+        )}
+      </div>
+    );
+  }
+
+  if (fallbackSrc) {
+    return (
+      <div ref={containerRef} className={className}>
+        {fill ? (
+          <Image
+            src={fallbackSrc}
+            alt={alt}
+            fill
+            sizes={sizes}
+            className={`object-${objectFit}`}
+            priority={priority}
+          />
+        ) : (
+          <Image
+            src={fallbackSrc}
+            alt={alt}
+            width={width}
+            height={height}
+            sizes={sizes}
             className={`object-${objectFit}`}
             priority={priority}
           />

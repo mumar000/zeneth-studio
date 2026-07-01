@@ -50,7 +50,7 @@ export default function Navbar() {
           className={
             `relative z-50 w-full flex items-center justify-between gap-3 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ` +
             (collapsed
-              ? "rounded-2xl bg-white/85 backdrop-blur-md border border-black/10 shadow-md px-4 py-2"
+              ? "rounded-2xl bg-white/85 backdrop-blur-md shadow-md px-4 py-2 overflow-hidden"
               : "bg-transparent px-0 py-0")
           }
         >

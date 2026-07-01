@@ -211,7 +211,7 @@ export default function HeroSection({ startAnimation = true }) {
           >
             {/* Replace this div with your actual image */}
             <Image
-              src={"/hero-image.gif"}
+              src={"/frame-1.webp"}
               alt="Hero Image"
               width={1920}
               height={1080}

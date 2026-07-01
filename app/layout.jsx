@@ -29,16 +29,7 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
 
-        {/* Resource hints for performance */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-
-        {/* Preload critical assets - update these paths after converting GIFs */}
-        <link
-          rel="preload"
-          as="video"
-          href="/hero-image.mp4"
-          type="video/mp4"
-        />
       </head>
       <body className={`antialiased`}>
         <SmoothScroll>

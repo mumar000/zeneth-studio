@@ -1,31 +1,30 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import OptimizedMedia from "@/components/optimized-media";
 
+function shouldReduceAnimations() {
+  if (typeof window === "undefined") return true;
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+  const isLowEnd =
+    (navigator.deviceMemory && navigator.deviceMemory < 4) ||
+    (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4);
+
+  return prefersReducedMotion || isLowEnd;
+}
+
 export default function GifSection() {
   const sectionRef = useRef(null);
-  const [reduceAnimations, setReduceAnimations] = useState(false);
+  const reduceAnimations = shouldReduceAnimations();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-
-  // Check for reduced motion preference and low-end devices
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    // Detect low-end device
-    const isLowEnd =
-      (navigator.deviceMemory && navigator.deviceMemory < 4) ||
-      (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4);
-
-    setReduceAnimations(prefersReducedMotion || isLowEnd);
-  }, []);
 
   // Smooth spring for buttery control (only if animations enabled)
   const smooth = useSpring(scrollYProgress, {
@@ -83,8 +82,8 @@ export default function GifSection() {
 
           {/* Optimized media with device detection */}
           <OptimizedMedia
-            gifSrc="/hero-image.gif"
-            fallbackSrc="/hero-image.gif"
+            videoSrc="/video.mp4"
+            fallbackSrc="/frame-1.webp"
             alt="Showcase animation"
             fill={true}
             sizes="100vw"

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const cards = [
   {
-    url: "/services4.gif",
+    url: "/services1.webp",
     title: "Branding",
     description: "Building",
     category: "Ui/Ux",

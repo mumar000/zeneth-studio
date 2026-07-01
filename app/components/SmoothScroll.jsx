@@ -1,25 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Lenis from "lenis";
+import { useEffect } from "react";
 
 export default function SmoothScroll({ children }) {
-  const [shouldUseSmoothScroll, setShouldUseSmoothScroll] = useState(true);
-
   useEffect(() => {
-    // Check if smooth scroll should be disabled
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
-    // Check for low-end device indicators
     const deviceMemory = navigator.deviceMemory;
     const hardwareConcurrency = navigator.hardwareConcurrency;
     const isLowEnd =
       (deviceMemory && deviceMemory < 4) ||
       (hardwareConcurrency && hardwareConcurrency < 4);
 
-    // Check connection
     const connection =
       navigator.connection ||
       navigator.mozConnection ||
@@ -30,37 +25,43 @@ export default function SmoothScroll({ children }) {
         connection.effectiveType === "2g" ||
         connection.saveData);
 
-    // Disable smooth scroll on low-end devices or with reduced motion
-    if (prefersReducedMotion || isLowEnd || slowConnection) {
-      setShouldUseSmoothScroll(false);
+    if (prefersReducedMotion || isLowEnd || slowConnection || isTouchDevice) {
       return;
     }
 
-    // Initialize Lenis with optimized settings
-    const lenisScroll = new Lenis({
-      lerp: isLowEnd ? 0.15 : 0.1, // Faster interpolation on lower-end
-      wheelMultiplier: 1.3,
-      touchMultiplier: 2,
-      infinite: false,
-    });
+    let lenisScroll;
+    let rafId;
+    let cancelled = false;
 
-    // Expose globally so UI components (e.g., Modal) can stop/start scrolling
-    if (typeof window !== "undefined") {
+    async function startSmoothScroll() {
+      const { default: Lenis } = await import("lenis");
+      if (cancelled) return;
+
+      lenisScroll = new Lenis({
+        lerp: 0.12,
+        wheelMultiplier: 1,
+        infinite: false,
+      });
+
       window.lenis = lenisScroll;
+
+      function raf(time) {
+        lenisScroll?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+
+      rafId = requestAnimationFrame(raf);
     }
 
-    function raf(time) {
-      lenisScroll.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
+    startSmoothScroll();
 
     return () => {
-      if (typeof window !== "undefined" && window.lenis === lenisScroll) {
+      cancelled = true;
+      if (rafId) cancelAnimationFrame(rafId);
+      if (window.lenis === lenisScroll) {
         window.lenis = undefined;
       }
-      lenisScroll.destroy();
+      lenisScroll?.destroy();
     };
   }, []);
 

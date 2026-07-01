@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -23,9 +23,26 @@ const clientLogos = [
 
 export default function Hero() {
   const animConfig = useAnimationConfig();
+  const [loaderComplete, setLoaderComplete] = useState(false);
 
-  // Adjust this delay to match exactly when your loader shutter finishes
-  const INITIAL_DELAY = animConfig.enabled ? 2.2 : 0.5;
+  useEffect(() => {
+    if (window.__zenithLoaderComplete) {
+      setLoaderComplete(true);
+      return;
+    }
+
+    const handleLoaderComplete = () => setLoaderComplete(true);
+    const fallback = setTimeout(handleLoaderComplete, 1800);
+
+    window.addEventListener("zenith:loader-complete", handleLoaderComplete, {
+      once: true,
+    });
+
+    return () => {
+      clearTimeout(fallback);
+      window.removeEventListener("zenith:loader-complete", handleLoaderComplete);
+    };
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,7 +50,7 @@ export default function Hero() {
       opacity: 1,
       transition: {
         staggerChildren: animConfig.enabled ? 0.2 : 0.1,
-        delayChildren: INITIAL_DELAY,
+        delayChildren: 0,
       },
     },
   };
@@ -65,7 +82,7 @@ export default function Hero() {
       transition: {
         duration: 1.5 * animConfig.durationMultiplier,
         ease: [0.22, 1, 0.36, 1],
-        delay: INITIAL_DELAY + (animConfig.enabled ? 0.6 : 0),
+        delay: animConfig.enabled ? 0.2 : 0,
       },
     },
   };
@@ -76,7 +93,7 @@ export default function Hero() {
         className="max-w-5xl w-full mx-auto perspective-1000"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={loaderComplete ? "visible" : "hidden"}
       >
         <motion.h1
           variants={itemVariants}
@@ -118,7 +135,7 @@ export default function Hero() {
         className="absolute bottom-0 left-0 right-0 border-t border-black/5 bg-white/60 backdrop-blur-sm"
         variants={marqueeVariants}
         initial="hidden"
-        animate="visible"
+        animate={loaderComplete ? "visible" : "hidden"}
       >
         <Marquee
           gradient={true}
