@@ -28,7 +28,7 @@ const testimonials = [
 
 export default function HappyBrands() {
   return (
-    <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-20 md:py-28 bg-[#F0EBFB]/50">
+    <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-20 md:py-28 ">
       <div className="mx-auto max-w-[1800px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
@@ -53,7 +53,7 @@ export default function HappyBrands() {
                 delay: i * 0.08,
                 ease: [0.25, 1, 0.5, 1],
               }}
-              className="flex min-h-[400px] md:min-h-[420px] flex-col rounded-[15px] border-y border-r border-black p-8 md:p-10"
+              className="relative flex min-h-[400px] md:min-h-[420px] flex-col rounded-[15px] border-y border-r border-black p-8 md:p-10"
               style={{ backgroundColor: t.tone }}
             >
               <Image
@@ -64,16 +64,14 @@ export default function HappyBrands() {
                 className="object-contain object-left"
               />
 
-              <div className="flex-1" />
-
               <blockquote
-                className="text-xl md:text-2xl  leading-[1.4] text-[#1a1a1a]"
+                className="absolute inset-x-8 top-1/2 -translate-y-1/2 text-left text-xl leading-[1.4] text-[#1a1a1a] md:inset-x-10 md:text-2xl"
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 <span>&ldquo;{t.quote}&rdquo;</span>
               </blockquote>
 
-              <figcaption className="mt-8 flex items-center gap-3">
+              <figcaption className="mt-auto flex items-center gap-3">
                 <Image
                   src={t.avatar}
                   width={40}

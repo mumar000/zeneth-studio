@@ -64,7 +64,7 @@ export default function Navbar() {
           </Link>
 
           {/* Center: nav pill (desktop) */}
-          <nav className="hidden md:flex items-center gap-0.5 rounded-2xl border border-black/25 px-1.5 py-1.5 bg-white/70 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-0.5 rounded-2xl border border-black px-4 py-2 bg-white/70 backdrop-blur-md">
             {NAV_ITEMS.map(({ label, href }) => {
               const active =
                 pathname === href ||
@@ -73,10 +73,10 @@ export default function Navbar() {
                 <Link
                   key={label}
                   href={href}
-                  className={`px-5 py-2 rounded-xl text-sm font-[500] transition-all duration-200 ${
+                  className={`px-5 py-2.5 rounded-xl text-sm font-[500] transition-all duration-200 ${
                     active
                       ? "bg-[#1a1a1a] text-white"
-                      : "text-black/65 hover:text-black hover:bg-black/5"
+                      : "text-black hover:text-black hover:bg-black/5"
                   }`}
                   style={{ fontFamily: "var(--font-sora)" }}
                 >

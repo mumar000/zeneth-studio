@@ -69,14 +69,14 @@ const descCls = "mt-4 text-base leading-relaxed text-black/55 max-w-lg";
 
 export default function WebsiteGaps() {
   return (
-    <section className="relative z-10 w-full px-4 sm:px-6 md:px-8 py-24 md:py-28">
+    <section className="relative z-10 w-full px-4 sm:px-6 md:px-8 py-24 md:py-24">
       <div className="mx-auto container">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="mx-auto max-w-4xl text-center text-5xl sm:text-6xl md:text-7xl font-[700] leading-[1.05] tracking-[-0.03em] text-[#1a1a1a]"
+          className="mx-auto max-w-6xl text-center text-5xl sm:text-6xl md:text-7xl font-[700] leading-[1.05] tracking-[-0.03em] text-[#1a1a1a]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Most websites die in the gaps between people.

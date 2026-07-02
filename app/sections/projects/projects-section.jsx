@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useLayoutEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -12,6 +13,7 @@ export default function FeaturedProjectsSection() {
   const projectsSectionRef = useRef(null);
   const imagesContainerRef = useRef(null);
   const textContainerRef = useRef(null);
+  const activeIndexRef = useRef(0);
 
   const projects = [
     {
@@ -72,10 +74,10 @@ export default function FeaturedProjectsSection() {
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // We duplicate the list to create the visual "wall of text"
-  // But we align based on the first item of the first set.
-  const displayProjects = [...projects, ...projects, ...projects];
+  // Render one sequence so the final project ends cleanly before the next section.
+  const displayProjects = projects;
 
   useLayoutEffect(() => {
     const section = projectsSectionRef.current;
@@ -103,6 +105,17 @@ export default function FeaturedProjectsSection() {
           pin: ".projects-sticky-container",
           scrub: 0.5, // Reduced from 1 to match global smooth scroll speed
           invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const nextIndex = Math.min(
+              projects.length - 1,
+              Math.round(self.progress * (projects.length - 1)),
+            );
+
+            if (nextIndex !== activeIndexRef.current) {
+              activeIndexRef.current = nextIndex;
+              setActiveIndex(nextIndex);
+            }
+          },
         },
       });
 
@@ -174,7 +187,9 @@ export default function FeaturedProjectsSection() {
                 >
                   {displayProjects.map((project, index) => {
                     const realIndex = index % projects.length;
-                    const isHovered = hoveredIndex === realIndex;
+                    const isActive =
+                      hoveredIndex === realIndex ||
+                      (hoveredIndex === null && activeIndex === realIndex);
 
                     return (
                       <div
@@ -185,7 +200,7 @@ export default function FeaturedProjectsSection() {
                       >
                         <h3
                           className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight transition-all duration-500 ease-out ${
-                            isHovered
+                            isActive
                               ? "text-white translate-x-2 scale-105"
                               : "text-white/30 scale-100"
                           }`}
@@ -195,7 +210,7 @@ export default function FeaturedProjectsSection() {
                         </h3>
                         <div
                           className={`flex items-center gap-2 transition-all duration-500 ${
-                            isHovered
+                            isActive
                               ? "opacity-100 translate-x-0"
                               : "opacity-0 -translate-x-3 pointer-events-none"
                           }`}
@@ -226,14 +241,13 @@ export default function FeaturedProjectsSection() {
               </div>
 
               <div className="absolute bottom-0 left-0 w-full p-8 lg:p-12 z-40">
-                <motion.button
-                  className="bg-[#8b5cf6] hover:bg-[#7c3aed] text-white font-medium py-3 lg:px-8 px-6 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.3)]"
-                  style={{ fontFamily: "var(--font-sora)" }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <Link
+                  href="/works"
+                  className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 py-3.5 text-xs sm:text-sm font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+                  style={{ fontFamily: "var(--font-mono)" }}
                 >
                   View All Projects
-                </motion.button>
+                </Link>
               </div>
             </div>
 

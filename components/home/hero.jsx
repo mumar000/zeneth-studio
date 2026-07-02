@@ -12,12 +12,12 @@ import { useAnimationConfig } from "@/hooks/use-performance";
 const LOGO_HEIGHT = 30;
 const clientLogos = [
   { src: "/home-logo/home-logo1.png", w: 204 },
-  { src: "/home-logo/home-logo2.png", w: 95 },
-  { src: "/home-logo/home-logo3.png", w: 117 },
+  { src: "/home-logo/home-logo2.png", w: 100 },
+  { src: "/home-logo/home-logo3.png", w: 150 },
   { src: "/home-logo/home-logo4.png", w: 116 },
-  { src: "/home-logo/home-logo5.png", w: 96 },
-  { src: "/home-logo/home-logo6.png", w: 74 },
-  { src: "/home-logo/home-logo7.png", w: 95 },
+  { src: "/home-logo/home-logo5.png", w: 100 },
+  { src: "/home-logo/home-logo6.png", w: 100 },
+  { src: "/home-logo/home-logo7.png", w: 100 },
   { src: "/home-logo/home-logo8.png", w: 129 },
 ];
 
@@ -132,7 +132,7 @@ export default function Hero() {
 
       {/* Bottom marquee — grayscale client logos */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 border-t border-black/5 bg-white/60 backdrop-blur-sm"
+        className="absolute bottom-0 left-0 right-0"
         variants={marqueeVariants}
         initial="hidden"
         animate={loaderComplete ? "visible" : "hidden"}
@@ -152,7 +152,7 @@ export default function Hero() {
               width={logo.w}
               height={LOGO_HEIGHT}
               alt="Client logo"
-              className="mx-7 sm:mx-9 md:mx-12 object-contain opacity-60 grayscale transition-opacity"
+              className="mx-7 sm:mx-9 md:mx-12 object-contain opacity-80 grayscale transition-opacity"
             />
           ))}
         </Marquee>
