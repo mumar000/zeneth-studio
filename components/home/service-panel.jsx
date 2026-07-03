@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowDownRight } from "lucide-react";
 
 export default function ServicePanel({
   price,
@@ -18,78 +18,102 @@ export default function ServicePanel({
   imageAlt = "Service showcase",
   index = 0,
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] }}
-      className="grid grid-cols-1 lg:grid-cols-[45fr_55fr] rounded-[24px] overflow-hidden border border-black/10"
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+        ease: [0.25, 1, 0.5, 1],
+      }}
+      className="grid min-h-[720px] grid-cols-1 overflow-hidden rounded-[10px] border border-[#d9d0ed] bg-white lg:min-h-[760px] lg:grid-cols-[45.5%_54.5%] xl:min-h-[790px]"
     >
-      {/* Left: text content */}
-      <div className="bg-white px-10 py-12 md:px-14 md:py-16 flex flex-col">
-        <p
-          className="text-[#7C3AED] font-medium text-[15px]"
+      <div className="flex min-h-[720px] flex-col bg-white px-7 py-10 sm:px-10 sm:py-12 md:px-14 lg:min-h-0 lg:px-[clamp(3.5rem,4.2vw,5rem)] lg:py-[clamp(3.5rem,7vh,4.5rem)]">
+        <div>
+          <p
+            className="text-[16px] font-[500] leading-none text-[#7C3AED] md:text-[18px]"
+            style={{ fontFamily: "var(--font-sora)" }}
+          >
+            [Starting at {price}]
+          </p>
+
+          <h3
+            className="mt-5 text-[48px] font-[700] leading-[0.95] tracking-[-0.03em] text-black sm:text-[56px] md:text-[64px] lg:text-[clamp(3.5rem,3.55vw,4.25rem)]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {title}
+          </h3>
+
+          <p
+            className="mt-6 max-w-[430px] text-[16px] leading-[1.45] text-black/55 md:text-[18px] lg:text-[19px]"
+            style={{ fontFamily: "var(--font-sora)" }}
+          >
+            {description}
+          </p>
+        </div>
+
+        <ul
+          className="mt-16 space-y-7 md:mt-20 md:space-y-8 lg:mt-24"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          [Starting at {price}]
-        </p>
-
-        <h3
-          className="mt-4 text-[52px] md:text-[68px] font-[700] leading-[1.0] tracking-[-0.03em] text-[#1a1a1a]"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          {title}
-        </h3>
-
-        <p
-          className="mt-5 text-[15px] leading-[1.65] text-black/45 max-w-[300px]"
-          style={{ fontFamily: "var(--font-sora)" }}
-        >
-          {description}
-        </p>
-
-        <ul className="mt-10 space-y-6" style={{ fontFamily: "var(--font-sora)" }}>
-          {bullets.map((b, i) => (
+          {bullets.map((bullet) => (
             <li
-              key={i}
-              className="flex items-start gap-4 text-[15px] text-[#1a1a1a] leading-[1.55]"
+              key={bullet}
+              className="flex max-w-[470px] items-center gap-7 text-[16px] leading-[1.35] text-black md:text-[18px]"
             >
-              <span className="mt-0.5 text-[#7C3AED] text-base flex-shrink-0">✳</span>
-              <span>{b}</span>
+              <motion.span
+                aria-hidden="true"
+                className="flex w-9 shrink-0 items-center justify-center"
+                animate={{ rotate: shouldReduceMotion ? 0 : 360 }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 6, repeat: Infinity, ease: "linear" }
+                }
+              >
+                <Image src="/star.svg" width={22} height={22} alt="" />
+              </motion.span>
+              <span>{bullet}</span>
             </li>
           ))}
         </ul>
 
-        <div className="mt-auto pt-14 flex flex-wrap gap-3">
+        <div className="mt-auto flex flex-wrap gap-3 pt-14 md:pt-16">
           <Link
             href={exploreHref}
-            className="inline-flex items-center gap-2 rounded-full border border-black/20 bg-[#f5f5f5] px-6 py-3 text-sm text-[#1a1a1a] hover:bg-black/5 transition-colors"
+            className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#ededed] px-6 py-3 text-[15px] font-[500] text-[#262626] transition-colors duration-200 hover:bg-[#dfdfdf] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:text-[16px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            {exploreLabel} →
+            <span>{exploreLabel}</span>
+            <ArrowDownRight className="h-4 w-4" strokeWidth={1.8} />
           </Link>
+
           <Link
             href={getHref}
-            className="inline-flex items-center gap-2 rounded-full bg-[#1a1a1a] px-6 py-3 text-sm text-white hover:bg-black/80 transition-colors"
+            className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#1f1f1f] px-6 py-3 text-[15px] font-[500] text-white transition-colors duration-200 hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:text-[16px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            {getLabel} →
+            <span>{getLabel}</span>
+            <ArrowDownRight className="h-4 w-4" strokeWidth={1.8} />
           </Link>
         </div>
       </div>
 
-      {/* Right: dark image panel */}
-      <div className="relative min-h-[380px] lg:min-h-0 bg-[#1c1208] flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[440px] overflow-hidden bg-[#1c0f09] sm:min-h-[520px] lg:min-h-0">
         {image && (
           <Image
             src={image}
             fill
             alt={imageAlt}
-            className="object-contain p-10 md:p-14"
+            sizes="(min-width: 1024px) 55vw, 100vw"
+            className="object-contain p-[6%]"
           />
         )}
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

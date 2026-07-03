@@ -22,46 +22,46 @@ const SERVICES = [
     image: "/services1.webp",
     imageAlt: "Brand Identity showcase",
   },
-  // Service 2 — replace with your content & image
   {
-    price: "$XXXX",
-    title: "Service Two",
-    description: "Your description here.",
+    price: "$9999",
+    title: "Web & Interface Design",
+    description:
+      "High-fidelity website and interface design for teams that need sharper pages, clearer flow, and a better experience before anything gets built.",
     bullets: [
-      "Bullet point one",
-      "Bullet point two",
-      "Bullet point three",
+      "Fixes messy layouts, weak hierarchy, and unclear user paths",
+      "Turns your offer into clean pages people can actually understand",
+      "Best for brands with a site that exists but does not convert well",
     ],
-    exploreLabel: "Explore Service Two",
+    exploreLabel: "Explore Web Design",
     exploreHref: "#",
     getLabel: "Get One For Your Brand",
     getHref: "#",
     image: "/services2.webp",
-    imageAlt: "Service Two showcase",
+    imageAlt: "Web and interface design showcase",
   },
-  // Service 3 — replace with your content & image
   {
-    price: "$XXXX",
-    title: "Service Three",
-    description: "Your description here.",
+    price: "$9999",
+    title: "Web Development",
+    description:
+      "Clean responsive builds for brands that already have the design, but need the live version to keep the same polish, spacing, and intent.",
     bullets: [
-      "Bullet point one",
-      "Bullet point two",
-      "Bullet point three",
+      "Webflow, Shopify, WordPress, or custom front-end development",
+      "Responsive build, CMS setup, interaction details, and QA",
+      "Launch support and a clean handoff your team can manage",
     ],
-    exploreLabel: "Explore Service Three",
+    exploreLabel: "Explore Development",
     exploreHref: "#",
     getLabel: "Get One For Your Brand",
     getHref: "#",
     image: "/services3.webp",
-    imageAlt: "Service Three showcase",
+    imageAlt: "Web development showcase",
   },
 ];
 
 export default function ServicesDetail() {
   return (
-    <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-20 md:py-28">
-      <div className="mx-auto max-w-[1800px]">
+    <section className="relative z-10 w-full px-1.5 py-20 sm:px-3 md:py-28 lg:px-1.5">
+      <div className="mx-auto max-w-[1920px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function ServicesDetail() {
           <br className="hidden sm:block" /> and thinkers creating work that lasts.
         </motion.h2>
 
-        <div className="mt-14 md:mt-20 flex flex-col gap-5 md:gap-6">
+        <div className="mt-14 flex flex-col gap-4 md:mt-20 md:gap-5">
           {SERVICES.map((service, i) => (
             <ServicePanel key={i} {...service} index={i} />
           ))}

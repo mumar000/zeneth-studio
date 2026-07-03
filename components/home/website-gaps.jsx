@@ -63,51 +63,61 @@ const rows = [
   },
 ];
 
-const labelCls = "text-sm font-medium text-black/55";
-const titleCls = "mt-3 text-2xl md:text-3xl text-[#1a1a1a]";
-const descCls = "mt-4 text-base leading-relaxed text-black/55 max-w-lg";
+const labelCls = "text-base font-[600] text-black/55 md:text-lg lg:text-xl";
+const titleCls = "mt-5 text-2xl leading-[1.15] text-[#1a1a1a] md:text-3xl lg:text-[34px]";
+const descCls = "mt-5 max-w-[560px] text-base leading-[1.25] text-black/55 md:text-lg lg:text-[20px]";
 
 export default function WebsiteGaps() {
   return (
-    <section className="relative z-10 w-full px-4 sm:px-6 md:px-8 py-24 md:py-24">
-      <div className="mx-auto container">
-        <motion.h2
+    <section className="relative z-10 w-full px-4 py-24 sm:px-6 md:px-8 md:py-28 lg:px-10">
+      <div className="mx-auto max-w-[1840px]">
+        <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="mx-auto max-w-6xl text-center text-5xl sm:text-6xl md:text-7xl font-[700] leading-[1.05] tracking-[-0.03em] text-[#1a1a1a]"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="text-center"
         >
-          Most websites die in the gaps between people.
-        </motion.h2>
+          <p
+            className="text-sm font-[700] uppercase text-primary sm:text-base"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            Why This Exists
+          </p>
+          <h2
+            className="mx-auto mt-9 max-w-[1120px] text-5xl font-[700] leading-[0.98] tracking-[-0.03em] text-[#1a1a1a] sm:text-6xl md:text-7xl lg:text-[80px]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Most websites die in the gaps between people.
+          </h2>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="mt-14 md:mt-20 overflow-hidden rounded-[24px] border border-black/15"
+          className="mt-14 overflow-hidden rounded-[20px] border border-black/70 md:mt-20"
         >
           {/* Header */}
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div
-              className="px-8 md:px-12 py-5 border-b border-black/15 md:border-r"
+              className="flex min-h-[74px] items-center px-8 md:border-r md:px-16 lg:px-16"
               style={{ backgroundColor: CREAM }}
             >
               <span
-                className="text-xs uppercase tracking-[0.18em] text-black/50"
+                className="text-base uppercase tracking-[0.08em] text-black/50 md:text-xl lg:text-[24px]"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 The Usual Way
               </span>
             </div>
             <div
-              className="hidden md:block px-8 md:px-12 py-5 border-b border-black/15"
+              className="hidden min-h-[74px] items-center px-8 md:flex md:px-16 lg:px-[7.75rem]"
               style={{ backgroundColor: CREAM }}
             >
               <span
-                className="text-xs uppercase tracking-[0.18em] text-primary"
+                className="text-base uppercase tracking-[0.08em] text-primary md:text-xl lg:text-[24px]"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 The Zeneth Way
@@ -119,18 +129,18 @@ export default function WebsiteGaps() {
           {rows.map((row) => (
             <div
               key={row.n}
-              className="relative grid grid-cols-1 md:grid-cols-2 border-t border-black/15"
+              className="relative grid grid-cols-1 border-t border-black/70 md:grid-cols-2"
             >
               {/* Usual (left) */}
               <div
-                className="px-8 md:px-12 py-10 md:py-14 md:border-r border-black/15"
+                className="flex min-h-[230px] flex-col justify-center px-8 py-10 md:min-h-[260px] md:border-r md:border-black/70 md:px-16 md:py-12 lg:px-16"
                 style={{ backgroundColor: CREAM }}
               >
                 <p className={labelCls}>
                   {row.n} / {row.cat}
                 </p>
                 <h3
-                  className={`${titleCls} text-black/60 line-through decoration-black/40`}
+                  className={`${titleCls} text-black/50 line-through decoration-2 decoration-black/40`}
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   {row.usual.title}
@@ -140,7 +150,7 @@ export default function WebsiteGaps() {
 
               {/* Zeneth (right) */}
               <div
-                className="px-8 md:px-12 py-10 md:py-14 border-t border-black/15 md:border-t-0"
+                className="flex min-h-[230px] flex-col justify-center border-t border-black/70 px-8 py-10 md:min-h-[260px] md:border-t-0 md:px-16 md:py-12 lg:px-[7.75rem]"
                 style={{ backgroundColor: row.tone }}
               >
                 <p className={labelCls}>
@@ -153,8 +163,8 @@ export default function WebsiteGaps() {
               </div>
 
               {/* Arrow on the divider (desktop) */}
-              <span className="absolute left-1/2 top-1/2 z-10 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-black/15 bg-white shadow-sm md:grid">
-                <ArrowRight className="h-5 w-5 text-[#1a1a1a]" strokeWidth={2} />
+              <span className="absolute left-1/2 top-1/2 z-10 hidden h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-black/15 bg-white md:grid">
+                <ArrowRight className="h-6 w-6 text-[#1a1a1a]" strokeWidth={2} />
               </span>
             </div>
           ))}
