@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
 const PROJECT_IMAGES = [
@@ -22,12 +22,16 @@ const PROJECT_IMAGES = [
 const IMG_HEIGHT = 300;
 
 export default function PortfolioCta() {
+  const marqueeRef = useRef(null);
+  const marqueeInView = useInView(marqueeRef, { margin: "200px 0px" });
+
   return (
     <section className="relative z-10 w-full bg-[#F0EBFB]">
 
       {/* ── IMAGE MARQUEE STRIP ── */}
-      <div className="pt-0 pb-0 overflow-hidden">
+      <div ref={marqueeRef} className="pt-0 pb-0 overflow-hidden">
         <Marquee
+          play={marqueeInView}
           speed={55}
           gradient={false}
           pauseOnHover={true}

@@ -12,113 +12,144 @@
 /* Local Helvetica Neue font faces */
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueThin.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueThin.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueThin.otf") format("opentype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueThinItalic.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueThinItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueThinItalic.otf") format("opentype");
   font-weight: 100;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueUltraLight.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueUltraLight.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueUltraLight.otf") format("opentype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueUltraLightItalic.otf")
-    format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueUltraLightItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueUltraLightItalic.otf") format("opentype");
   font-weight: 200;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueLight.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueLight.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueLight.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueLightItalic.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueLightItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueLightItalic.otf") format("opentype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueRoman.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueRoman.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueRoman.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueItalic.ttf") format("truetype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueItalic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueMedium.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueMedium.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueMedium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueMediumItalic.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueMediumItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueMediumItalic.otf") format("opentype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueBold.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueBold.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueBold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueBoldItalic.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueBoldItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueBoldItalic.otf") format("opentype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueHeavy.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueHeavy.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueHeavy.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueHeavyItalic.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueHeavyItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueHeavyItalic.otf") format("opentype");
   font-weight: 800;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueBlack.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueBlack.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueBlack.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("/helvetica-neue-5/HelveticaNeueBlackItalic.otf") format("opentype");
+  src:
+    url("/helvetica-neue-5/HelveticaNeueBlackItalic.woff2") format("woff2"),
+    url("/helvetica-neue-5/HelveticaNeueBlackItalic.otf") format("opentype");
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -321,11 +352,12 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("/bg-image.png");
+  background-image: url("/bg-image.webp");
   background-repeat: repeat;
   background-position: center;
   background-size: auto;
   opacity: 0.05; /* 5% */
   pointer-events: none;
   z-index: 0; /* above body paint, below content */
+  transform: translateZ(0);
 }

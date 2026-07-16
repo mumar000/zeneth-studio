@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useAnimationConfig } from "@/hooks/use-performance";
 
 // Widths are pre-scaled so every logo renders at a uniform 30px height
@@ -24,11 +24,13 @@ const clientLogos = [
 export default function Hero() {
   const animConfig = useAnimationConfig();
   const [loaderComplete, setLoaderComplete] = useState(false);
+  const marqueeRef = useRef(null);
+  const marqueeInView = useInView(marqueeRef, { amount: 0.01 });
 
   useEffect(() => {
     if (window.__zenithLoaderComplete) {
-      setLoaderComplete(true);
-      return;
+      const frameId = requestAnimationFrame(() => setLoaderComplete(true));
+      return () => cancelAnimationFrame(frameId);
     }
 
     const handleLoaderComplete = () => setLoaderComplete(true);
@@ -132,12 +134,14 @@ export default function Hero() {
 
       {/* Bottom marquee — grayscale client logos */}
       <motion.div
+        ref={marqueeRef}
         className="absolute bottom-0 left-0 right-0"
         variants={marqueeVariants}
         initial="hidden"
         animate={loaderComplete ? "visible" : "hidden"}
       >
         <Marquee
+          play={marqueeInView}
           gradient={true}
           gradientColor="#ffffff"
           gradientWidth={64}

@@ -1,13 +1,21 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+  useSpring,
+} from "framer-motion";
 
 export default function ShowreelSection() {
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -27,18 +35,44 @@ export default function ShowreelSection() {
   // Fade in at start
   const opacity = useTransform(smooth, [0, 0.2], [0, 1]);
 
-  // Auto-play when section scrolls into view
+  // Begin the video request shortly before the showreel reaches the viewport.
+  // The poster keeps the section visually complete while the media buffers.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -20% 0px" },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  // Play only while the showreel is visible. Pausing it below the section avoids
+  // decoding 1080p frames while the user scrolls through the rest of the page.
   useEffect(() => {
     const video = videoRef.current;
     const section = sectionRef.current;
-    if (!video || !section) return;
+    if (!video || !section || !shouldLoadVideo) return;
 
     video.muted = true;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
-          video.play()
+        if (
+          entry.isIntersecting &&
+          entry.intersectionRatio >= 0.3 &&
+          !shouldReduceMotion
+        ) {
+          video
+            .play()
             .then(() => {
               setIsPlaying(true);
               video.muted = false;
@@ -49,8 +83,9 @@ export default function ShowreelSection() {
               video.play().then(() => setIsPlaying(true)).catch(() => {});
             });
         } else if (!entry.isIntersecting) {
-          // Mute when section leaves viewport
+          video.pause();
           video.muted = true;
+          setIsPlaying(false);
           setIsMuted(true);
         }
       },
@@ -58,14 +93,21 @@ export default function ShowreelSection() {
     );
 
     observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observer.disconnect();
+      video.pause();
+    };
+  }, [shouldLoadVideo, shouldReduceMotion]);
 
   const togglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
-      video.play().then(() => setIsPlaying(true));
+      if (!shouldLoadVideo) {
+        setShouldLoadVideo(true);
+        return;
+      }
+      video.play().then(() => setIsPlaying(true)).catch(() => {});
     } else {
       video.pause();
       setIsPlaying(false);
@@ -99,10 +141,14 @@ export default function ShowreelSection() {
             ref={videoRef}
             loop
             playsInline
-            preload="auto"
+            muted={isMuted}
+            poster="/showreel-poster.webp"
+            preload={shouldLoadVideo ? "metadata" : "none"}
             className="w-full h-full object-cover"
           >
-            <source src="/showreel.mp4" type="video/mp4" />
+            {shouldLoadVideo && (
+              <source src="/showreel.mp4" type="video/mp4" />
+            )}
           </video>
 
           {/* Bottom controls */}

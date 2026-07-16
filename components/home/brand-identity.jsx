@@ -396,7 +396,7 @@ export default function BrandIdentitySection({
                 src={src}
                 alt={`Service ${idx + 1}`}
                 fill
-                sizes="(min-width: 768px) 33vw, 200vw"
+                sizes="(min-width: 768px) 33vw, 100vw"
                 className="object-cover"
               />
             </div>

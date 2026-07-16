@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from "@/components/home/hero";
 import { ProjectsSection } from "./sections/projects";
 import HappyBrands from "@/components/home/happy-brands";

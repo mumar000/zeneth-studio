@@ -1,8 +1,9 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 
 export default function ServicePanel({
@@ -19,9 +20,12 @@ export default function ServicePanel({
   index = 0,
 }) {
   const shouldReduceMotion = useReducedMotion();
+  const panelRef = useRef(null);
+  const panelInView = useInView(panelRef, { margin: "200px 0px" });
 
   return (
     <motion.article
+      ref={panelRef}
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -68,9 +72,11 @@ export default function ServicePanel({
               <motion.span
                 aria-hidden="true"
                 className="flex w-9 shrink-0 items-center justify-center"
-                animate={{ rotate: shouldReduceMotion ? 0 : 360 }}
+                animate={{
+                  rotate: panelInView && !shouldReduceMotion ? 360 : 0,
+                }}
                 transition={
-                  shouldReduceMotion
+                  shouldReduceMotion || !panelInView
                     ? { duration: 0 }
                     : { duration: 6, repeat: Infinity, ease: "linear" }
                 }

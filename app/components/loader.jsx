@@ -70,6 +70,7 @@ export default function Loader() {
                   height={150}
                   className="object-contain invert brightness-0 filter"
                   priority
+                  unoptimized
                 />
               </motion.div>
 

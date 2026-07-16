@@ -27,7 +27,7 @@ export default function WordmarkBlock({ image }) {
             alt=""
             fill
             className="object-contain"
-            sizes="200vw"
+            sizes="100vw"
           />
         </motion.div>
       </div>

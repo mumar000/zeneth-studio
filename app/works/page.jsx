@@ -62,10 +62,11 @@ export default function WorksPage() {
         {/* Projects Grid */}
         <section className="px-6 md:px-12 lg:px-24 pb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 space-y-15">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={project.slug}
                 project={project}
+                priority={index < 4}
                 onHover={() => handleProjectHover(project.cursorText)}
                 onLeave={handleProjectLeave}
               />

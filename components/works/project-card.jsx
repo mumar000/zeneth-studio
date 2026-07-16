@@ -5,7 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export default function ProjectCard({ project, onHover, onLeave }) {
+export default function ProjectCard({
+  project,
+  onHover,
+  onLeave,
+  priority = false,
+}) {
   return (
     <motion.div
       className="group relative overflow-hidden rounded-[2rem]  border-slate-200 border bg-white cursor-none w-full max-w-[320px]"
@@ -28,8 +33,9 @@ export default function ProjectCard({ project, onHover, onLeave }) {
             src={project.image}
             alt={project.title}
             fill
+            sizes="(min-width: 1024px) 22vw, (min-width: 768px) 45vw, 90vw"
             className="object-cover"
-            priority
+            priority={priority}
           />
         </motion.div>
       </div>

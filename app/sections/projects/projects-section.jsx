@@ -1,13 +1,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useRef, useLayoutEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function FeaturedProjectsSection() {
   const projectsSectionRef = useRef(null);
@@ -79,68 +75,92 @@ export default function FeaturedProjectsSection() {
   // Render one sequence so the final project ends cleanly before the next section.
   const displayProjects = projects;
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const section = projectsSectionRef.current;
     const imagesContainer = imagesContainerRef.current;
     const textContainer = textContainerRef.current;
+    if (!section || !imagesContainer || !textContainer) return;
 
-    let ctx = gsap.context(() => {
-      const imageItemHeight = 77; // tracks the enlarged 72vh image (+5 offset, as before)
-      const imageGap = 5; // 5vh
-      const imageUnit = imageItemHeight + imageGap; // total per scroll unit
+    let cancelled = false;
+    let ctx;
 
-      const textItemHeight = 10; // 10vh
+    const setupScroller = async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import("gsap"),
+        import("gsap/ScrollTrigger"),
+      ]);
 
-      const numOriginal = projects.length;
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
 
-      // Distance to scroll (Number of items - 1)
-      const totalImageScroll = (numOriginal - 1) * imageUnit;
-      const totalTextScroll = (numOriginal - 1) * textItemHeight;
+      ctx = gsap.context(() => {
+        const imageItemHeight = 77; // tracks the enlarged 72vh image (+5 offset, as before)
+        const imageGap = 5; // 5vh
+        const imageUnit = imageItemHeight + imageGap; // total per scroll unit
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom bottom",
-          pin: ".projects-sticky-container",
-          scrub: 0.5, // Reduced from 1 to match global smooth scroll speed
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const nextIndex = Math.min(
-              projects.length - 1,
-              Math.round(self.progress * (projects.length - 1)),
-            );
+        const textItemHeight = 10; // 10vh
 
-            if (nextIndex !== activeIndexRef.current) {
-              activeIndexRef.current = nextIndex;
-              setActiveIndex(nextIndex);
-            }
+        const numOriginal = projects.length;
+
+        // Distance to scroll (Number of items - 1)
+        const totalImageScroll = (numOriginal - 1) * imageUnit;
+        const totalTextScroll = (numOriginal - 1) * textItemHeight;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "bottom bottom",
+            pin: ".projects-sticky-container",
+            scrub: 0.5,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const nextIndex = Math.min(
+                projects.length - 1,
+                Math.round(self.progress * (projects.length - 1)),
+              );
+
+              if (nextIndex !== activeIndexRef.current) {
+                activeIndexRef.current = nextIndex;
+                setActiveIndex(nextIndex);
+              }
+            },
           },
-        },
-      });
+        });
 
-      // 1. Scroll Images
-      tl.to(
-        imagesContainer,
-        {
-          y: `-${totalImageScroll}vh`,
-          ease: "none",
-        },
-        0,
-      );
+        tl.to(
+          imagesContainer,
+          { y: `-${totalImageScroll}vh`, ease: "none" },
+          0,
+        );
 
-      // 2. Scroll Text
-      tl.to(
-        textContainer,
-        {
-          y: `-${totalTextScroll}vh`,
-          ease: "none",
-        },
-        0,
-      );
-    }, projectsSectionRef);
+        tl.to(
+          textContainer,
+          { y: `-${totalTextScroll}vh`, ease: "none" },
+          0,
+        );
+      }, projectsSectionRef);
 
-    return () => ctx.revert();
+      ScrollTrigger.refresh();
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          setupScroller();
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+
+    observer.observe(section);
+
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      ctx?.revert();
+    };
   }, [projects.length]);
 
   return (
@@ -153,7 +173,7 @@ export default function FeaturedProjectsSection() {
       <div className="absolute bottom-0 left-0  w-[600px] h-[600px] bg-primary/15 rounded-full opacity-30 blur-[150px] pointer-events-none" />
 
       <div className="projects-sticky-container top-0 h-screen w-full flex items-center justify-center px-4 md:px-12 lg:px-8 -mt-10">
-        <div className="relative w-full max-w-[1800px]  h-[80vh] bg-[#060606] backdrop-blur-sm border border-white/20 rounded-[28px] overflow-hidden shadow-2xl shadow-purple-500/10">
+        <div className="relative w-full max-w-[1800px] h-[80vh] bg-[#060606] border border-white/20 rounded-[28px] overflow-hidden shadow-2xl shadow-purple-500/10">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 h-full">
             {/* --- LEFT SIDE (TEXT) --- */}
             <div className="flex flex-col h-full relative justify-center p-6 lg:p-12 z-20">
@@ -282,12 +302,12 @@ export default function FeaturedProjectsSection() {
                           src={project.image}
                           alt={project.name}
                           fill
+                          sizes="(min-width: 1024px) 46vw, 100vw"
                           className={`object-cover transition-all duration-500 ${
                             isActive
                               ? "blur-sm brightness-50"
                               : "blur-0 brightness-100"
                           }`}
-                          priority={index === 0}
                         />
                       </div>
 

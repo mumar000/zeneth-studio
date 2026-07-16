@@ -1,5 +1,3 @@
-"use client";
-
 import ServiceHero from "@/components/services/common/service-hero";
 import ServiceTail from "@/components/services/common/service-tail";
 import { servicesDetailData } from "@/lib/services-detail-data";

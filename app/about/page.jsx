@@ -36,8 +36,8 @@ export default function AboutPage() {
           <span className="italic font-romie font-semibold text-primary">
             aesthetic.
           </span>{" "}
-          We don't believe in design as decoration. We build visual systems that
-          isolate your brand's{" "}
+          We don&apos;t believe in design as decoration. We build visual systems that
+          isolate your brand&apos;s{" "}
           <span className="italic font-romie font-semibold text-primary">
             signal
           </span>{" "}
@@ -115,7 +115,7 @@ export default function AboutPage() {
                   alt={logo.alt}
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 1550vw, (max-width: 1024px) 33vw, 1555vw"
+                  sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 25vw"
                 />
               </div>
             </motion.div>

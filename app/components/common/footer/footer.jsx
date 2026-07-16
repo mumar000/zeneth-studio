@@ -23,6 +23,7 @@ const Footer = () => {
             alt="Zeneth Studio"
             width={400}
             height={200}
+            unoptimized
             className="w-[220px] md:w-[300px] h-auto object-contain"
           />
         </div>

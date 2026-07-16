@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -18,12 +19,30 @@ export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isIntroCollapsed, setIsIntroCollapsed] = useState(true);
   const pathname = usePathname();
+  const hasScrolledRef = useRef(false);
 
   useEffect(() => {
-    const onScroll = () => setHasScrolled(window.scrollY > 40);
+    let frameId = 0;
+
+    const updateScrollState = () => {
+      frameId = 0;
+      const nextHasScrolled = window.scrollY > 40;
+      if (nextHasScrolled !== hasScrolledRef.current) {
+        hasScrolledRef.current = nextHasScrolled;
+        setHasScrolled(nextHasScrolled);
+      }
+    };
+
+    const onScroll = () => {
+      if (!frameId) frameId = requestAnimationFrame(updateScrollState);
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
@@ -56,9 +75,14 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link href="/" className="shrink-0 select-none">
-            <img
+            <Image
               src="/logo-2.png"
               alt="Zeneth Studio"
+              width={393}
+              height={160}
+              sizes="(min-width: 768px) 108px, 88px"
+              priority
+              unoptimized
               className="h-9 md:h-11 w-auto"
             />
           </Link>
