@@ -35,24 +35,35 @@ export default function ShowreelSection() {
   // Fade in at start
   const opacity = useTransform(smooth, [0, 0.2], [0, 1]);
 
-  // Begin the video request shortly before the showreel reaches the viewport.
-  // The poster keeps the section visually complete while the media buffers.
+  // Buffer after the loader exits so the showreel is ready before the user
+  // reaches it, without competing with the critical hero request.
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
+    let frameId;
+    let fallbackId;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldLoadVideo(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -20% 0px" },
-    );
+    const beginBuffering = () => {
+      if (fallbackId) {
+        clearTimeout(fallbackId);
+        fallbackId = undefined;
+      }
+      if (frameId) return;
+      frameId = requestAnimationFrame(() => setShouldLoadVideo(true));
+    };
 
-    observer.observe(section);
-    return () => observer.disconnect();
+    if (window.__zenithLoaderComplete) {
+      beginBuffering();
+    } else {
+      window.addEventListener("zenith:loader-complete", beginBuffering, {
+        once: true,
+      });
+      fallbackId = window.setTimeout(beginBuffering, 1800);
+    }
+
+    return () => {
+      if (frameId) cancelAnimationFrame(frameId);
+      if (fallbackId) clearTimeout(fallbackId);
+      window.removeEventListener("zenith:loader-complete", beginBuffering);
+    };
   }, []);
 
   // Play only while the showreel is visible. Pausing it below the section avoids
@@ -63,12 +74,13 @@ export default function ShowreelSection() {
     if (!video || !section || !shouldLoadVideo) return;
 
     video.muted = true;
+    video.load();
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (
           entry.isIntersecting &&
-          entry.intersectionRatio >= 0.3 &&
+          entry.intersectionRatio >= 0.12 &&
           !shouldReduceMotion
         ) {
           video
@@ -89,7 +101,7 @@ export default function ShowreelSection() {
           setIsMuted(true);
         }
       },
-      { threshold: [0, 0.3] },
+      { threshold: [0, 0.12] },
     );
 
     observer.observe(section);
@@ -143,7 +155,7 @@ export default function ShowreelSection() {
             playsInline
             muted={isMuted}
             poster="/showreel-poster.webp"
-            preload={shouldLoadVideo ? "metadata" : "none"}
+            preload={shouldLoadVideo ? "auto" : "none"}
             className="w-full h-full object-cover"
           >
             {shouldLoadVideo && (
