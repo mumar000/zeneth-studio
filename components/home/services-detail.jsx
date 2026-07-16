@@ -19,7 +19,7 @@ const SERVICES = [
     exploreHref: "#",
     getLabel: "Get One For Your Brand",
     getHref: "#",
-    image: "/services1.webp",
+    image: "/projects/feroce/2.webp",
     imageAlt: "Brand Identity showcase",
   },
   {
@@ -36,7 +36,7 @@ const SERVICES = [
     exploreHref: "#",
     getLabel: "Get One For Your Brand",
     getHref: "#",
-    image: "/services2.webp",
+    image: "/projects/letsgrub/1.webp",
     imageAlt: "Web and interface design showcase",
   },
   {
@@ -53,7 +53,7 @@ const SERVICES = [
     exploreHref: "#",
     getLabel: "Get One For Your Brand",
     getHref: "#",
-    image: "/services3.webp",
+    image: "/mogulbay/14.webp",
     imageAlt: "Web development showcase",
   },
 ];

@@ -17,14 +17,36 @@ export default function FeaturedProjectsSection() {
 
   const projects = [
     {
-      name: "Nugget Spot",
-      image: "/services2.webp",
+      name: "Mogul Bay",
+      image: "/mogulbay/2.webp",
       year: "",
-      category: "Branding",
-      description: "Reinventing fast food culture with a modern twist.",
+      category: "Brand + Web App",
+      description: "A fintech identity that tracks finances with clarity.",
       tags: [
         { label: "Brand Identity", tone: "purple" },
-        { label: "Packaging", tone: "yellow" },
+        { label: "Website + Web App", tone: "yellow" },
+      ],
+    },
+    {
+      name: "Feroce",
+      image: "/projects/feroce/3.webp",
+      year: "",
+      category: "Web Design",
+      description: "Bold aesthetics for a high-end fashion label.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Website", tone: "yellow" },
+      ],
+    },
+    {
+      name: "Lets Grub",
+      image: "/projects/letsgrub/1.webp",
+      year: "",
+      category: "Mobile App",
+      description: "Social dining app connecting foodies globally.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Mobile App", tone: "yellow" },
       ],
     },
     {
@@ -39,36 +61,14 @@ export default function FeaturedProjectsSection() {
       ],
     },
     {
-      name: "Mogul Bay",
-      image: "/mogulbay/1.webp",
+      name: "Nugget Spot",
+      image: "/services2.webp",
       year: "",
-      category: "Brand + Web App",
-      description: "A fintech identity that tracks finances with clarity.",
+      category: "Branding",
+      description: "Reinventing fast food culture with a modern twist.",
       tags: [
         { label: "Brand Identity", tone: "purple" },
-        { label: "Website + Web App", tone: "yellow" },
-      ],
-    },
-    {
-      name: "Lets Grub",
-      image: "/services3.webp",
-      year: "",
-      category: "Mobile App",
-      description: "Social dining app connecting foodies globally.",
-      tags: [
-        { label: "Brand Identity", tone: "purple" },
-        { label: "Mobile App", tone: "yellow" },
-      ],
-    },
-    {
-      name: "Feroce",
-      image: "/services1.webp",
-      year: "",
-      category: "Web Design",
-      description: "Bold aesthetics for a high-end fashion label.",
-      tags: [
-        { label: "Brand Identity", tone: "purple" },
-        { label: "Website", tone: "yellow" },
+        { label: "Packaging", tone: "yellow" },
       ],
     },
   ];

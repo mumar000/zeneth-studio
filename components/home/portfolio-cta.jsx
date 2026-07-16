@@ -7,14 +7,16 @@ import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
 const PROJECT_IMAGES = [
-  { src: "/services1.webp", w: 380 },
-  { src: "/services2.webp", w: 320 },
-  { src: "/frame-2.webp", w: 420 },
-  { src: "/services3.webp", w: 360 },
-  { src: "/mogulbay/1.webp", w: 400 },
-  { src: "/frame-1.webp", w: 340 },
-  { src: "/mogulbay/2.webp", w: 380 },
-  { src: "/mogulbay/3.webp", w: 320 },
+  { src: "/projects/feroce/2.webp", w: 380 },
+  { src: "/projects/letsgrub/1.webp", w: 340 },
+  { src: "/mogulbay/4.webp", w: 420 },
+  { src: "/projects/feroce/5.webp", w: 360 },
+  { src: "/projects/letsgrub/2.webp", w: 400 },
+  { src: "/mogulbay/14.webp", w: 340 },
+  { src: "/projects/feroce/6.webp", w: 380 },
+  { src: "/projects/letsgrub/5.webp", w: 360 },
+  { src: "/mogulbay/9.webp", w: 320 },
+  { src: "/projects/feroce/3.webp", w: 400 },
 ];
 
 const IMG_HEIGHT = 300;
