@@ -19,8 +19,8 @@ const SERVICES = [
     exploreHref: "/services/brand-identity",
     getLabel: "Get One For Your Brand",
     getHref: "#",
-    image: "/projects/feroce/2.webp",
-    imageAlt: "Brand Identity showcase",
+    video: "/feroce/feroce-video.mp4",
+    videoLabel: "Brand Identity showcase",
   },
   {
     price: "$9999",
@@ -36,8 +36,8 @@ const SERVICES = [
     exploreHref: "/services/interface-design",
     getLabel: "Get One For Your Brand",
     getHref: "#",
-    image: "/projects/letsgrub/1.webp",
-    imageAlt: "Web and interface design showcase",
+    video: "/web-animations-video.mp4",
+    videoLabel: "Web and interface design showcase",
   },
   {
     price: "$9999",

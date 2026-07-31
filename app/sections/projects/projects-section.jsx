@@ -7,6 +7,7 @@ import Link from "next/link";
 
 export default function FeaturedProjectsSection() {
   const projectsSectionRef = useRef(null);
+  const stickyContainerRef = useRef(null);
   const imagesContainerRef = useRef(null);
   const textContainerRef = useRef(null);
   const activeIndexRef = useRef(0);
@@ -77,9 +78,11 @@ export default function FeaturedProjectsSection() {
 
   useEffect(() => {
     const section = projectsSectionRef.current;
+    const stickyContainer = stickyContainerRef.current;
     const imagesContainer = imagesContainerRef.current;
     const textContainer = textContainerRef.current;
-    if (!section || !imagesContainer || !textContainer) return;
+    if (!section || !stickyContainer || !imagesContainer || !textContainer)
+      return;
 
     let cancelled = false;
     let ctx;
@@ -94,25 +97,22 @@ export default function FeaturedProjectsSection() {
       gsap.registerPlugin(ScrollTrigger);
 
       ctx = gsap.context(() => {
-        const imageItemHeight = 77; // tracks the enlarged 72vh image (+5 offset, as before)
-        const imageGap = 5; // 5vh
-        const imageUnit = imageItemHeight + imageGap; // total per scroll unit
+        const getScrollDistance = (container) => {
+          const items = container.children;
+          if (items.length < 2) return 0;
 
-        const textItemHeight = 10; // 10vh
-
-        const numOriginal = projects.length;
-
-        // Distance to scroll (Number of items - 1)
-        const totalImageScroll = (numOriginal - 1) * imageUnit;
-        const totalTextScroll = (numOriginal - 1) * textItemHeight;
+          return items[items.length - 1].offsetTop - items[0].offsetTop;
+        };
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
             start: "top top",
             end: "bottom bottom",
-            pin: ".projects-sticky-container",
-            scrub: 0.5,
+            pin: stickyContainer,
+            pinSpacing: false,
+            anticipatePin: 1,
+            scrub: 0.8,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               const nextIndex = Math.min(
@@ -130,13 +130,19 @@ export default function FeaturedProjectsSection() {
 
         tl.to(
           imagesContainer,
-          { y: `-${totalImageScroll}vh`, ease: "none" },
+          {
+            y: () => -getScrollDistance(imagesContainer),
+            ease: "none",
+          },
           0,
         );
 
         tl.to(
           textContainer,
-          { y: `-${totalTextScroll}vh`, ease: "none" },
+          {
+            y: () => -getScrollDistance(textContainer),
+            ease: "none",
+          },
           0,
         );
       }, projectsSectionRef);
@@ -144,21 +150,10 @@ export default function FeaturedProjectsSection() {
       ScrollTrigger.refresh();
     };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          setupScroller();
-        }
-      },
-      { rootMargin: "800px 0px" },
-    );
-
-    observer.observe(section);
+    setupScroller();
 
     return () => {
       cancelled = true;
-      observer.disconnect();
       ctx?.revert();
     };
   }, [projects.length]);
@@ -166,17 +161,20 @@ export default function FeaturedProjectsSection() {
   return (
     <section
       ref={projectsSectionRef}
-      className="relative  z-50"
+      className="relative z-50"
       style={{ height: `${projects.length * 100}vh` }}
     >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full opacity-40 blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0  w-[600px] h-[600px] bg-primary/15 rounded-full opacity-30 blur-[150px] pointer-events-none" />
 
-      <div className="projects-sticky-container top-0 h-screen w-full flex items-center justify-center px-4 md:px-12 lg:px-8 -mt-10">
-        <div className="relative w-full max-w-[1800px] h-[80vh] bg-[#060606] border border-white/20 rounded-[28px] overflow-hidden shadow-2xl shadow-purple-500/10">
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 h-full">
+      <div
+        ref={stickyContainerRef}
+        className="projects-sticky-container flex h-dvh w-full items-center justify-center px-3 sm:px-5 lg:px-8"
+      >
+        <div className="relative h-[82dvh] w-full max-w-[1800px] overflow-hidden rounded-[20px] border border-white/20 bg-[#060606] shadow-2xl shadow-purple-500/10 sm:rounded-[28px]">
+          <div className="relative z-10 grid h-full grid-cols-1 md:grid-cols-[minmax(0,44%)_minmax(0,56%)]">
             {/* --- LEFT SIDE (TEXT) --- */}
-            <div className="flex flex-col h-full relative justify-center p-6 lg:p-12 z-20">
+            <div className="relative z-20 hidden h-full min-w-0 flex-col justify-center p-6 md:flex lg:p-10 xl:p-12">
               <div className="absolute top-0 left-0 w-full p-8 lg:p-12 z-40">
                 <p
                   className="text-sm text-purple-400/80 tracking-wider uppercase font-medium"
@@ -192,7 +190,7 @@ export default function FeaturedProjectsSection() {
                 style={{
                   maskImage:
                     "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
-                  WebkitMaskIsmage:
+                  WebkitMaskImage:
                     "linear-gradient(to bottom, transparent 0%, black 25%, black 75%, transparent 100%)",
                 }}
               >
@@ -214,22 +212,22 @@ export default function FeaturedProjectsSection() {
                     return (
                       <div
                         key={index}
-                        className="flex items-center gap-4 lg:h-[10vh] shrink-0 cursor-pointer group"
+                        className="group flex h-[10vh] shrink-0 cursor-pointer items-center gap-3 xl:gap-4"
                         onMouseEnter={() => setHoveredIndex(realIndex)}
                         onMouseLeave={() => setHoveredIndex(null)}
                       >
                         <h3
-                          className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight transition-all duration-500 ease-out ${
+                          className={`min-w-0 origin-left whitespace-nowrap text-[clamp(1.5rem,3.35vw,4.25rem)] font-bold leading-none tracking-tight transition-colors duration-500 ease-out ${
                             isActive
-                              ? "text-white translate-x-2 scale-105"
-                              : "text-white/30 scale-100"
+                              ? "text-white"
+                              : "text-white/30"
                           }`}
                           style={{ fontFamily: "var(--font-display)" }}
                         >
                           {project.name}
                         </h3>
                         <div
-                          className={`flex items-center gap-2 transition-all duration-500 ${
+                          className={`hidden min-w-0 flex-wrap items-center gap-2 transition-all duration-500 xl:flex ${
                             isActive
                               ? "opacity-100 translate-x-0"
                               : "opacity-0 -translate-x-3 pointer-events-none"
@@ -272,14 +270,12 @@ export default function FeaturedProjectsSection() {
             </div>
 
             {/* --- RIGHT SIDE (IMAGES) --- */}
-            <div className="relative w-full h-full overflow-hidden p-4 md:p-8 flex items-start justify-center">
+            <div className="relative flex h-full min-w-0 items-start justify-center overflow-hidden p-3 sm:p-4 md:p-8">
               <div
                 ref={imagesContainerRef}
-                className="flex flex-col w-full"
+                className="flex w-full flex-col gap-[4dvh]"
                 style={{
                   willChange: "transform",
-                  marginTop: "calc(50% - 34vh)",
-                  gap: "5vh",
                 }}
               >
                 {projects.map((project, index) => {
@@ -288,8 +284,7 @@ export default function FeaturedProjectsSection() {
                   return (
                     <div
                       key={index}
-                      className="relative w-full shrink-0 rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer"
-                      style={{ height: "72vh" }}
+                      className="group relative h-[calc(82dvh-1.5rem)] w-full shrink-0 cursor-pointer overflow-hidden rounded-xl border border-white/10 shadow-2xl sm:h-[calc(82dvh-2rem)] sm:rounded-2xl md:h-[calc(82dvh-4rem)]"
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(null)}
                     >

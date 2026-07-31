@@ -15,6 +15,8 @@ export default function ServicePanel({
   exploreHref = "#",
   getLabel,
   getHref = "#",
+  video,
+  videoLabel = "Service showcase video",
   image,
   imageAlt = "Service showcase",
   index = 0,
@@ -110,7 +112,18 @@ export default function ServicePanel({
       </div>
 
       <div className="relative min-h-[440px] overflow-hidden bg-[#1c0f09] sm:min-h-[520px] lg:min-h-0">
-        {image && (
+        {video ? (
+          <video
+            src={video}
+            aria-label={videoLabel}
+            autoPlay={!shouldReduceMotion}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="h-full w-full object-contain p-[6%]"
+          />
+        ) : image ? (
           <Image
             src={image}
             fill
@@ -118,7 +131,7 @@ export default function ServicePanel({
             sizes="(min-width: 1024px) 55vw, 100vw"
             className="object-contain p-[6%]"
           />
-        )}
+        ) : null}
       </div>
     </motion.article>
   );

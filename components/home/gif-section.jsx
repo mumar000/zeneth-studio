@@ -137,7 +137,7 @@ export default function ShowreelSection() {
     <section
       ref={sectionRef}
       className="relative w-full"
-      style={{ height: "140vh" }}
+      style={{ height: "112vh" }}
     >
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <motion.div
