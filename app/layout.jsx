@@ -1,34 +1,32 @@
 import "./globals.css";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
-import StoreHeader from "@/components/store/store-header";
-import StoreFooter from "@/components/store/store-footer";
+import { JetBrains_Mono } from "next/font/google";
+import { Navbar } from "./components/common/navbar";
+import Footer from "./components/common/footer/footer";
+import SmoothScroll from "./components/SmoothScroll";
+import Loader from "./components/loader";
 
-const serif = Cormorant_Garamond({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const sans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
 export const metadata = {
-  title: { default: "Aurelia — Modern Abayas", template: "%s — Aurelia" },
-  description: "Refined abayas, thoughtfully made for the modern woman.",
+  title: "Zenith Studio - Creative Studio",
+  description: "Only The Peak Nothing Less.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body>
-        <StoreHeader />
-        {children}
-        <StoreFooter />
+    <html lang="en" className={jetbrainsMono.variable}>
+      <body className={`antialiased`}>
+        <SmoothScroll>
+          <Loader />
+          <Navbar />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
