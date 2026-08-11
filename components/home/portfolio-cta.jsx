@@ -7,16 +7,22 @@ import { motion, useInView } from "framer-motion";
 import Marquee from "react-fast-marquee";
 
 const PROJECT_IMAGES = [
-  { src: "/projects/feroce/2.webp", w: 380 },
-  { src: "/projects/letsgrub/1.webp", w: 340 },
-  { src: "/mogulbay/4.webp", w: 420 },
-  { src: "/projects/feroce/5.webp", w: 360 },
-  { src: "/projects/letsgrub/2.webp", w: 400 },
-  { src: "/mogulbay/14.webp", w: 340 },
-  { src: "/projects/feroce/6.webp", w: 380 },
-  { src: "/projects/letsgrub/5.webp", w: 360 },
-  { src: "/mogulbay/9.webp", w: 320 },
-  { src: "/projects/feroce/3.webp", w: 400 },
+  { src: "/mogulbay/1.webp", alt: "Mogul Bay project", w: 400 },
+  {
+    src: "/let-grub/frame-1948758999.webp",
+    alt: "Let's Grub project",
+    w: 400,
+  },
+  {
+    src: "/feroce/branding-feroce-page-0001-1.webp",
+    alt: "Feroce project",
+    w: 400,
+  },
+  {
+    src: "/voyager/image_5.webp",
+    alt: "Voyager Supplements project",
+    w: 440,
+  },
 ];
 
 const IMG_HEIGHT = 300;
@@ -32,6 +38,7 @@ export default function PortfolioCta() {
       <div ref={marqueeRef} className="pt-0 pb-0 overflow-hidden">
         <Marquee
           play={marqueeInView}
+          autoFill
           speed={55}
           gradient={false}
           pauseOnHover={true}
@@ -47,7 +54,9 @@ export default function PortfolioCta() {
                 src={img.src}
                 width={img.w}
                 height={IMG_HEIGHT}
-                alt={`Project ${i + 1}`}
+                alt={img.alt}
+                loading="eager"
+                quality={65}
                 className="w-full h-full object-cover"
               />
             </div>

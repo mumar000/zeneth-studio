@@ -15,7 +15,7 @@ export default function FeaturedProjectsSection() {
   const projects = [
     {
       name: "Mogul Bay",
-      image: "/mogulbay/2.webp",
+      image: "/mogulbay/1.webp",
       year: "",
       category: "Brand + Web App",
       description: "A fintech identity that tracks finances with clarity.",
@@ -25,47 +25,36 @@ export default function FeaturedProjectsSection() {
       ],
     },
     {
+      name: "Let's Grub",
+      image: "/let-grub/frame-1948758999.webp",
+      year: "",
+      category: "Brand Identity",
+      description: "A social dining identity built around shared discovery.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Digital Product", tone: "yellow" },
+      ],
+    },
+    {
       name: "Feroce",
-      image: "/projects/feroce/3.webp",
+      image: "/feroce/branding-feroce-page-0001-1.webp",
       year: "",
-      category: "Web Design",
-      description: "Bold aesthetics for a high-end fashion label.",
+      category: "Brand Identity",
+      description: "A fearless visual system built for speed and precision.",
       tags: [
         { label: "Brand Identity", tone: "purple" },
-        { label: "Website", tone: "yellow" },
+        { label: "Art Direction", tone: "yellow" },
       ],
     },
     {
-      name: "Lets Grub",
-      image: "/projects/letsgrub/1.webp",
+      name: "Voyager",
+      image: "/voyager/image_5.webp",
       year: "",
-      category: "Mobile App",
-      description: "Social dining app connecting foodies globally.",
+      category: "Brand + E-commerce",
+      description: "A performance brand built around clean, credible power.",
       tags: [
         { label: "Brand Identity", tone: "purple" },
-        { label: "Mobile App", tone: "yellow" },
-      ],
-    },
-    {
-      name: "LidoHoney",
-      image: "/frame-2.webp",
-      year: "",
-      category: "E-Commerce",
-      description: "Sweet digital experiences for a luxury honey brand.",
-      tags: [
-        { label: "Brand Identity", tone: "purple" },
-        { label: "Shopify Build", tone: "yellow" },
-      ],
-    },
-    {
-      name: "Nugget Spot",
-      image: "/services2.webp",
-      year: "",
-      category: "Branding",
-      description: "Reinventing fast food culture with a modern twist.",
-      tags: [
-        { label: "Brand Identity", tone: "purple" },
-        { label: "Packaging", tone: "yellow" },
+        { label: "E-commerce", tone: "yellow" },
       ],
     },
   ];
@@ -283,7 +272,7 @@ export default function FeaturedProjectsSection() {
 
                   return (
                     <div
-                      key={index}
+                      key={project.name}
                       className="group relative h-[calc(82dvh-1.5rem)] w-full shrink-0 cursor-pointer overflow-hidden rounded-xl border border-white/10 shadow-2xl sm:h-[calc(82dvh-2rem)] sm:rounded-2xl md:h-[calc(82dvh-4rem)]"
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(null)}
@@ -298,6 +287,9 @@ export default function FeaturedProjectsSection() {
                           alt={project.name}
                           fill
                           sizes="(min-width: 1024px) 46vw, 100vw"
+                          loading="eager"
+                          fetchPriority={index === 0 ? "high" : "auto"}
+                          quality={70}
                           className={`object-cover transition-all duration-500 ${
                             isActive
                               ? "blur-sm brightness-50"

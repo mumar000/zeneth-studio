@@ -6,7 +6,12 @@ import CustomCursor from "../../components/works/custom-cursor";
 import AlignmentCTA from "@/components/home/alignment-cta";
 import { projects } from "../../lib/projects-data";
 
-const featuredProjectSlugs = new Set(["mogulbay", "lets-grub", "feroce"]);
+const featuredProjectSlugs = new Set([
+  "mogulbay",
+  "lets-grub",
+  "feroce",
+  "voyager-supplements",
+]);
 const featuredProjects = projects.filter((project) =>
   featuredProjectSlugs.has(project.slug),
 );

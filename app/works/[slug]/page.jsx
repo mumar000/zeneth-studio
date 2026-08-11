@@ -11,6 +11,7 @@ import TrioRow from "../../../components/works/detail/trio-row";
 import SystemBoard from "../../../components/works/detail/system-board";
 import ClosingQuote from "../../../components/works/detail/closing-quote";
 import FloatingCTA from "../../../components/works/detail/floating-cta";
+import VideoStory from "../../../components/works/detail/video-story";
 import AlignmentCTA from "@/components/home/alignment-cta";
 
 export function generateStaticParams() {
@@ -60,6 +61,17 @@ function renderBlock(block, i, project) {
           key={i}
           icons={block.icons}
           image={block.image}
+          accent={project.accent}
+        />
+      );
+    case "video":
+      return (
+        <VideoStory
+          key={i}
+          src={block.src}
+          poster={block.poster}
+          eyebrow={block.eyebrow}
+          title={block.title}
           accent={project.accent}
         />
       );
