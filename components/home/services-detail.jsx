@@ -36,8 +36,8 @@ const SERVICES = [
     exploreHref: "/services/interface-design",
     getLabel: "Get One For Your Brand",
     getHref: "#",
-    video: "/web-animations-video.mp4",
-    videoLabel: "Web and interface design showcase",
+    image: "/projects/letsgrub/1.webp",
+    imageAlt: "Web and interface design showcase",
   },
   {
     price: "$9999",
@@ -53,12 +53,17 @@ const SERVICES = [
     exploreHref: "/services/web-development",
     getLabel: "Get One For Your Brand",
     getHref: "#",
-    image: "/mogulbay/14.webp",
-    imageAlt: "Web development showcase",
+    video: "/web-animations-video.mp4",
+    videoLabel: "Web development showcase",
   },
 ];
 
-export default function ServicesDetail() {
+export default function ServicesDetail({
+  headingLines = [
+    "A Focused team of designers, developers",
+    "and thinkers creating work that lasts.",
+  ],
+}) {
   return (
     <section className="relative z-10 w-full px-1.5 py-20 sm:px-3 md:py-28 lg:px-1.5">
       <div className="mx-auto max-w-[1920px]">
@@ -70,8 +75,13 @@ export default function ServicesDetail() {
           className="text-center text-4xl sm:text-5xl md:text-6xl font-[700] tracking-[-0.03em] text-[#1a1a1a]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          A Focused team of designers, developers
-          <br className="hidden sm:block" /> and thinkers creating work that lasts.
+          {headingLines.map((line, index) => (
+            <React.Fragment key={line}>
+              {index > 0 && <br className="hidden sm:block" />}
+              {index > 0 && " "}
+              {line}
+            </React.Fragment>
+          ))}
         </motion.h2>
 
         <div className="mt-14 flex flex-col gap-4 md:mt-20 md:gap-5">

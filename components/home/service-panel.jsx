@@ -121,7 +121,7 @@ export default function ServicePanel({
             loop
             playsInline
             preload="metadata"
-            className="h-full w-full object-contain p-[6%]"
+            className="h-full w-full object-contain"
           />
         ) : image ? (
           <Image

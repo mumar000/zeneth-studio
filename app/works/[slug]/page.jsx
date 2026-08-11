@@ -2,9 +2,7 @@ import { notFound } from "next/navigation";
 import {
   projects,
   getProjectBySlug,
-  getNextProject,
 } from "../../../lib/projects-data";
-import LeftRail from "../../../components/works/detail/left-rail";
 import DetailHero from "../../../components/works/detail/detail-hero";
 import ImagePair from "../../../components/works/detail/image-pair";
 import BoardingPassQuote from "../../../components/works/detail/boarding-pass-quote";
@@ -12,7 +10,6 @@ import WordmarkBlock from "../../../components/works/detail/wordmark-block";
 import TrioRow from "../../../components/works/detail/trio-row";
 import SystemBoard from "../../../components/works/detail/system-board";
 import ClosingQuote from "../../../components/works/detail/closing-quote";
-import NextCaseStudy from "../../../components/works/detail/next-case-study";
 import FloatingCTA from "../../../components/works/detail/floating-cta";
 import AlignmentCTA from "@/components/home/alignment-cta";
 
@@ -76,12 +73,8 @@ export default async function ProjectDetailPage({ params }) {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const next = getNextProject(slug);
-
   return (
     <div className="relative bg-[#fffcf7] min-h-screen">
-      <LeftRail title={project.title} liveUrl={project.liveUrl} />
-
       <DetailHero project={project} />
 
       {project.media.map((block, i) => renderBlock(block, i, project))}
@@ -91,8 +84,6 @@ export default async function ProjectDetailPage({ params }) {
         accent={project.accent}
         bg={project.bg}
       />
-
-      {/* <NextCaseStudy nextSlug={next.slug} nextTitle={next.title} /> */}
 
       <AlignmentCTA />
 

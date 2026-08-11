@@ -3,7 +3,12 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export default function DetailHero({ project }) {
@@ -11,6 +16,7 @@ export default function DetailHero({ project }) {
     project;
 
   const ref = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -33,13 +39,27 @@ export default function DetailHero({ project }) {
           className="hidden lg:block absolute right-12 top-28 bottom-10 rounded-3xl overflow-hidden"
         >
           <div className="absolute inset-0" style={{ backgroundColor: bg }} />
-          <Image
-            src={hero.image}
-            alt={title}
-            fill
-            className="object-cover"
-            priority
-          />
+          {hero.video ? (
+            <video
+              src={hero.video}
+              poster={hero.image}
+              aria-label={`${title} project video`}
+              autoPlay={!shouldReduceMotion}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <Image
+              src={hero.image}
+              alt={title}
+              fill
+              className="object-cover"
+              priority
+            />
+          )}
         </motion.div>
 
         {/* Text column — fades and slides out */}
@@ -107,13 +127,27 @@ export default function DetailHero({ project }) {
             className="relative w-full aspect-[4/3] mt-6 rounded-3xl overflow-hidden"
             style={{ backgroundColor: bg }}
           >
-            <Image
-              src={hero.image}
-              alt={title}
-              fill
-              className="object-cover"
-              priority
-            />
+            {hero.video ? (
+              <video
+                src={hero.video}
+                poster={hero.image}
+                aria-label={`${title} project video`}
+                autoPlay={!shouldReduceMotion}
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            ) : (
+              <Image
+                src={hero.image}
+                alt={title}
+                fill
+                className="object-cover"
+                priority
+              />
+            )}
           </div>
 
           <p className="mt-6 text-sm leading-relaxed text-black/80">

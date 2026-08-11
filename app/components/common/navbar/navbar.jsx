@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,11 +11,17 @@ const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Work", href: "/works" },
-  { label: "Contact", href: "/contact" },
+];
+
+const SERVICE_ITEMS = [
+  { label: "Brand Identity", href: "/services/brand-identity" },
+  { label: "Web & Interface Design", href: "/services/interface-design" },
+  { label: "Web Development", href: "/services/web-development" },
 ];
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isIntroCollapsed, setIsIntroCollapsed] = useState(true);
   const pathname = usePathname();
@@ -97,7 +103,13 @@ export default function Navbar() {
                 <Link
                   key={label}
                   href={href}
-                  className={`px-5 py-2.5 rounded-xl text-sm font-[500] transition-all duration-200 ${
+                  className={`${
+                    label === "Home"
+                      ? "order-1"
+                      : label === "About"
+                        ? "order-3"
+                        : "order-4"
+                  } px-5 py-2.5 rounded-xl text-sm font-[500] transition-all duration-200 ${
                     active
                       ? "bg-[#1a1a1a] text-white"
                       : "text-black hover:text-black hover:bg-black/5"
@@ -108,6 +120,46 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            <div className="group/services relative order-2">
+              <Link
+                href="/services"
+                className={`flex items-center gap-1.5 rounded-xl px-5 py-2.5 text-sm font-[500] transition-all duration-200 ${
+                  pathname.startsWith("/services")
+                    ? "bg-[#1a1a1a] text-white"
+                    : "text-black hover:bg-black/5"
+                }`}
+                style={{ fontFamily: "var(--font-sora)" }}
+              >
+                Services
+                <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover/services:rotate-180 group-focus-within/services:rotate-180" />
+              </Link>
+
+              <div className="invisible absolute left-1/2 top-full z-50 w-[290px] -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition-all duration-200 group-hover/services:visible group-hover/services:translate-y-0 group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:translate-y-0 group-focus-within/services:opacity-100">
+                <div className="rounded-2xl border border-black/10 bg-white/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.16)] backdrop-blur-xl">
+                  <Link
+                    href="/services"
+                    className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-[600] text-black transition-colors hover:bg-[var(--accent-yellow)]"
+                    style={{ fontFamily: "var(--font-sora)" }}
+                  >
+                    All Services
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <div className="my-1 border-t border-black/10" />
+                  {SERVICE_ITEMS.map((service) => (
+                    <Link
+                      key={service.href}
+                      href={service.href}
+                      className="group/item flex items-center justify-between rounded-xl px-4 py-3 text-sm font-[500] text-black/70 transition-colors hover:bg-black/5 hover:text-black"
+                      style={{ fontFamily: "var(--font-sora)" }}
+                    >
+                      {service.label}
+                      <ArrowRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover/item:translate-x-0 group-hover/item:opacity-100" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Right: CTA — same style as hero */}
@@ -169,14 +221,66 @@ export default function Navbar() {
                       key={label}
                       href={href}
                       onClick={() => setIsMenuOpen(false)}
-                      className="group flex items-center justify-between rounded-xl px-4 py-3 text-base font-[500] text-black/70 hover:text-black hover:bg-black/5 transition-all"
+                      className={`${
+                        label === "Home"
+                          ? "order-1"
+                          : label === "About"
+                            ? "order-3"
+                            : "order-4"
+                      } group flex items-center justify-between rounded-xl px-4 py-3 text-base font-[500] text-black/70 hover:text-black hover:bg-black/5 transition-all`}
                       style={{ fontFamily: "var(--font-sora)" }}
                     >
                       {label}
                       <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
                     </Link>
                   ))}
-                  <div className="pt-2 mt-1 border-t border-black/5">
+                  <div className="order-2">
+                    <button
+                      type="button"
+                      onClick={() => setIsServicesOpen((open) => !open)}
+                      aria-expanded={isServicesOpen}
+                      className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-[500] text-black/70 transition-all hover:bg-black/5 hover:text-black"
+                      style={{ fontFamily: "var(--font-sora)" }}
+                    >
+                      Services
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          isServicesOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isServicesOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="ml-4 flex flex-col gap-1 border-l border-black/10 pb-2 pl-3">
+                            <Link
+                              href="/services"
+                              onClick={() => setIsMenuOpen(false)}
+                              className="rounded-lg px-3 py-2.5 text-sm font-[600] text-black"
+                            >
+                              All Services
+                            </Link>
+                            {SERVICE_ITEMS.map((service) => (
+                              <Link
+                                key={service.href}
+                                href={service.href}
+                                onClick={() => setIsMenuOpen(false)}
+                                className="rounded-lg px-3 py-2.5 text-sm font-[500] text-black/65 transition-colors hover:bg-black/5 hover:text-black"
+                              >
+                                {service.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                  <div className="order-5 mt-1 border-t border-black/5 pt-2">
                     <Link
                       href="/contact"
                       onClick={() => setIsMenuOpen(false)}
