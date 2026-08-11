@@ -5,22 +5,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import Marquee from "react-fast-marquee";
+import { ArrowUpRight } from "lucide-react";
 
 const PROJECT_IMAGES = [
-  { src: "/mogulbay/1.webp", alt: "Mogul Bay project", w: 400 },
+  {
+    src: "/mogulbay/1.webp",
+    alt: "Mogul Bay project",
+    name: "Mogul Bay",
+    href: "/works/mogulbay",
+    w: 400,
+  },
   {
     src: "/let-grub/frame-1948758999.webp",
     alt: "Let's Grub project",
+    name: "Let's Grub",
+    href: "/works/lets-grub",
     w: 400,
   },
   {
     src: "/feroce/branding-feroce-page-0001-1.webp",
     alt: "Feroce project",
+    name: "Feroce",
+    href: "/works/feroce",
     w: 400,
   },
   {
     src: "/voyager/image_5.webp",
     alt: "Voyager Supplements project",
+    name: "Voyager Supplements",
+    href: "/works/voyager-supplements",
     w: 440,
   },
 ];
@@ -44,10 +57,12 @@ export default function PortfolioCta() {
           pauseOnHover={true}
           className="py-6 md:py-8"
         >
-          {PROJECT_IMAGES.map((img, i) => (
-            <div
-              key={i}
-              className="mx-2 md:mx-3 rounded-[14px] overflow-hidden flex-shrink-0"
+          {PROJECT_IMAGES.map((img) => (
+            <Link
+              key={img.href}
+              href={img.href}
+              aria-label={`View ${img.name} case study`}
+              className="group relative mx-2 block flex-shrink-0 overflow-hidden rounded-[14px] transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:mx-3"
               style={{ width: img.w, height: IMG_HEIGHT }}
             >
               <Image
@@ -57,9 +72,18 @@ export default function PortfolioCta() {
                 alt={img.alt}
                 loading="eager"
                 quality={65}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
               />
-            </div>
+              <span className="absolute inset-x-0 bottom-0 flex translate-y-2 items-end justify-between bg-gradient-to-t from-black/75 via-black/20 to-transparent px-5 pb-4 pt-16 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">
+                <span
+                  className="text-sm font-[600] tracking-[-0.01em]"
+                  style={{ fontFamily: "var(--font-sora)" }}
+                >
+                  {img.name}
+                </span>
+                <ArrowUpRight className="h-4 w-4" />
+              </span>
+            </Link>
           ))}
         </Marquee>
       </div>
