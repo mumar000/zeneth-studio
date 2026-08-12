@@ -100,7 +100,7 @@ function StepItem({ step, index }) {
             transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-romie italic text-[#1a1a1a] leading-tight"
           >
-            — {step.title}
+            / {step.title}
           </motion.h3>
         </div>
 

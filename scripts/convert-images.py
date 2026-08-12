@@ -2,8 +2,8 @@
 from PIL import Image
 import os, shutil
 
-BASE = "/home/mumar000/zs/zeneth-studio"
-ASSETS = f"{BASE}/public/Zeneth Website assets"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSETS = f"{BASE}/public/Nymbor Website assets"
 OUT = f"{BASE}/public/projects"
 
 # Define which images to pick per project (best hero shots)

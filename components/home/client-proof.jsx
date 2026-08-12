@@ -205,7 +205,7 @@ export default function ClientProof() {
                 className="text-[19px] font-[400] text-[#1a1a1a] md:text-[26px]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                {step.number} — {step.title}
+                {step.number} / {step.title}
               </h3>
               <p
                 className="mt-3 max-w-[400px] text-[14px] leading-[1.4] text-[#3a3a3a] md:mt-6 md:text-[16px] md:leading-[1.3]"

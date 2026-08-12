@@ -1,7 +1,7 @@
 import ServicesDetail from "@/components/home/services-detail";
 
 export const metadata = {
-  title: "Services — Zeneth Studio",
+  title: "Services",
   description:
     "Brand identity, interface design, and web development for ambitious brands and focused teams.",
 };

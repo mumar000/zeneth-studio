@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 function TrioImage({ src, index, progress }) {
-  // Staggered parallax — outer images move faster, middle moves slower
+  // Staggered parallax: outer images move faster, middle moves slower
   const speeds = [60, 20, 60];
   const y = useTransform(progress, [0, 1], [speeds[index], -speeds[index]]);
   const scale = useTransform(

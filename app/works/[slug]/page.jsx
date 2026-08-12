@@ -21,9 +21,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  if (!project) return { title: "Work — Zenith Studio" };
+  if (!project) return { title: "Work" };
   return {
-    title: `${project.title} — Zenith Studio`,
+    title: project.title,
     description: project.tagline,
   };
 }

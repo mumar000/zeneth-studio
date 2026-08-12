@@ -13,8 +13,37 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Zenith Studio - Creative Studio",
-  description: "Only The Peak Nothing Less.",
+  metadataBase: new URL("https://nymbor.com"),
+  title: {
+    default: "Nymbor | Creative Studio",
+    template: "%s | Nymbor",
+  },
+  description:
+    "Nymbor builds distinctive brand identities, high-converting interfaces, and production-ready digital experiences.",
+  applicationName: "Nymbor",
+  authors: [{ name: "Nymbor" }],
+  creator: "Nymbor",
+  publisher: "Nymbor",
+  openGraph: {
+    type: "website",
+    siteName: "Nymbor",
+    title: "Nymbor | Creative Studio",
+    description:
+      "Distinctive brand identities, high-converting interfaces, and production-ready digital experiences.",
+  },
+  twitter: {
+    card: "summary",
+    title: "Nymbor | Creative Studio",
+    description:
+      "Distinctive brand identities, high-converting interfaces, and production-ready digital experiences.",
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {

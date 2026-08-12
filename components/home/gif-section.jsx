@@ -50,10 +50,10 @@ export default function ShowreelSection() {
       frameId = requestAnimationFrame(() => setShouldLoadVideo(true));
     };
 
-    if (window.__zenithLoaderComplete) {
+    if (window.__nymborLoaderComplete) {
       beginBuffering();
     } else {
-      window.addEventListener("zenith:loader-complete", beginBuffering, {
+      window.addEventListener("nymbor:loader-complete", beginBuffering, {
         once: true,
       });
       fallbackId = window.setTimeout(beginBuffering, 1800);
@@ -62,7 +62,7 @@ export default function ShowreelSection() {
     return () => {
       if (frameId) cancelAnimationFrame(frameId);
       if (fallbackId) clearTimeout(fallbackId);
-      window.removeEventListener("zenith:loader-complete", beginBuffering);
+      window.removeEventListener("nymbor:loader-complete", beginBuffering);
     };
   }, []);
 

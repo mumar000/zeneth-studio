@@ -40,7 +40,7 @@ export default function FloatingCTA({ accent = "#7221FC" }) {
       >
         <Link
           href="/contact"
-          aria-label="Start a project with Zenith Studio"
+          aria-label="Start a project with Nymbor"
           className="block"
         >
           <motion.div

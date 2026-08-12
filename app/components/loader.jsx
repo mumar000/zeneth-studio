@@ -2,15 +2,14 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 export default function Loader() {
   const [isComplete, setIsComplete] = useState(false);
   const columns = 5;
 
   const handleExitComplete = () => {
-    window.__zenithLoaderComplete = true;
-    window.dispatchEvent(new Event("zenith:loader-complete"));
+    window.__nymborLoaderComplete = true;
+    window.dispatchEvent(new Event("nymbor:loader-complete"));
   };
 
   useEffect(() => {
@@ -63,15 +62,12 @@ export default function Loader() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.45, ease: "circOut" }}
               >
-                <Image
-                  src="/logo-2.png"
-                  alt="Zenith Logo"
-                  width={300}
-                  height={150}
-                  className="object-contain invert brightness-0 filter"
-                  priority
-                  unoptimized
-                />
+                <span
+                  className="text-[42px] font-[800] tracking-[-0.065em] text-white md:text-[58px]"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  NYMBOR
+                </span>
               </motion.div>
 
               <div className="w-64 md:w-80 h-[2px] bg-zinc-800 rounded-full overflow-hidden">

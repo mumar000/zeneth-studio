@@ -17,7 +17,7 @@ const rows = [
       title: "Logo file and vibes",
       desc: "A pretty PDF, a color palette, maybe a few rules. Then the website has to guess the rest",
     },
-    zeneth: {
+    nymbor: {
       title: "A system the site can use.",
       desc: "Type, spacing, sections, buttons, image style, and visual rules shaped for real pages.",
     },
@@ -30,7 +30,7 @@ const rows = [
       title: "Pretty screens that break.",
       desc: "The mockup looks sharp until real content, mobile views, and the platform touch it.",
     },
-    zeneth: {
+    nymbor: {
       title: "Layouts built for the real thing.",
       desc: "Pages are designed around the build, not fantasy sections that collapse later",
     },
@@ -43,7 +43,7 @@ const rows = [
       title: "The dev “gets it close.”",
       desc: "Spacing changes. Motion disappears. The live site becomes a softer version of the idea",
     },
-    zeneth: {
+    nymbor: {
       title: "The details survive launch.",
       desc: "The build keeps the design decisions intact, so the site does not lose its edge at the end.",
     },
@@ -56,7 +56,7 @@ const rows = [
       title: "Feedback through a filter.",
       desc: "Your notes turn into tickets, summaries, and “let me ask the team” moments.",
     },
-    zeneth: {
+    nymbor: {
       title: "You talk to the people making it.",
       desc: "Cleaner calls, fewer translations, and a project that does not need a middleman to make sense",
     },
@@ -120,7 +120,7 @@ export default function WebsiteGaps() {
                 className="text-base uppercase tracking-[0.08em] text-primary md:text-xl lg:text-[24px]"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
-                The Zeneth Way
+                The Nymbor Way
               </span>
             </div>
           </div>
@@ -148,7 +148,7 @@ export default function WebsiteGaps() {
                 <p className={descCls}>{row.usual.desc}</p>
               </div>
 
-              {/* Zeneth (right) */}
+              {/* Nymbor (right) */}
               <div
                 className="flex flex-col justify-center border-t border-black/70 px-5 py-6 md:min-h-[260px] md:border-t-0 md:px-16 md:py-12 lg:px-[7.75rem]"
                 style={{ backgroundColor: row.tone }}
@@ -157,9 +157,9 @@ export default function WebsiteGaps() {
                   {row.n} / {row.cat}
                 </p>
                 <h3 className={titleCls} style={{ fontFamily: "var(--font-mono)" }}>
-                  {row.zeneth.title}
+                  {row.nymbor.title}
                 </h3>
-                <p className={descCls}>{row.zeneth.desc}</p>
+                <p className={descCls}>{row.nymbor.desc}</p>
               </div>
 
               {/* Arrow on the divider (desktop) */}

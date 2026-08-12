@@ -35,7 +35,7 @@ export default function SystemBoard({ icons = [], image, accent }) {
   return (
     <section ref={ref} className="px-6 md:px-12 lg:pl-24 lg:pr-12 py-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Icon grid — staggered scale-in */}
+        {/* Icon grid with staggered scale-in */}
         <div className="relative aspect-[4/5] rounded-3xl bg-[#15171c] p-8 md:p-10 flex items-center overflow-hidden">
           <div className="grid grid-cols-4 gap-4 md:gap-6 w-full">
             {icons.slice(0, 12).map((g, i) => (
@@ -50,7 +50,7 @@ export default function SystemBoard({ icons = [], image, accent }) {
           </div>
         </div>
 
-        {/* Companion photo — parallax + zoom */}
+        {/* Companion photo with parallax and zoom */}
         <div
           className="relative aspect-[4/5] rounded-3xl overflow-hidden"
           style={{ backgroundColor: accent || "#F2B233" }}

@@ -211,7 +211,7 @@ export default function FounderSignal() {
                 }}
               >
                 {renderAnimatedText(
-                  "Zenith Studio",
+                  "Nymbor",
                   { current: founderWordsRef.current.slice(0, 2) },
                   true,
                 )}{" "}

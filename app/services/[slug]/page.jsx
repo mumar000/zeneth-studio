@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${service.label} - Zeneth Studio`,
+    title: service.label,
     description: service.description,
   };
 }

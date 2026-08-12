@@ -71,7 +71,7 @@ export function DiagnosticProtocolSection({ section }) {
                   <span className="mt-0.5 text-primary">✺</span>
                   <div>
                     <h3 className="text-[16px] font-[500] uppercase leading-[1.1] tracking-[-0.04em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>
-                      The Zeneth Fix:
+                      The Nymbor Fix:
                     </h3>
                     <p className="mt-5 max-w-[445px] text-[16px] leading-[1.45] tracking-[0.02em] text-[#12102d]/60" style={{ fontFamily: "var(--font-display)" }}>
                       {row.fix}

@@ -11,7 +11,7 @@ export default function WordmarkBlock({ image }) {
     offset: ["start end", "end start"],
   });
 
-  // Subtle vertical parallax — minimal scale, image stays sharp
+  // Subtle vertical parallax with minimal scale so the image stays sharp
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1]);
   const imgY = useTransform(scrollYProgress, [0, 1], [-20, 20]);
 

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 const NAV_LINKS = [
@@ -17,15 +16,11 @@ const Footer = () => {
       <div className="flex flex-col items-start justify-between gap-8 px-4 pb-8 pt-10 sm:px-6 md:gap-12 md:px-14 md:pb-12 md:pt-16 lg:flex-row">
 
         {/* Left: logo */}
-        <div className="shrink-0">
-          <Image
-            src="/logo-2.png"
-            alt="Zeneth Studio"
-            width={400}
-            height={200}
-            unoptimized
-            className="h-auto w-[165px] object-contain md:w-[300px]"
-          />
+        <div
+          className="shrink-0 text-[36px] font-[800] tracking-[-0.065em] text-black md:text-[56px]"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          NYMBOR
         </div>
 
         {/* Right end: nav + contact */}
@@ -67,10 +62,10 @@ const Footer = () => {
                 Submit a brief
               </Link>
               <a
-                href="mailto:Contact@Zeneth.com"
+                href="mailto:contact@nymbor.com"
                 className="break-all text-[13px] font-[400] text-[#1a1a1a] transition-colors hover:text-primary md:text-[19px]"
               >
-                Contact@Zeneth.com
+                contact@nymbor.com
               </a>
             </div>
           </div>
@@ -84,7 +79,7 @@ const Footer = () => {
           className="text-[11px] text-black/40 md:text-[13px] md:text-black/35"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          Zeneth studio © 2025 privacy
+          Nymbor © 2026 privacy
         </span>
 
         <div

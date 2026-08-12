@@ -124,7 +124,7 @@ export default function HeroSection({ startAnimation = true }) {
 
       {/* Content Container */}
       <div className="relative z-10 w-full h-full pt-8 sm:pt-12 md:pt-16 lg:pt-0">
-        {/* Main ZENITH Text - Positioned at Top */}
+        {/* Main NYMBOR Text - Positioned at Top */}
         <div className="flex flex-col items-start justify-start w-full">
           <motion.div
             className="flex items-center justify-start w-full gap-0 sm:gap-1 md:gap-2 mb-2 sm:mb-4 md:mb-4 overflow-hidden"

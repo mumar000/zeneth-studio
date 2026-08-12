@@ -8,7 +8,7 @@ const LAVENDER = "#C9B8F5";
 const CREAM = "#FFFFFF";
 
 const QUOTE =
-  "This is our 2nd project with Zeneth. Simply put, they're best in the game.";
+  "This is our 2nd project with Nymbor. Simply put, they're best in the game.";
 
 // Real brand logos live in /public/home-logo (home-logo1 = Féroce, home-logo3 = Resight)
 const FEROCE = { src: "/home-logo/home-logo1.png", w: 122, h: 18 };

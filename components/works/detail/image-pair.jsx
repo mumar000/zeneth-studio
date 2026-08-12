@@ -11,7 +11,7 @@ export default function ImagePair({ left, right }) {
     offset: ["start end", "end start"],
   });
 
-  // Left image drifts up, right image drifts down — opposite parallax
+  // Left image drifts up while the right image drifts down
   const leftY = useTransform(scrollYProgress, [0, 1], [40, -40]);
   const rightY = useTransform(scrollYProgress, [0, 1], [-30, 50]);
   // Tight scale envelope just to keep edges hidden during parallax

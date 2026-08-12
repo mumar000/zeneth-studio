@@ -49,7 +49,7 @@ export default function AboutPage() {
       {/* Section 2: Founder Signal */}
       <FounderSignal />
 
-      {/* Section 3: The Zenith Way */}
+      {/* Section 3: The Nymbor Way */}
       <section className="flex flex-col max-w-[1400px] mx-auto my-20 md:my-32">
         <div className="flex flex-col mb-12 md:mb-16">
           <motion.h2
@@ -60,7 +60,7 @@ export default function AboutPage() {
             className="text-[1.75rem] md:text-[2.5rem] font-[500] lg:text-[3rem] leading-[1.2] tracking-tight text-center"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            The <span className="italic font-romie">Zeneth Way</span> Every
+            The <span className="italic font-romie">Nymbor Way</span> Every
             project starts with clarity what your brand needs, not what looks
             &ldquo;cool.&rdquo; We strip the noise, plan the path, and build
             something that actually performs.

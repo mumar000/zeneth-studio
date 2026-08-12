@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -80,17 +79,13 @@ export default function Navbar() {
           }
         >
           {/* Logo */}
-          <Link href="/" className="shrink-0 select-none">
-            <Image
-              src="/logo-2.png"
-              alt="Zeneth Studio"
-              width={393}
-              height={160}
-              sizes="(min-width: 768px) 108px, 88px"
-              priority
-              unoptimized
-              className="h-9 md:h-11 w-auto"
-            />
+          <Link
+            href="/"
+            aria-label="Nymbor home"
+            className="shrink-0 select-none text-[21px] font-[800] tracking-[-0.06em] text-black md:text-[27px]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            NYMBOR
           </Link>
 
           {/* Center: nav pill (desktop) */}
@@ -162,7 +157,7 @@ export default function Navbar() {
             </div>
           </nav>
 
-          {/* Right: CTA — same style as hero */}
+          {/* Right: CTA, same style as hero */}
           <Link
             href="/contact"
             className="hidden md:inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-5 py-2.5 text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"

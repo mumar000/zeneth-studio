@@ -240,7 +240,7 @@
 
 :root {
   --primary: #7221fc;
-  /* Yellow accent — sampled from the hover-button design */
+  /* Yellow accent sampled from the hover-button design */
   --accent-yellow: #f8e574;
 
   --primary-rgb: 114, 33, 252;
@@ -249,11 +249,11 @@
     "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Arial, sans-serif;
   --font-romie: "Romie Trial", "Helvetica Neue", Arial, sans-serif;
-  /* Hero heading — Helvetica Now Display (drop files in /public/helvetica-now/) */
+  /* Hero heading: Helvetica Now Display (drop files in /public/helvetica-now/) */
   --font-display:
     "Helvetica Now Display", "Helvetica Neue", -apple-system,
     BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-  /* Button — JetBrains Mono loaded via next/font in layout.jsx */
+  /* Button: JetBrains Mono loaded via next/font in layout.jsx */
   --font-mono:
     var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
 }

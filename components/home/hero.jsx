@@ -28,7 +28,7 @@ export default function Hero() {
   const marqueeInView = useInView(marqueeRef, { amount: 0.01 });
 
   useEffect(() => {
-    if (window.__zenithLoaderComplete) {
+    if (window.__nymborLoaderComplete) {
       const frameId = requestAnimationFrame(() => setLoaderComplete(true));
       return () => cancelAnimationFrame(frameId);
     }
@@ -36,13 +36,13 @@ export default function Hero() {
     const handleLoaderComplete = () => setLoaderComplete(true);
     const fallback = setTimeout(handleLoaderComplete, 1800);
 
-    window.addEventListener("zenith:loader-complete", handleLoaderComplete, {
+    window.addEventListener("nymbor:loader-complete", handleLoaderComplete, {
       once: true,
     });
 
     return () => {
       clearTimeout(fallback);
-      window.removeEventListener("zenith:loader-complete", handleLoaderComplete);
+      window.removeEventListener("nymbor:loader-complete", handleLoaderComplete);
     };
   }, []);
 
@@ -132,7 +132,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Bottom marquee — grayscale client logos */}
+      {/* Bottom marquee with grayscale client logos */}
       <motion.div
         ref={marqueeRef}
         className="absolute bottom-0 left-0 right-0"

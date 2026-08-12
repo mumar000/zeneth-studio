@@ -10,19 +10,19 @@ const FAQS = [
   },
   {
     q: "Can you redesign my existing Shopify store?",
-    a: "Yes. We specialize in Shopify redesigns — from full UX overhauls to conversion-focused refreshes. We work in custom themes and Liquid.",
+    a: "Yes. We specialize in Shopify redesigns, from full UX overhauls to conversion-focused refreshes. We work in custom themes and Liquid.",
   },
   {
-    q: "What does Zeneth Studio do?",
-    a: "We build brand identities, design high-converting websites, and develop them to production — everything from visual strategy to live site.",
+    q: "What does Nymbor do?",
+    a: "We build brand identities, design high-converting websites, and develop them to production, covering everything from visual strategy to live site.",
   },
   {
-    q: "What makes Zeneth Studio different?",
+    q: "What makes Nymbor different?",
     a: "We don't separate strategy from execution. The same team that thinks about your positioning also designs and builds your product. No handoffs, no lost context.",
   },
   {
     q: "Do you help with product pages?",
-    a: "Product page optimization is one of our most common engagements — we audit, redesign, and rebuild pages to reduce bounce and increase conversion.",
+    a: "Product page optimization is one of our most common engagements. We audit, redesign, and rebuild pages to reduce bounce and increase conversion.",
   },
   {
     q: "Can you improve conversion rate?",
@@ -30,7 +30,7 @@ const FAQS = [
   },
   {
     q: "Do you work with existing brands?",
-    a: "Absolutely. Many of our clients come to us with an existing brand that needs evolution — not a rebrand from scratch. We meet you where you are.",
+    a: "Absolutely. Many of our clients come to us with an existing brand that needs evolution, not a rebrand from scratch. We meet you where you are.",
   },
 ];
 

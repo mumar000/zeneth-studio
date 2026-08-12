@@ -33,7 +33,7 @@ export default function DetailHero({ project }) {
   return (
     <section ref={ref} className="relative lg:h-[120vh]">
       <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden">
-        {/* Animated image — expands leftward to fill the container */}
+        {/* Animated image expands leftward to fill the container */}
         <motion.div
           style={{ left: imgLeft }}
           className="hidden lg:block absolute right-12 top-28 bottom-10 rounded-3xl overflow-hidden"
@@ -62,7 +62,7 @@ export default function DetailHero({ project }) {
           )}
         </motion.div>
 
-        {/* Text column — fades and slides out */}
+        {/* Text column fades and slides out */}
         <motion.div
           style={{ opacity: textOpacity, x: textX }}
           className="hidden lg:flex absolute left-24 top-28 bottom-10 w-[32%] max-w-[420px] flex-col justify-between z-10"
