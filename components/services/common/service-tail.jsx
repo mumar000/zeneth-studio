@@ -7,14 +7,14 @@ import PortfolioCta from "@/components/home/portfolio-cta";
 
 function CustomPortfolioCta({ cta }) {
   return (
-    <section className="relative z-10 w-full bg-[#F0EBFB] px-5 py-20 text-center md:px-8 md:py-28">
+    <section className="relative z-10 w-full bg-[#F0EBFB] px-5 py-14 text-center md:px-8 md:py-28">
       <div className="mx-auto flex max-w-[1180px] flex-col items-center">
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-[15px] font-[700] uppercase tracking-[0.13em] text-primary"
+          className="text-[12px] font-[700] uppercase tracking-[0.13em] text-primary md:text-[15px]"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           {cta.eyebrow}
@@ -25,7 +25,7 @@ function CustomPortfolioCta({ cta }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-          className="mt-10 max-w-[1120px] text-[52px] font-[700] leading-[1.06] tracking-[-0.045em] text-[#202024] sm:text-[68px] md:text-[82px]"
+          className="mt-5 max-w-[1120px] text-[32px] font-[700] leading-[1.06] tracking-[-0.04em] text-[#202024] sm:text-[40px] md:mt-10 md:text-[82px] md:tracking-[-0.045em]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {cta.title}
@@ -36,7 +36,7 @@ function CustomPortfolioCta({ cta }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-8 max-w-[1080px] text-[22px] leading-[1.22] tracking-[-0.035em] text-[#202024] md:text-[27px]"
+          className="mt-4 max-w-[1080px] text-[15px] leading-[1.5] tracking-[-0.02em] text-[#202024] md:mt-8 md:text-[27px] md:leading-[1.22] md:tracking-[-0.035em]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {cta.description}
@@ -47,7 +47,7 @@ function CustomPortfolioCta({ cta }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.22 }}
-          className="mt-9"
+          className="mt-6 md:mt-9"
         >
           <Link
             href={cta.href || "/contact"}

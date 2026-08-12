@@ -15,6 +15,7 @@ export default function FeaturedProjectsSection() {
   const projects = [
     {
       name: "Mogul Bay",
+      href: "/works/mogulbay",
       image: "/mogulbay/1.webp",
       year: "",
       category: "Brand + Web App",
@@ -26,6 +27,7 @@ export default function FeaturedProjectsSection() {
     },
     {
       name: "Let's Grub",
+      href: "/works/lets-grub",
       image: "/let-grub/frame-1948758999.webp",
       year: "",
       category: "Brand Identity",
@@ -37,6 +39,7 @@ export default function FeaturedProjectsSection() {
     },
     {
       name: "Feroce",
+      href: "/works/feroce",
       image: "/feroce/branding-feroce-page-0001-1.webp",
       year: "",
       category: "Brand Identity",
@@ -48,6 +51,7 @@ export default function FeaturedProjectsSection() {
     },
     {
       name: "Voyager",
+      href: "/works/voyager-supplements",
       image: "/voyager/image_5.webp",
       year: "",
       category: "Brand + E-commerce",
@@ -77,6 +81,8 @@ export default function FeaturedProjectsSection() {
     let ctx;
 
     const setupScroller = async () => {
+      if (!window.matchMedia("(min-width: 768px)").matches) return;
+
       const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
         import("gsap"),
         import("gsap/ScrollTrigger"),
@@ -148,11 +154,102 @@ export default function FeaturedProjectsSection() {
   }, [projects.length]);
 
   return (
-    <section
-      ref={projectsSectionRef}
-      className="relative z-50"
-      style={{ height: `${projects.length * 100}vh` }}
-    >
+    <>
+      <section className="relative z-10 bg-[#fffcf7] px-4 py-14 md:hidden">
+        <div className="mx-auto max-w-xl">
+          <p
+            className="text-xs font-[600] uppercase tracking-[0.18em] text-primary"
+            style={{ fontFamily: "var(--font-sora)" }}
+          >
+            Featured Projects
+          </p>
+          <div className="mt-7 space-y-5">
+            {projects.map((project, index) => (
+              <motion.article
+                key={project.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.55,
+                  delay: index * 0.05,
+                  ease: [0.25, 1, 0.5, 1],
+                }}
+              >
+                <Link
+                  href={project.href}
+                  className="group block overflow-hidden rounded-[20px] border border-white/10 bg-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-black">
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      sizes="100vw"
+                      quality={70}
+                      priority={index === 0}
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
+                    />
+                  </div>
+                  <div className="p-5 sm:p-6">
+                    <p
+                      className="text-[10px] font-[600] uppercase tracking-[0.16em] text-primary"
+                      style={{ fontFamily: "var(--font-mono)" }}
+                    >
+                      {project.category}
+                    </p>
+                    <div className="mt-2 flex items-center justify-between gap-4">
+                      <h3
+                        className="text-3xl font-[700] tracking-[-0.04em] text-white"
+                        style={{ fontFamily: "var(--font-display)" }}
+                      >
+                        {project.name}
+                      </h3>
+                      <span className="text-xl text-white/70 transition-transform group-hover:translate-x-1">
+                        →
+                      </span>
+                    </div>
+                    <p
+                      className="mt-3 text-sm leading-relaxed text-white/60"
+                      style={{ fontFamily: "var(--font-sora)" }}
+                    >
+                      {project.description}
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag.label}
+                          className={`rounded-md px-2.5 py-1.5 text-[9px] font-[600] uppercase tracking-[0.08em] ${
+                            tag.tone === "yellow"
+                              ? "bg-[var(--accent-yellow)] text-black"
+                              : "bg-primary text-white"
+                          }`}
+                          style={{ fontFamily: "var(--font-mono)" }}
+                        >
+                          {tag.label}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </div>
+          <Link
+            href="/works"
+            className="mt-8 inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-6 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#fff]"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            View All Projects
+          </Link>
+        </div>
+      </section>
+
+      <section
+        ref={projectsSectionRef}
+        className="relative z-50 hidden md:block"
+        style={{ height: `${projects.length * 100}vh` }}
+      >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full opacity-40 blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0  w-[600px] h-[600px] bg-primary/15 rounded-full opacity-30 blur-[150px] pointer-events-none" />
 
@@ -160,13 +257,13 @@ export default function FeaturedProjectsSection() {
         ref={stickyContainerRef}
         className="projects-sticky-container flex h-dvh w-full items-center justify-center px-3 sm:px-5 lg:px-8"
       >
-        <div className="relative h-[82dvh] w-full max-w-[1800px] overflow-hidden rounded-[20px] border border-white/20 bg-[#060606] shadow-2xl shadow-purple-500/10 sm:rounded-[28px]">
+        <div className="relative h-[82dvh] w-full max-w-[1800px] overflow-hidden rounded-[20px] border border-white/20 bg-[#060606] shadow-2xl shadow-primary/10 sm:rounded-[28px]">
           <div className="relative z-10 grid h-full grid-cols-1 md:grid-cols-[minmax(0,44%)_minmax(0,56%)]">
             {/* --- LEFT SIDE (TEXT) --- */}
             <div className="relative z-20 hidden h-full min-w-0 flex-col justify-center p-6 md:flex lg:p-10 xl:p-12">
               <div className="absolute top-0 left-0 w-full p-8 lg:p-12 z-40">
                 <p
-                  className="text-sm text-purple-400/80 tracking-wider uppercase font-medium"
+                  className="text-sm font-medium uppercase tracking-wider text-primary/80"
                   style={{ fontFamily: "var(--font-sora)" }}
                 >
                   Featured Projects
@@ -309,7 +406,7 @@ export default function FeaturedProjectsSection() {
                           >
                             <div className="bg-black/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl">
                               <div className="flex justify-between items-start mb-2">
-                                <span className="text-purple-400 font-mono text-xs uppercase tracking-widest">
+                                <span className="font-mono text-xs uppercase tracking-widest text-primary">
                                   {project.category}
                                 </span>
                                 <span className="text-white/60 font-mono text-xs">
@@ -355,6 +452,7 @@ export default function FeaturedProjectsSection() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

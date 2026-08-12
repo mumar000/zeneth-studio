@@ -216,13 +216,13 @@ export default function JourneySection() {
   return (
     <section className="relative bg-[#0f0a1a] min-h-screen overflow-hidden py-20 ">
       {/* Center glow */}
-      <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] md:w-[900px] h-[200px]  md:h-[400px] bg-purple-900 rounded-full opacity-30 blur-[120px] pointer-events-none" />
+      <div className="pointer-events-none absolute left-0 top-1/2 h-[200px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary opacity-30 blur-[120px] sm:w-[600px] md:h-[400px] md:w-[900px]" />
 
       {/* Content */}
       <div className="relative z-30 w-full  mx-auto px-4 sm:px-6 lg:px-18">
         {/* Header */}
         <div className="text-left mb-16 sm:mb-20">
-          <div className="inline-block border bg-primary/50 border-purple-500/50 rounded-full px-6 py-2 mb-4">
+          <div className="mb-4 inline-block rounded-full border border-primary/50 bg-primary/50 px-6 py-2">
             <h1
               className="text-lg sm:text-xl md:text-xl font-light"
               style={{ fontFamily: "var(--font-sora)" }}
@@ -238,7 +238,7 @@ export default function JourneySection() {
             <div key={index} className="relative group">
               {/* Border - white by default, purple on hover */}
               {index > 0 && (
-                <div className="absolute -top-8 sm:-top-10 left-0 right-0 h-[2px] bg-gradient-to-r from-white via-white to-transparent opacity-30 group-hover:from-primary group-hover:via-purple-500 group-hover:opacity-50 transition-all duration-300" />
+                <div className="absolute -top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-white via-white to-transparent opacity-30 transition-all duration-300 group-hover:from-primary group-hover:via-primary group-hover:opacity-50 sm:-top-10" />
               )}
 
               <div className="grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center cursor-pointer">

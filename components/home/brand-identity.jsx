@@ -282,14 +282,14 @@ export default function BrandIdentitySection({
   // Different background colors for each card
   const colorMap = {
     first: "bg-gradient-to-br from-blue-100/90 to-indigo-100/90", // Soft blue gradient
-    second: "bg-gradient-to-br from-purple-100/90 to-pink-100/90", // Soft purple-pink gradient
+    second: "bg-gradient-to-br from-primary/10 to-pink-100/90", // Soft purple-pink gradient
     third: "bg-gradient-to-br from-amber-100/90 to-orange-100/90", // Soft warm gradient
   };
 
   // Border colors to match the background
   const borderColorMap = {
     first: "border-blue-200/60",
-    second: "border-purple-200/60",
+    second: "border-primary/20",
     third: "border-amber-200/60",
   };
 

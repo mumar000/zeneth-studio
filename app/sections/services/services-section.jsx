@@ -53,7 +53,7 @@ const ServicesSection = () => {
 
       {/* Floating Badge */}
       <div className="text-left px-18 pb-10">
-        <div className="inline-block border bg-primary/50 border-purple-500/50 rounded-full px-6 py-2 mb-4">
+        <div className="mb-4 inline-block rounded-full border border-primary/50 bg-primary/50 px-6 py-2">
           <h1
             className="text-lg sm:text-xl md:text-xl font-light"
             style={{ fontFamily: "var(--font-sora)" }}
@@ -115,7 +115,7 @@ const Card = ({ card }) => {
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 select-none">
         <div className="flex flex-col gap-2">
-          <span className="text-purple-400 font-medium tracking-wider uppercase text-sm">
+          <span className="text-sm font-medium uppercase tracking-wider text-primary">
             {card.category}
           </span>
           <h3

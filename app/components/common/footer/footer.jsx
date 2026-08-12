@@ -11,10 +11,10 @@ const NAV_LINKS = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white border-t border-black/8">
+    <footer className="w-full border-t border-black/8 bg-white">
 
       {/* Main content */}
-      <div className="px-8 md:px-14 pt-14 pb-10 md:pt-16 md:pb-12 flex flex-col lg:flex-row items-start justify-between gap-12">
+      <div className="flex flex-col items-start justify-between gap-8 px-4 pb-8 pt-10 sm:px-6 md:gap-12 md:px-14 md:pb-12 md:pt-16 lg:flex-row">
 
         {/* Left: logo */}
         <div className="shrink-0">
@@ -24,23 +24,23 @@ const Footer = () => {
             width={400}
             height={200}
             unoptimized
-            className="w-[220px] md:w-[300px] h-auto object-contain"
+            className="h-auto w-[165px] object-contain md:w-[300px]"
           />
         </div>
 
         {/* Right end: nav + contact */}
-        <div className="flex flex-col sm:flex-row gap-14 lg:gap-20">
+        <div className="grid w-full grid-cols-2 gap-6 md:flex md:w-auto md:flex-row md:gap-14 lg:gap-20">
 
           {/* Nav links */}
           <nav
-            className="flex flex-col gap-5"
+            className="flex flex-col gap-3.5 md:gap-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[22px] md:text-[26px] font-[500] text-[#1a1a1a] hover:text-primary transition-colors leading-none"
+                className="text-[17px] font-[500] leading-none text-[#1a1a1a] transition-colors hover:text-primary md:text-[26px]"
               >
                 {link.label}
               </Link>
@@ -49,26 +49,26 @@ const Footer = () => {
 
           {/* CTA + contact */}
           <div
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-4 md:gap-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            <p className="text-[26px] md:text-[30px] font-[600] text-[#1a1a1a] leading-[1.25]">
+            <p className="text-[20px] font-[600] leading-[1.2] text-[#1a1a1a] md:text-[30px] md:leading-[1.25]">
               Let&apos;s make{" "}
               <span className="text-primary">→</span>
               <br />
               something wonderful
             </p>
 
-            <div className="flex flex-col gap-2 mt-1">
+            <div className="mt-1 flex flex-col gap-1.5 md:gap-2">
               <Link
                 href="/contact"
-                className="text-[17px] md:text-[19px] font-[400] text-[#1a1a1a] hover:text-primary transition-colors"
+                className="text-[13px] font-[400] text-[#1a1a1a] transition-colors hover:text-primary md:text-[19px]"
               >
                 Submit a brief
               </Link>
               <a
                 href="mailto:Contact@Zeneth.com"
-                className="text-[17px] md:text-[19px] font-[400] text-[#1a1a1a] hover:text-primary transition-colors"
+                className="break-all text-[13px] font-[400] text-[#1a1a1a] transition-colors hover:text-primary md:text-[19px]"
               >
                 Contact@Zeneth.com
               </a>
@@ -79,16 +79,16 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-black/10 px-8 md:px-14 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="flex flex-col items-start justify-between gap-2.5 border-t border-black/10 px-4 py-4 sm:px-6 md:flex-row md:items-center md:px-14">
         <span
-          className="text-[13px] text-black/35"
+          className="text-[11px] text-black/40 md:text-[13px] md:text-black/35"
           style={{ fontFamily: "var(--font-sora)" }}
         >
           Zeneth studio © 2025 privacy
         </span>
 
         <div
-          className="flex items-center gap-3 text-[13px] text-black/35"
+          className="flex flex-wrap items-center gap-2 text-[11px] text-black/40 md:gap-3 md:text-[13px] md:text-black/35"
           style={{ fontFamily: "var(--font-sora)" }}
         >
           <a href="#" className="hover:text-black/70 transition-colors">Twitter</a>

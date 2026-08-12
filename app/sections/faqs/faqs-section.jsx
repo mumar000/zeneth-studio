@@ -31,12 +31,12 @@ const faqData = [
 
 const AccordionItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="border-b border-purple-500/20 last:border-none">
+    <div className="border-b border-primary/20 last:border-none">
       <button
         onClick={onClick}
-        className="w-full py-8 flex items-center justify-between text-left group transition-colors"
+        className="group flex w-full items-center justify-between py-5 text-left transition-colors md:py-8"
       >
-        <span className="text-lg md:text-3xl font-medium text-white group-hover:text-purple-400 transition-colors duration-300 pr-8">
+        <span className="pr-5 text-base font-medium leading-snug text-white transition-colors duration-300 group-hover:text-primary md:pr-8 md:text-3xl">
           {question}
         </span>
         <motion.div
@@ -44,7 +44,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
           transition={{ duration: 0.3, ease: "circOut" }}
           className="flex-shrink-0 text-white"
         >
-          <ArrowDown className="w-6 h-6" strokeWidth={1.5} />
+          <ArrowDown className="h-5 w-5 md:h-6 md:w-6" strokeWidth={1.5} />
         </motion.div>
       </button>
 
@@ -57,7 +57,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-8 text-gray-400 text-lg md:text-xl leading-relaxed max-w-4xl">
+            <div className="max-w-4xl pb-5 text-sm leading-relaxed text-gray-400 md:pb-8 md:text-xl">
               {answer}
             </div>
           </motion.div>
@@ -75,22 +75,22 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="bg-[#0f0a1a] relative min-h-screen w-full px-6 py-8 md:px-12 lg:px-12 flex flex-col justify-center">
-      <div className="absolute top-1/4 -left-20   h-[100px] w-[400px] rounded-full bg-[#8a38f5]/50 blur-[120px] pointer-events-none" />
+    <section className="relative flex w-full flex-col justify-center bg-[#0f0a1a] px-4 py-14 md:min-h-screen md:px-12 md:py-8 lg:px-12">
+      <div className="absolute top-1/4 -left-20 h-[100px] w-[400px] rounded-full bg-primary/50 blur-[120px] pointer-events-none" />
 
-      <div className="px-10 w-full">
+      <div className="w-full md:px-10">
         {/* Header */}
-        <div className="w-full  mb-16">
+        <div className="mb-8 w-full md:mb-16">
           <h2
-            className="text-5xl md:text-7xl font-medium text-white tracking-tight"
+            className="text-3xl font-medium tracking-tight text-white md:text-7xl"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            FAQ<span className="text-[#8a38f5]">'S</span>
+            FAQ<span className="text-primary">&apos;S</span>
           </h2>
         </div>
 
         {/* Accordion List */}
-        <div className="border-t border-purple-500/20 mb-16">
+        <div className="mb-8 border-t border-primary/20 md:mb-16">
           {faqData.map((item, index) => (
             <AccordionItem
               key={index}
@@ -104,7 +104,7 @@ export default function FaqSection() {
 
         {/* Button */}
         <div>
-          <button className="bg-[#8b5cf6] hover:bg-[#7c3aed] text-white font-medium py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+          <button className="rounded-full bg-primary px-6 py-2.5 text-sm font-medium text-white shadow-[0_0_20px_rgba(114,33,252,0.3)] transition-all duration-300 hover:scale-105 hover:bg-primary-700 md:px-8 md:py-3 md:text-lg">
             Show More
           </button>
         </div>

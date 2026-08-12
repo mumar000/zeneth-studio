@@ -61,9 +61,9 @@ function VideoCard({ video, index, onOpen }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] }}
-      className={`group relative aspect-[3/4] cursor-pointer overflow-hidden rounded-[24px] bg-[#111] transition-[box-shadow,border-color] duration-300 ${
+      className={`group relative aspect-video cursor-pointer overflow-hidden rounded-[18px] bg-[#111] transition-[box-shadow,border-color] duration-300 sm:aspect-[3/4] sm:rounded-[24px] ${
         video.src
-          ? "border border-black/10 shadow-[0_18px_50px_rgba(20,12,35,0.16)] hover:border-[#7C3AED]/45 hover:shadow-[0_24px_70px_rgba(69,30,120,0.24)]"
+          ? "border border-black/10 shadow-[0_18px_50px_rgba(20,12,35,0.16)] hover:border-primary/45 hover:shadow-[0_24px_70px_rgba(114,33,252,0.2)]"
           : "rounded-[18px]"
       }`}
     >
@@ -72,7 +72,7 @@ function VideoCard({ video, index, onOpen }) {
           type="button"
           onClick={() => onOpen(video.src)}
           aria-label="Play client testimonial video"
-          className="absolute inset-0 h-full w-full bg-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[#7C3AED]"
+          className="absolute inset-0 h-full w-full bg-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary"
         >
           <video
             ref={videoRef}
@@ -84,16 +84,16 @@ function VideoCard({ video, index, onOpen }) {
             preload="metadata"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
           />
-          <span className="pointer-events-none absolute left-5 top-5 z-10 flex items-center rounded-xl border border-white/15 bg-black/35 px-3.5 py-2.5 shadow-lg backdrop-blur-md">
+          <span className="pointer-events-none absolute left-3 top-3 z-10 flex items-center rounded-lg border border-white/15 bg-black/35 px-2.5 py-2 shadow-lg backdrop-blur-md sm:left-5 sm:top-5 sm:rounded-xl sm:px-3.5 sm:py-2.5">
             <Image
               src="/voyager-supplements-logo.png"
               alt="Voyager Supplements"
               width={500}
               height={195}
-              className="h-auto w-[118px] sm:w-[128px]"
+              className="h-auto w-[96px] sm:w-[128px]"
             />
           </span>
-          <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/75 via-black/20 to-transparent px-6 pb-6 pt-24 text-left text-white">
+          <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/75 via-black/20 to-transparent px-4 pb-4 pt-16 text-left text-white sm:px-6 sm:pb-6 sm:pt-24">
             <span>
               <span
                 className="block text-[10px] font-[600] uppercase tracking-[0.2em] text-white/60"
@@ -102,13 +102,13 @@ function VideoCard({ video, index, onOpen }) {
                 Client story
               </span>
               <span
-                className="mt-1.5 block text-base font-[500] tracking-[-0.02em]"
+                className="mt-1 block text-sm font-[500] tracking-[-0.02em] sm:mt-1.5 sm:text-base"
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 Watch the full story
               </span>
             </span>
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md transition-colors duration-200 group-hover:bg-white group-hover:text-black">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md transition-colors duration-200 group-hover:bg-white group-hover:text-black sm:h-10 sm:w-10">
               <ArrowUpRight className="h-4 w-4" />
             </span>
           </span>
@@ -126,7 +126,7 @@ function VideoCard({ video, index, onOpen }) {
 function PlayButton() {
   return (
     <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
-      <span className="w-[60px] h-[60px] rounded-full bg-[#7C3AED] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
+      <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-primary shadow-lg transition-transform duration-200 group-hover:scale-110">
         <svg
           width="22"
           height="22"
@@ -163,14 +163,14 @@ export default function ClientProof() {
   return (
     <>
       {/* ── CLIENT PROOF: video cards ── */}
-      <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-16 md:py-24 bg-[#F0EBFB]">
+      <section className="relative z-10 w-full bg-[#F0EBFB] px-4 py-12 sm:px-6 md:px-10 md:py-24">
         <div className="mx-auto max-w-[1400px]">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-center text-[11px] font-[600] tracking-[0.22em] uppercase text-[#7C3AED] mb-10 md:mb-14"
+            className="mb-6 text-center text-[11px] font-[600] uppercase tracking-[0.22em] text-primary md:mb-14"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             Client Proof
@@ -199,16 +199,16 @@ export default function ClientProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 1, 0.5, 1] }}
-              className="bg-[#FEFEF4] px-10 py-10 md:px-20 md:py-10 flex flex-col items-center justify-center text-center"
+              className="flex flex-col items-center justify-center bg-[#FEFEF4] px-6 py-7 text-center md:px-20 md:py-10"
             >
               <h3
-                className="text-[22px] md:text-[26px] font-[400] text-[#1a1a1a]"
+                className="text-[19px] font-[400] text-[#1a1a1a] md:text-[26px]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {step.number} — {step.title}
               </h3>
               <p
-                className="mt-6 text-[16px] leading-[1.3] text-[#3a3a3a] max-w-[400px]"
+                className="mt-3 max-w-[400px] text-[14px] leading-[1.4] text-[#3a3a3a] md:mt-6 md:text-[16px] md:leading-[1.3]"
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 {step.description}

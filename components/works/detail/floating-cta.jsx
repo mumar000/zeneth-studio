@@ -25,7 +25,7 @@ function isLight(hex) {
   return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.55;
 }
 
-export default function FloatingCTA({ accent = "#7C3AED" }) {
+export default function FloatingCTA({ accent = "#7221FC" }) {
   const textColor = isLight(accent) ? "#0E0E10" : "#FFFFFF";
   const ringColor = isLight(accent)
     ? "rgba(0,0,0,0.12)"

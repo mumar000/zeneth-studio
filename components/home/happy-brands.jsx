@@ -28,20 +28,20 @@ const testimonials = [
 
 export default function HappyBrands() {
   return (
-    <section className="relative z-10 w-full px-4 sm:px-6 md:px-10 py-20 md:py-28 ">
+    <section className="relative z-10 w-full px-4 py-14 sm:px-6 md:px-10 md:py-28">
       <div className="mx-auto max-w-[1800px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="text-center text-4xl sm:text-5xl md:text-6xl font-[700] tracking-[-0.03em] text-[#1a1a1a]"
+          className="text-center text-3xl font-[700] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:text-6xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           300+ Happy Brands Worldwide
         </motion.h2>
 
-        <div className="mt-14 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-0 md:mt-20 lg:grid-cols-4">
           {testimonials.map((t, i) => (
             <motion.figure
               key={i}
@@ -53,7 +53,7 @@ export default function HappyBrands() {
                 delay: i * 0.08,
                 ease: [0.25, 1, 0.5, 1],
               }}
-              className="relative flex min-h-[400px] md:min-h-[420px] flex-col rounded-[15px] border-y border-r border-black p-8 md:p-10"
+              className="relative flex min-h-[285px] flex-col rounded-[15px] border border-black p-5 sm:min-h-[320px] sm:border-y sm:border-l-0 sm:border-r md:min-h-[420px] md:p-10"
               style={{ backgroundColor: t.tone }}
             >
               <Image
@@ -65,7 +65,7 @@ export default function HappyBrands() {
               />
 
               <blockquote
-                className="absolute inset-x-8 top-1/2 -translate-y-1/2 text-left text-xl leading-[1.4] text-[#1a1a1a] md:inset-x-10 md:text-2xl"
+                className="absolute inset-x-5 top-1/2 -translate-y-1/2 text-left text-lg leading-[1.4] text-[#1a1a1a] sm:text-xl md:inset-x-10 md:text-2xl"
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 <span>&ldquo;{t.quote}&rdquo;</span>

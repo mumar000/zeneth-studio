@@ -21,9 +21,9 @@ export default function ContactSection() {
             {/* Heading */}
             <div className="flex items-center gap-4">
               <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white">
-                <span className="text-[#8b5cf6]">Let’s</span> Connect
+                <span className="text-primary">Let’s</span> Connect
               </h1>
-              <ArrowRight className="text-[#8b5cf6] w-10 h-10 md:w-14 md:h-14 mt-2" />
+              <ArrowRight className="mt-2 h-10 w-10 text-primary md:h-14 md:w-14" />
             </div>
 
             {/* Sticker Image Card */}
@@ -55,7 +55,7 @@ export default function ContactSection() {
                 <input
                   type="text"
                   placeholder="John Doe"
-                  className="w-full bg-transparent border-b border-gray-700 text-gray-300 pb-4 text-lg focus:outline-none focus:border-[#8b5cf6] transition-colors placeholder:text-gray-600"
+                  className="w-full border-b border-gray-700 bg-transparent pb-4 text-lg text-gray-300 transition-colors placeholder:text-gray-600 focus:border-primary focus:outline-none"
                 />
               </div>
 
@@ -67,7 +67,7 @@ export default function ContactSection() {
                 <input
                   type="email"
                   placeholder="John Doe@mail.com"
-                  className="w-full bg-transparent border-b border-gray-700 text-gray-300 pb-4 text-lg focus:outline-none focus:border-[#8b5cf6] transition-colors placeholder:text-gray-600"
+                  className="w-full border-b border-gray-700 bg-transparent pb-4 text-lg text-gray-300 transition-colors placeholder:text-gray-600 focus:border-primary focus:outline-none"
                 />
               </div>
 
@@ -79,7 +79,7 @@ export default function ContactSection() {
                 <textarea
                   rows="1"
                   placeholder="Type Something...."
-                  className="w-full bg-transparent border-b border-gray-700 text-gray-300 pb-4 text-lg focus:outline-none focus:border-[#8b5cf6] transition-colors placeholder:text-gray-600 resize-none"
+                  className="w-full resize-none border-b border-gray-700 bg-transparent pb-4 text-lg text-gray-300 transition-colors placeholder:text-gray-600 focus:border-primary focus:outline-none"
                 />
               </div>
 
@@ -87,7 +87,7 @@ export default function ContactSection() {
               <div className="pt-4">
                 <button
                   type="button"
-                  className="bg-[#8b5cf6] hover:bg-[#7c3aed] text-white text-lg font-medium py-4 px-10 rounded-full w-auto transition-all duration-300 shadow-[0_4px_20px_rgba(139,92,246,0.4)] hover:shadow-[0_4px_30px_rgba(139,92,246,0.6)] hover:-translate-y-1"
+                  className="w-auto rounded-full bg-primary px-10 py-4 text-lg font-medium text-white shadow-[0_4px_20px_rgba(114,33,252,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-primary-700 hover:shadow-[0_4px_30px_rgba(114,33,252,0.6)]"
                 >
                   Send Message
                 </button>

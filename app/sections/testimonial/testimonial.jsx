@@ -45,7 +45,7 @@ const TestimonialSlider = () => {
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#0f0a1a] py-24 min-h-screen">
       {/* Background Glow */}
-      <div className="absolute top-1/3 -right-20  h-[300px] w-[600px] rounded-full bg-[#8a38f5]/50 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-20  h-[300px] w-[600px] rounded-full bg-primary/50 blur-[120px] pointer-events-none" />
 
       {/* Header - Removed max-w-7xl, allows full width alignment */}
       <div className="w-full px-12 mb-16">
@@ -53,7 +53,7 @@ const TestimonialSlider = () => {
           className="text-5xl md:text-7xl font-medium text-white tracking-tight"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          What <span className="text-[#8a38f5]">our clients</span> say
+          What <span className="text-primary">our clients</span> say
         </h2>
       </div>
 
@@ -156,13 +156,13 @@ const TestimonialSlider = () => {
         <div className="absolute bottom-[-60px] flex gap-4 z-20">
           <button
             onClick={handlePrev}
-            className="h-14 w-14 rounded-full border border-white/20 bg-white/5 text-white hover:bg-[#8a38f5] hover:border-[#8a38f5] flex items-center justify-center transition-colors"
+            className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-colors hover:border-primary hover:bg-primary"
           >
             <ChevronLeft size={28} />
           </button>
           <button
             onClick={handleNext}
-            className="h-14 w-14 rounded-full border border-white/20 bg-white/5 text-white hover:bg-[#8a38f5] hover:border-[#8a38f5] flex items-center justify-center transition-colors"
+            className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white transition-colors hover:border-primary hover:bg-primary"
           >
             <ChevronRight size={28} />
           </button>

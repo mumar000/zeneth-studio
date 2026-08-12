@@ -65,7 +65,7 @@ export default function AlignmentCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-5xl lg:text-6xl text-[#1a1a1a] leading-tight mb-8"
+              className="mb-8 text-3xl leading-tight text-[#1a1a1a] md:text-5xl lg:text-6xl"
               style={{ fontFamily: "var(--font-sora)" }}
             >
               <span className="italic font-romie font-[400]">Only</span>{" "}
@@ -82,9 +82,9 @@ export default function AlignmentCTA() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10">
-                We don't take on every project. We look for founders who have
+                We don&apos;t take on every project. We look for founders who have
                 built something great and need the visual authority to match it.
-                If that's you, let's talk.
+                If that&apos;s you, let&apos;s talk.
               </p>
             </motion.div>
 
@@ -98,7 +98,7 @@ export default function AlignmentCTA() {
             >
               <motion.button
                 ref={buttonRef}
-                className="group relative inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full text-base md:text-lg font-[500] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-8 py-4 text-base font-[500] text-white shadow-lg transition-shadow duration-300 hover:shadow-xl md:text-lg"
                 style={{
                   x: xSpring,
                   y: ySpring,
@@ -109,7 +109,7 @@ export default function AlignmentCTA() {
               >
                 {/* Animated gradient background on hover */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0 bg-primary-700 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   initial={false}
                 />
 
@@ -147,7 +147,7 @@ export default function AlignmentCTA() {
 
                 {/* Glow effect */}
                 <motion.div
-                  className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-purple-500 rounded-full opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500 -z-10"
+                  className="absolute -inset-1 -z-10 rounded-full bg-primary opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-50"
                   initial={false}
                 />
               </motion.button>

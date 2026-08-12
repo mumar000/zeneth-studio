@@ -63,13 +63,13 @@ const rows = [
   },
 ];
 
-const labelCls = "text-base font-[600] text-black/55 md:text-lg lg:text-xl";
-const titleCls = "mt-5 text-2xl leading-[1.15] text-[#1a1a1a] md:text-3xl lg:text-[34px]";
-const descCls = "mt-5 max-w-[560px] text-base leading-[1.25] text-black/55 md:text-lg lg:text-[20px]";
+const labelCls = "text-xs font-[600] text-black/55 md:text-lg lg:text-xl";
+const titleCls = "mt-3 text-xl leading-[1.15] text-[#1a1a1a] md:mt-5 md:text-3xl lg:text-[34px]";
+const descCls = "mt-3 max-w-[560px] text-sm leading-[1.45] text-black/55 md:mt-5 md:text-lg md:leading-[1.25] lg:text-[20px]";
 
 export default function WebsiteGaps() {
   return (
-    <section className="relative z-10 w-full px-4 py-24 sm:px-6 md:px-8 md:py-28 lg:px-10">
+    <section className="relative z-10 w-full px-4 py-14 sm:px-6 md:px-8 md:py-28 lg:px-10">
       <div className="mx-auto max-w-[1840px]">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -85,7 +85,7 @@ export default function WebsiteGaps() {
             Why This Exists
           </p>
           <h2
-            className="mx-auto mt-9 max-w-[1120px] text-5xl font-[700] leading-[0.98] tracking-[-0.03em] text-[#1a1a1a] sm:text-6xl md:text-7xl lg:text-[80px]"
+            className="mx-auto mt-7 max-w-[1120px] text-3xl font-[700] leading-[0.98] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:mt-9 md:text-7xl lg:text-[80px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Most websites die in the gaps between people.
@@ -97,12 +97,12 @@ export default function WebsiteGaps() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="mt-14 overflow-hidden rounded-[20px] border border-black/70 md:mt-20"
+          className="mt-8 overflow-hidden rounded-[16px] border border-black/70 md:mt-20 md:rounded-[20px]"
         >
           {/* Header */}
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div
-              className="flex min-h-[74px] items-center px-8 md:border-r md:px-16 lg:px-16"
+              className="flex min-h-[56px] items-center px-5 md:min-h-[74px] md:border-r md:px-16 lg:px-16"
               style={{ backgroundColor: CREAM }}
             >
               <span
@@ -133,7 +133,7 @@ export default function WebsiteGaps() {
             >
               {/* Usual (left) */}
               <div
-                className="flex min-h-[230px] flex-col justify-center px-8 py-10 md:min-h-[260px] md:border-r md:border-black/70 md:px-16 md:py-12 lg:px-16"
+                className="flex flex-col justify-center px-5 py-6 md:min-h-[260px] md:border-r md:border-black/70 md:px-16 md:py-12 lg:px-16"
                 style={{ backgroundColor: CREAM }}
               >
                 <p className={labelCls}>
@@ -150,7 +150,7 @@ export default function WebsiteGaps() {
 
               {/* Zeneth (right) */}
               <div
-                className="flex min-h-[230px] flex-col justify-center border-t border-black/70 px-8 py-10 md:min-h-[260px] md:border-t-0 md:px-16 md:py-12 lg:px-[7.75rem]"
+                className="flex flex-col justify-center border-t border-black/70 px-5 py-6 md:min-h-[260px] md:border-t-0 md:px-16 md:py-12 lg:px-[7.75rem]"
                 style={{ backgroundColor: row.tone }}
               >
                 <p className={labelCls}>

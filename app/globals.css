@@ -239,11 +239,11 @@
 }
 
 :root {
-  --primary: #8a38f5;
+  --primary: #7221fc;
   /* Yellow accent — sampled from the hover-button design */
   --accent-yellow: #f8e574;
 
-  --primary-rgb: 138, 56, 245;
+  --primary-rgb: 114, 33, 252;
   /* Use Helvetica Neue stack for the former Sora variable */
   --font-sora:
     "Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -269,8 +269,8 @@
   --color-primary-200: #ddd6fe;
   --color-primary-300: #c4b5fd;
   --color-primary-400: #a78bfa;
-  --color-primary-500: #8a38f5;
-  --color-primary-600: #7c3aed;
+  --color-primary-500: #7221fc;
+  --color-primary-600: #7221fc;
   --color-primary-700: #6d28d9;
   --color-primary-800: #5b21b6;
   --color-primary-900: #4c1d95;

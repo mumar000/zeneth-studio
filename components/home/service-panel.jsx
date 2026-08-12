@@ -36,26 +36,26 @@ export default function ServicePanel({
         delay: index * 0.08,
         ease: [0.25, 1, 0.5, 1],
       }}
-      className="grid min-h-[720px] grid-cols-1 overflow-hidden rounded-[10px] border border-[#d9d0ed] bg-white lg:min-h-[760px] lg:grid-cols-[45.5%_54.5%] xl:min-h-[790px]"
+      className="grid grid-cols-1 overflow-hidden rounded-[14px] border border-[#d9d0ed] bg-white md:min-h-[720px] lg:min-h-[760px] lg:grid-cols-[45.5%_54.5%] xl:min-h-[790px]"
     >
-      <div className="flex min-h-[720px] flex-col bg-white px-7 py-10 sm:px-10 sm:py-12 md:px-14 lg:min-h-0 lg:px-[clamp(3.5rem,4.2vw,5rem)] lg:py-[clamp(3.5rem,7vh,4.5rem)]">
+      <div className="flex flex-col bg-white px-5 py-7 sm:px-7 sm:py-9 md:min-h-[720px] md:px-14 md:py-12 lg:min-h-0 lg:px-[clamp(3.5rem,4.2vw,5rem)] lg:py-[clamp(3.5rem,7vh,4.5rem)]">
         <div>
           <p
-            className="text-[16px] font-[500] leading-none text-[#7C3AED] md:text-[18px]"
+            className="text-[13px] font-[500] leading-none text-primary md:text-[18px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             [Starting at {price}]
           </p>
 
           <h3
-            className="mt-5 text-[48px] font-[700] leading-[0.95] tracking-[-0.03em] text-black sm:text-[56px] md:text-[64px] lg:text-[clamp(3.5rem,3.55vw,4.25rem)]"
+            className="mt-3 text-[36px] font-[700] leading-[0.98] tracking-[-0.03em] text-black sm:text-[42px] md:mt-5 md:text-[64px] lg:text-[clamp(3.5rem,3.55vw,4.25rem)]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {title}
           </h3>
 
           <p
-            className="mt-6 max-w-[430px] text-[16px] leading-[1.45] text-black/55 md:text-[18px] lg:text-[19px]"
+            className="mt-4 max-w-[430px] text-[14px] leading-[1.5] text-black/55 md:mt-6 md:text-[18px] lg:text-[19px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             {description}
@@ -63,17 +63,17 @@ export default function ServicePanel({
         </div>
 
         <ul
-          className="mt-16 space-y-7 md:mt-20 md:space-y-8 lg:mt-24"
+          className="mt-7 space-y-4 md:mt-20 md:space-y-8 lg:mt-24"
           style={{ fontFamily: "var(--font-sora)" }}
         >
           {bullets.map((bullet) => (
             <li
               key={bullet}
-              className="flex max-w-[470px] items-center gap-7 text-[16px] leading-[1.35] text-black md:text-[18px]"
+              className="flex max-w-[470px] items-center gap-3 text-[14px] leading-[1.4] text-black md:gap-7 md:text-[18px] md:leading-[1.35]"
             >
               <motion.span
                 aria-hidden="true"
-                className="flex w-9 shrink-0 items-center justify-center"
+                className="flex w-7 shrink-0 items-center justify-center md:w-9"
                 animate={{
                   rotate: panelInView && !shouldReduceMotion ? 360 : 0,
                 }}
@@ -90,10 +90,10 @@ export default function ServicePanel({
           ))}
         </ul>
 
-        <div className="mt-auto flex flex-wrap gap-3 pt-14 md:pt-16">
+        <div className="mt-auto flex flex-col gap-2.5 pt-8 sm:flex-row md:gap-3 md:pt-16">
           <Link
             href={exploreHref}
-            className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#ededed] px-6 py-3 text-[15px] font-[500] text-[#262626] transition-colors duration-200 hover:bg-[#dfdfdf] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:text-[16px]"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#ededed] px-5 py-2.5 text-[13px] font-[500] text-[#262626] transition-colors duration-200 hover:bg-[#dfdfdf] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-14 md:px-6 md:py-3 md:text-[16px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             <span>{exploreLabel}</span>
@@ -102,7 +102,7 @@ export default function ServicePanel({
 
           <Link
             href={getHref}
-            className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#1f1f1f] px-6 py-3 text-[15px] font-[500] text-white transition-colors duration-200 hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:text-[16px]"
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#1f1f1f] px-5 py-2.5 text-[13px] font-[500] text-white transition-colors duration-200 hover:bg-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-14 md:px-6 md:py-3 md:text-[16px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             <span>{getLabel}</span>
@@ -111,7 +111,7 @@ export default function ServicePanel({
         </div>
       </div>
 
-      <div className="relative min-h-[440px] overflow-hidden bg-[#1c0f09] sm:min-h-[520px] lg:min-h-0">
+      <div className="relative h-[280px] overflow-hidden bg-[#1c0f09] sm:h-[340px] md:h-auto md:min-h-[520px] lg:min-h-0">
         {video ? (
           <video
             src={video}

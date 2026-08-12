@@ -62,8 +62,8 @@ export default function PortfolioCta() {
               key={img.href}
               href={img.href}
               aria-label={`View ${img.name} case study`}
-              className="group relative mx-2 block flex-shrink-0 overflow-hidden rounded-[14px] transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:mx-3"
-              style={{ width: img.w, height: IMG_HEIGHT }}
+              className="group relative mx-2 block h-[220px] max-w-[82vw] flex-shrink-0 overflow-hidden rounded-[14px] transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:mx-3 md:h-[300px] md:max-w-none"
+              style={{ width: img.w }}
             >
               <Image
                 src={img.src}
@@ -89,7 +89,7 @@ export default function PortfolioCta() {
       </div>
 
       {/* ── CTA ── */}
-      <div className="w-full px-4 sm:px-6 md:px-10 py-20 md:py-28">
+      <div className="w-full px-4 py-14 sm:px-6 md:px-10 md:py-28">
         <div className="mx-auto max-w-[860px] flex flex-col items-center text-center">
 
           <motion.p
@@ -97,7 +97,7 @@ export default function PortfolioCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-[11px] font-[700] tracking-[0.22em] uppercase text-[#7C3AED]"
+            className="text-[11px] font-[700] tracking-[0.22em] uppercase text-primary"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             Looking for something more custom?
@@ -108,7 +108,7 @@ export default function PortfolioCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-            className="mt-5 text-6xl sm:text-7xl md:text-[88px] font-[700] leading-[1.0] tracking-[-0.03em] text-[#1a1a1a]"
+            className="mt-5 text-4xl font-[700] leading-[1.0] tracking-[-0.03em] text-[#1a1a1a] sm:text-5xl md:text-[88px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             We do that too.
@@ -119,7 +119,7 @@ export default function PortfolioCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-6 text-[17px] leading-[1.7] text-[#1a1a1a]/60 max-w-[480px]"
+            className="mt-4 max-w-[480px] text-[15px] leading-[1.55] text-[#1a1a1a]/60 md:mt-6 md:text-[17px] md:leading-[1.7]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             Book a discovery call. We&apos;ll look at what you have, scope it honestly,
@@ -131,7 +131,7 @@ export default function PortfolioCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.22 }}
-            className="mt-10"
+            className="mt-7 md:mt-10"
           >
             <Link
               href="/contact"

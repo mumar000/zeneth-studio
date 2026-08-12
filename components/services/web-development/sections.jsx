@@ -123,7 +123,7 @@ function BuildCard({ card, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.65, delay: index * 0.04, ease: [0.25, 1, 0.5, 1] }}
-      className={`flex min-h-[520px] flex-col rounded-[15px] bg-white p-7 md:p-[54px] ${card.className}`}
+      className={`flex min-h-[390px] flex-col rounded-[15px] bg-white p-6 md:min-h-[520px] md:p-[54px] ${card.className}`}
     >
       <div className="flex items-start justify-between gap-6">
         <span className="rounded-[7px] border border-black bg-[#f9f4ff] px-4 py-2 text-[13px] tracking-[-0.03em] md:text-[14px]" style={{ fontFamily: "var(--font-mono)" }}>
@@ -204,7 +204,7 @@ export function BuildCategoriesSection({ section }) {
 export function SystemSynthesisSection({ section }) {
   return (
     <section className="bg-[#f9f4ff] px-5 py-12 md:px-8 md:py-16">
-      <div className="mx-auto grid max-w-[1792px] gap-10 rounded-[16px] bg-[#050505] px-8 py-12 text-white md:px-[74px] md:py-[76px] lg:grid-cols-[0.92fr_1.58fr] lg:items-center">
+      <div className="mx-auto grid max-w-[1792px] gap-7 rounded-[16px] bg-[#050505] px-5 py-8 text-white md:gap-10 md:px-[74px] md:py-[76px] lg:grid-cols-[0.92fr_1.58fr] lg:items-center">
         <div>
           <p className="text-[15px] font-[700] uppercase tracking-[0.08em] text-white" style={{ fontFamily: "var(--font-mono)" }}>
             {section.eyebrow}
@@ -240,7 +240,7 @@ export function SystemSynthesisSection({ section }) {
                 {cardIndex === 0 && (
                   <span className="grid h-12 w-12 grid-cols-2 gap-1 rounded-[8px] bg-black p-2.5" aria-hidden="true">
                     <span className="rounded-full bg-[#ff4f36]" />
-                    <span className="rounded-full bg-[#9b5cff]" />
+                    <span className="rounded-full bg-primary" />
                     <span className="rounded-full bg-[#1fc96e]" />
                     <span className="rounded-full bg-[#08b7ff]" />
                   </span>
@@ -291,7 +291,7 @@ export function DevelopmentTimelineSection({ section }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }}
-              className="min-h-[350px] rounded-[10px] border border-black bg-white px-10 py-12 md:px-[56px]"
+              className="min-h-[260px] rounded-[10px] border border-black bg-white px-6 py-8 md:min-h-[350px] md:px-[56px] md:py-12"
             >
               <span className="inline-flex rounded-[10px] border border-black bg-[#f9f4ff] px-5 py-4 text-[14px] uppercase tracking-[-0.03em]" style={{ fontFamily: "var(--font-mono)" }}>
                 Stage {step.number}

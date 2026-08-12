@@ -302,7 +302,7 @@ export default function ContactForm() {
         >
           <motion.button
             type="submit"
-            className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full text-xl font-[500] shadow-lg hover:shadow-xl transition-all"
+            className="inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-xl font-[500] text-white shadow-lg transition-all hover:bg-primary-700 hover:shadow-xl"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

@@ -22,7 +22,7 @@ export function CapabilityTicker({ items }) {
 
 export function ShowcaseStrip({ images }) {
   return (
-    <section className="bg-[#f6f0fb] pb-24 pt-3 md:pb-28">
+    <section className="bg-[#f6f0fb] pb-14 pt-3 md:pb-28">
       <div className="flex gap-2 overflow-x-auto px-1.5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:gap-2.5">
         {images.map((image, index) => (
           <motion.div key={`${image.src}-${index}`} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, delay: index * 0.04, ease: [0.25, 1, 0.5, 1] }} className="relative h-[260px] w-[290px] shrink-0 overflow-hidden rounded-[8px] bg-[#ddd3eb] sm:w-[330px] md:h-[358px] md:w-[330px] lg:w-[346px]">
@@ -36,12 +36,12 @@ export function ShowcaseStrip({ images }) {
 
 export function MethodSection({ service }) {
   return (
-    <section className="border-t border-black/10 bg-[#f6f0fb] px-5 py-20 md:px-8 md:py-24 lg:py-28">
+    <section className="border-t border-black/10 bg-[#f6f0fb] px-5 py-14 md:px-8 md:py-24 lg:py-28">
       <div className="mx-auto max-w-[1380px]">
         <SectionIntro eyebrow={service.methodEyebrow} title={service.methodTitle} description={service.methodDescription} maxWidth="max-w-[960px]" />
         <div className="mt-16 grid overflow-hidden rounded-[18px] md:mt-[66px] md:grid-cols-2 lg:grid-cols-3">
           {service.methodCards.map((card, index) => (
-            <motion.article key={card.label} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }} className={`flex min-h-[300px] flex-col justify-start rounded-[18px] border border-[#151225] px-8 py-12 md:min-h-[302px] md:px-12 md:py-[50px] ${card.tint ? "bg-[#e6d9fb]" : "bg-[#fffdf8]"}`}>
+            <motion.article key={card.label} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }} className={`flex flex-col justify-start rounded-[14px] border border-[#151225] px-5 py-7 md:min-h-[302px] md:rounded-[18px] md:px-12 md:py-[50px] ${card.tint ? "bg-[#e6d9fb]" : "bg-[#fffdf8]"}`}>
               <p className="text-[16px] font-[700] uppercase leading-none tracking-[0.08em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>{card.number} / {card.label}</p>
               <h3 className="mt-9 max-w-[320px] text-[26px] font-[600] leading-[1.08] tracking-[-0.04em] text-[#151225] md:text-[28px]" style={{ fontFamily: "var(--font-display)" }}>{card.title}</h3>
               <p className="mt-7 max-w-[390px] text-[16px] font-[400] leading-[1.48] text-[#151225]" style={{ fontFamily: "var(--font-sora)" }}>{card.body}</p>
@@ -55,7 +55,7 @@ export function MethodSection({ service }) {
 
 export function DiagnosticSection({ service }) {
   return (
-    <section className="bg-[#f6f0fb] px-5 py-20 md:px-8 md:py-24 lg:py-28">
+    <section className="bg-[#f6f0fb] px-5 py-14 md:px-8 md:py-24 lg:py-28">
       <div className="mx-auto max-w-[1836px]">
         <SectionIntro eyebrow={service.diagnosticEyebrow} title={service.diagnosticTitle} description={service.diagnosticDescription} maxWidth="max-w-[1120px]" />
         <div className="mt-20 overflow-hidden rounded-[18px] border border-[#151225] md:mt-24">
@@ -73,7 +73,7 @@ export function DiagnosticSection({ service }) {
 
 export function ProofSection({ service }) {
   return (
-    <section className="bg-[#f6f0fb] px-5 py-20 md:px-8 md:py-24 lg:py-28">
+    <section className="bg-[#f6f0fb] px-5 py-14 md:px-8 md:py-24 lg:py-28">
       <div className="mx-auto max-w-[1836px]">
         <SectionIntro eyebrow={service.proofEyebrow} title={service.proofTitle} description={service.proofDescription} />
         <div className="mt-20 grid gap-6 lg:grid-cols-2">
@@ -91,13 +91,13 @@ export function ProofSection({ service }) {
 
 export function PipelineSection({ service }) {
   return (
-    <section className="bg-[#f6f0fb] px-5 py-20 md:px-8 md:py-24 lg:py-28">
+    <section className="bg-[#f6f0fb] px-5 py-14 md:px-8 md:py-24 lg:py-28">
       <div className="mx-auto max-w-[1836px]">
         <SectionIntro eyebrow={service.pipelineEyebrow} title={service.pipelineTitle} description={service.pipelineDescription} maxWidth="max-w-[840px]" />
         <div className="mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {service.pipelineCards.map((card, index) => (
-            <motion.article key={card.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }} className="min-h-[266px] rounded-[18px] border border-black bg-white px-10 py-12 md:px-10 md:py-12">
-              <p className="text-[16px] font-[700] uppercase tracking-[0.08em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>{card.number} // Phase</p><h3 className="mt-9 text-[31px] font-[700] leading-none tracking-[-0.045em] text-[#151225] md:text-[34px]" style={{ fontFamily: "var(--font-display)" }}>{card.title}</h3><p className="mt-5 max-w-[340px] text-[17px] font-[400] leading-[1.45] text-[#151225] md:text-[18px]" style={{ fontFamily: "var(--font-sora)" }}>{card.body}</p>
+            <motion.article key={card.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }} className="rounded-[14px] border border-black bg-white px-5 py-7 md:min-h-[266px] md:rounded-[18px] md:px-10 md:py-12">
+              <p className="text-[16px] font-[700] uppercase tracking-[0.08em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>{card.number} {"// Phase"}</p><h3 className="mt-9 text-[31px] font-[700] leading-none tracking-[-0.045em] text-[#151225] md:text-[34px]" style={{ fontFamily: "var(--font-display)" }}>{card.title}</h3><p className="mt-5 max-w-[340px] text-[17px] font-[400] leading-[1.45] text-[#151225] md:text-[18px]" style={{ fontFamily: "var(--font-sora)" }}>{card.body}</p>
             </motion.article>
           ))}
         </div>

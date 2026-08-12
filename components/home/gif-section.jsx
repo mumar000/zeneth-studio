@@ -136,12 +136,11 @@ export default function ShowreelSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full"
-      style={{ height: "112vh" }}
+      className="relative h-[78svh] w-full md:h-[112vh]"
     >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 flex h-[78svh] w-full items-center overflow-hidden bg-black md:block md:h-screen">
         <motion.div
-          className="w-full h-full overflow-hidden bg-black"
+          className="h-full w-full overflow-hidden bg-black"
           style={{
             scale,
             borderRadius,
@@ -156,7 +155,7 @@ export default function ShowreelSection() {
             muted={isMuted}
             poster="/showreel-poster.webp"
             preload={shouldLoadVideo ? "auto" : "none"}
-            className="w-full h-full object-cover"
+            className="h-full w-full object-contain md:object-cover"
           >
             {shouldLoadVideo && (
               <source src="/showreel.mp4" type="video/mp4" />
@@ -164,11 +163,11 @@ export default function ShowreelSection() {
           </video>
 
           {/* Bottom controls */}
-          <div className="absolute bottom-8 right-8 z-20 flex items-center gap-3">
+          <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-center gap-2 sm:bottom-6 sm:justify-end md:bottom-8 md:left-auto md:right-8 md:gap-3">
             {/* Sound toggle */}
             <button
               onClick={toggleMute}
-              className="flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-4 py-2.5 text-xs font-medium text-white backdrop-blur-md transition hover:bg-black/60"
+              className="flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3.5 py-2.5 text-[11px] font-medium text-white backdrop-blur-md transition hover:bg-black/60 sm:px-4 sm:text-xs"
             >
               {isMuted ? (
                 <>
@@ -191,7 +190,7 @@ export default function ShowreelSection() {
             {/* Play / Stop */}
             <button
               onClick={togglePlay}
-              className="flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-4 py-2.5 text-xs font-medium text-white backdrop-blur-md transition hover:bg-black/60"
+              className="flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3.5 py-2.5 text-[11px] font-medium text-white backdrop-blur-md transition hover:bg-black/60 sm:px-4 sm:text-xs"
             >
               {isPlaying ? (
                 <>

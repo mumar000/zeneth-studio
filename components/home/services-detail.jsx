@@ -65,14 +65,14 @@ export default function ServicesDetail({
   ],
 }) {
   return (
-    <section className="relative z-10 w-full px-1.5 py-20 sm:px-3 md:py-28 lg:px-1.5">
+    <section className="relative z-10 w-full px-3 py-14 md:py-28 lg:px-1.5">
       <div className="mx-auto max-w-[1920px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="text-center text-4xl sm:text-5xl md:text-6xl font-[700] tracking-[-0.03em] text-[#1a1a1a]"
+          className="text-center text-3xl font-[700] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:text-6xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {headingLines.map((line, index) => (
@@ -84,7 +84,7 @@ export default function ServicesDetail({
           ))}
         </motion.h2>
 
-        <div className="mt-14 flex flex-col gap-4 md:mt-20 md:gap-5">
+        <div className="mt-8 flex flex-col gap-4 md:mt-20 md:gap-5">
           {SERVICES.map((service, i) => (
             <ServicePanel key={i} {...service} index={i} />
           ))}
