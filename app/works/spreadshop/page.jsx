@@ -15,6 +15,7 @@ import FocusedBeforeAfter from "@/components/works/spreadshop/focused-before-aft
 import HomepageShowcase from "@/components/works/spreadshop/homepage-showcase";
 import FinalVerdict from "@/components/works/spreadshop/final-verdict";
 import SupportingPageGallery from "@/components/works/spreadshop/supporting-page-gallery";
+import SpreadshopMotion from "@/components/works/spreadshop/spreadshop-motion";
 
 export const metadata = {
   title: "Spreadshop",
@@ -25,23 +26,25 @@ export const metadata = {
 export default function SpreadshopCaseStudyPage() {
   return (
     <main className="overflow-x-clip bg-white">
-      <SpreadshopHero />
-      <ProjectIntroduction />
-      <ProjectedMetrics />
-      <InterfacePair />
-      <ProjectBrief />
-      <DesignProcess />
-      <CompetitorIntroduction />
-      <CompetitorComparison />
-      <UserResearchIntroduction />
-      <JourneyComparison />
-      <LaptopPresentation />
-      <MobileInterfaceGallery />
-      <BeforeAfterIntroduction />
-      <FocusedBeforeAfter />
-      <HomepageShowcase />
-      <FinalVerdict />
-      <SupportingPageGallery />
+      <SpreadshopMotion>
+        <SpreadshopHero />
+        <ProjectIntroduction />
+        <ProjectedMetrics />
+        <InterfacePair />
+        <ProjectBrief />
+        <DesignProcess />
+        <CompetitorIntroduction />
+        <CompetitorComparison />
+        <UserResearchIntroduction />
+        <JourneyComparison />
+        <LaptopPresentation />
+        <MobileInterfaceGallery />
+        <BeforeAfterIntroduction />
+        <FocusedBeforeAfter />
+        <HomepageShowcase />
+        <FinalVerdict />
+        <SupportingPageGallery />
+      </SpreadshopMotion>
     </main>
   );
 }
