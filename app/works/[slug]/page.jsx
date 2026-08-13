@@ -15,7 +15,9 @@ import VideoStory from "../../../components/works/detail/video-story";
 import AlignmentCTA from "@/components/home/alignment-cta";
 
 export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projects
+    .filter((project) => project.slug !== "spreadshop")
+    .map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }) {

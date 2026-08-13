@@ -7,6 +7,7 @@ import AlignmentCTA from "@/components/home/alignment-cta";
 import { projects } from "../../lib/projects-data";
 
 const featuredProjectSlugs = new Set([
+  "spreadshop",
   "mogulbay",
   "lets-grub",
   "feroce",
