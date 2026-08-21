@@ -31,6 +31,7 @@ export default function ProjectCard({
 }) {
   return (
     <motion.div
+      layout
       className="group relative w-full max-w-[320px] cursor-none"
       style={{
         "--project-hover": project.accent,
@@ -42,6 +43,7 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
+      exit={{ opacity: 0, y: 12, scale: 0.96 }}
     >
       <Link
         href={`/works/${project.slug}`}

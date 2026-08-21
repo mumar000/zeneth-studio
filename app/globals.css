@@ -347,6 +347,52 @@ body {
   font-family: var(--font-mono);
 }
 
+/* Shared typography hierarchy for every service detail page. */
+.service-page {
+  font-family: var(--font-sora);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.service-page p,
+.service-page li {
+  font-family: var(--font-sora) !important;
+  line-height: 1.5;
+  letter-spacing: -0.012em !important;
+}
+
+.service-page [style*="--font-mono"] {
+  font-family: var(--font-mono) !important;
+  line-height: 1.2;
+  letter-spacing: 0.08em !important;
+}
+
+.service-page h1,
+.service-page h2,
+.service-page h3 {
+  font-family: var(--font-display) !important;
+  text-wrap: balance;
+}
+
+.service-page h1 {
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.service-page h2 {
+  line-height: 1.05 !important;
+  letter-spacing: -0.04em !important;
+}
+
+.service-page h3 {
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+}
+
+.service-page article p:not([style*="--font-mono"]) {
+  max-width: 46ch;
+}
+
 /* Background image at ~5% opacity without tint */
 body::before {
   content: "";

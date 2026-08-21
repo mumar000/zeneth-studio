@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -16,12 +17,19 @@ const Footer = () => {
       <div className="flex flex-col items-start justify-between gap-8 px-4 pb-8 pt-10 sm:px-6 md:gap-12 md:px-14 md:pb-12 md:pt-16 lg:flex-row">
 
         {/* Left: logo */}
-        <div
-          className="shrink-0 text-[36px] font-[800] tracking-[-0.065em] text-black md:text-[56px]"
-          style={{ fontFamily: "var(--font-display)" }}
+        <Link
+          href="/"
+          aria-label="Nymbor home"
+          className="flex shrink-0 items-center"
         >
-          NYMBOR
-        </div>
+          <Image
+            src="/nymbor-final-files/primary-logo/nymbor-logo-primary-logo.svg"
+            alt="Nymbor"
+            width={1480}
+            height={363}
+            className="h-[42px] w-auto md:h-[58px]"
+          />
+        </Link>
 
         {/* Right end: nav + contact */}
         <div className="grid w-full grid-cols-2 gap-6 md:flex md:w-auto md:flex-row md:gap-14 lg:gap-20">

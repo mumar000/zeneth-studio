@@ -36,8 +36,8 @@ function CustomPortfolioCta({ cta }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-4 max-w-[1080px] text-[15px] leading-[1.5] tracking-[-0.02em] text-[#202024] md:mt-8 md:text-[27px] md:leading-[1.22] md:tracking-[-0.035em]"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="mt-4 max-w-[760px] text-[15px] text-[#202024]/75 md:mt-7 md:text-[20px]"
+          style={{ fontFamily: "var(--font-sora)" }}
         >
           {cta.description}
         </motion.p>

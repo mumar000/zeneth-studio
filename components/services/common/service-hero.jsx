@@ -12,14 +12,14 @@ export default function ServiceHero({ service }) {
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         className="mx-auto flex w-full max-w-[1224px] flex-col items-center"
       >
-        <p className="flex items-center gap-3 text-[14px] font-[400] uppercase leading-none text-primary md:text-[16px]" style={{ fontFamily: "var(--font-sora)" }}>
+        <p className="flex items-center gap-3 text-[12px] font-[700] uppercase text-primary md:text-[14px]" style={{ fontFamily: "var(--font-mono)" }}>
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           {service.eyebrow}
         </p>
         <h1 className="mt-7 max-w-[1224px] text-[38px] font-[700] leading-[1] tracking-[-0.05em] text-[#202024] sm:text-[46px] md:mt-[43px] md:text-[78px] md:leading-[0.98] md:tracking-[-0.064em] lg:text-[86px]" style={{ fontFamily: "var(--font-display)" }}>
           {service.headline}
         </h1>
-        <p className="mt-5 max-w-[925px] text-[17px] font-[400] leading-[1.45] tracking-[-0.03em] text-[#252528] md:mt-[37px] md:text-[25px] md:leading-[1.42] md:tracking-[-0.055em]" style={{ fontFamily: "var(--font-display)" }}>
+        <p className="mt-5 max-w-[760px] text-[16px] font-[400] text-[#252528]/75 md:mt-8 md:text-[20px]" style={{ fontFamily: "var(--font-sora)" }}>
           {service.description}
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-[10px] md:mt-[34px]">

@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Loader() {
   const [isComplete, setIsComplete] = useState(false);
@@ -62,12 +63,14 @@ export default function Loader() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.45, ease: "circOut" }}
               >
-                <span
-                  className="text-[42px] font-[800] tracking-[-0.065em] text-white md:text-[58px]"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  NYMBOR
-                </span>
+                <Image
+                  src="/nymbor-final-files/primary-logo/nymbor-logo-primary-logo-purple-bg.svg"
+                  alt="Nymbor"
+                  width={1480}
+                  height={363}
+                  priority
+                  className="h-[42px] w-auto md:h-[58px]"
+                />
               </motion.div>
 
               <div className="w-64 md:w-80 h-[2px] bg-zinc-800 rounded-full overflow-hidden">

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
@@ -82,10 +83,16 @@ export default function Navbar() {
           <Link
             href="/"
             aria-label="Nymbor home"
-            className="shrink-0 select-none text-[21px] font-[800] tracking-[-0.06em] text-black md:text-[27px]"
-            style={{ fontFamily: "var(--font-display)" }}
+            className="flex shrink-0 select-none items-center"
           >
-            NYMBOR
+            <Image
+              src="/nymbor-final-files/primary-logo/nymbor-logo-primary-logo.svg"
+              alt="Nymbor"
+              width={1480}
+              height={363}
+              priority
+              className="h-[23px] w-auto md:h-[28px]"
+            />
           </Link>
 
           {/* Center: nav pill (desktop) */}
