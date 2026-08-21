@@ -28,7 +28,7 @@ export default function FeaturedProjectsSection() {
     {
       name: "Let's Grub",
       href: "/works/lets-grub",
-      image: "/let-grub/frame-1948758999.webp",
+      image: "/works/lets-grub/hero/hero-4x.png",
       year: "",
       category: "Brand Identity",
       description: "A social dining identity built around shared discovery.",
@@ -200,7 +200,7 @@ export default function FeaturedProjectsSection() {
                     </p>
                     <div className="mt-2 flex items-center justify-between gap-4">
                       <h3
-                        className="text-3xl font-[700] tracking-[-0.04em] text-white"
+                        className="text-[88.59px] font-[500] tracking-[-0.04em] text-white"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
                         {project.name}
@@ -263,7 +263,7 @@ export default function FeaturedProjectsSection() {
             <div className="relative z-20 hidden h-full min-w-0 flex-col justify-center p-6 md:flex lg:p-10 xl:p-12">
               <div className="absolute top-0 left-0 w-full p-8 lg:p-12 z-40">
                 <p
-                  className="text-sm font-medium uppercase tracking-wider text-primary/80"
+                  className="text-xs lg:text-sm md:text-xs font-medium uppercase tracking-wider text-primary/80"
                   style={{ fontFamily: "var(--font-sora)" }}
                 >
                   Featured Projects
@@ -303,7 +303,7 @@ export default function FeaturedProjectsSection() {
                         onMouseLeave={() => setHoveredIndex(null)}
                       >
                         <h3
-                          className={`min-w-0 origin-left whitespace-nowrap text-[clamp(1.5rem,3.35vw,4.25rem)] font-bold leading-none tracking-tight transition-colors duration-500 ease-out ${
+                          className={`min-w-0 origin-left whitespace-nowrap 2xl:text-[88.59px] lg:text-6xl md:text-5xl font-[500] leading-none tracking-tight transition-colors duration-500 ease-out ${
                             isActive
                               ? "text-white"
                               : "text-white/30"

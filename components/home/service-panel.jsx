@@ -14,7 +14,7 @@ export default function ServicePanel({
   exploreLabel,
   exploreHref = "#",
   getLabel,
-  getHref = "#",
+  getHref = "/contact",
   video,
   videoLabel = "Service showcase video",
   image,
@@ -44,7 +44,7 @@ export default function ServicePanel({
             className="text-[13px] font-[500] leading-none text-primary md:text-[18px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            [Starting at {price}]
+            Starting at {price}
           </p>
 
           <h3
@@ -121,7 +121,7 @@ export default function ServicePanel({
             loop
             playsInline
             preload="metadata"
-            className="h-full w-full object-contain"
+            className="h-full w-full object-cover"
           />
         ) : image ? (
           <Image

@@ -2,7 +2,10 @@
 
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { useRef } from "react";
+
+const MotionLink = motion.create(Link);
 
 export default function AlignmentCTA() {
   const buttonRef = useRef(null);
@@ -96,8 +99,9 @@ export default function AlignmentCTA() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex justify-center"
             >
-              <motion.button
+              <MotionLink
                 ref={buttonRef}
+                href="/contact"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-8 py-4 text-base font-[500] text-white shadow-lg transition-shadow duration-300 hover:shadow-xl md:text-lg"
                 style={{
                   x: xSpring,
@@ -132,7 +136,7 @@ export default function AlignmentCTA() {
                 />
 
                 {/* Button text */}
-                <span className="relative z-10">Apply for a Pipeline</span>
+                <span className="relative z-10">Start a Project</span>
                 <motion.span
                   className="relative z-10 inline-flex"
                   animate={{ x: [0, 3, 0], y: [0, -3, 0] }}
@@ -150,7 +154,7 @@ export default function AlignmentCTA() {
                   className="absolute -inset-1 -z-10 rounded-full bg-primary opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-50"
                   initial={false}
                 />
-              </motion.button>
+              </MotionLink>
             </motion.div>
           </div>
         </motion.div>

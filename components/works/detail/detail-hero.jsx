@@ -14,6 +14,7 @@ import { ArrowRight } from "lucide-react";
 export default function DetailHero({ project }) {
   const { title, tagline, tags, description, hero, accent, bg, liveUrl } =
     project;
+  const hasLiveUrl = Boolean(liveUrl && liveUrl !== "#");
 
   const ref = useRef(null);
   const shouldReduceMotion = useReducedMotion();
@@ -32,6 +33,7 @@ export default function DetailHero({ project }) {
 
   return (
     <section ref={ref} className="relative lg:h-[120vh]">
+      <h1 className="sr-only">{tagline}</h1>
       <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-hidden">
         {/* Animated image expands leftward to fill the container */}
         <motion.div
@@ -71,9 +73,12 @@ export default function DetailHero({ project }) {
             <p className="text-[11px] tracking-[0.22em] font-[600] uppercase text-black/70 mb-4">
               {title}
             </p>
-            <h1 className="text-3xl lg:text-[2.4rem] xl:text-5xl font-[400] leading-[1.05] tracking-tight text-black">
+            <p
+              aria-hidden="true"
+              className="text-3xl lg:text-[2.4rem] xl:text-5xl font-[400] leading-[1.05] tracking-tight text-black"
+            >
               {tagline}
-            </h1>
+            </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {tags.map((t) => (
                 <span
@@ -90,7 +95,7 @@ export default function DetailHero({ project }) {
             <p className="text-[13px] font-[400] leading-relaxed text-black/80 max-w-md mb-8">
               {description}
             </p>
-            {liveUrl && (
+            {hasLiveUrl && (
               <Link
                 href={liveUrl}
                 target="_blank"
@@ -109,9 +114,12 @@ export default function DetailHero({ project }) {
           <p className="text-[11px] tracking-[0.22em] font-[600] uppercase text-black/70 mb-3">
             {title}
           </p>
-          <h1 className="text-3xl md:text-4xl font-[400] leading-[1.1] tracking-tight text-black">
+          <p
+            aria-hidden="true"
+            className="text-3xl md:text-4xl font-[400] leading-[1.1] tracking-tight text-black"
+          >
             {tagline}
-          </h1>
+          </p>
           <div className="mt-5 flex flex-wrap gap-2">
             {tags.map((t) => (
               <span
@@ -153,7 +161,7 @@ export default function DetailHero({ project }) {
           <p className="mt-6 text-sm leading-relaxed text-black/80">
             {description}
           </p>
-          {liveUrl && (
+          {hasLiveUrl && (
             <Link
               href={liveUrl}
               target="_blank"

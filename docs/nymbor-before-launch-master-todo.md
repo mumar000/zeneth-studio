@@ -79,25 +79,19 @@ This is a code-level snapshot, not a completed QA result.
 ### Confirmed launch gaps in the current code
 
 - The contact form only logs data to the browser console; it has no production endpoint, required fields, names/IDs, connected labels, validation, privacy consent, budget field, spam protection, or submission states.
-- Footer social links and three service-card lead CTAs still use `#`.
-- Many case-study records use `liveUrl: "#"`; the Spreadshop “Visit site” control is disabled pending a destination.
-- Privacy, `robots.txt`, `sitemap.xml`, a custom not-found page, analytics integration, and a form API route are absent.
-- `/works`, `/services`, and `/contact` do not have a clear page `h1`.
-- Generic case-study pages render separate desktop and mobile `h1` elements at the same time, causing duplicate document headings.
-- Route-specific canonicals, Open Graph images, large Twitter cards, and structured data are not implemented.
-- The global Twitter card is currently `summary`, not `summary_large_image`.
-- Pricing is still `$9999` and is rendered inside square brackets.
+- The Spreadshop “Visit site” control is disabled pending an approved destination.
+- Privacy, `robots.txt`, `sitemap.xml`, analytics integration, and a form API route are absent.
+- Route-specific canonicals, Open Graph images, and structured data are not implemented.
 - “Book a Call” and “Book a 15-min site review” lead to the project brief instead of a booking system.
-- The active FAQ rows are clickable `div` elements, not semantic buttons, and do not expose expanded/collapsed state.
-- The mobile menu trigger does not expose `aria-expanded`/`aria-controls`; the menu does not lock background scroll or implement complete focus behavior.
+- The mobile-menu and FAQ accessibility implementations still need the required manual keyboard, zoom, touch, and screen-reader QA pass.
 - There is no skip-to-content link or common main-content target.
 - The featured-project desktop interaction consumes `400vh` and eagerly loads all four project images.
 - The public folder contains an active 11 MB showreel, a separate legacy 65 MB “Zenneth Studio” showreel file, large 14 MB/7.5 MB Spreadshop images, duplicate font families, editable `.ai`/`.eps` source files, and `.DS_Store` files.
 - `lib/projects-data.js` is explicitly marked “Mock content” but its static params make 16 case-study slugs potentially public. The source audit only evaluated five case studies.
 - The works index features five projects, while the home page features four; launch-approved route visibility is not centrally controlled.
 - Several unverified, placeholder-style testimonial names and performance/result claims exist in project data beyond the approved four testimonials.
-- `npm run lint` currently reports **6 errors and 6 warnings**.
-- `npm run build` could not complete in the reviewed environment because `next/font` attempted to fetch JetBrains Mono from Google Fonts. A production/CI build must be proven, and self-hosting should be considered to remove that build dependency.
+- `npm run lint` now exits successfully with **0 errors and 5 warnings**; the remaining warnings still need triage.
+- `npm run build` completes when Google Fonts is reachable. A clean CI build must still be proven, and self-hosting JetBrains Mono should be considered to remove that network dependency.
 
 ### Route-scope warning
 
@@ -157,12 +151,12 @@ Do these first. Development should not invent business facts, legal language, cl
 **Owners:** Founder + Content
 
 - [ ] Use **Nymbor** everywhere; remove every visible or embedded **Zeneth/Zenneth Studio** reference.
-- [ ] Use **Mogul Bay** consistently in titles, body copy, metadata, alt text, and slugs/redirects as approved. The current dataset uses “Mogulbay.”
-- [ ] Use **Let’s Grub** consistently; replace “Lets Grub.”
+- [ ] Use **Mogul Bay** consistently in titles, body copy, metadata, alt text, and slugs/redirects as approved. Visible copy is corrected; the `/works/mogulbay` slug remains pending redirect approval.
+- [x] Use **Let’s Grub** consistently; replace “Lets Grub.”
 - [ ] Use **Voyager Supplements** consistently.
 - [ ] Confirm **Nuggetspot** versus **The Nugget Spot**, then use the approved styling everywhere.
-- [ ] Change “A Focused team” to “A focused team.”
-- [ ] Fix “noise they need clarity,” “The Nymbor Way Every...,” and “0 shortcuts.Every.”
+- [x] Change “A Focused team” to “A focused team.”
+- [x] Fix “noise they need clarity,” “The Nymbor Way Every...,” and “0 shortcuts.Every.”
 - [ ] Complete a global punctuation, capitalization, apostrophe, spacing, and grammar pass.
 - [ ] Keep client quotes verbatim after approval; never silently correct a client’s words.
 
@@ -182,10 +176,10 @@ Do these first. Development should not invent business facts, legal language, cl
 - [ ] Apply DEC-01 globally; do not mix booking language with a long project brief.
 - [ ] If booking is chosen, connect every “Book...” CTA to the approved booking calendar and test timezone, availability, confirmation, rescheduling, cancellation, and mobile behavior.
 - [ ] If enquiry is chosen, rename booking CTAs to “Start a Project” or “Submit Your Brief” and point them to `/contact`.
-- [ ] Replace “Apply for a Pipeline” with “Start a Project” or “Apply to Work With Us”; make the element a real link, not a button without navigation.
-- [ ] Connect all three “Get One For Your Brand” service-card actions to the correct contact flow, ideally with the service preselected.
+- [x] Replace “Apply for a Pipeline” with “Start a Project” or “Apply to Work With Us”; make the element a real link, not a button without navigation.
+- [x] Connect all three “Get One For Your Brand” service-card actions to the correct contact flow, ideally with the service preselected.
 - [ ] Resolve every case-study “See...”/live-site destination. If no approved URL exists, remove the control instead of using `#` or a disabled promise.
-- [ ] Add real footer social URLs or remove the corresponding links.
+- [x] Add real footer social URLs or remove the corresponding links.
 - [ ] Verify primary, secondary, navbar, footer, service, project, and floating CTAs on desktop and mobile.
 - [ ] Add a repeatable link check that fails on `href="#"`, empty destinations, accidental staging hosts, redirect loops, 404/5xx responses, or incorrect external protocols.
 - [ ] For external links, use a consistent new-tab policy, disclose it accessibly where useful, and apply safe `rel` values.
@@ -297,12 +291,12 @@ Use these exact public amounts and formatting everywhere they appear:
 | Web & Interface Design | **Starting at $1,500** |
 | Web Development | **Starting at $1,500** |
 
-- [ ] Replace all `$9999`/`$9,999` placeholders on the home and services pages.
-- [ ] Remove square brackets around pricing.
-- [ ] Keep the dollar sign, comma, service naming, capitalization, and “Starting at” wording consistent.
-- [ ] Add the approved starting price to each service-detail page in a location consistent with its CTA.
+- [x] Replace all `$9999`/`$9,999` placeholders on the home and services pages.
+- [x] Remove square brackets around pricing.
+- [x] Keep the dollar sign, comma, service naming, capitalization, and “Starting at” wording consistent.
+- [x] Add the approved starting price to each service-detail page in a location consistent with its CTA.
 - [ ] Ensure form budget ranges do not contradict the published minimums.
-- [ ] Search rendered output, metadata, schema, and source data for stale price variants.
+- [x] Search rendered output, metadata, schema, and source data for stale price variants.
 
 **Done when:** The exact approved amounts appear consistently on service cards and service pages, and no placeholder price remains.
 
@@ -462,22 +456,22 @@ Use these exact public amounts and formatting everywhere they appear:
 
 ### P4.2 Navigation and mobile menu
 
-- [ ] Increase the mobile-menu trigger to at least 44×44 CSS pixels.
-- [ ] Add an action-specific accessible name that changes between “Open menu” and “Close menu.”
-- [ ] Add `aria-expanded`, `aria-controls`, a stable menu ID, and appropriate current-page state (`aria-current="page"`).
-- [ ] Give desktop and mobile navigation distinct accessible labels.
+- [x] Increase the mobile-menu trigger to at least 44×44 CSS pixels.
+- [x] Add an action-specific accessible name that changes between “Open menu” and “Close menu.”
+- [x] Add `aria-expanded`, `aria-controls`, a stable menu ID, and appropriate current-page state (`aria-current="page"`).
+- [x] Give desktop and mobile navigation distinct accessible labels.
 - [ ] Decide whether the overlay is a disclosure menu or modal dialog, then implement the matching semantic/focus pattern consistently.
 - [ ] When open, prevent background scrolling and unintended background interaction.
-- [ ] Support Escape to close, sensible first focus, focus containment if modal, and return focus to the trigger on close.
-- [ ] Close reliably after route selection and reset nested Services state appropriately.
-- [ ] Make the Services submenu operable by keyboard without depending on hover.
+- [x] Support Escape to close, sensible first focus, focus containment if modal, and return focus to the trigger on close.
+- [x] Close reliably after route selection and reset nested Services state appropriately.
+- [x] Make the Services submenu operable by keyboard without depending on hover.
 
 ### P4.3 FAQ accordion
 
-- [ ] Make the full question row a semantic `<button>` inside an appropriate heading.
-- [ ] Add unique button/panel IDs, `aria-expanded`, and `aria-controls`; associate the panel with its trigger.
-- [ ] Keep the trigger at least 44px tall with visible focus.
-- [ ] Ensure the panel is removed from the accessibility tree when collapsed.
+- [x] Make the full question row a semantic `<button>` inside an appropriate heading.
+- [x] Add unique button/panel IDs, `aria-expanded`, and `aria-controls`; associate the panel with its trigger.
+- [x] Keep the trigger at least 44px tall with visible focus.
+- [x] Ensure the panel is removed from the accessibility tree when collapsed.
 - [ ] Test Enter, Space, Tab, Shift+Tab, zoom, and reduced motion.
 - [ ] Replace global Shopify/conversion FAQs on service pages with service-specific FAQ data for Brand Identity, Interface Design, and Web Development.
 
@@ -578,7 +572,7 @@ Use these exact public amounts and formatting everywhere they appear:
 ### Home — P0
 
 - [ ] Replace the legacy-branded showreel and poster.
-- [ ] Publish exact $1,000 / $1,500 / $1,500 prices without brackets.
+- [x] Publish exact $1,000 / $1,500 / $1,500 prices without brackets.
 - [ ] Connect all service and primary CTAs to the chosen journey.
 - [ ] Replace repeated/empty testimonial treatment with approved proof.
 - [ ] Remove any Feroce Lorem Ipsum visible through home media.
@@ -586,7 +580,7 @@ Use these exact public amounts and formatting everywhere they appear:
 - [ ] Increase media-control hit areas and fix accessible labels/state.
 - [ ] Replace the unrelated Web Development candle visual.
 - [ ] Explain or replace “300+ Happy Brands” relative to “100+ projects.”
-- [ ] Change “A Focused team” to “A focused team.”
+- [x] Change “A Focused team” to “A focused team.”
 - [ ] Verify one `h1`, final hero line breaks, CTA clarity, reduced motion, and no horizontal overflow.
 
 ### About — Noman / P0
@@ -598,21 +592,23 @@ Use these exact public amounts and formatting everywhere they appear:
 - [ ] Fix the identified punctuation/spacing defects and keep mobile paragraphs scannable.
 - [ ] Ensure the page feels like meeting the founder, not reading an agency manifesto.
 - [ ] Verify content appears without animation/JavaScript and the loader cannot block it.
-- [ ] Fix current lint/ref lifecycle issues in the founder component.
+- [x] Fix current lint/ref lifecycle issues in the founder component.
 
 **About acceptance:** A new visitor can identify who is behind Nymbor, why to trust him, how engagement works, and the next step without decoding abstract copy.
 
 ### Works — P0
 
 - [ ] Add a clear `h1` and route-specific metadata/social preview.
-- [ ] Replace “Apply for a Pipeline” with the approved CTA and real navigation.
-- [ ] Standardize Mogul Bay and Let’s Grub naming.
+- [x] Replace “Apply for a Pipeline” with the approved CTA and real navigation.
+- [x] Standardize Mogul Bay and Let’s Grub naming.
 - [ ] Use sharp portrait crops with correct responsive sizing.
 - [ ] Keep the working grid/filter experience but preserve native cursor/touch behavior and accessibility.
 - [ ] Publish only approved projects and make filter counts/empty states intentional.
 - [ ] Verify every card URL, accessible name, focus state, and filtered keyboard behavior.
 
 ### Services index — P0
+
+**Status:** Route intentionally removed; these index-route tasks are no longer applicable unless the route is restored.
 
 - [ ] Add/promote one clear `h1`.
 - [ ] Publish approved prices and remove brackets/placeholders.
@@ -629,17 +625,17 @@ Use these exact public amounts and formatting everywhere they appear:
 
 ### Brand Identity service — P1 content, P0 trust/CTA
 
-- [ ] Add the approved starting price.
-- [ ] Remove irrelevant “cleaner site” subcopy.
+- [x] Add the approved starting price.
+- [x] Remove irrelevant “cleaner site” subcopy.
 - [ ] Replace duplicated Sully AI copy with accurate project content.
-- [ ] Standardize Let’s Grub naming.
+- [x] Standardize Let’s Grub naming.
 - [ ] Use brand-specific FAQs instead of Shopify/conversion questions.
 - [ ] Ensure proof cards, tags, alt text, and project claims are real and approved.
 - [ ] Align “Book a Brand Identity Call” with the chosen conversion flow.
 
 ### Interface Design service — P1 content, P0 trust/CTA
 
-- [ ] Add the approved starting price.
+- [x] Add the approved starting price.
 - [ ] Source or soften conversion statistics and results claims.
 - [ ] Preserve the useful diagnostic structure.
 - [ ] Fix duplicated data keys and current lint-invalid JSX/comment syntax.
@@ -648,7 +644,7 @@ Use these exact public amounts and formatting everywhere they appear:
 
 ### Web Development service — P1 content, P0 trust/CTA
 
-- [ ] Add the approved starting price.
+- [x] Add the approved starting price.
 - [ ] Prove or rewrite speed, page-weight, Lighthouse, A/B testing, type-safety, and 23-point QA claims.
 - [ ] Change the stylized “N.E.X.T.js” label to the approved conventional “Next.js” form unless the founder explicitly retains it.
 - [ ] Use development-specific FAQs.
@@ -657,8 +653,8 @@ Use these exact public amounts and formatting everywhere they appear:
 
 ### Generic case-study template — P0
 
-- [ ] Render only one `h1` in the DOM.
-- [ ] Resolve all `See...`/live URLs or remove unavailable actions.
+- [x] Render only one `h1` in the DOM.
+- [x] Resolve all `See...`/live URLs or remove unavailable actions.
 - [ ] Give each public study the Spreadshop minimum: problem, Nymbor role, scope, decisions, result, evidence, client quote, and services.
 - [ ] Remove all mock people, quotes, metrics, dates, assets, and descriptions from public routes.
 - [ ] Add project-specific metadata, canonical, social image, and truthful structured data.
@@ -676,14 +672,14 @@ Use these exact public amounts and formatting everywhere they appear:
 ### Global footer — P0
 
 - [ ] Make “privacy” a real `/privacy` link, not plain text.
-- [ ] Add approved social URLs or remove unavailable profiles.
-- [ ] Give footer navigation a unique accessible label.
+- [x] Add approved social URLs or remove unavailable profiles.
+- [x] Give footer navigation a unique accessible label.
 - [ ] Increase social tap targets to at least 44×44 or an equivalent target area.
-- [ ] Keep a clear contact path and generate the copyright year automatically or explicitly review it annually.
+- [x] Keep a clear contact path and generate the copyright year automatically or explicitly review it annually.
 
 ### Not-found and system states — P0 added safeguard
 
-- [ ] Create a branded, lightweight not-found page with a real 404 status and routes back to Home, Works, and Contact.
+- [x] Create a branded, lightweight not-found page with a real 404 status and routes back to Home, Works, and Contact.
 - [ ] Add appropriate error/loading states for server-rendered routes without masking content behind decorative loaders.
 - [ ] Ensure application/provider errors do not leak stack traces, secrets, personal data, or internal IDs.
 
@@ -749,9 +745,9 @@ Use these exact public amounts and formatting everywhere they appear:
 **Priority:** P0  
 **Owner:** Development
 
-- [ ] `npm run lint` exits successfully with zero errors.
+- [x] `npm run lint` exits successfully with zero errors.
 - [ ] `npm run build` exits successfully in a clean production/CI environment.
-- [ ] Production server starts from the built output and key routes return expected status codes.
+- [x] Production server starts from the built output and key routes return expected status codes.
 - [ ] Add a link/route crawl covering internal links, anchors, assets, canonicals, redirects, status codes, and placeholder `#` destinations.
 - [ ] Add repeatable checks for one `h1`, missing image alt, form labels, page titles/descriptions, canonicals, robots, sitemap, and noindex behavior.
 - [ ] Run dependency/security checks and record accepted exceptions with owner/due date.

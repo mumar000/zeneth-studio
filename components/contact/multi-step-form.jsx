@@ -52,12 +52,12 @@ export default function ContactForm() {
           transition={{ duration: 0.6 }}
           className="space-y-4"
         >
-          <h2 className="text-5xl md:text-7xl flex flex-col tracking-tighter  items-center justify-center  lg:text-8xl font-[500] text-black ">
+          <h1 className="text-5xl md:text-7xl flex flex-col tracking-tighter items-center justify-center text-center lg:text-8xl font-[500] text-black">
             Tell us a bit about your{" "}
             <span className="italic font-romie font-semibold text-primary">
               Project.
             </span>
-          </h2>
+          </h1>
         </motion.section>
 
         {/* Step 2: Personal Info */}

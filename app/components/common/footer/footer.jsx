@@ -36,6 +36,7 @@ const Footer = () => {
 
           {/* Nav links */}
           <nav
+            aria-label="Footer navigation"
             className="flex flex-col gap-3.5 md:gap-5"
             style={{ fontFamily: "var(--font-display)" }}
           >
@@ -82,24 +83,13 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="flex flex-col items-start justify-between gap-2.5 border-t border-black/10 px-4 py-4 sm:px-6 md:flex-row md:items-center md:px-14">
+      <div className="border-t border-black/10 px-4 py-4 sm:px-6 md:px-14">
         <span
           className="text-[11px] text-black/40 md:text-[13px] md:text-black/35"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          Nymbor © 2026 privacy
+          Nymbor © {new Date().getFullYear()}
         </span>
-
-        <div
-          className="flex flex-wrap items-center gap-2 text-[11px] text-black/40 md:gap-3 md:text-[13px] md:text-black/35"
-          style={{ fontFamily: "var(--font-sora)" }}
-        >
-          <a href="#" className="hover:text-black/70 transition-colors">Twitter</a>
-          <span className="text-primary text-[10px]">✳</span>
-          <a href="#" className="hover:text-black/70 transition-colors">Instagram</a>
-          <span className="text-primary text-[10px]">✳</span>
-          <a href="#" className="hover:text-black/70 transition-colors">Linkedin</a>
-        </div>
       </div>
 
     </footer>

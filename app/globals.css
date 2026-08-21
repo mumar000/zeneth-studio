@@ -9,6 +9,15 @@
   font-display: swap;
 }
 
+/* Let's Grub brand display font */
+@font-face {
+  font-family: "Luckiest Guy";
+  src: url("/font/LuckiestGuy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Local Helvetica Neue font faces */
 @font-face {
   font-family: "Helvetica Neue";

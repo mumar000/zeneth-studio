@@ -16,7 +16,8 @@ export default function FounderSignal() {
 
   // Animate on scroll
   useEffect(() => {
-    if (!sectionRef.current || hasAnimated.current) return;
+    const section = sectionRef.current;
+    if (!section || hasAnimated.current) return;
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -29,7 +30,7 @@ export default function FounderSignal() {
         duration: 0.6,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: section,
           start: "top 80%",
           once: true,
         },
@@ -59,7 +60,7 @@ export default function FounderSignal() {
       // Create timeline
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: sectionRef.current,
+          trigger: section,
           start: "top 70%",
           once: true,
         },
@@ -96,12 +97,12 @@ export default function FounderSignal() {
       });
 
       hasAnimated.current = true;
-    }, sectionRef);
+    }, section);
 
     return () => {
       ctx.revert();
       ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === sectionRef.current) {
+        if (trigger.trigger === section) {
           trigger.kill();
         }
       });
@@ -154,12 +155,19 @@ export default function FounderSignal() {
     return () => ctx.revert();
   }, [active]);
 
-  const renderAnimatedText = (text, wordsRef, isItalic = false) => {
+  const renderAnimatedText = (
+    text,
+    wordsRef,
+    isItalic = false,
+    startIndex = 0,
+  ) => {
     const words = text.split(" ");
     return words.map((word, i) => (
       <span
-        key={i}
-        ref={(el) => (wordsRef.current[i] = el)}
+        key={`${startIndex}-${i}`}
+        ref={(element) => {
+          wordsRef.current[startIndex + i] = element;
+        }}
         className={`inline-block ${isItalic ? "italic font-romie font-[300]" : ""}`}
         style={{ transformStyle: "preserve-3d" }}
       >
@@ -212,18 +220,22 @@ export default function FounderSignal() {
               >
                 {renderAnimatedText(
                   "Nymbor",
-                  { current: founderWordsRef.current.slice(0, 2) },
+                  founderWordsRef,
                   true,
+                  0,
                 )}{" "}
-                {renderAnimatedText("is led by a", founderWordsRef)}{" "}
+                {renderAnimatedText("is led by a", founderWordsRef, false, 1)}{" "}
                 {renderAnimatedText(
                   "design-first founder",
-                  { current: founderWordsRef.current.slice(6, 8) },
+                  founderWordsRef,
                   true,
+                  5,
                 )}{" "}
                 {renderAnimatedText(
-                  "who believes most brands don't need more noise they need clarity, restraint, and better decisions.",
+                  "who believes most brands don't need more noise—they need clarity, restraint, and better decisions.",
                   founderWordsRef,
+                  false,
+                  7,
                 )}
               </h2>
             </div>

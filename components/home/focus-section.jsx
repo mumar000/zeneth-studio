@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 export default function FocusSection() {
   return (
@@ -17,21 +18,21 @@ export default function FocusSection() {
           className="mt-8 md:mt-10 text-black/60 text-base sm:text-lg md:text-2xl max-w-[1000px] mx-auto"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          We don't scale for the sake of scaling. We take on a limited number
+          We don&apos;t scale for the sake of scaling. We take on a limited number
           of projects to ensure every pixel is intentional and every build is
           flawless. No account managers, no junior designers just senior-level
           authority from start to finish.
         </p>
 
         <div className="mt-10 md:mt-12">
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-flex items-center justify-center gap-2 rounded-full px-6 md:px-7 py-3 bg-primary text-white text-base md:text-lg shadow-[0_8px_30px_rgba(138,56,245,0.25)]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             Apply for a Slot
             <ArrowUpRight className="h-5 w-5" strokeWidth={2} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

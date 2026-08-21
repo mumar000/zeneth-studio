@@ -16,7 +16,12 @@ import AlignmentCTA from "@/components/home/alignment-cta";
 
 export function generateStaticParams() {
   return projects
-    .filter((project) => project.slug !== "spreadshop")
+    .filter(
+      (project) =>
+        project.slug !== "spreadshop" &&
+        project.slug !== "lets-grub" &&
+        project.slug !== "arpm",
+    )
     .map((project) => ({ slug: project.slug }));
 }
 
@@ -88,7 +93,7 @@ export default async function ProjectDetailPage({ params }) {
   if (!project) notFound();
 
   return (
-    <div className="relative bg-[#fffcf7] min-h-screen">
+    <main className="relative min-h-screen bg-[#fffcf7]">
       <DetailHero project={project} />
 
       {project.media.map((block, i) => renderBlock(block, i, project))}
@@ -102,6 +107,6 @@ export default async function ProjectDetailPage({ params }) {
       <AlignmentCTA />
 
       <FloatingCTA accent={project.accent} projectTitle={project.title} />
-    </div>
+    </main>
   );
 }

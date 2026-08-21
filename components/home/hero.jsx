@@ -99,7 +99,7 @@ export default function Hero() {
       >
         <motion.h1
           variants={itemVariants}
-          className="leading-[1.02] tracking-[-0.03em] text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-[700] text-[#1a1a1a]"
+          className="leading-[1.02] tracking-[-0.03em] text-[2.75rem] 2xl:text-[5.8rem] md:text-5xl lg:text-[5.5rem] font-[700] text-[#1a1a1a]"
           style={{
             fontFamily: "var(--font-display)",
             willChange: animConfig.useWillChange
@@ -114,7 +114,7 @@ export default function Hero() {
 
         <motion.p
           variants={itemVariants}
-          className="mx-auto mt-6 sm:mt-8 max-w-2xl text-base sm:text-lg md:text-xl font-[400] text-neutral-700"
+          className="mx-auto mt-6 md:mt-8 md:max-w-lg 2xl:max-w-3xl lg:leading-8 text-base 2xl:text-2xl lg:text-lg md:text-md  font-[400] text-neutral-700"
           style={{ fontFamily: "var(--font-sora)" }}
         >
           For founders and small teams who need a sharper identity, cleaner

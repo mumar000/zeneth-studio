@@ -22,12 +22,18 @@ export default function ServiceHero({ service }) {
         <p className="mt-5 max-w-[760px] text-[16px] font-[400] text-[#252528]/75 md:mt-8 md:text-[20px]" style={{ fontFamily: "var(--font-sora)" }}>
           {service.description}
         </p>
+        <p
+          className="mt-4 text-[14px] font-[700] uppercase tracking-[0.08em] text-primary md:mt-5 md:text-[16px]"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          Starting at {service.startingPrice}
+        </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-[10px] md:mt-[34px]">
           <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-[8px] border border-black bg-primary px-5 py-3 text-[11px] font-[700] uppercase tracking-[0.12em] text-white transition-colors duration-200 ease-out hover:bg-[var(--accent-yellow)] hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-[59px] md:px-[28px] md:py-4 md:text-sm md:tracking-[0.14em]" style={{ fontFamily: "var(--font-mono)" }}>
             {service.ctaLabel}
           </Link>
-          {service.secondaryCtaLabel && (
-            <Link href={service.secondaryCtaHref || "#"} className="inline-flex min-h-12 items-center justify-center rounded-[8px] border border-[#151225] bg-transparent px-5 py-3 text-[11px] font-[700] uppercase tracking-[0.12em] text-[#151225] transition-colors duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-[59px] md:px-[28px] md:py-4 md:text-[13px] md:tracking-[0.16em]" style={{ fontFamily: "var(--font-mono)" }}>
+          {service.secondaryCtaLabel && service.secondaryCtaHref && (
+            <Link href={service.secondaryCtaHref} className="inline-flex min-h-12 items-center justify-center rounded-[8px] border border-[#151225] bg-transparent px-5 py-3 text-[11px] font-[700] uppercase tracking-[0.12em] text-[#151225] transition-colors duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-[59px] md:px-[28px] md:py-4 md:text-[13px] md:tracking-[0.16em]" style={{ fontFamily: "var(--font-mono)" }}>
               {service.secondaryCtaLabel}
             </Link>
           )}

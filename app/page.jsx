@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <div className="relative">
         <Hero />
-        <GifSection />
+        {/* <GifSection /> */}
         <ProjectsSection />
         <HappyBrands />
         <WebsiteGaps />

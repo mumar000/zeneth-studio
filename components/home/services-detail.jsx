@@ -6,7 +6,7 @@ import ServicePanel from "./service-panel";
 
 const SERVICES = [
   {
-    price: "$9999",
+    price: "$1,000",
     title: "Brand Identity",
     description:
       "For brands that look inconsistent, unclear, or too close to everyone else in the market.",
@@ -18,12 +18,12 @@ const SERVICES = [
     exploreLabel: "Explore Brand Identity",
     exploreHref: "/services/brand-identity",
     getLabel: "Get One For Your Brand",
-    getHref: "#",
+    getHref: "/contact",
     video: "/feroce/feroce-video.mp4",
     videoLabel: "Brand Identity showcase",
   },
   {
-    price: "$9999",
+    price: "$1,500",
     title: "Web & Interface Design",
     description:
       "High-fidelity website and interface design for teams that need sharper pages, clearer flow, and a better experience before anything gets built.",
@@ -35,12 +35,12 @@ const SERVICES = [
     exploreLabel: "Explore Web Design",
     exploreHref: "/services/interface-design",
     getLabel: "Get One For Your Brand",
-    getHref: "#",
+    getHref: "/contact",
     image: "/projects/letsgrub/1.webp",
     imageAlt: "Web and interface design showcase",
   },
   {
-    price: "$9999",
+    price: "$1,500",
     title: "Web Development",
     description:
       "Clean responsive builds for brands that already have the design, but need the live version to keep the same polish, spacing, and intent.",
@@ -52,7 +52,7 @@ const SERVICES = [
     exploreLabel: "Explore Development",
     exploreHref: "/services/web-development",
     getLabel: "Get One For Your Brand",
-    getHref: "#",
+    getHref: "/contact",
     video: "/web-animations-video.mp4",
     videoLabel: "Web development showcase",
   },
@@ -60,7 +60,7 @@ const SERVICES = [
 
 export default function ServicesDetail({
   headingLines = [
-    "A Focused team of designers, developers",
+    "A focused team of designers, developers",
     "and thinkers creating work that lasts.",
   ],
 }) {

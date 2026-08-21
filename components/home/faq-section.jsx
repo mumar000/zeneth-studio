@@ -40,40 +40,52 @@ function FaqItem({ faq, index }) {
   return (
     <motion.div
       layout
-      onClick={() => setOpen((o) => !o)}
-      className="cursor-pointer rounded-[12px] overflow-hidden select-none md:rounded-[14px]"
+      className="overflow-hidden rounded-[12px] md:rounded-[14px]"
       style={{ backgroundColor: open ? "#D4C8F5" : "#E2D8F7" }}
       animate={{ backgroundColor: open ? "#D4C8F5" : "#E2D8F7" }}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       whileHover={{ backgroundColor: "#DAD0F7" }}
     >
       {/* Question row */}
-      <div className="flex items-center justify-between px-5 py-4 md:px-7 md:py-6">
-        <span
-          className="text-[15px] leading-[1.35] text-[#1a1a1a] font-[500] md:text-[18px]"
-          style={{ fontFamily: "var(--font-sora)", letterSpacing: "0.02em" }}
+      <h3>
+        <button
+          type="button"
+          id={`faq-trigger-${index}`}
+          aria-expanded={open}
+          aria-controls={`faq-panel-${index}`}
+          onClick={() => setOpen((current) => !current)}
+          className="flex min-h-11 w-full items-center justify-between px-5 py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black md:px-7 md:py-6"
         >
-          {faq.q}
-        </span>
+          <span
+            className="text-[15px] font-[500] leading-[1.35] text-[#1a1a1a] md:text-[18px]"
+            style={{ fontFamily: "var(--font-sora)", letterSpacing: "0.02em" }}
+          >
+            {faq.q}
+          </span>
 
-        {/* Animated ⊕ → × icon */}
-        <motion.div
-          animate={{ rotate: open ? 135 : 0 }}
-          transition={{ type: "spring", stiffness: 400, damping: 28 }}
-          className="ml-4 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-[#1a1a1a]/40 md:h-8 md:w-8"
-        >
-          <svg width="15" height="15" viewBox="0 0 13 13" fill="none">
-            <line x1="6.5" y1="1" x2="6.5" y2="12" stroke="#1a1a1a" strokeWidth="1.3" strokeLinecap="round" />
-            <line x1="1" y1="6.5" x2="12" y2="6.5" stroke="#1a1a1a" strokeWidth="1.3" strokeLinecap="round" />
-          </svg>
-        </motion.div>
-      </div>
+          {/* Animated ⊕ → × icon */}
+          <motion.span
+            aria-hidden="true"
+            animate={{ rotate: open ? 135 : 0 }}
+            transition={{ type: "spring", stiffness: 400, damping: 28 }}
+            className="ml-4 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-[#1a1a1a]/40 md:h-8 md:w-8"
+          >
+            <svg width="15" height="15" viewBox="0 0 13 13" fill="none">
+              <line x1="6.5" y1="1" x2="6.5" y2="12" stroke="#1a1a1a" strokeWidth="1.3" strokeLinecap="round" />
+              <line x1="1" y1="6.5" x2="12" y2="6.5" stroke="#1a1a1a" strokeWidth="1.3" strokeLinecap="round" />
+            </svg>
+          </motion.span>
+        </button>
+      </h3>
 
       {/* Animated answer */}
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
             key="answer"
+            id={`faq-panel-${index}`}
+            role="region"
+            aria-labelledby={`faq-trigger-${index}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -107,7 +119,7 @@ function FaqItem({ faq, index }) {
 
 export default function FaqSection() {
   return (
-    <section className="relative z-10 w-full bg-[#F0EBFB] px-4 py-14 sm:px-6 md:px-10 md:py-28">
+    <section className="relative z-10 w-full  px-4 py-14 sm:px-6 md:px-10 md:py-28">
       <div className="mx-auto max-w-[1800px]">
         <div className="grid grid-cols-1 items-start gap-8 md:gap-12 lg:grid-cols-[2fr_3fr] lg:gap-20">
 

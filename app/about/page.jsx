@@ -60,8 +60,8 @@ export default function AboutPage() {
             className="text-[1.75rem] md:text-[2.5rem] font-[500] lg:text-[3rem] leading-[1.2] tracking-tight text-center"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            The <span className="italic font-romie">Nymbor Way</span> Every
-            project starts with clarity what your brand needs, not what looks
+            The <span className="italic font-romie">Nymbor Way.</span> Every
+            project starts with clarity about what your brand needs, not what looks
             &ldquo;cool.&rdquo; We strip the noise, plan the path, and build
             something that actually performs.
           </motion.h2>
@@ -76,7 +76,7 @@ export default function AboutPage() {
             className="text-xl text-gray-500 max-w-md"
           >
             <p>
-              100+ projects. 6+ countries. 0 shortcuts.Every brand you see here
+              100+ projects. 6+ countries. 0 shortcuts. Every brand you see here
               was built from scratch and it shows.
             </p>
           </motion.div>

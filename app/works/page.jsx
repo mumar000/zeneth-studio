@@ -9,6 +9,7 @@ import { projects } from "../../lib/projects-data";
 
 const featuredProjectSlugs = new Set([
   "spreadshop",
+  "arpm",
   "mogulbay",
   "lets-grub",
   "feroce",
@@ -71,11 +72,16 @@ export default function WorksPage() {
   };
 
   return (
-    <div className="relative bg-[#fffcf7]">
+    <main className="relative bg-[#fffcf7]">
       <CustomCursor variant={cursorVariant} text={cursorText} />
 
       <div className="min-h-screen px-8 pt-36">
-        {/* Hero Section */}
+        <h1
+          className="mx-auto max-w-[1500px] px-6 pb-12 text-center text-5xl font-[700] tracking-[-0.04em] text-[#1a1a1a] md:px-12 md:pb-16 md:text-7xl lg:px-24 lg:text-8xl"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          Selected work
+        </h1>
 
         {/* Projects Grid */}
         <section className="px-6 md:px-12 lg:px-24 pb-24">
@@ -134,6 +140,6 @@ export default function WorksPage() {
         </section>
         <AlignmentCTA />
       </div>
-    </div>
+    </main>
   );
 }

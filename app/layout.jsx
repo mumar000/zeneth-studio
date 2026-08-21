@@ -32,7 +32,7 @@ export const metadata = {
       "Distinctive brand identities, high-converting interfaces, and production-ready digital experiences.",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Nymbor | Creative Studio",
     description:
       "Distinctive brand identities, high-converting interfaces, and production-ready digital experiences.",

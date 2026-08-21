@@ -16,7 +16,7 @@ const PROJECT_IMAGES = [
     w: 400,
   },
   {
-    src: "/let-grub/frame-1948758999.webp",
+    src: "/works/lets-grub/hero/hero-4x.png",
     alt: "Let's Grub project",
     name: "Let's Grub",
     href: "/works/lets-grub",
@@ -45,7 +45,7 @@ export default function PortfolioCta() {
   const marqueeInView = useInView(marqueeRef, { margin: "200px 0px" });
 
   return (
-    <section className="relative z-10 w-full bg-[#F0EBFB]">
+    <section className="relative z-10 w-full ">
 
       {/* ── IMAGE MARQUEE STRIP ── */}
       <div ref={marqueeRef} className="pt-0 pb-0 overflow-hidden">

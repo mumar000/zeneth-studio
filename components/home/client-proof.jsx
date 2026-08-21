@@ -163,7 +163,7 @@ export default function ClientProof() {
   return (
     <>
       {/* ── CLIENT PROOF: video cards ── */}
-      <section className="relative z-10 w-full bg-[#F0EBFB] px-4 py-12 sm:px-6 md:px-10 md:py-24">
+      <section className="relative z-10 w-full px-4 py-12 sm:px-6 md:px-10 md:py-24">
         <div className="mx-auto max-w-[1400px]">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
