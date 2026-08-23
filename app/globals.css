@@ -264,7 +264,8 @@
     BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   /* Button: JetBrains Mono loaded via next/font in layout.jsx */
   --font-mono:
-    var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
 }
 
 @theme inline {

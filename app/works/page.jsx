@@ -15,7 +15,7 @@ const portfolioProjectSlugs = new Set([
   "mogulbay",
   "lets-grub",
   "feroce",
-  "voyager-supplements",
+  // "voyager-supplements",
 ]);
 
 const portfolioProjects = getPublicProjects().filter((project) =>

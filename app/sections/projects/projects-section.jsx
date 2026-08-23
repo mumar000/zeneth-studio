@@ -14,6 +14,45 @@ export default function FeaturedProjectsSection() {
 
   const projects = [
     {
+      name: "Spreadshop",
+      href: "/works/spreadshop",
+      image: "/works/spreadshop/hero.png",
+      year: "",
+      category: "E-commerce UX",
+      description:
+        "A creator storefront redesigned around discoverability, trust, and conversion.",
+      tags: [
+        { label: "Product Design", tone: "purple" },
+        { label: "E-commerce", tone: "yellow" },
+      ],
+    },
+    {
+      name: "Sapphire Pools",
+      href: "/works/sapphire",
+      image: "/works/sapphire/hero/project-card.webp",
+      year: "",
+      category: "Brand + Website",
+      description:
+        "A quiet-luxury pool brand built to earn trust before its portfolio existed.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "Web Development", tone: "yellow" },
+      ],
+    },
+    {
+      name: "ARPM",
+      href: "/works/arpm",
+      image: "/works/arpm/hero/hero-card-2x.png",
+      year: "",
+      category: "Interface + Development",
+      description:
+        "A stalled property platform redesigned, rebuilt, and brought live.",
+      tags: [
+        { label: "Interface Design", tone: "purple" },
+        { label: "Web Development", tone: "yellow" },
+      ],
+    },
+    {
       name: "Mogul Bay",
       href: "/works/mogulbay",
       image: "/mogulbay/1.webp",
@@ -49,18 +88,18 @@ export default function FeaturedProjectsSection() {
         { label: "Art Direction", tone: "yellow" },
       ],
     },
-    {
-      name: "Voyager",
-      href: "/works/voyager-supplements",
-      image: "/voyager/image_5.webp",
-      year: "",
-      category: "Brand + E-commerce",
-      description: "A performance brand built around clean, credible power.",
-      tags: [
-        { label: "Brand Identity", tone: "purple" },
-        { label: "E-commerce", tone: "yellow" },
-      ],
-    },
+    // {
+    //   name: "Voyager",
+    //   href: "/works/voyager-supplements",
+    //   image: "/voyager/image_5.webp",
+    //   year: "",
+    //   category: "Brand + E-commerce",
+    //   description: "A performance brand built around clean, credible power.",
+    //   tags: [
+    //     { label: "Brand Identity", tone: "purple" },
+    //     { label: "E-commerce", tone: "yellow" },
+    //   ],
+    // },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState(null);

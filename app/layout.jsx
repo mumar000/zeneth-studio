@@ -1,5 +1,4 @@
 import "./globals.css";
-import { JetBrains_Mono } from "next/font/google";
 import { Navbar } from "./components/common/navbar";
 import Footer from "./components/common/footer/footer";
 import SmoothScroll from "./components/SmoothScroll";
@@ -8,13 +7,6 @@ import FloatingCTA from "@/components/works/detail/floating-cta";
 import JsonLd from "@/components/seo/json-ld";
 import { createPageMetadata, organizationSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-jetbrains",
-  display: "swap",
-});
 
 const homeMetadata = createPageMetadata({
   title: siteConfig.defaultTitle,
@@ -81,7 +73,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
+    <html lang="en">
       <body className={`antialiased`}>
         <a
           href="#main-content"
