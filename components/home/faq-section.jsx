@@ -6,31 +6,31 @@ import { motion, AnimatePresence } from "framer-motion";
 const FAQS = [
   {
     q: "Who do you work with?",
-    a: "We work with founders, startups, and growing brands who take their visual identity seriously. If you're ready to invest in design that converts, we're your team.",
+    a: "We work with founders, small teams, and growing businesses that need a clearer brand, a stronger digital experience, or a reliable team to take both through launch.",
   },
   {
-    q: "Can you redesign my existing Shopify store?",
-    a: "Yes. We specialize in Shopify redesigns, from full UX overhauls to conversion-focused refreshes. We work in custom themes and Liquid.",
+    q: "Can you improve an existing brand or website?",
+    a: "Yes. We can refine what is working, identify where the experience loses clarity, and rebuild only the parts that need to change. A project does not have to start from zero.",
   },
   {
     q: "What does Nymbor do?",
-    a: "We build brand identities, design high-converting websites, and develop them to production, covering everything from visual strategy to live site.",
+    a: "We build brand identities, design clear websites and product interfaces, and develop them for launch, covering everything from visual strategy to the live experience.",
   },
   {
     q: "What makes Nymbor different?",
-    a: "We don't separate strategy from execution. The same team that thinks about your positioning also designs and builds your product. No handoffs, no lost context.",
+    a: "We connect strategy, identity, interface, and development instead of treating them as unrelated handoffs. That keeps the idea, the design, and the live result aligned.",
   },
   {
-    q: "Do you help with product pages?",
-    a: "Product page optimization is one of our most common engagements. We audit, redesign, and rebuild pages to reduce bounce and increase conversion.",
+    q: "Can Nymbor handle both design and development?",
+    a: "Yes. We can take a website from structure and interface design through responsive development, CMS setup, quality assurance, and launch support.",
   },
   {
-    q: "Can you improve conversion rate?",
-    a: "It's what we're built for. We combine design, copy framing, and UX analysis to systematically remove friction from the buyer journey.",
+    q: "Which website platforms do you work with?",
+    a: "Depending on the project, we work with Webflow, Shopify, WordPress, and custom front-end stacks. We recommend the platform after understanding your content, commerce, editing, and growth needs.",
   },
   {
-    q: "Do you work with existing brands?",
-    a: "Absolutely. Many of our clients come to us with an existing brand that needs evolution, not a rebrand from scratch. We meet you where you are.",
+    q: "What should I include in my project brief?",
+    a: "Share what you are building, what is not working today, the service you need, your ideal timeline, budget range, and any useful links. If the scope is still unclear, say that too.",
   },
 ];
 

@@ -21,7 +21,7 @@ export default function InterfaceDesignPage() {
           title: "Got a screen that looks fine but does not move people?",
           description:
             "Send us your current active page URL, sketch mockup, or custom strategy goals. We will identify the friction points, structure the decision path, and design a pristine interface focused on action.",
-          label: "Book a Call ->",
+          label: "Start an Interface Project ->",
           href: "/contact",
         }}
       />

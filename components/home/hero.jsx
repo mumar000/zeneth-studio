@@ -117,8 +117,8 @@ export default function Hero() {
           className="mx-auto mt-6 md:mt-8 md:max-w-lg 2xl:max-w-3xl lg:leading-8 text-base 2xl:text-2xl lg:text-lg md:text-md  font-[400] text-neutral-700"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          For founders and small teams who need a sharper identity, cleaner
-          site, and less back-and-forth getting there.
+          Nymbor connects brand identity, interface design, and web development
+          for founders and small teams that want one clear, launch-ready system.
         </motion.p>
 
         <motion.div variants={itemVariants} className="mt-9 sm:mt-11">
@@ -127,7 +127,7 @@ export default function Hero() {
             className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 py-3.5 text-xs sm:text-sm font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Book a 15-min site review
+            Start a Project
           </Link>
         </motion.div>
       </motion.div>

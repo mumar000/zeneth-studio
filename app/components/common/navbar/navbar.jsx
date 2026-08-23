@@ -261,7 +261,7 @@ export default function Navbar() {
             className="hidden md:inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-4 py-2 md:py-2 text-xs font-[800] uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Book a Call <ArrowRight size={15} />
+            Start a Project <ArrowRight size={15} />
           </Link>
 
           {/* Mobile toggle */}
@@ -384,7 +384,7 @@ export default function Navbar() {
                       className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3.5 text-sm font-[700] uppercase tracking-[0.12em] text-white"
                       style={{ fontFamily: "var(--font-mono)" }}
                     >
-                      Book a Call →
+                      Start a Project →
                     </Link>
                   </div>
                 </nav>

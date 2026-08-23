@@ -122,7 +122,7 @@ export default function PortfolioCta() {
             className="mt-4 max-w-[480px] text-[15px] leading-[1.55] text-[#1a1a1a]/60 md:mt-6 md:text-[17px] md:leading-[1.7]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            Book a discovery call. We&apos;ll look at what you have, scope it honestly,
+            Send your brief. We&apos;ll look at what you have, scope it honestly,
             and tell you if we&apos;re not the right fit.
           </motion.p>
 
@@ -138,7 +138,7 @@ export default function PortfolioCta() {
               className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-8 py-4 text-sm font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none"
               style={{ fontFamily: "var(--font-mono)" }}
             >
-              Book a Call →
+              Start a Project →
             </Link>
           </motion.div>
 

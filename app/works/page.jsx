@@ -83,7 +83,7 @@ export default function WorksPage() {
           className="mx-auto max-w-[1500px] px-6 pb-12 text-center text-5xl font-[700] tracking-[-0.04em] text-[#1a1a1a] md:px-12 md:pb-16 md:text-7xl lg:px-24 lg:text-8xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Selected work
+          Selected brand, interface, and web work
         </h1>
 
         {/* Projects Grid */}

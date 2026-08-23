@@ -1,5 +1,13 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Page Not Found",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 const RETURN_LINKS = [
   { href: "/", label: "Home" },
   { href: "/works", label: "View our work" },
@@ -8,7 +16,7 @@ const RETURN_LINKS = [
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#fffcf7] px-6 py-32 text-center">
+    <main id="main-content" className="flex min-h-screen items-center justify-center bg-[#fffcf7] px-6 py-32 text-center">
       <div className="mx-auto max-w-3xl">
         <p
           className="text-sm font-[700] uppercase tracking-[0.18em] text-primary"
