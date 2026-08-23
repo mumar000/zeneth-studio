@@ -71,7 +71,7 @@ export default function ServicesDetail({
   ],
 }) {
   return (
-    <section className="relative z-10 w-full px-3 py-14 md:py-28 lg:px-1.5">
+    <section id="services" className="relative z-10 w-full scroll-mt-28 px-3 py-14 md:py-28 lg:px-1.5">
       <div className="mx-auto max-w-[1920px]">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}

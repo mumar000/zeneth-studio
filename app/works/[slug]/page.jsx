@@ -1,8 +1,15 @@
 import { notFound } from "next/navigation";
 import {
-  projects,
   getProjectBySlug,
+  getProjectPublicationStatus,
+  getPublicProjects,
 } from "../../../lib/projects-data";
+import JsonLd from "@/components/seo/json-ld";
+import {
+  breadcrumbSchema,
+  caseStudySchema,
+  createPageMetadata,
+} from "@/lib/seo";
 import DetailHero from "../../../components/works/detail/detail-hero";
 import ImagePair from "../../../components/works/detail/image-pair";
 import BoardingPassQuote from "../../../components/works/detail/boarding-pass-quote";
@@ -13,26 +20,43 @@ import ClosingQuote from "../../../components/works/detail/closing-quote";
 import VideoStory from "../../../components/works/detail/video-story";
 import AlignmentCTA from "@/components/home/alignment-cta";
 
+const DEDICATED_PROJECT_SLUGS = new Set([
+  "spreadshop",
+  "lets-grub",
+  "sapphire",
+  "arpm",
+]);
+
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return projects
-    .filter(
-      (project) =>
-        project.slug !== "spreadshop" &&
-        project.slug !== "lets-grub" &&
-        project.slug !== "sapphire" &&
-        project.slug !== "arpm",
-    )
+  return getPublicProjects()
+    .filter((project) => !DEDICATED_PROJECT_SLUGS.has(project.slug))
     .map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  if (!project) return { title: "Work" };
-  return {
-    title: project.title,
+  const publicationStatus = getProjectPublicationStatus(slug);
+
+  if (!project || publicationStatus === "unpublished") {
+    return createPageMetadata({
+      title: "Case Study Not Found",
+      description: "The requested Nymbor case study could not be found.",
+      path: `/works/${slug}`,
+      noIndex: true,
+    });
+  }
+
+  return createPageMetadata({
+    title: `${project.title} Case Study`,
     description: project.tagline,
-  };
+    path: `/works/${slug}`,
+    eyebrow: "Nymbor case study",
+    imageAlt: `${project.title} case study by Nymbor`,
+    noIndex: publicationStatus === "noindex",
+  });
 }
 
 function renderBlock(block, i, project) {
@@ -90,10 +114,29 @@ function renderBlock(block, i, project) {
 export default async function ProjectDetailPage({ params }) {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  if (!project) notFound();
+  const publicationStatus = getProjectPublicationStatus(slug);
+  if (!project || publicationStatus === "unpublished") notFound();
+
+  const path = `/works/${slug}`;
 
   return (
-    <main className="relative min-h-screen bg-[#fffcf7]">
+    <main id="main-content" className="relative min-h-screen bg-[#fffcf7]">
+      <JsonLd
+        data={[
+          caseStudySchema({
+            title: project.title,
+            description: project.tagline,
+            path,
+            image: project.image,
+            services: project.tags,
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/works" },
+            { name: project.title, path },
+          ]),
+        ]}
+      />
       <DetailHero project={project} />
 
       {project.media.map((block, i) => renderBlock(block, i, project))}
