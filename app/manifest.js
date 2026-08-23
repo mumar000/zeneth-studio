@@ -1,13 +1,18 @@
+import { siteConfig } from "@/lib/site-config";
+
 export default function manifest() {
   return {
-    name: "Nymbor",
-    short_name: "Nymbor",
-    description:
-      "Nymbor builds distinctive brand identities, high-converting interfaces, and production-ready digital experiences.",
+    id: "/",
+    name: siteConfig.name,
+    short_name: siteConfig.name,
+    description: siteConfig.defaultDescription,
     start_url: "/",
+    scope: "/",
     display: "standalone",
+    orientation: "portrait-primary",
     background_color: "#ffffff",
-    theme_color: "#7221FC",
+    theme_color: siteConfig.themeColor,
+    categories: ["business", "design", "productivity"],
     icons: [
       {
         src: "/icon.svg",
@@ -19,7 +24,7 @@ export default function manifest() {
         src: "/apple-icon.png",
         sizes: "180x180",
         type: "image/png",
-        purpose: "any maskable",
+        purpose: "any",
       },
     ],
   };

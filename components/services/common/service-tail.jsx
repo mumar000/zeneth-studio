@@ -7,7 +7,7 @@ import PortfolioCta from "@/components/home/portfolio-cta";
 
 function CustomPortfolioCta({ cta }) {
   return (
-    <section className="relative z-10 w-full bg-[#F0EBFB] px-5 py-14 text-center md:px-8 md:py-28">
+    <section className="relative z-10 w-full  px-5 py-14 text-center md:px-8 md:py-28">
       <div className="mx-auto flex max-w-[1180px] flex-col items-center">
         <motion.p
           initial={{ opacity: 0, y: 16 }}

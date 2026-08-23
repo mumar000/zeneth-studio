@@ -10,7 +10,7 @@ import GifSection  from "@/components/home/gif-section";
 
 export default function Home() {
   return (
-    <>
+    <main id="main-content">
       <div className="relative">
         <Hero />
          <GifSection />
@@ -22,6 +22,6 @@ export default function Home() {
         <FaqSection />
         <PortfolioCta />
       </div>
-    </>
+    </main>
   );
 }

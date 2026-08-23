@@ -14,6 +14,14 @@ const QUOTE =
 const FEROCE = { src: "/home-logo/home-logo1.png", w: 122, h: 18 };
 const RESIGHT = { src: "/home-logo/home-logo3.png", w: 117, h: 30 };
 
+export const FEATURED_TESTIMONIAL = {
+  quote: QUOTE,
+  name: "Drew Ayesse",
+  role: "Founder & CEO - Feroce",
+  logo: FEROCE,
+  avatar: "/testimonials/avatar1.png",
+};
+
 const testimonials = [
   { tone: LAVENDER, logo: FEROCE, avatar: "/testimonials/avatar1.png" },
   { tone: CREAM, logo: RESIGHT, avatar: "/testimonials/avatar2.png" },

@@ -237,7 +237,7 @@ Use Midnight Black for the panel and Sapphire Gold for the attribution. Preserve
 - Supporting copy: `Sapphire launched with a premium identity, a lead-focused website, an editable WordPress system, and a client confident enough to keep coming back.`
 - CTA: `VISIT THE LIVE SITE`
 
-Confirm the live website URL before wiring the CTA. Do not guess or use a placeholder production link.
+The independently verified live website URL is `https://sapphirepools.com/`.
 
 ## High-Resolution Asset Standard
 
@@ -302,14 +302,14 @@ Match the polished motion language already used on the home page without distrac
 - [ ] Exact PP Editorial Old, SF Pro, and Messina Sans files are licensed and loaded.
 - [x] Sapphire replaces ARPM's featured works position without deleting ARPM.
 - [x] Dedicated Sapphire route and components exist.
-- [ ] All Figma assets are local, high-resolution, and correctly transparent.
-- [ ] All nine logical sections match the verified node content.
-- [ ] Tall homepage imagery is sliced or reconstructed, not flattened into one oversized bitmap.
+- [x] All Figma assets are local, high-resolution, and correctly transparent.
+- [x] All nine logical sections match the verified node content.
+- [x] Tall homepage imagery is sliced or reconstructed, not flattened into one oversized bitmap.
 - [ ] Desktop and mobile layouts have been visually compared with Figma.
-- [ ] Motion matches the site and respects reduced-motion preferences.
-- [ ] CTA URL has been independently verified.
-- [ ] Lint and production build pass.
-- [ ] Existing case studies still work.
+- [x] Motion matches the site and respects reduced-motion preferences.
+- [x] CTA URL has been independently verified.
+- [x] Lint and production build pass.
+- [x] Existing case-study routes compile successfully.
 
 ## Current Status
 
@@ -323,4 +323,12 @@ Match the polished motion language already used on the home page without distrac
 - The original 3024px Figma photograph has been cropped precisely and optimized into separate hero and works-card WebP assets.
 - Sapphire now occupies ARPM's previous featured position on `/works`; the existing ARPM case-study route remains intact.
 - The Hero includes responsive layout, optimized Next.js image delivery, entrance motion, and a reduced-motion fallback.
-- Next action: obtain the exact fonts and implement The Reality section.
+- The Reality and The World sections are implemented with live narrative, metrics, color, and typography content.
+- The World uses exact transparent Figma logo vectors and separately optimized 2× brand-application exports.
+- The First Impression uses six optimized 2× homepage slices and live conversion principles.
+- The System preserves the five-page Figma collage as separately loaded, responsive page exports.
+- Beyond the Mockup recomposes independent desktop and phone exports at each breakpoint.
+- Launch and Handoff preserves the three restrained content pillars on desktop and stacks them cleanly on mobile.
+- Client Proof matches the Midnight Black testimonial panel, Sapphire Gold attribution, and original editorial spacing.
+- The Outcome completes the case study with the verified live-site CTA and exact Figma arrow asset.
+- Next action: obtain the exact licensed fonts and complete final cross-device visual QA.

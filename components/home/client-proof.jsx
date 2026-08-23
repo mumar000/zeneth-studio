@@ -9,11 +9,10 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
+import { FEATURED_TESTIMONIAL } from "./happy-brands";
 
 const VIDEOS = [
   { id: 1, src: "/testimonial-1-web.mp4", poster: null },
-  { id: 2, src: null, poster: null },
-  { id: 3, src: null, poster: null },
 ];
 
 const STEPS = [
@@ -61,83 +60,54 @@ function VideoCard({ video, index, onOpen }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] }}
-      className={`group relative aspect-video cursor-pointer overflow-hidden rounded-[18px] bg-[#111] transition-[box-shadow,border-color] duration-300 sm:aspect-[3/4] sm:rounded-[24px] ${
-        video.src
-          ? "border border-black/10 shadow-[0_18px_50px_rgba(20,12,35,0.16)] hover:border-primary/45 hover:shadow-[0_24px_70px_rgba(114,33,252,0.2)]"
-          : "rounded-[18px]"
-      }`}
+      className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-[18px] border border-black/10 bg-[#111] shadow-[0_18px_50px_rgba(20,12,35,0.16)] transition-[box-shadow,border-color] duration-300 hover:border-primary/45 hover:shadow-[0_24px_70px_rgba(114,33,252,0.2)] sm:rounded-[24px]"
     >
-      {video.src ? (
-        <button
-          type="button"
-          onClick={() => onOpen(video.src)}
-          aria-label="Play client testimonial video"
-          className="absolute inset-0 h-full w-full bg-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary"
-        >
-          <video
-            ref={videoRef}
-            src={video.src}
-            poster={video.poster}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+      <button
+        type="button"
+        onClick={() => onOpen(video.src)}
+        aria-label="Play client testimonial video"
+        className="absolute inset-0 h-full w-full cursor-pointer bg-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary"
+      >
+        <video
+          ref={videoRef}
+          src={video.src}
+          poster={video.poster}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+        />
+        <span className="pointer-events-none absolute left-3 top-3 z-10 flex items-center rounded-lg border border-white/15 bg-black/35 px-2.5 py-2 shadow-lg backdrop-blur-md sm:left-5 sm:top-5 sm:rounded-xl sm:px-3.5 sm:py-2.5">
+          <Image
+            src="/voyager-supplements-logo.png"
+            alt="Voyager Supplements"
+            width={500}
+            height={195}
+            className="h-auto w-[96px] sm:w-[128px]"
           />
-          <span className="pointer-events-none absolute left-3 top-3 z-10 flex items-center rounded-lg border border-white/15 bg-black/35 px-2.5 py-2 shadow-lg backdrop-blur-md sm:left-5 sm:top-5 sm:rounded-xl sm:px-3.5 sm:py-2.5">
-            <Image
-              src="/voyager-supplements-logo.png"
-              alt="Voyager Supplements"
-              width={500}
-              height={195}
-              className="h-auto w-[96px] sm:w-[128px]"
-            />
-          </span>
-          <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/75 via-black/20 to-transparent px-4 pb-4 pt-16 text-left text-white sm:px-6 sm:pb-6 sm:pt-24">
-            <span>
-              <span
-                className="block text-[10px] font-[600] uppercase tracking-[0.2em] text-white/60"
-                style={{ fontFamily: "var(--font-sora)" }}
-              >
-                Client story
-              </span>
-              <span
-                className="mt-1 block text-sm font-[500] tracking-[-0.02em] sm:mt-1.5 sm:text-base"
-                style={{ fontFamily: "var(--font-sora)" }}
-              >
-                Watch the full story
-              </span>
+        </span>
+        <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/75 via-black/20 to-transparent px-4 pb-4 pt-16 text-left text-white sm:px-6 sm:pb-6 sm:pt-24">
+          <span>
+            <span
+              className="block text-[10px] font-[600] uppercase tracking-[0.2em] text-white/60"
+              style={{ fontFamily: "var(--font-sora)" }}
+            >
+              Client story
             </span>
-            <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md transition-colors duration-200 group-hover:bg-white group-hover:text-black sm:h-10 sm:w-10">
-              <ArrowUpRight className="h-4 w-4" />
+            <span
+              className="mt-1 block text-sm font-[500] tracking-[-0.02em] sm:mt-1.5 sm:text-base"
+              style={{ fontFamily: "var(--font-sora)" }}
+            >
+              Watch the full story
             </span>
           </span>
-        </button>
-      ) : (
-        <>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#2e2e2e] to-[#111111]" />
-          <PlayButton />
-        </>
-      )}
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md transition-colors duration-200 group-hover:bg-white group-hover:text-black sm:h-10 sm:w-10">
+            <ArrowUpRight className="h-4 w-4" />
+          </span>
+        </span>
+      </button>
     </motion.div>
-  );
-}
-
-function PlayButton() {
-  return (
-    <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
-      <span className="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-primary shadow-lg transition-transform duration-200 group-hover:scale-110">
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 22 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M7 4.5L18 11L7 17.5V4.5Z" fill="white" />
-        </svg>
-      </span>
-    </span>
   );
 }
 
@@ -176,15 +146,64 @@ export default function ClientProof() {
             Client Proof
           </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">
-            {VIDEOS.map((video, i) => (
-              <VideoCard
-                key={video.id}
-                video={video}
-                index={i}
-                onOpen={setActiveVideo}
+          <div className="mx-auto grid max-w-[1180px] items-stretch gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
+            <div className="flex min-w-0 items-center">
+              {VIDEOS.map((video, i) => (
+                <VideoCard
+                  key={video.id}
+                  video={video}
+                  index={i}
+                  onOpen={setActiveVideo}
+                />
+              ))}
+            </div>
+
+            <motion.figure
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
+              className="flex min-h-[280px] flex-col justify-between rounded-[18px] border border-black bg-[#C9B8F5] p-5 sm:rounded-[24px] sm:p-7 md:min-h-[340px] md:p-9"
+            >
+              <Image
+                src={FEATURED_TESTIMONIAL.logo.src}
+                width={FEATURED_TESTIMONIAL.logo.w}
+                height={FEATURED_TESTIMONIAL.logo.h}
+                alt="Feroce"
+                className="h-auto w-[112px] object-contain object-left md:w-[132px]"
               />
-            ))}
+
+              <blockquote
+                className="my-8 max-w-[27ch] text-[25px] font-[500] leading-[1.08] tracking-[-0.045em] text-[#171717] sm:text-[30px] md:text-[34px]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                &ldquo;{FEATURED_TESTIMONIAL.quote}&rdquo;
+              </blockquote>
+
+              <figcaption className="flex items-center gap-3 border-t border-black/15 pt-4">
+                <Image
+                  src={FEATURED_TESTIMONIAL.avatar}
+                  width={40}
+                  height={40}
+                  alt={FEATURED_TESTIMONIAL.name}
+                  className="rounded-[9px] object-cover ring-1 ring-black/10"
+                />
+                <span className="leading-tight">
+                  <span
+                    className="block text-[14px] font-[700] text-[#171717]"
+                    style={{ fontFamily: "var(--font-sora)" }}
+                  >
+                    {FEATURED_TESTIMONIAL.name}
+                  </span>
+                  <span
+                    className="block text-[13px] text-black/60"
+                    style={{ fontFamily: "var(--font-sora)" }}
+                  >
+                    {FEATURED_TESTIMONIAL.role}
+                  </span>
+                </span>
+              </figcaption>
+            </motion.figure>
           </div>
         </div>
       </section>

@@ -2,21 +2,24 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import ProjectCard from "../../components/works/project-card";
 import CustomCursor from "../../components/works/custom-cursor";
 import AlignmentCTA from "@/components/home/alignment-cta";
-import { projects } from "../../lib/projects-data";
+import { getPublicProjects } from "../../lib/projects-data";
 
-const featuredProjectSlugs = new Set([
+const portfolioProjectSlugs = new Set([
   "spreadshop",
   "sapphire",
+  "arpm",
   "mogulbay",
   "lets-grub",
   "feroce",
   "voyager-supplements",
 ]);
-const featuredProjects = projects.filter((project) =>
-  featuredProjectSlugs.has(project.slug),
+
+const portfolioProjects = getPublicProjects().filter((project) =>
+  portfolioProjectSlugs.has(project.slug),
 );
 
 const workFilters = [
@@ -52,7 +55,7 @@ export default function WorksPage() {
   const [cursorText, setCursorText] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const visibleProjects = featuredProjects.filter((project) =>
+  const visibleProjects = portfolioProjects.filter((project) =>
     belongsToService(project, activeFilter),
   );
 
@@ -72,10 +75,10 @@ export default function WorksPage() {
   };
 
   return (
-    <main className="relative bg-[#fffcf7]">
+    <main id="main-content" className="relative bg-[#fffcf7]">
       <CustomCursor variant={cursorVariant} text={cursorText} />
 
-      <div className="min-h-screen px-3 pt-36 sm:px-6 lg:px-8">
+      <div className="min-h-screen px-3 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
         <h1
           className="mx-auto max-w-[1500px] px-6 pb-12 text-center text-5xl font-[700] tracking-[-0.04em] text-[#1a1a1a] md:px-12 md:pb-16 md:text-7xl lg:px-24 lg:text-8xl"
           style={{ fontFamily: "var(--font-display)" }}
@@ -85,45 +88,41 @@ export default function WorksPage() {
 
         {/* Projects Grid */}
         <section className="pb-24">
-          <div className="mx-auto mb-12 flex max-w-[1680px] flex-col items-start gap-5 md:mb-16">
-            <p
-              className="text-[12px] font-[600] uppercase tracking-[0.12em] text-black/55 md:text-[13px]"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              Filter by service
-            </p>
+          <div className="mx-auto mb-10 flex max-w-[1680px] justify-start md:mb-14">
+            <label className="block" htmlFor="work-filter">
+              <span
+                className="mb-2.5 block text-[11px] font-[600] uppercase tracking-[0.12em] text-black/55 md:text-[12px]"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                Filter by service
+              </span>
 
-            <div
-              role="group"
-              aria-label="Filter projects by service"
-              className="flex w-full flex-wrap justify-start gap-2.5 md:gap-3"
-            >
-              {workFilters.map((filter) => {
-                const isActive = activeFilter === filter.id;
-
-                return (
-                  <button
-                    key={filter.id}
-                    type="button"
-                    aria-pressed={isActive}
-                    onClick={() => handleFilterChange(filter.id)}
-                    className={`inline-flex min-h-12 items-center justify-center rounded-[10px] border-2 border-black px-5 py-2.5 text-[12px] font-[700] uppercase tracking-[0.1em] shadow-[4px_4px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-14 md:px-6 md:py-3 md:text-[13px] ${
-                      isActive
-                        ? "bg-[var(--accent-yellow)] text-black"
-                        : "bg-white text-black hover:bg-[#f1f1f1]"
-                    }`}
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    {filter.label}
-                  </button>
-                );
-              })}
-            </div>
+              <span className="relative block w-[min(72vw,270px)]">
+                <select
+                  id="work-filter"
+                  value={activeFilter}
+                  onChange={(event) => handleFilterChange(event.target.value)}
+                  className="min-h-12 w-full cursor-pointer appearance-none rounded-[10px] border-2 border-black bg-white py-2.5 pl-4 pr-11 text-[12px] font-[700] uppercase tracking-[0.08em] shadow-[4px_4px_0_0_#000] outline-none transition-all duration-200 hover:bg-[#f1f1f1] focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-14 md:pl-5 md:text-[13px]"
+                  style={{ fontFamily: "var(--font-mono)" }}
+                >
+                  {workFilters.map((filter) => (
+                    <option key={filter.id} value={filter.id}>
+                      {filter.label}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown
+                  aria-hidden="true"
+                  className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-black md:size-5"
+                  strokeWidth={2}
+                />
+              </span>
+            </label>
           </div>
 
           <motion.div
             layout
-            className="mx-auto grid min-h-[460px] max-w-[1680px] grid-cols-2 items-start justify-items-center gap-x-3 gap-y-6 sm:gap-6 md:gap-10 xl:grid-cols-4 xl:gap-x-12 xl:gap-y-14 2xl:gap-x-16"
+            className="mx-auto grid min-h-[460px] max-w-[1680px] grid-cols-2 items-start justify-items-center gap-x-3 gap-y-6 sm:gap-x-7 sm:gap-y-9 md:gap-x-10 md:gap-y-12 xl:grid-cols-4 xl:gap-x-14 xl:gap-y-16 2xl:gap-x-20"
           >
             <AnimatePresence mode="sync">
               {visibleProjects.map((project, index) => (
