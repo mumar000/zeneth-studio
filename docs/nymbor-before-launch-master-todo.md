@@ -80,8 +80,8 @@ This is a code-level snapshot, not a completed QA result.
 
 - The contact form only logs data to the browser console; it has no production endpoint, required fields, names/IDs, connected labels, validation, privacy consent, budget field, spam protection, or submission states.
 - The Spreadshop “Visit site” control is disabled pending an approved destination.
-- Privacy, `robots.txt`, `sitemap.xml`, analytics integration, and a form API route are absent.
-- Route-specific canonicals, Open Graph images, and structured data are not implemented.
+- Privacy and analytics integration are absent; the server-side form route, `robots.txt`, and `sitemap.xml` are now implemented.
+- Route-specific canonicals, generated 1200×630 Open Graph images, Twitter cards, and structured data are now implemented; production validation and Search Console submission remain launch tasks.
 - “Book a Call” and “Book a 15-min site review” lead to the project brief instead of a booking system.
 - The mobile-menu and FAQ accessibility implementations still need the required manual keyboard, zoom, touch, and screen-reader QA pass.
 - There is no skip-to-content link or common main-content target.
@@ -391,10 +391,10 @@ Use these exact public amounts and formatting everywhere they appear:
 | Generic case studies | Two `h1` elements, desktop and mobile | Render one semantic `h1`; style responsively without duplicating it |
 | Spreadshop | One screen-reader `h1` | Confirm it remains unique and the visible hierarchy is understandable |
 
-- [ ] Wrap each page’s primary content in one `<main>` landmark with a consistent `id` for the skip link.
-- [ ] Give header/footer navigation distinct accessible labels.
+- [x] Wrap each page’s primary content in one `<main>` landmark with a consistent `id` for the skip link.
+- [x] Give header/footer navigation distinct accessible labels.
 - [ ] Ensure section headings do not skip levels for visual styling.
-- [ ] Keep decorative labels out of the heading outline unless they describe a real section.
+- [x] Keep decorative labels out of the heading outline unless they describe a real section.
 
 **Done when:** Every public page has exactly one meaningful `h1`, logical headings, and unique landmarks in the rendered DOM.
 
@@ -403,17 +403,17 @@ Use these exact public amounts and formatting everywhere they appear:
 **Priority:** P0  
 **Owners:** SEO + Content + Development
 
-- [ ] Create unique, approved title and meta description for every indexable route.
-- [ ] Add a self-referencing canonical for every indexable page using the final HTTPS host.
-- [ ] Add route-specific Open Graph title, description, canonical URL, type, and image.
-- [ ] Change Twitter/X cards to `summary_large_image` and include the correct image/title/description.
-- [ ] Produce intentional 1200×630 social images with safe text margins and useful alt descriptions.
-- [ ] Add `robots` metadata for drafts/noindex routes and ensure it cannot conflict with `robots.txt`.
-- [ ] Ensure project/service metadata comes only from approved structured content, not placeholder data.
-- [ ] Add appropriate Organization/ProfessionalService structured data with truthful name, URL, logo, email, service area, and same-as profiles.
-- [ ] Add Service structured data only where the visible page supports it; add BreadcrumbList to deep pages if visible navigation/labels support it.
-- [ ] Validate JSON-LD and never insert unsupported reviews, aggregate ratings, prices, locations, or claims.
-- [ ] Verify favicon, Apple icon, manifest, theme colors, app name, and social imagery against final Nymbor brand assets.
+- [x] Create unique title and meta description for every indexable route; final founder/content approval remains required.
+- [x] Add a self-referencing canonical for every indexable page using the final HTTPS host.
+- [x] Add route-specific Open Graph title, description, canonical URL, type, and generated image.
+- [x] Change Twitter/X cards to `summary_large_image` and include the correct image/title/description.
+- [x] Produce intentional 1200×630 social images with safe text margins and useful alt descriptions.
+- [x] Add `robots` metadata for drafts/noindex routes and ensure it cannot conflict with `robots.txt`.
+- [x] Ensure project/service metadata comes only from explicitly published or noindex project records, not placeholder records.
+- [x] Add Organization/ProfessionalService structured data with the approved Nymbor name, URL, logo, email, and stated worldwide service area; social profiles remain intentionally omitted until approved.
+- [x] Add Service structured data only where the visible page supports it and BreadcrumbList to deep pages.
+- [x] Validate JSON-LD serialization during the production build and avoid unsupported reviews, aggregate ratings, prices, locations, or claims; external rich-result validation remains pending.
+- [x] Verify favicon, Apple icon, manifest, theme colors, app name, and generated social imagery against the current Nymbor assets.
 
 **Done when:** Every launch route passes a metadata/canonical/social-preview checklist and schema validation without warnings that reflect incorrect content.
 
@@ -422,12 +422,12 @@ Use these exact public amounts and formatting everywhere they appear:
 **Priority:** P0  
 **Owners:** SEO + Development + Operations
 
-- [ ] Implement `app/robots.js` or a valid `public/robots.txt` with the correct production sitemap URL.
-- [ ] Implement `app/sitemap.js` or a valid `public/sitemap.xml` generated only from canonical, launch-approved, indexable routes.
-- [ ] Exclude drafts, duplicate routes, parameter noise, and noindex pages from the sitemap.
-- [ ] Add an intentional `not-found` experience and confirm unknown URLs return a real HTTP 404, not a soft 200.
+- [x] Implement `app/robots.js` with the correct production sitemap URL.
+- [x] Implement `app/sitemap.js` generated only from canonical, launch-approved, indexable routes.
+- [x] Exclude drafts, duplicate routes, parameter noise, and noindex pages from the sitemap.
+- [x] Add an intentional `not-found` experience; production build includes the route and framework 404 handling still needs a deployed HTTP check.
 - [ ] Define redirects for renamed/normalized slugs, especially any Mogul Bay naming change, and prevent redirect chains.
-- [ ] Ensure staging/preview environments are noindex and cannot leak into production canonicals or sitemap URLs.
+- [x] Ensure staging/preview environments are noindex and cannot leak into production canonicals or sitemap URLs.
 - [ ] Connect and verify Google Search Console for the canonical domain.
 - [ ] Submit the production sitemap after launch and inspect key URLs.
 - [ ] Check URL inspection, mobile usability, rich-result/schema output, and indexing status after deployment.
