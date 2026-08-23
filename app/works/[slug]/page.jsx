@@ -10,7 +10,6 @@ import WordmarkBlock from "../../../components/works/detail/wordmark-block";
 import TrioRow from "../../../components/works/detail/trio-row";
 import SystemBoard from "../../../components/works/detail/system-board";
 import ClosingQuote from "../../../components/works/detail/closing-quote";
-import FloatingCTA from "../../../components/works/detail/floating-cta";
 import VideoStory from "../../../components/works/detail/video-story";
 import AlignmentCTA from "@/components/home/alignment-cta";
 
@@ -20,6 +19,7 @@ export function generateStaticParams() {
       (project) =>
         project.slug !== "spreadshop" &&
         project.slug !== "lets-grub" &&
+        project.slug !== "sapphire" &&
         project.slug !== "arpm",
     )
     .map((project) => ({ slug: project.slug }));
@@ -106,7 +106,6 @@ export default async function ProjectDetailPage({ params }) {
 
       <AlignmentCTA />
 
-      <FloatingCTA accent={project.accent} projectTitle={project.title} />
     </main>
   );
 }

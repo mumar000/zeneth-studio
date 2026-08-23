@@ -9,7 +9,7 @@ import { projects } from "../../lib/projects-data";
 
 const featuredProjectSlugs = new Set([
   "spreadshop",
-  "arpm",
+  "sapphire",
   "mogulbay",
   "lets-grub",
   "feroce",
@@ -75,7 +75,7 @@ export default function WorksPage() {
     <main className="relative bg-[#fffcf7]">
       <CustomCursor variant={cursorVariant} text={cursorText} />
 
-      <div className="min-h-screen px-8 pt-36">
+      <div className="min-h-screen px-3 pt-36 sm:px-6 lg:px-8">
         <h1
           className="mx-auto max-w-[1500px] px-6 pb-12 text-center text-5xl font-[700] tracking-[-0.04em] text-[#1a1a1a] md:px-12 md:pb-16 md:text-7xl lg:px-24 lg:text-8xl"
           style={{ fontFamily: "var(--font-display)" }}
@@ -84,8 +84,8 @@ export default function WorksPage() {
         </h1>
 
         {/* Projects Grid */}
-        <section className="px-6 md:px-12 lg:px-24 pb-24">
-          <div className="mx-auto mb-12 flex max-w-[1500px] flex-col items-center gap-5 md:mb-16">
+        <section className="pb-24">
+          <div className="mx-auto mb-12 flex max-w-[1680px] flex-col items-start gap-5 md:mb-16">
             <p
               className="text-[12px] font-[600] uppercase tracking-[0.12em] text-black/55 md:text-[13px]"
               style={{ fontFamily: "var(--font-mono)" }}
@@ -96,7 +96,7 @@ export default function WorksPage() {
             <div
               role="group"
               aria-label="Filter projects by service"
-              className="flex w-full flex-wrap justify-center gap-2.5 md:gap-3"
+              className="flex w-full flex-wrap justify-start gap-2.5 md:gap-3"
             >
               {workFilters.map((filter) => {
                 const isActive = activeFilter === filter.id;
@@ -123,7 +123,7 @@ export default function WorksPage() {
 
           <motion.div
             layout
-            className="flex min-h-[460px] flex-wrap content-start justify-center gap-8"
+            className="mx-auto grid min-h-[460px] max-w-[1680px] grid-cols-2 items-start justify-items-center gap-x-3 gap-y-6 sm:gap-6 md:gap-10 xl:grid-cols-4 xl:gap-x-12 xl:gap-y-14 2xl:gap-x-16"
           >
             <AnimatePresence mode="sync">
               {visibleProjects.map((project, index) => (

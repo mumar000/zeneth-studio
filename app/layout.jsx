@@ -4,6 +4,7 @@ import { Navbar } from "./components/common/navbar";
 import Footer from "./components/common/footer/footer";
 import SmoothScroll from "./components/SmoothScroll";
 import Loader from "./components/loader";
+import FloatingCTA from "@/components/works/detail/floating-cta";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           {children}
           <Footer />
+          <FloatingCTA />
         </SmoothScroll>
       </body>
     </html>

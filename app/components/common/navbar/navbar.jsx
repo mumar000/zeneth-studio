@@ -1,16 +1,16 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Work", href: "/works" },
+  { label: "Home", href: "/", order: "order-1" },
+  { label: "Work", href: "/works", order: "order-2" },
+  { label: "About", href: "/about", order: "order-4" },
 ];
 
 const SERVICE_ITEMS = [
@@ -26,6 +26,7 @@ export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isIntroCollapsed, setIsIntroCollapsed] = useState(true);
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
   const hasScrolledRef = useRef(false);
   const menuButtonRef = useRef(null);
   const desktopServicesButtonRef = useRef(null);
@@ -52,7 +53,7 @@ export default function Navbar() {
       if (frameId) cancelAnimationFrame(frameId);
       window.removeEventListener("scroll", onScroll);
     };
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsIntroCollapsed(false), 2800);
@@ -79,6 +80,8 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
+  const isWorkDetailPage = /^\/works\/[^/]+\/?$/.test(pathname);
+  const shouldShowNavbar = !isWorkDetailPage || hasScrolled;
   const collapsed = hasScrolled || isIntroCollapsed;
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
@@ -86,12 +89,52 @@ export default function Navbar() {
   };
 
   return (
-    <motion.header
-      className="fixed top-0 inset-x-0 z-[80]"
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
-    >
+    <AnimatePresence>
+      {shouldShowNavbar && (
+        <motion.header
+          key={isWorkDetailPage ? "work-detail-navbar" : "site-navbar"}
+          className="fixed inset-x-0 top-0 z-[80]"
+          initial={
+            isWorkDetailPage
+              ? shouldReduceMotion
+                ? { opacity: 0 }
+                : {
+                    opacity: 0,
+                    y: -28,
+                    scale: 0.98,
+                    filter: "blur(10px)",
+                  }
+              : { opacity: 0, y: -16 }
+          }
+          animate={
+            isWorkDetailPage
+              ? { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+              : { opacity: 1, y: 0 }
+          }
+          exit={
+            isWorkDetailPage
+              ? shouldReduceMotion
+                ? { opacity: 0 }
+                : {
+                    opacity: 0,
+                    y: -20,
+                    scale: 0.985,
+                    filter: "blur(8px)",
+                  }
+              : undefined
+          }
+          transition={
+            isWorkDetailPage
+              ? shouldReduceMotion
+                ? { duration: 0.15 }
+                : { duration: 0.55, ease: [0.22, 1, 0.36, 1] }
+              : {
+                  duration: 0.7,
+                  delay: 0.2,
+                  ease: [0.25, 1, 0.5, 1],
+                }
+          }
+        >
       <div
         className={
           `relative mx-auto transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ` +
@@ -125,9 +168,9 @@ export default function Navbar() {
           {/* Center: nav pill (desktop) */}
           <nav
             aria-label="Primary navigation"
-            className="hidden md:flex items-center gap-0.5 rounded-lg border border-black px-3 py-1 lg:py-2.5 2xl:py-3 md:py-2 bg-white/70 backdrop-blur-md"
+            className="hidden items-center gap-1 rounded-full border border-black/10 bg-white/85 p-1.5 shadow-[0_10px_30px_rgba(28,16,48,0.08)] backdrop-blur-xl md:flex"
           >
-            {NAV_ITEMS.map(({ label, href }) => {
+            {NAV_ITEMS.map(({ label, href, order }) => {
               const active =
                 pathname === href ||
                 (href !== "/" && pathname.startsWith(href));
@@ -136,16 +179,10 @@ export default function Navbar() {
                   key={label}
                   href={href}
                   aria-current={active ? "page" : undefined}
-                  className={`${
-                    label === "Home"
-                      ? "order-1"
-                      : label === "About"
-                        ? "order-3"
-                        : "order-4"
-                  } px-4 md:py-1.5 2xl:py-2 rounded-lg text-xs 2xl:text-md lg:text-md md:text-xs font-[500] transition-all duration-200 ${
+                  className={`${order} rounded-full px-3.5 py-2 text-[12px] font-[500] tracking-[-0.01em] transition-[color,background-color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 lg:px-4 lg:text-[13px] 2xl:px-5 2xl:py-2.5 2xl:text-sm ${
                     active
-                      ? "bg-[#1a1a1a] text-white"
-                      : "text-black hover:text-black hover:bg-black/5"
+                      ? "bg-[#171717] text-white shadow-[0_4px_12px_rgba(0,0,0,0.16)]"
+                      : "text-black/65 hover:bg-black/[0.055] hover:text-black"
                   }`}
                   style={{ fontFamily: "var(--font-sora)" }}
                 >
@@ -155,7 +192,7 @@ export default function Navbar() {
             })}
 
             <div
-              className="relative order-2"
+              className="relative order-3"
               onMouseEnter={() => setIsDesktopServicesOpen(true)}
               onMouseLeave={() => setIsDesktopServicesOpen(false)}
               onFocusCapture={() => setIsDesktopServicesOpen(true)}
@@ -175,16 +212,16 @@ export default function Navbar() {
                 type="button"
                 aria-expanded={isDesktopServicesOpen}
                 aria-controls="desktop-services-menu"
-                className={`flex items-center gap-1.5 rounded-lg px-4 py-1.5 text-xs md:text-xs lg:text-md font-[500] transition-all duration-200 ${
+                className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-[12px] font-[500] tracking-[-0.01em] transition-[color,background-color,box-shadow] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 lg:px-4 lg:text-[13px] 2xl:px-5 2xl:py-2.5 2xl:text-sm ${
                   pathname.startsWith("/services")
-                    ? "bg-[#1a1a1a] text-white"
-                    : "text-black hover:bg-black/5"
+                    ? "bg-[#171717] text-white shadow-[0_4px_12px_rgba(0,0,0,0.16)]"
+                    : "text-black/65 hover:bg-black/[0.055] hover:text-black"
                 }`}
                 style={{ fontFamily: "var(--font-sora)" }}
               >
-                Services
+                Service
                 <ChevronDown
-                  className={`h-3 w-3 transition-transform duration-200 ${
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
                     isDesktopServicesOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -279,7 +316,7 @@ export default function Navbar() {
             >
               <div className="rounded-2xl bg-white/95 backdrop-blur-xl border border-black/10 shadow-2xl p-4">
                 <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
-                  {NAV_ITEMS.map(({ label, href }) => {
+                  {NAV_ITEMS.map(({ label, href, order }) => {
                     const active =
                       pathname === href ||
                       (href !== "/" && pathname.startsWith(href));
@@ -290,13 +327,7 @@ export default function Navbar() {
                         href={href}
                         aria-current={active ? "page" : undefined}
                         onClick={closeMobileMenu}
-                        className={`${
-                          label === "Home"
-                            ? "order-1"
-                            : label === "About"
-                              ? "order-3"
-                              : "order-4"
-                        } group flex items-center justify-between rounded-xl px-4 py-3 text-base font-[500] text-black/70 hover:text-black hover:bg-black/5 transition-all`}
+                        className={`${order} group flex items-center justify-between rounded-xl px-4 py-3 text-base font-[500] text-black/70 hover:text-black hover:bg-black/5 transition-all`}
                         style={{ fontFamily: "var(--font-sora)" }}
                       >
                         {label}
@@ -304,7 +335,7 @@ export default function Navbar() {
                       </Link>
                     );
                   })}
-                  <div className="order-2">
+                  <div className="order-3">
                     <button
                       type="button"
                       onClick={() => setIsServicesOpen((open) => !open)}
@@ -313,7 +344,7 @@ export default function Navbar() {
                       className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-[500] text-black/70 transition-all hover:bg-black/5 hover:text-black"
                       style={{ fontFamily: "var(--font-sora)" }}
                     >
-                      Services
+                      Service
                       <ChevronDown
                         className={`h-4 w-4 transition-transform duration-200 ${
                           isServicesOpen ? "rotate-180" : ""
@@ -362,6 +393,8 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </motion.header>
+        </motion.header>
+      )}
+    </AnimatePresence>
   );
 }

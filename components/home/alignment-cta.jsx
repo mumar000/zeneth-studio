@@ -48,6 +48,7 @@ export default function AlignmentCTA() {
 
   return (
     <section
+      data-project-cta-boundary
       className="w-full py-20 md:py-24 bg-[#ffffff]"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
