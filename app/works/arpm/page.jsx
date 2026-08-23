@@ -12,16 +12,46 @@ import OutcomeTestimonial from "@/components/works/arpm/outcome-testimonial";
 import OperationalReality from "@/components/works/arpm/operational-reality";
 import ProjectOverview from "@/components/works/arpm/project-overview";
 import SearchProduct from "@/components/works/arpm/search-product";
+import JsonLd from "@/components/seo/json-ld";
+import {
+  breadcrumbSchema,
+  caseStudySchema,
+  createPageMetadata,
+} from "@/lib/seo";
 
-export const metadata = {
-  title: "Associated Realty Property Management",
+const title = "ARPM Property Platform Case Study";
+const description =
+  "See how Nymbor redesigned and rebuilt Associated Realty Property Management's stalled platform into a responsive, production-ready property experience.";
+const path = "/works/arpm";
+
+export const metadata = createPageMetadata({
+  title,
   description:
-    "The third development team turned ARPM's stalled redesign into a modern, production-ready property experience.",
-};
+    "See how Nymbor redesigned and rebuilt Associated Realty Property Management's stalled platform into a responsive, production-ready property experience.",
+  path,
+  eyebrow: "Interface design & development case study",
+  imageAlt: "ARPM property platform redesign and development case study by Nymbor",
+});
 
 export default function ArpmCaseStudyPage() {
   return (
-    <main className="overflow-x-clip bg-[#f6f4ef]">
+    <main id="main-content" className="overflow-x-clip bg-[#f6f4ef]">
+      <JsonLd
+        data={[
+          caseStudySchema({
+            title: "Associated Realty Property Management",
+            description,
+            path,
+            image: "/works/arpm/hero/hero-card-2x.png",
+            services: ["Interface Design", "Web Development"],
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/works" },
+            { name: "ARPM", path },
+          ]),
+        ]}
+      />
       <ArpmHero />
       <ProjectOverview />
       <ExecutiveDirection />

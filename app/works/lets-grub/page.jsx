@@ -11,16 +11,46 @@ import MascotGuidelines from "@/components/works/lets-grub/mascot-guidelines";
 import RealBrief from "@/components/works/lets-grub/real-brief";
 import TensionPanel from "@/components/works/lets-grub/tension-panel";
 import ThankYou from "@/components/works/lets-grub/thank-you";
+import JsonLd from "@/components/seo/json-ld";
+import {
+  breadcrumbSchema,
+  caseStudySchema,
+  createPageMetadata,
+} from "@/lib/seo";
 
-export const metadata = {
-  title: "Let's Grub",
+const title = "Let’s Grub Brand Identity Case Study";
+const description =
+  "Explore the strategy, logo, mascot, typography, color, and digital identity Nymbor created for the Let’s Grub social dining experience.";
+const path = "/works/lets-grub";
+
+export const metadata = createPageMetadata({
+  title,
   description:
-    "A social dining identity designed to bring people together through food.",
-};
+    "Explore the strategy, logo, mascot, typography, color, and digital identity Nymbor created for the Let’s Grub social dining experience.",
+  path,
+  eyebrow: "Brand identity case study",
+  imageAlt: "Let’s Grub brand identity and mascot case study by Nymbor",
+});
 
 export default function LetsGrubCaseStudyPage() {
   return (
-    <main className="overflow-x-clip bg-[#f7f7f7]">
+    <main id="main-content" className="overflow-x-clip bg-[#f7f7f7]">
+      <JsonLd
+        data={[
+          caseStudySchema({
+            title: "Let’s Grub",
+            description,
+            path,
+            image: "/works/lets-grub/hero/hero-4x.png",
+            services: ["Brand Identity", "Art Direction", "Digital Product"],
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/works" },
+            { name: "Let’s Grub", path },
+          ]),
+        ]}
+      />
       <LetsGrubHero />
       <RealBrief />
       <TensionPanel />

@@ -16,16 +16,46 @@ import HomepageShowcase from "@/components/works/spreadshop/homepage-showcase";
 import FinalVerdict from "@/components/works/spreadshop/final-verdict";
 import SupportingPageGallery from "@/components/works/spreadshop/supporting-page-gallery";
 import SpreadshopMotion from "@/components/works/spreadshop/spreadshop-motion";
+import JsonLd from "@/components/seo/json-ld";
+import {
+  breadcrumbSchema,
+  caseStudySchema,
+  createPageMetadata,
+} from "@/lib/seo";
 
-export const metadata = {
-  title: "Spreadshop",
+const title = "Spreadshop E-commerce UX Case Study";
+const description =
+  "Explore Nymbor's research-led redesign of Spreadshop's creator storefront, from competitive analysis and user journeys to responsive e-commerce interfaces.";
+const path = "/works/spreadshop";
+
+export const metadata = createPageMetadata({
+  title,
   description:
-    "A ground-up redesign of Spreadshop's creator storefront experience by Nymbor.",
-};
+    "Explore Nymbor's research-led redesign of Spreadshop's creator storefront, from competitive analysis and user journeys to responsive e-commerce interfaces.",
+  path,
+  eyebrow: "E-commerce UX case study",
+  imageAlt: "Spreadshop creator storefront UX redesign case study by Nymbor",
+});
 
 export default function SpreadshopCaseStudyPage() {
   return (
-    <main className="overflow-x-clip bg-white">
+    <main id="main-content" className="overflow-x-clip bg-white">
+      <JsonLd
+        data={[
+          caseStudySchema({
+            title: "Spreadshop",
+            description,
+            path,
+            image: "/works/spreadshop/hero.png",
+            services: ["Product Design", "User Research", "Web Design", "E-commerce"],
+          }),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Work", path: "/works" },
+            { name: "Spreadshop", path },
+          ]),
+        ]}
+      />
       <SpreadshopMotion>
         <SpreadshopHero />
         <ProjectIntroduction />
