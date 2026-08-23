@@ -95,7 +95,7 @@ export default function Navbar() {
       <div
         className={
           `relative mx-auto transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ` +
-          (collapsed ? "max-w-[960px] mt-2 px-2" : "container px-4 md:px-6 py-2 2xl:py-4 lg:py-4 md:py-2")
+          (collapsed ? "max-w-[960px] mt-2 px-2" : "container px-4 md:px-6 py-2 2xl:py-6 lg:py-4 md:py-2")
         }
       >
         <div
@@ -125,7 +125,7 @@ export default function Navbar() {
           {/* Center: nav pill (desktop) */}
           <nav
             aria-label="Primary navigation"
-            className="hidden md:flex items-center gap-0.5 rounded-lg border border-black px-3 py-1 lg:py-2.5 md:py-2 bg-white/70 backdrop-blur-md"
+            className="hidden md:flex items-center gap-0.5 rounded-lg border border-black px-3 py-1 lg:py-2.5 2xl:py-3 md:py-2 bg-white/70 backdrop-blur-md"
           >
             {NAV_ITEMS.map(({ label, href }) => {
               const active =
@@ -142,7 +142,7 @@ export default function Navbar() {
                       : label === "About"
                         ? "order-3"
                         : "order-4"
-                  } px-4 py-1.5  rounded-lg text-xs lg:text-md md:text-xs font-[500] transition-all duration-200 ${
+                  } px-4 md:py-1.5 2xl:py-2 rounded-lg text-xs 2xl:text-md lg:text-md md:text-xs font-[500] transition-all duration-200 ${
                     active
                       ? "bg-[#1a1a1a] text-white"
                       : "text-black hover:text-black hover:bg-black/5"

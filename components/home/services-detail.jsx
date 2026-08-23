@@ -21,6 +21,8 @@ const SERVICES = [
     getHref: "/contact",
     video: "/feroce/feroce-video.mp4",
     videoLabel: "Brand Identity showcase",
+    mediaBackdrop: "/feroce/feroce-video-backdrop.jpg",
+    mediaBackground: "#050000",
   },
   {
     price: "$1,500",
@@ -38,6 +40,8 @@ const SERVICES = [
     getHref: "/contact",
     image: "/projects/letsgrub/1.webp",
     imageAlt: "Web and interface design showcase",
+    mediaBackdrop: "/projects/letsgrub/1.webp",
+    mediaBackground: "#18b8e7",
   },
   {
     price: "$1,500",
@@ -55,6 +59,8 @@ const SERVICES = [
     getHref: "/contact",
     video: "/web-animations-video.mp4",
     videoLabel: "Web development showcase",
+    mediaBackdrop: "/web-animations-video-backdrop.jpg",
+    mediaBackground: "#ffffff",
   },
 ];
 

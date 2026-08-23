@@ -19,6 +19,8 @@ export default function ServicePanel({
   videoLabel = "Service showcase video",
   image,
   imageAlt = "Service showcase",
+  mediaBackdrop,
+  mediaBackground = "#000000",
   index = 0,
 }) {
   const shouldReduceMotion = useReducedMotion();
@@ -111,17 +113,32 @@ export default function ServicePanel({
         </div>
       </div>
 
-      <div className="relative h-[280px] overflow-hidden bg-[#1c0f09] sm:h-[340px] md:h-auto md:min-h-[520px] lg:min-h-0">
+      <div
+        className="relative aspect-video w-full overflow-hidden lg:aspect-auto"
+        style={{ backgroundColor: mediaBackground }}
+      >
+        {mediaBackdrop ? (
+          <Image
+            src={mediaBackdrop}
+            fill
+            alt=""
+            aria-hidden="true"
+            sizes="(min-width: 1024px) 55vw, 1px"
+            className="hidden scale-110 object-cover opacity-70 blur-3xl lg:block"
+          />
+        ) : null}
+
         {video ? (
           <video
             src={video}
+            poster={mediaBackdrop}
             aria-label={videoLabel}
             autoPlay={!shouldReduceMotion}
             muted
             loop
             playsInline
             preload="metadata"
-            className="h-full w-full object-cover"
+            className="relative z-10 h-full w-full object-contain"
           />
         ) : image ? (
           <Image
@@ -129,7 +146,7 @@ export default function ServicePanel({
             fill
             alt={imageAlt}
             sizes="(min-width: 1024px) 55vw, 100vw"
-            className="object-contain p-[6%]"
+            className="z-10 object-contain"
           />
         ) : null}
       </div>

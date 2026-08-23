@@ -355,4 +355,10 @@ For every visual asset:
 - Let’s Grub execution handoff replaced by this ARPM handoff.
 - No ARPM implementation code has been created yet.
 - Phase 1 complete: the Works listing entry, dedicated `/works/arpm` route, and responsive Figma-matched hero are implemented with the exact 4× device mockup.
-- Next action: implement the Project Overview section (`166:32`).
+- Phase 2 complete: Project Overview (`166:32`) and Executive-Approved Direction (`166:63`) are implemented with exact Figma copy, responsive editorial layouts, reduced-motion-safe reveals, the architectural background export, and 4× presentation assets.
+- Phase 3 complete: The Brief Beneath the Brief (`166:64`), The Operational Reality (`166:65`), and Design Direction (`166:66`) are implemented with live editorial typography, responsive metric and principle layouts, restrained animation, and dedicated 4× Figma exports.
+- Phase 4 complete: Client Reaction (`166:67`), Three Data Worlds (`166:68`), and Search as Product (`166:39`) are implemented with a high-resolution mobile mockup, live responsive bridge content using exact Figma connector vectors, and two 4× search-interface exports.
+- Phase 5 complete: The Miracle (`166:69`) and Getting It Live (`166:70`) are implemented with high-resolution Figma exports, responsive editorial layouts, launch-stage cards, and reduced-motion-safe reveals.
+- Phase 6 complete: The Outcome (`166:71`) and Outcome Testimonial (`166:43`) are implemented with independently exported 4× device mockups, staggered editorial positioning, responsive stacks, and reduced-motion-safe reveals.
+- Phase 7 complete: Closing Credits and Live-Site CTA (`166:72`) are implemented with the exact editorial hierarchy, responsive layout, motion-safe reveal, exported arrow asset, and working ARPM website link.
+- Final action: run cross-device visual QA and deployment verification.

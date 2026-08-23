@@ -64,7 +64,8 @@ const rows = [
 ];
 
 const labelCls = "text-xs font-[600] text-black/55 md:text-lg lg:text-xl";
-const titleCls = "mt-3 text-xl leading-[1.15] text-[#1a1a1a] md:mt-5 md:text-3xl lg:text-[34px]";
+const titleCls =
+  "mt-3 font-mono text-[32px] font-[500] not-italic leading-[1.2] tracking-[-0.05em] text-[#1a1a1a] md:mt-5";
 const descCls = "mt-3 max-w-[560px] text-sm leading-[1.45] text-black/55 md:mt-5 md:text-lg md:leading-[1.25] lg:text-[20px]";
 
 export default function WebsiteGaps() {
@@ -141,7 +142,6 @@ export default function WebsiteGaps() {
                 </p>
                 <h3
                   className={`${titleCls} text-black/50 line-through decoration-2 decoration-black/40`}
-                  style={{ fontFamily: "var(--font-mono)" }}
                 >
                   {row.usual.title}
                 </h3>
@@ -156,7 +156,7 @@ export default function WebsiteGaps() {
                 <p className={labelCls}>
                   {row.n} / {row.cat}
                 </p>
-                <h3 className={titleCls} style={{ fontFamily: "var(--font-mono)" }}>
+                <h3 className={titleCls}>
                   {row.nymbor.title}
                 </h3>
                 <p className={descCls}>{row.nymbor.desc}</p>
