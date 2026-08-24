@@ -378,7 +378,6 @@ export default function ShowreelSection() {
               ref={videoRef}
               loop
               playsInline
-              controls={isFullscreen}
               muted={isMuted}
               poster="/showreel-poster.webp"
               preload={shouldLoadVideo ? "auto" : "none"}
