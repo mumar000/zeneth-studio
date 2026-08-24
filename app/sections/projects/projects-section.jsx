@@ -194,15 +194,15 @@ export default function FeaturedProjectsSection() {
 
   return (
     <>
-      <section className="relative z-10 bg-[#fffcf7] px-4 py-14 md:hidden">
+      <section className="relative z-10 bg-[#fffcf7] px-4 py-12 md:hidden">
         <div className="mx-auto max-w-xl">
           <p
-            className="text-xs font-[600] uppercase tracking-[0.18em] text-primary"
-            style={{ fontFamily: "var(--font-sora)" }}
+            className="text-[10px] font-[700] uppercase tracking-[0.16em] text-primary"
+            style={{ fontFamily: "var(--font-mono)" }}
           >
             Featured Projects
           </p>
-          <div className="mt-7 space-y-5">
+          <div className="mt-6 space-y-5">
             {projects.map((project, index) => (
               <motion.article
                 key={project.name}
@@ -217,9 +217,9 @@ export default function FeaturedProjectsSection() {
               >
                 <Link
                   href={project.href}
-                  className="group block overflow-hidden rounded-[20px] border border-white/10 bg-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  className="group block overflow-hidden rounded-[16px] border border-black/15 bg-white shadow-[0_10px_28px_rgba(20,12,35,0.07)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-black">
+                  <div className="relative aspect-[16/11] overflow-hidden bg-[#ece9e3]">
                     <Image
                       src={project.image}
                       alt={project.name}
@@ -230,38 +230,38 @@ export default function FeaturedProjectsSection() {
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
                     />
                   </div>
-                  <div className="p-5 sm:p-6">
+                  <div className="p-4 pb-4.5 sm:p-5">
                     <p
-                      className="text-[10px] font-[600] uppercase tracking-[0.16em] text-primary"
+                      className="text-[9px] font-[700] uppercase tracking-[0.14em] text-primary"
                       style={{ fontFamily: "var(--font-mono)" }}
                     >
                       {project.category}
                     </p>
-                    <div className="mt-2 flex items-center justify-between gap-4">
+                    <div className="mt-2.5 flex items-start justify-between gap-3">
                       <h3
-                        className="text-[88.59px] font-[500] tracking-[-0.04em] text-white"
+                        className="min-w-0 text-[clamp(26px,8vw,34px)] font-[500] leading-[0.98] tracking-[-0.04em] text-[#171717]"
                         style={{ fontFamily: "var(--font-display)" }}
                       >
                         {project.name}
                       </h3>
-                      <span className="text-xl text-white/70 transition-transform group-hover:translate-x-1">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-black/15 bg-[#f5f1e9] text-[15px] text-black/65 transition-transform group-hover:translate-x-0.5">
                         →
                       </span>
                     </div>
                     <p
-                      className="mt-3 text-sm leading-relaxed text-white/60"
+                      className="mt-3 max-w-[38ch] text-[12.5px] leading-[1.5] text-black/55"
                       style={{ fontFamily: "var(--font-sora)" }}
                     >
                       {project.description}
                     </p>
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-4 flex flex-wrap gap-1.5 border-t border-black/10 pt-3.5">
                       {project.tags.map((tag) => (
                         <span
                           key={tag.label}
-                          className={`rounded-md px-2.5 py-1.5 text-[9px] font-[600] uppercase tracking-[0.08em] ${
+                          className={`rounded-full border px-2.5 py-1.5 text-[8px] font-[700] uppercase tracking-[0.08em] ${
                             tag.tone === "yellow"
-                              ? "bg-[var(--accent-yellow)] text-black"
-                              : "bg-primary text-white"
+                              ? "border-black/10 bg-[var(--accent-yellow)]/70 text-black/75"
+                              : "border-primary/15 bg-primary/10 text-primary"
                           }`}
                           style={{ fontFamily: "var(--font-mono)" }}
                         >
@@ -276,7 +276,7 @@ export default function FeaturedProjectsSection() {
           </div>
           <Link
             href="/works"
-            className="mt-8 inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-6 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#fff]"
+            className="mt-8 inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-5 py-3 text-[10px] font-[800] uppercase tracking-[0.12em] text-white shadow-[3px_3px_0_0_#000]"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             View All Projects

@@ -7,7 +7,7 @@ import { useRef } from "react";
 
 const MotionLink = motion.create(Link);
 
-export default function AlignmentCTA() {
+export default function AlignmentCTA({ compact = false }) {
   const buttonRef = useRef(null);
 
   // Magnetic button effect
@@ -49,27 +49,31 @@ export default function AlignmentCTA() {
   return (
     <section
       data-project-cta-boundary
-      className="w-full py-20 md:py-24 bg-[#ffffff]"
+      className={`w-full bg-white ${compact ? "py-12 md:py-16" : "py-20 md:py-24"}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className=" mx-auto px-6 md:px-12">
+      <div className={`mx-auto ${compact ? "px-0" : "px-6 md:px-12"}`}>
         {/* White Card Container */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className=" mx-auto bg-white rounded-3xl border border-black/40 px-8 md:px-16 py-16 md:py-20 "
+          className={`mx-auto border border-black/30 bg-white ${
+            compact
+              ? "rounded-2xl px-6 py-10 sm:px-8 md:px-10 md:py-12"
+              : "rounded-3xl px-8 py-16 md:px-16 md:py-20"
+          }`}
         >
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`${compact ? "max-w-2xl" : "max-w-3xl"} mx-auto text-center`}>
             {/* Title with animation */}
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-8 text-3xl leading-tight text-[#1a1a1a] md:text-5xl lg:text-6xl"
+              className={`${compact ? "mb-5 text-2xl md:text-4xl" : "mb-8 text-3xl md:text-5xl lg:text-6xl"} leading-tight text-[#1a1a1a]`}
               style={{ fontFamily: "var(--font-sora)" }}
             >
               <span className="italic font-romie font-[400]">Only</span>{" "}
@@ -85,7 +89,9 @@ export default function AlignmentCTA() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10">
+              <p
+                className={`${compact ? "mb-7 text-sm md:text-base" : "mb-10 text-lg md:text-xl"} leading-relaxed text-gray-500`}
+              >
                 We don&apos;t take on every project. We look for founders who have
                 built something great and need the visual authority to match it.
                 If that&apos;s you, let&apos;s talk.
@@ -103,7 +109,11 @@ export default function AlignmentCTA() {
               <MotionLink
                 ref={buttonRef}
                 href="/contact"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-8 py-4 text-base font-[500] text-white shadow-lg transition-shadow duration-300 hover:shadow-xl md:text-lg"
+                className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary font-[500] text-white shadow-lg transition-shadow duration-300 hover:shadow-xl ${
+                  compact
+                    ? "px-6 py-3 text-sm md:text-base"
+                    : "px-8 py-4 text-base md:text-lg"
+                }`}
                 style={{
                   x: xSpring,
                   y: ySpring,

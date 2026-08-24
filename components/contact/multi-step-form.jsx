@@ -47,10 +47,10 @@ function TextField({
   inputMode,
 }) {
   return (
-    <div className="group relative pt-7">
+    <div className="group relative pt-5">
       <label
         htmlFor={id}
-        className="block text-[13px] font-[600] uppercase tracking-[0.1em] text-black/55 transition-colors group-focus-within:text-primary md:text-[14px]"
+        className="block text-[11px] font-[600] uppercase tracking-[0.1em] text-black/55 transition-colors group-focus-within:text-primary md:text-[12px]"
         style={{ fontFamily: "var(--font-mono)" }}
       >
         {label}
@@ -65,7 +65,7 @@ function TextField({
         inputMode={inputMode}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
-        className={`mt-3 min-h-14 w-full border-0 border-b bg-transparent pb-4 text-[25px] font-[400] tracking-[-0.03em] text-[#171717] outline-none transition-colors placeholder:text-black/20 md:text-[31px] ${
+        className={`mt-2 min-h-12 w-full border-0 border-b bg-transparent pb-3 text-[21px] font-[400] tracking-[-0.03em] text-[#171717] outline-none transition-colors placeholder:text-black/20 md:text-[25px] ${
           error
             ? "border-red-500 focus:border-red-500"
             : "border-black/20 hover:border-black/45 focus:border-primary"
@@ -101,13 +101,13 @@ function ChoiceGroup({
   return (
     <fieldset id={name} tabIndex={-1} className="outline-none">
       <legend
-        className="text-[24px] font-[500] leading-tight tracking-[-0.03em] text-[#171717] md:text-[30px]"
+        className="text-[20px] font-[500] leading-tight tracking-[-0.03em] text-[#171717] md:text-[24px]"
         style={{ fontFamily: "var(--font-display)" }}
       >
         {legend}
       </legend>
-      {hint && <p className="mt-2 text-[14px] text-black/55">{hint}</p>}
-      <div className="mt-4 flex flex-wrap gap-2.5">
+      {hint && <p className="mt-1.5 text-[13px] text-black/50">{hint}</p>}
+      <div className="mt-3 flex flex-wrap gap-2">
         {options.map((option) => {
           const selected = isSelected(option);
           const optionId = `${name}-${option.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
@@ -116,7 +116,7 @@ function ChoiceGroup({
             <label
               key={option}
               htmlFor={optionId}
-              className={`inline-flex min-h-14 cursor-pointer items-center gap-2 rounded-full border px-5 py-3 text-[14px] font-[500] transition-[background-color,color,border-color,transform] duration-200 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary has-[:focus-visible]:ring-offset-2 md:px-6 md:text-[15px] ${
+              className={`inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full border px-4 py-2 text-[12px] font-[500] transition-[background-color,color,border-color,transform] duration-200 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-primary has-[:focus-visible]:ring-offset-2 md:px-5 md:text-[13px] ${
                 selected
                   ? "border-[#171717] bg-[#171717] text-white"
                   : "border-black/15 bg-white/60 text-black/65 hover:-translate-y-0.5 hover:border-black/35 hover:text-black"
@@ -296,20 +296,20 @@ export default function MultiStepContactForm() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#fffcf7] px-4 pb-14 pt-28 text-[#171717] sm:px-6 md:pb-20 md:pt-36 lg:px-10">
+    <section className="relative min-h-screen overflow-hidden bg-[#fffcf7] px-3 pb-10 pt-24 text-[#171717] sm:px-5 md:pb-14 md:pt-28 lg:px-8">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 top-20 h-[420px] w-[420px] rounded-full bg-primary/10 blur-[110px] md:h-[620px] md:w-[620px]"
+        className="pointer-events-none absolute -right-32 top-20 h-[360px] w-[360px] rounded-full bg-primary/[0.07] blur-[120px] md:h-[520px] md:w-[520px]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-48 -left-40 h-[420px] w-[420px] rounded-full bg-[var(--accent-yellow)]/25 blur-[120px]"
+        className="pointer-events-none absolute -bottom-48 -left-40 h-[360px] w-[360px] rounded-full bg-[var(--accent-yellow)]/15 blur-[130px]"
       />
 
       <h1 className="sr-only">Start a project with Nymbor</h1>
 
-      <div className="relative mx-auto flex min-h-[calc(100svh-9rem)] w-full max-w-[1440px] flex-col rounded-[24px] border border-black/10 bg-white/55 px-5 py-5 shadow-[0_30px_100px_rgba(40,20,75,0.08)] backdrop-blur-sm sm:px-8 sm:py-7 md:rounded-[34px] lg:px-12 lg:py-9">
-        <div className="flex items-center justify-between gap-6 border-b border-black/10 pb-5">
+      <div className="relative mx-auto flex min-h-[calc(100svh-7.5rem)] w-full max-w-[1320px] flex-col rounded-[20px] border border-black/10 bg-white/65 px-5 py-4 shadow-[0_24px_80px_rgba(40,20,75,0.07)] backdrop-blur-sm sm:px-7 sm:py-5 md:rounded-[26px] lg:px-10 lg:py-6">
+        <div className="flex items-center justify-between gap-5 border-b border-black/10 pb-4">
           <p
             className="text-[11px] font-[700] uppercase tracking-[0.14em] text-primary"
             style={{ fontFamily: "var(--font-mono)" }}
@@ -336,7 +336,7 @@ export default function MultiStepContactForm() {
           </div>
         </div>
 
-        <div className="flex flex-1 items-center py-10 md:py-14 lg:py-16">
+        <div className="flex flex-1 items-center py-8 md:py-10 lg:py-12">
           <AnimatePresence mode="wait" custom={direction}>
             {step === 1 && (
               <motion.form
@@ -352,7 +352,7 @@ export default function MultiStepContactForm() {
                 }}
                 onSubmit={goToProjectDetails}
                 noValidate
-                className="mx-auto w-full max-w-[1180px]"
+                className="mx-auto w-full max-w-[1080px]"
               >
                 <div className="max-w-[850px]">
                   <p
@@ -362,17 +362,17 @@ export default function MultiStepContactForm() {
                     01 — The essentials
                   </p>
                   <h2
-                    className="mt-5 text-[42px] font-[500] leading-[0.96] tracking-[-0.055em] text-[#171717] sm:text-[56px] md:text-[72px] lg:text-[84px]"
+                    className="mt-4 text-[clamp(34px,4.4vw,64px)] font-[500] leading-[0.98] tracking-[-0.05em] text-[#171717]"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     First, let&apos;s know who we&apos;re building with.
                   </h2>
-                  <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-black/50 md:text-[17px]">
+                  <p className="mt-4 max-w-xl text-[14px] leading-relaxed text-black/50 md:text-[16px]">
                     Three details to start. The project thinking comes next.
                   </p>
                 </div>
 
-                <div className="mt-10 grid gap-x-8 md:mt-14 md:grid-cols-3">
+                <div className="mt-7 grid gap-x-7 md:mt-9 md:grid-cols-3">
                   <TextField
                     id="name"
                     label="Your name *"
@@ -403,15 +403,15 @@ export default function MultiStepContactForm() {
                   />
                 </div>
 
-                <div className="mt-12 flex justify-end md:mt-16">
+                <div className="mt-9 flex justify-end md:mt-11">
                   <button
                     type="submit"
-                    className="group inline-flex min-h-14 cursor-pointer items-center gap-5 rounded-full border-2 border-black bg-primary py-2 pl-6 pr-2 text-[12px] font-[800] uppercase tracking-[0.12em] text-white shadow-[4px_4px_0_0_#000] transition-all duration-200 hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+                    className="group inline-flex min-h-12 cursor-pointer items-center gap-4 rounded-full border-2 border-black bg-primary py-1.5 pl-5 pr-1.5 text-[11px] font-[800] uppercase tracking-[0.12em] text-white shadow-[3px_3px_0_0_#000] transition-all duration-200 hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[1px_1px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
                     Next
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-transform duration-200 group-hover:translate-x-0.5">
-                      <ArrowRight size={18} />
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-200 group-hover:translate-x-0.5">
+                      <ArrowRight size={16} />
                     </span>
                   </button>
                 </div>
@@ -432,7 +432,7 @@ export default function MultiStepContactForm() {
                 }}
                 onSubmit={submitForm}
                 noValidate
-                className="mx-auto w-full max-w-[1180px]"
+                className="mx-auto w-full max-w-[1080px]"
               >
                 <div className="max-w-[840px]">
                   <p
@@ -442,15 +442,15 @@ export default function MultiStepContactForm() {
                     02 — Project signal
                   </p>
                   <h2
-                    className="mt-5 text-[42px] font-[500] leading-[0.98] tracking-[-0.055em] sm:text-[56px] md:text-[68px]"
+                    className="mt-4 text-[clamp(34px,4vw,58px)] font-[500] leading-[0.99] tracking-[-0.05em]"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     Give us the shape of the opportunity.
                   </h2>
                 </div>
 
-                <div className="mt-9 grid gap-8 lg:mt-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
-                  <div className="space-y-8">
+                <div className="mt-7 grid gap-7 lg:mt-9 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10">
+                  <div className="space-y-7">
                     <TextField
                       id="companyName"
                       label="Company name *"
@@ -465,7 +465,7 @@ export default function MultiStepContactForm() {
                     <div className="group relative pt-2">
                       <label
                         htmlFor="projectDetails"
-                        className="block text-[13px] font-[600] uppercase tracking-[0.1em] text-black/55 transition-colors group-focus-within:text-primary md:text-[14px]"
+                        className="block text-[11px] font-[600] uppercase tracking-[0.1em] text-black/55 transition-colors group-focus-within:text-primary md:text-[12px]"
                         style={{ fontFamily: "var(--font-mono)" }}
                       >
                         Tell us what you&apos;re building *
@@ -484,7 +484,7 @@ export default function MultiStepContactForm() {
                           errors.projectDetails ? "projectDetails-error" : undefined
                         }
                         placeholder="The challenge, the ambition, and what success should feel like."
-                        className={`mt-3 w-full resize-none border-0 border-b bg-transparent pb-4 text-[20px] leading-relaxed text-[#171717] outline-none transition-colors placeholder:text-black/30 md:text-[23px] ${
+                        className={`mt-2 w-full resize-none border-0 border-b bg-transparent pb-3 text-[17px] leading-relaxed text-[#171717] outline-none transition-colors placeholder:text-black/30 md:text-[19px] ${
                           errors.projectDetails
                             ? "border-red-500 focus:border-red-500"
                             : "border-black/20 hover:border-black/45 focus:border-primary"
@@ -502,7 +502,7 @@ export default function MultiStepContactForm() {
                     </div>
                   </div>
 
-                  <div className="space-y-8 rounded-[22px] border border-black/10 bg-[#f8f3ff]/75 p-5 sm:p-7 md:p-8">
+                  <div className="space-y-7 rounded-[18px] border border-black/10 bg-[#f8f3ff]/65 p-4 sm:p-5 md:p-6">
                     <ChoiceGroup
                       name="services"
                       legend="What can we help you with?"
@@ -564,7 +564,7 @@ export default function MultiStepContactForm() {
                   </div>
                 )}
 
-                <div className="mt-10 flex items-center justify-between gap-4 md:mt-12">
+                <div className="mt-8 flex items-center justify-between gap-4 md:mt-10">
                   <button
                     type="button"
                     onClick={goBack}
@@ -576,12 +576,12 @@ export default function MultiStepContactForm() {
                   <button
                     type="submit"
                     disabled={submitState === "sending"}
-                    className="group inline-flex min-h-14 cursor-pointer items-center gap-4 rounded-full border-2 border-black bg-primary py-2 pl-6 pr-2 text-[11px] font-[800] uppercase tracking-[0.1em] text-white shadow-[4px_4px_0_0_#000] transition-all duration-200 hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-60 sm:text-[12px]"
+                    className="group inline-flex min-h-12 cursor-pointer items-center gap-3 rounded-full border-2 border-black bg-primary py-1.5 pl-5 pr-1.5 text-[10px] font-[800] uppercase tracking-[0.1em] text-white shadow-[3px_3px_0_0_#000] transition-all duration-200 hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[1px_1px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:cursor-wait disabled:opacity-60 sm:text-[11px]"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
                     {submitState === "sending" ? "Sending…" : "Send project"}
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-transform duration-200 group-hover:translate-x-0.5">
-                      <ArrowRight size={18} />
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-200 group-hover:translate-x-0.5">
+                      <ArrowRight size={16} />
                     </span>
                   </button>
                 </div>
@@ -612,9 +612,9 @@ export default function MultiStepContactForm() {
                     duration: 0.55,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-black bg-[var(--accent-yellow)] shadow-[5px_5px_0_0_#000] md:h-24 md:w-24"
+                  className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-black bg-[var(--accent-yellow)] shadow-[4px_4px_0_0_#000] md:h-20 md:w-20"
                 >
-                  <Check size={38} strokeWidth={2.2} />
+                  <Check size={32} strokeWidth={2.2} />
                 </motion.div>
                 <p
                   className="mt-9 text-[11px] font-[700] uppercase tracking-[0.14em] text-primary"
@@ -623,7 +623,7 @@ export default function MultiStepContactForm() {
                   Received — 03 / 03
                 </p>
                 <h2
-                  className="mt-5 text-[45px] font-[500] leading-[0.95] tracking-[-0.055em] sm:text-[64px] md:text-[82px]"
+                  className="mt-4 text-[clamp(38px,4.5vw,66px)] font-[500] leading-[0.97] tracking-[-0.05em]"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Your project is now on our radar.

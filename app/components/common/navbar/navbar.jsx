@@ -137,16 +137,18 @@ export default function Navbar() {
         >
       <div
         className={
-          `relative mx-auto transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ` +
-          (collapsed ? "max-w-[960px] mt-2 px-2" : "container px-4 md:px-6 py-2 2xl:py-6 lg:py-4 md:py-2")
+          `relative mx-auto mt-2 w-full px-3 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ` +
+          (collapsed
+            ? "md:mt-2 md:max-w-[960px] md:px-2"
+            : "md:container md:px-6 md:py-2 lg:py-4 2xl:py-6")
         }
       >
         <div
           className={
-            `relative z-50 w-full flex items-center justify-between gap-3 transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ` +
+            `relative z-50 flex w-full items-center justify-between gap-3 rounded-[14px] border border-black/10 bg-white/90 px-3 py-2 shadow-[0_8px_30px_rgba(20,12,35,0.1)] backdrop-blur-xl transition-all duration-[800ms] ease-[cubic-bezier(0.25,1,0.5,1)] ` +
             (collapsed
-              ? "rounded-2xl bg-white/85 backdrop-blur-md shadow-md px-4 lg:py-4 py-2"
-              : "bg-transparent px-0 py-0")
+              ? "md:rounded-2xl md:px-4 md:py-2 lg:py-4"
+              : "md:rounded-none md:border-transparent md:bg-transparent md:px-0 md:py-0 md:shadow-none md:backdrop-blur-none")
           }
         >
           {/* Logo */}
@@ -161,7 +163,7 @@ export default function Navbar() {
               width={1480}
               height={363}
               priority
-              className="h-[23px] w-auto md:h-[24px] lg:h-[35px]"
+              className="h-[20px] w-auto md:h-[24px] lg:h-[35px]"
             />
           </Link>
 
@@ -272,7 +274,7 @@ export default function Navbar() {
               if (isMenuOpen) setIsServicesOpen(false);
               setIsMenuOpen((open) => !open);
             }}
-            className="md:hidden inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl bg-black/5 border border-black/10 p-2 text-black transition-colors hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+            className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-[10px] border border-black bg-[#171717] p-2 text-white transition-colors hover:bg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:hidden"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -308,13 +310,25 @@ export default function Navbar() {
           {isMenuOpen && (
             <motion.div
               id="mobile-navigation"
-              initial={{ opacity: 0, y: -8, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -8, scale: 0.97 }}
-              transition={{ type: "spring", bounce: 0.25, duration: 0.4 }}
-              className="absolute top-full left-0 right-0 mt-2 px-2 md:hidden z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: shouldReduceMotion ? 0.01 : 0.2 }}
+              className="fixed inset-0 z-40 md:hidden"
             >
-              <div className="rounded-2xl bg-white/95 backdrop-blur-xl border border-black/10 shadow-2xl p-4">
+              <button
+                type="button"
+                aria-label="Close navigation"
+                className="absolute inset-0 cursor-default bg-black/25 backdrop-blur-[2px]"
+                onClick={closeMobileMenu}
+              />
+              <motion.div
+                initial={shouldReduceMotion ? false : { opacity: 0, y: -10, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                transition={{ duration: shouldReduceMotion ? 0.01 : 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute inset-x-3 top-[68px] max-h-[calc(100svh-82px)] overflow-y-auto rounded-[18px] border border-black/10 bg-[#fffcf7] p-2 shadow-[0_24px_70px_rgba(0,0,0,0.24)]"
+              >
                 <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
                   {NAV_ITEMS.map(({ label, href, order }) => {
                     const active =
@@ -327,11 +341,21 @@ export default function Navbar() {
                         href={href}
                         aria-current={active ? "page" : undefined}
                         onClick={closeMobileMenu}
-                        className={`${order} group flex items-center justify-between rounded-xl px-4 py-3 text-base font-[500] text-black/70 hover:text-black hover:bg-black/5 transition-all`}
+                        className={`${order} group flex min-h-12 items-center justify-between rounded-xl px-4 py-2.5 text-[15px] font-[500] transition-colors ${
+                          active
+                            ? "bg-[#171717] text-white"
+                            : "text-black/70 hover:bg-black/5 hover:text-black"
+                        }`}
                         style={{ fontFamily: "var(--font-sora)" }}
                       >
                         {label}
-                        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
+                        <ArrowRight
+                          className={`h-4 w-4 transition-all ${
+                            active
+                              ? "translate-x-0 opacity-100"
+                              : "-translate-x-1 opacity-25 group-hover:translate-x-0 group-hover:opacity-100"
+                          }`}
+                        />
                       </Link>
                     );
                   })}
@@ -341,10 +365,14 @@ export default function Navbar() {
                       onClick={() => setIsServicesOpen((open) => !open)}
                       aria-expanded={isServicesOpen}
                       aria-controls="mobile-services-menu"
-                      className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-base font-[500] text-black/70 transition-all hover:bg-black/5 hover:text-black"
+                      className={`flex min-h-12 w-full items-center justify-between rounded-xl px-4 py-2.5 text-left text-[15px] font-[500] transition-colors ${
+                        pathname.startsWith("/services")
+                          ? "bg-[#171717] text-white"
+                          : "text-black/70 hover:bg-black/5 hover:text-black"
+                      }`}
                       style={{ fontFamily: "var(--font-sora)" }}
                     >
-                      Service
+                      Services
                       <ChevronDown
                         className={`h-4 w-4 transition-transform duration-200 ${
                           isServicesOpen ? "rotate-180" : ""
@@ -360,14 +388,25 @@ export default function Navbar() {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden"
                         >
-                          <div className="ml-4 flex flex-col gap-1 border-l border-black/10 pb-2 pl-3">
+                          <div className="mx-2 mt-1 flex flex-col gap-1 rounded-xl bg-black/[0.035] p-2">
+                            <Link
+                              href="/#services"
+                              onClick={closeMobileMenu}
+                              className="rounded-lg px-3 py-2.5 text-[13px] font-[600] text-primary transition-colors hover:bg-white/70"
+                            >
+                              All Services
+                            </Link>
                             {SERVICE_ITEMS.map((service) => (
                               <Link
                                 key={service.href}
                                 href={service.href}
                                 aria-current={pathname === service.href ? "page" : undefined}
                                 onClick={closeMobileMenu}
-                                className="rounded-lg px-3 py-2.5 text-sm font-[500] text-black/65 transition-colors hover:bg-black/5 hover:text-black"
+                                className={`rounded-lg px-3 py-2.5 text-[13px] font-[500] transition-colors ${
+                                  pathname === service.href
+                                    ? "bg-white text-black shadow-sm"
+                                    : "text-black/60 hover:bg-white/70 hover:text-black"
+                                }`}
                               >
                                 {service.label}
                               </Link>
@@ -377,18 +416,18 @@ export default function Navbar() {
                       )}
                     </AnimatePresence>
                   </div>
-                  <div className="order-5 mt-1 border-t border-black/5 pt-2">
+                  <div className="order-5 mt-2 border-t border-black/10 pt-2.5">
                     <Link
                       href="/contact"
                       onClick={closeMobileMenu}
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3.5 text-sm font-[700] uppercase tracking-[0.12em] text-white"
+                      className="flex w-full items-center justify-center gap-2 rounded-[11px] border-2 border-black bg-primary px-4 py-3 text-[11px] font-[800] uppercase tracking-[0.12em] text-white shadow-[3px_3px_0_0_#000]"
                       style={{ fontFamily: "var(--font-mono)" }}
                     >
                       Start a Project →
                     </Link>
                   </div>
                 </nav>
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>

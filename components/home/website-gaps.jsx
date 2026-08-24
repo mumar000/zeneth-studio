@@ -63,10 +63,12 @@ const rows = [
   },
 ];
 
-const labelCls = "text-xs font-[600] text-black/55 md:text-lg lg:text-xl";
+const labelCls =
+  "text-[10px] font-[700] uppercase tracking-[0.1em] text-black/45 md:text-lg md:font-[600] md:normal-case md:tracking-normal lg:text-xl";
 const titleCls =
-  "mt-3 font-mono text-[32px] font-[500] not-italic leading-[1.2] tracking-[-0.05em] text-[#1a1a1a] md:mt-5";
-const descCls = "mt-3 max-w-[560px] text-sm leading-[1.45] text-black/55 md:mt-5 md:text-lg md:leading-[1.25] lg:text-[20px]";
+  "mt-2.5 font-[family-name:var(--font-display)] text-[24px] font-[500] not-italic leading-[1.08] tracking-[-0.035em] text-[#1a1a1a] md:mt-5 md:font-mono md:text-[32px] md:leading-[1.2] md:tracking-[-0.05em]";
+const descCls =
+  "mt-2.5 max-w-[560px] text-[13px] leading-[1.5] text-black/55 md:mt-5 md:text-lg md:leading-[1.25] lg:text-[20px]";
 
 export default function WebsiteGaps() {
   return (
@@ -80,13 +82,13 @@ export default function WebsiteGaps() {
           className="text-center"
         >
           <p
-            className="text-sm font-[700] uppercase text-primary sm:text-base"
+            className="text-[10px] font-[700] uppercase tracking-[0.16em] text-primary md:text-base md:tracking-normal"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Why This Exists
           </p>
           <h2
-            className="mx-auto mt-7 max-w-[1120px] text-3xl font-[700] leading-[0.98] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:mt-9 md:text-7xl lg:text-[80px]"
+            className="mx-auto mt-5 max-w-[1120px] text-[32px] font-[650] leading-[1.02] tracking-[-0.04em] text-[#1a1a1a] md:mt-9 md:text-7xl md:font-[700] md:leading-[0.98] md:tracking-[-0.03em] lg:text-[80px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Most websites die in the gaps between people.
@@ -98,16 +100,16 @@ export default function WebsiteGaps() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="mt-8 overflow-hidden rounded-[16px] border border-black/70 md:mt-20 md:rounded-[20px]"
+          className="mt-7 overflow-hidden rounded-[14px] border border-black/70 md:mt-20 md:rounded-[20px]"
         >
           {/* Header */}
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div
-              className="flex min-h-[56px] items-center px-5 md:min-h-[74px] md:border-r md:px-16 lg:px-16"
+              className="flex min-h-[50px] items-center px-4 md:min-h-[74px] md:border-r md:px-16 lg:px-16"
               style={{ backgroundColor: CREAM }}
             >
               <span
-                className="text-base uppercase tracking-[0.08em] text-black/50 md:text-xl lg:text-[24px]"
+                className="text-[11px] font-[700] uppercase tracking-[0.1em] text-black/45 md:text-xl md:font-[400] md:tracking-[0.08em] lg:text-[24px]"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 The Usual Way
@@ -134,7 +136,7 @@ export default function WebsiteGaps() {
             >
               {/* Usual (left) */}
               <div
-                className="flex flex-col justify-center px-5 py-6 md:min-h-[260px] md:border-r md:border-black/70 md:px-16 md:py-12 lg:px-16"
+                className="flex flex-col justify-center px-4 py-5 md:min-h-[260px] md:border-r md:border-black/70 md:px-16 md:py-12 lg:px-16"
                 style={{ backgroundColor: CREAM }}
               >
                 <p className={labelCls}>
@@ -150,9 +152,15 @@ export default function WebsiteGaps() {
 
               {/* Nymbor (right) */}
               <div
-                className="flex flex-col justify-center border-t border-black/70 px-5 py-6 md:min-h-[260px] md:border-t-0 md:px-16 md:py-12 lg:px-[7.75rem]"
+                className="flex flex-col justify-center border-t border-black/70 px-4 py-5 md:min-h-[260px] md:border-t-0 md:px-16 md:py-12 lg:px-[7.75rem]"
                 style={{ backgroundColor: row.tone }}
               >
+                <p
+                  className="mb-3 text-[10px] font-[700] uppercase tracking-[0.1em] text-primary md:hidden"
+                  style={{ fontFamily: "var(--font-mono)" }}
+                >
+                  The Nymbor Way
+                </p>
                 <p className={labelCls}>
                   {row.n} / {row.cat}
                 </p>

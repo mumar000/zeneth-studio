@@ -48,7 +48,17 @@ export default function ShowreelSection() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateViewport = () => setIsMobile(mediaQuery.matches);
+
+    updateViewport();
+    mediaQuery.addEventListener("change", updateViewport);
+    return () => mediaQuery.removeEventListener("change", updateViewport);
+  }, []);
 
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
@@ -341,9 +351,9 @@ export default function ShowreelSection() {
         <motion.div
           className="h-full w-full overflow-hidden bg-black"
           style={{
-            scale,
-            borderRadius,
-            opacity,
+            scale: isMobile ? 1 : scale,
+            borderRadius: isMobile ? 0 : borderRadius,
+            opacity: isMobile ? 1 : opacity,
             willChange: "transform",
           }}
         >
@@ -373,7 +383,7 @@ export default function ShowreelSection() {
               preload={shouldLoadVideo ? "auto" : "none"}
               aria-label="Nymbor selected work showreel"
               className={`h-full w-full select-none ${
-                isFullscreen ? "object-contain" : "object-contain md:object-cover"
+                isFullscreen ? "object-contain" : "object-cover"
               }`}
               onLoadedMetadata={(event) =>
                 setDuration(event.currentTarget.duration)

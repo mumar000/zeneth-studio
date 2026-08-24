@@ -140,8 +140,8 @@ export default function ClientProof() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-6 text-center text-[11px] font-[600] uppercase tracking-[0.22em] text-primary md:mb-14"
-            style={{ fontFamily: "var(--font-sora)" }}
+            className="mb-6 text-center text-[10px] font-[700] uppercase tracking-[0.18em] text-primary md:mb-14 md:text-[11px] md:tracking-[0.22em]"
+            style={{ fontFamily: "var(--font-mono)" }}
           >
             Client Proof
           </motion.p>
@@ -163,7 +163,7 @@ export default function ClientProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-              className="flex min-h-[280px] flex-col justify-between rounded-[18px] border border-black bg-[#C9B8F5] p-5 sm:rounded-[24px] sm:p-7 md:min-h-[340px] md:p-9"
+              className="flex min-h-[250px] flex-col justify-between rounded-[16px] border border-black bg-[#C9B8F5] p-5 sm:rounded-[20px] sm:p-6 md:min-h-[340px] md:rounded-[24px] md:p-9"
             >
               <Image
                 src={FEATURED_TESTIMONIAL.logo.src}
@@ -174,7 +174,7 @@ export default function ClientProof() {
               />
 
               <blockquote
-                className="my-8 max-w-[27ch] text-[25px] font-[500] leading-[1.08] tracking-[-0.045em] text-[#171717] sm:text-[30px] md:text-[34px]"
+                className="my-6 max-w-[29ch] text-[22px] font-[500] leading-[1.14] tracking-[-0.035em] text-[#171717] md:my-8 md:max-w-[27ch] md:text-[34px] md:leading-[1.08] md:tracking-[-0.045em]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 &ldquo;{FEATURED_TESTIMONIAL.quote}&rdquo;
@@ -190,13 +190,13 @@ export default function ClientProof() {
                 />
                 <span className="leading-tight">
                   <span
-                    className="block text-[14px] font-[700] text-[#171717]"
+                    className="block text-[13px] font-[700] leading-[1.2] text-[#171717] md:text-[14px]"
                     style={{ fontFamily: "var(--font-sora)" }}
                   >
                     {FEATURED_TESTIMONIAL.name}
                   </span>
                   <span
-                    className="block text-[13px] text-black/60"
+                    className="mt-0.5 block text-[11px] leading-[1.35] text-black/60 md:mt-0 md:text-[13px]"
                     style={{ fontFamily: "var(--font-sora)" }}
                   >
                     {FEATURED_TESTIMONIAL.role}
@@ -218,16 +218,16 @@ export default function ClientProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 1, 0.5, 1] }}
-              className="flex flex-col items-center justify-center bg-[#FEFEF4] px-6 py-7 text-center md:px-20 md:py-10"
+              className="flex flex-col items-start justify-center bg-[#FEFEF4] px-5 py-6 text-left md:items-center md:px-20 md:py-10 md:text-center"
             >
               <h3
-                className="text-[19px] font-[400] text-[#1a1a1a] md:text-[26px]"
+                className="text-[18px] font-[500] leading-[1.15] tracking-[-0.025em] text-[#1a1a1a] md:text-[26px] md:font-[400] md:tracking-normal"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {step.number} / {step.title}
               </h3>
               <p
-                className="mt-3 max-w-[400px] text-[14px] leading-[1.4] text-[#3a3a3a] md:mt-6 md:text-[16px] md:leading-[1.3]"
+                className="mt-2.5 max-w-[400px] text-[13px] leading-[1.55] text-black/60 md:mt-6 md:text-[16px] md:leading-[1.3] md:text-[#3a3a3a]"
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 {step.description}

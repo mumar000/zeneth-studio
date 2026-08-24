@@ -78,31 +78,31 @@ export default function WorksPage() {
     <main id="main-content" className="relative bg-[#fffcf7]">
       <CustomCursor variant={cursorVariant} text={cursorText} />
 
-      <div className="min-h-screen px-3 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pt-36">
+      <div className="min-h-screen px-3 pt-24 sm:px-6 sm:pt-28 lg:px-8 lg:pt-30">
         <h1
-          className="mx-auto max-w-[1500px] px-6 pb-12 text-center text-5xl font-[700] tracking-[-0.04em] text-[#1a1a1a] md:px-12 md:pb-16 md:text-7xl lg:px-24 lg:text-8xl"
+          className="mx-auto max-w-[1120px] px-3 pb-9 text-center text-[clamp(38px,5.2vw,72px)] font-[650] leading-[0.98] tracking-[-0.045em] text-[#1a1a1a] sm:px-6 md:pb-11"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Selected brand, interface, and web work
         </h1>
 
         {/* Projects Grid */}
-        <section className="pb-24">
-          <div className="mx-auto mb-10 flex max-w-[1680px] justify-start md:mb-14">
+        <section className="pb-14 md:pb-18">
+          <div className="mx-auto mb-8 flex max-w-[1680px] justify-start md:mb-10">
             <label className="block" htmlFor="work-filter">
               <span
-                className="mb-2.5 block text-[11px] font-[600] uppercase tracking-[0.12em] text-black/55 md:text-[12px]"
+                className="mb-2 block text-[10px] font-[600] uppercase tracking-[0.12em] text-black/50 md:text-[11px]"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 Filter by service
               </span>
 
-              <span className="relative block w-[min(72vw,270px)]">
+              <span className="relative block w-[min(72vw,240px)]">
                 <select
                   id="work-filter"
                   value={activeFilter}
                   onChange={(event) => handleFilterChange(event.target.value)}
-                  className="min-h-12 w-full cursor-pointer appearance-none rounded-[10px] border-2 border-black bg-white py-2.5 pl-4 pr-11 text-[12px] font-[700] uppercase tracking-[0.08em] shadow-[4px_4px_0_0_#000] outline-none transition-all duration-200 hover:bg-[#f1f1f1] focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-14 md:pl-5 md:text-[13px]"
+                  className="min-h-10 w-full cursor-pointer appearance-none rounded-lg border-2 border-black bg-white py-2 pl-3.5 pr-10 text-[11px] font-[700] uppercase tracking-[0.08em] shadow-[3px_3px_0_0_#000] outline-none transition-all duration-200 hover:bg-[#f1f1f1] focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-11 md:pl-4 md:text-[12px]"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   {workFilters.map((filter) => (
@@ -113,7 +113,7 @@ export default function WorksPage() {
                 </select>
                 <ChevronDown
                   aria-hidden="true"
-                  className="pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-black md:size-5"
+                  className="pointer-events-none absolute right-3.5 top-1/2 size-4 -translate-y-1/2 text-black"
                   strokeWidth={2}
                 />
               </span>
@@ -122,7 +122,7 @@ export default function WorksPage() {
 
           <motion.div
             layout
-            className="mx-auto grid min-h-[460px] max-w-[1680px] grid-cols-2 items-start justify-items-center gap-x-3 gap-y-6 sm:gap-x-7 sm:gap-y-9 md:gap-x-10 md:gap-y-12 xl:grid-cols-4 xl:gap-x-14 xl:gap-y-16 2xl:gap-x-20"
+            className="mx-auto grid min-h-[360px] max-w-[1680px] grid-cols-2 items-start justify-items-center gap-x-3 gap-y-6 sm:gap-x-7 sm:gap-y-9 md:min-h-[420px] md:gap-x-10 md:gap-y-12 xl:grid-cols-4 xl:gap-x-14 xl:gap-y-16 2xl:gap-x-20"
           >
             <AnimatePresence mode="sync">
               {visibleProjects.map((project, index) => (
@@ -137,7 +137,7 @@ export default function WorksPage() {
             </AnimatePresence>
           </motion.div>
         </section>
-        <AlignmentCTA />
+        <AlignmentCTA compact />
       </div>
     </main>
   );

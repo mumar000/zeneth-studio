@@ -18,7 +18,93 @@ export function DecisionEngineSection({ section }) {
 }
 
 export function RebuildComparisonSection({ section }) {
-  return <section className="bg-[#f6f0fb] px-5 py-20 md:px-8 md:py-24 lg:py-28"><div className="mx-auto max-w-[1800px]"><SectionIntro eyebrow={section.eyebrow} title={section.title} description={section.description} maxWidth="max-w-[1080px]" /><div className="mt-20 grid gap-5 lg:grid-cols-2">{[section.before, section.after].map((panel, index) => <motion.article key={panel.label} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.06, ease: [0.25, 1, 0.5, 1] }} className="overflow-hidden rounded-[18px] bg-white p-8 md:p-10"><span className={`inline-flex rounded-[5px] px-3 py-2 text-[15px] font-[700] uppercase tracking-[0.08em] ${index === 0 ? "bg-[#ffe4de] text-[#ff3f22]" : "bg-[#dcc8ff] text-primary"}`} style={{ fontFamily: "var(--font-mono)" }}>{panel.label}</span><div className="relative mt-6 h-[620px] overflow-hidden rounded-[14px] bg-[#ede8f5] md:h-[760px] lg:h-[860px]"><Image src={panel.image} alt={panel.alt} fill sizes="(min-width: 1024px) 48vw, 100vw" className="object-cover object-top" /></div></motion.article>)}</div><div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">{section.results.map((result, index) => <motion.article key={result.label} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }} className="min-h-[256px] rounded-[18px] border border-black bg-white px-10 py-11 md:px-10"><p className="text-[16px] font-[700] uppercase tracking-[0.08em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>{result.label}</p><h3 className="mt-9 text-[31px] font-[700] leading-none tracking-[-0.045em] text-[#151225] md:text-[34px]" style={{ fontFamily: "var(--font-display)" }}>{result.title}</h3><p className="mt-6 text-[18px] leading-[1.45] text-[#151225] md:text-[20px]" style={{ fontFamily: "var(--font-sora)" }}>{result.body}</p></motion.article>)}</div></div></section>;
+  return (
+    <section className="bg-[#f6f0fb] px-5 py-16 md:px-8 md:py-20 lg:py-24">
+      <div className="mx-auto max-w-[1440px]">
+        <SectionIntro
+          eyebrow={section.eyebrow}
+          title={section.title}
+          description={section.description}
+          maxWidth="max-w-[980px]"
+        />
+
+        <div className="mt-12 grid gap-4 md:mt-14 lg:grid-cols-2">
+          {[section.before, section.after].map((panel, index) => (
+            <motion.article
+              key={panel.label}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.65,
+                delay: index * 0.06,
+                ease: [0.25, 1, 0.5, 1],
+              }}
+              className="overflow-hidden rounded-[16px] border border-black/10 bg-white p-4 shadow-[0_14px_40px_rgba(28,16,48,0.06)] md:p-6"
+            >
+              <span
+                className={`inline-flex rounded-full px-3 py-2 text-[10px] font-[700] uppercase tracking-[0.08em] md:text-[12px] ${
+                  index === 0
+                    ? "bg-[#ffe4de] text-[#d9341d]"
+                    : "bg-[#dcc8ff] text-primary"
+                }`}
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                {panel.label}
+              </span>
+              <div className="relative mt-4 h-[520px] overflow-hidden rounded-[12px] bg-[#ede8f5] md:h-[720px] lg:h-[920px]">
+                <Image
+                  src={panel.image}
+                  alt={panel.alt}
+                  width={638}
+                  height={2060}
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                  className="h-auto w-full object-top"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/10 to-transparent" />
+              </div>
+            </motion.article>
+          ))}
+        </div>
+
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {section.results.map((result, index) => (
+            <motion.article
+              key={result.label}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.65,
+                delay: index * 0.05,
+                ease: [0.25, 1, 0.5, 1],
+              }}
+              className="rounded-[14px] border border-black/15 bg-white px-6 py-7 md:px-7 md:py-8"
+            >
+              <p
+                className="text-[10px] font-[700] uppercase tracking-[0.08em] text-primary md:text-[12px]"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                {result.label}
+              </p>
+              <h3
+                className="mt-5 text-[25px] font-[650] leading-[1.02] tracking-[-0.04em] text-[#151225] md:text-[29px]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {result.title}
+              </h3>
+              <p
+                className="mt-4 text-[14px] leading-[1.5] text-black/65 md:text-[16px]"
+                style={{ fontFamily: "var(--font-sora)" }}
+              >
+                {result.body}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function LiveWorkSection({ section }) {
@@ -28,5 +114,70 @@ export function LiveWorkSection({ section }) {
 }
 
 export function SystemTimelineSection({ section }) {
-  return <section className="bg-[#f6f0fb] px-5 py-20 md:px-8 md:py-24 lg:py-28"><div className="mx-auto grid max-w-[1540px] gap-12 lg:grid-cols-[37%_1fr] lg:gap-20"><div className="lg:sticky lg:top-28 lg:h-fit"><p className="text-[15px] font-[700] uppercase tracking-[0.09em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>{section.eyebrow}</p><h2 className="mt-9 max-w-[520px] text-[42px] font-[700] leading-[1.08] tracking-[-0.045em] text-[#202024] md:text-[52px]" style={{ fontFamily: "var(--font-display)" }}>{section.title}</h2><p className="mt-10 max-w-[470px] text-[20px] leading-[1.5] tracking-[-0.035em] text-black md:text-[22px]" style={{ fontFamily: "var(--font-display)" }}>{section.description}</p></div><div className="relative pl-8 md:pl-20"><div className="absolute bottom-0 left-[11px] top-0 w-0.5 bg-primary md:left-[31px]" /><span className="absolute left-0 top-0 h-6 w-6 rounded-full border-[7px] border-primary bg-[#f6f0fb] md:left-5" />{section.phases.map((phase, index) => <motion.div key={phase.label} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }} className="relative pb-16 last:pb-0 md:pb-[70px]"><span className="absolute -left-[29px] top-[calc(50%-12px)] h-6 w-6 rounded-full border-2 border-primary bg-[#f6f0fb] md:-left-[61px]" /><article className="rounded-[18px] border border-black bg-white px-8 py-9 md:px-[52px] md:py-10"><p className="text-[16px] font-[700] uppercase tracking-[0.08em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>{phase.label}</p><h3 className="mt-4 text-[30px] font-[700] leading-[1.08] tracking-[-0.035em] text-[#151225] md:text-[34px]" style={{ fontFamily: "var(--font-display)" }}>{phase.title}</h3><p className="mt-4 max-w-[560px] text-[17px] leading-[1.45] text-[#151225] md:text-[18px]" style={{ fontFamily: "var(--font-sora)" }}>{phase.body}</p></article></motion.div>)}</div></div></section>;
+  return (
+    <section className="bg-[#f6f0fb] px-5 py-16 md:px-8 md:py-20 lg:py-24">
+      <div className="mx-auto grid max-w-[1420px] gap-10 md:grid-cols-[35%_1fr] md:items-start md:gap-12 lg:gap-16">
+        <div className="md:sticky md:top-24 md:h-fit lg:top-28">
+          <p
+            className="text-[11px] font-[700] uppercase tracking-[0.09em] text-primary md:text-[13px]"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            {section.eyebrow}
+          </p>
+          <h2
+            className="mt-5 max-w-[500px] text-[36px] font-[650] leading-[1.02] tracking-[-0.045em] text-[#202024] md:text-[44px] lg:text-[48px]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {section.title}
+          </h2>
+          <p
+            className="mt-5 max-w-[430px] text-[16px] leading-[1.5] tracking-[-0.02em] text-black/65 md:text-[18px]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {section.description}
+          </p>
+        </div>
+
+        <div className="relative pl-7 md:pl-14">
+          <div className="absolute bottom-0 left-[8px] top-0 w-px bg-primary/45 md:left-[23px]" />
+          {section.phases.map((phase, index) => (
+            <motion.div
+              key={phase.label}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.04,
+                ease: [0.25, 1, 0.5, 1],
+              }}
+              className="relative pb-5 last:pb-0 md:pb-6"
+            >
+              <span className="absolute -left-[26px] top-7 h-[18px] w-[18px] rounded-full border-[5px] border-primary bg-[#f6f0fb] md:-left-[39px]" />
+              <article className="rounded-[14px] border border-black/15 bg-white px-5 py-6 shadow-[0_8px_24px_rgba(28,16,48,0.04)] md:px-7 md:py-7">
+                <p
+                  className="text-[10px] font-[700] uppercase tracking-[0.08em] text-primary md:text-[12px]"
+                  style={{ fontFamily: "var(--font-mono)" }}
+                >
+                  {phase.label}
+                </p>
+                <h3
+                  className="mt-3 text-[24px] font-[650] leading-[1.06] tracking-[-0.035em] text-[#151225] md:text-[28px]"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {phase.title}
+                </h3>
+                <p
+                  className="mt-3 max-w-[560px] text-[14px] leading-[1.5] text-black/65 md:text-[16px]"
+                  style={{ fontFamily: "var(--font-sora)" }}
+                >
+                  {phase.body}
+                </p>
+              </article>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
