@@ -417,3 +417,10 @@ body::before {
   z-index: 0; /* above body paint, below content */
   transform: translateZ(0);
 }
+
+@media (max-width: 767px) {
+  body::before {
+    background-image: none;
+  }
+
+}

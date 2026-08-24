@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     minimumCacheTTL: 604800,
+    qualities: [45, 55, 65, 70, 75, 90],
   },
   async headers() {
     return [

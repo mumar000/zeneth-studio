@@ -70,12 +70,12 @@ function VideoCard({ video, index, onOpen }) {
       >
         <video
           ref={videoRef}
-          src={video.src}
+          src={isInView ? video.src : undefined}
           poster={video.poster}
           muted
           loop
           playsInline
-          preload="metadata"
+          preload={isInView ? "metadata" : "none"}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         />
         <span className="pointer-events-none absolute left-3 top-3 z-10 flex items-center rounded-lg border border-white/15 bg-black/35 px-2.5 py-2 shadow-lg backdrop-blur-md sm:left-5 sm:top-5 sm:rounded-xl sm:px-3.5 sm:py-2.5">

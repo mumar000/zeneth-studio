@@ -102,33 +102,22 @@ export default function ShowreelSection() {
   }, [scheduleControlsHide]);
 
   useEffect(() => {
-    let frameId;
-    let fallbackId;
+    const section = sectionRef.current;
+    if (!section || shouldLoadVideo) return;
 
-    const beginBuffering = () => {
-      if (fallbackId) {
-        clearTimeout(fallbackId);
-        fallbackId = undefined;
-      }
-      if (frameId) return;
-      frameId = requestAnimationFrame(() => setShouldLoadVideo(true));
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+          setShouldLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: [0.35] },
+    );
 
-    if (window.__nymborLoaderComplete) {
-      beginBuffering();
-    } else {
-      window.addEventListener("nymbor:loader-complete", beginBuffering, {
-        once: true,
-      });
-      fallbackId = window.setTimeout(beginBuffering, 1800);
-    }
-
-    return () => {
-      if (frameId) cancelAnimationFrame(frameId);
-      if (fallbackId) clearTimeout(fallbackId);
-      window.removeEventListener("nymbor:loader-complete", beginBuffering);
-    };
-  }, []);
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [shouldLoadVideo]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -253,6 +242,12 @@ export default function ShowreelSection() {
         video.webkitEnterFullscreen();
       } else if (video.requestFullscreen) {
         await video.requestFullscreen();
+      }
+
+      if (!shouldLoadVideo) {
+        setShouldLoadVideo(true);
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+        video.load();
       }
 
       await video.play();
@@ -399,7 +394,7 @@ export default function ShowreelSection() {
               loop
               playsInline
               muted={isMuted}
-              poster="/showreel-poster.webp"
+              poster={shouldLoadVideo ? "/showreel-poster.webp" : undefined}
               preload={shouldLoadVideo ? "auto" : "none"}
               aria-label="Nymbor selected work showreel"
               className={`h-full w-full select-none ${
@@ -414,9 +409,7 @@ export default function ShowreelSection() {
               onPlay={handleVideoPlay}
               onPause={handleVideoPause}
             >
-              {shouldLoadVideo && (
-                <source src="/showreel.mp4" type="video/mp4" />
-              )}
+              <source src="/showreel.mp4" type="video/mp4" />
             </video>
 
             {!isFullscreen && (

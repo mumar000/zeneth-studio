@@ -91,7 +91,7 @@ export default function PortfolioCta() {
                 width={img.w}
                 height={IMG_HEIGHT}
                 alt={img.alt}
-                loading="eager"
+                loading="lazy"
                 quality={65}
                 className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025] group-focus-visible:scale-[1.025]"
               />

@@ -117,7 +117,7 @@ export default function ServicePanel({
         className="relative aspect-video w-full overflow-hidden lg:aspect-auto"
         style={{ backgroundColor: mediaBackground }}
       >
-        {mediaBackdrop ? (
+        {mediaBackdrop && panelInView ? (
           <Image
             src={mediaBackdrop}
             fill
@@ -130,14 +130,14 @@ export default function ServicePanel({
 
         {video ? (
           <video
-            src={video}
-            poster={mediaBackdrop}
+            src={panelInView ? video : undefined}
+            poster={panelInView ? mediaBackdrop : undefined}
             aria-label={videoLabel}
-            autoPlay={!shouldReduceMotion}
+            autoPlay={panelInView && !shouldReduceMotion}
             muted
             loop
             playsInline
-            preload="metadata"
+            preload={panelInView ? "metadata" : "none"}
             className="relative z-10 h-full w-full object-contain"
           />
         ) : image ? (

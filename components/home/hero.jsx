@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
@@ -23,46 +23,15 @@ const clientLogos = [
 
 export default function Hero() {
   const animConfig = useAnimationConfig();
-  const [loaderComplete, setLoaderComplete] = useState(false);
   const marqueeRef = useRef(null);
   const marqueeInView = useInView(marqueeRef, { amount: 0.01 });
 
-  useEffect(() => {
-    if (window.__nymborLoaderComplete) {
-      const frameId = requestAnimationFrame(() => setLoaderComplete(true));
-      return () => cancelAnimationFrame(frameId);
-    }
-
-    const handleLoaderComplete = () => setLoaderComplete(true);
-    const fallback = setTimeout(handleLoaderComplete, 1800);
-
-    window.addEventListener("nymbor:loader-complete", handleLoaderComplete, {
-      once: true,
-    });
-
-    return () => {
-      clearTimeout(fallback);
-      window.removeEventListener("nymbor:loader-complete", handleLoaderComplete);
-    };
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: animConfig.enabled ? 0.2 : 0.1,
-        delayChildren: 0,
-      },
-    },
-  };
-
   const itemVariants = {
     hidden: {
-      y: animConfig.enabled ? 100 : 20,
-      opacity: 0,
-      filter: animConfig.useBlur ? "blur(20px)" : "blur(0px)",
-      rotateX: animConfig.useComplexTransforms ? 20 : 0,
+      y: animConfig.enabled ? 32 : 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      rotateX: 0,
     },
     visible: {
       y: 0,
@@ -71,7 +40,7 @@ export default function Hero() {
       rotateX: 0,
       transition: {
         type: "tween",
-        duration: 1.2 * animConfig.durationMultiplier,
+        duration: 0.75 * animConfig.durationMultiplier,
         ease: [0.25, 1, 0.5, 1],
       },
     },
@@ -90,30 +59,23 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full min-h-[85vh] md:min-h-[90vh] flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-center overflow-hidden">
-      <motion.div
+    <section className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-4 text-center sm:px-6 md:min-h-screen md:px-8">
+      <div
         className="max-w-5xl w-full mx-auto perspective-1000"
-        variants={containerVariants}
-        initial="hidden"
-        animate={loaderComplete ? "visible" : "hidden"}
       >
-        <motion.h1
-          variants={itemVariants}
+        <h1
           className="leading-[1.02] tracking-[-0.03em] text-[2.75rem] 2xl:text-[5.8rem] md:text-5xl lg:text-[5.5rem] font-[700] text-[#1a1a1a]"
-          style={{
-            fontFamily: "var(--font-display)",
-            willChange: animConfig.useWillChange
-              ? "transform, opacity"
-              : "auto",
-          }}
+          style={{ fontFamily: "var(--font-display)" }}
         >
           Your <span className="text-primary">brand</span> and website{" "}
           <br className="hidden md:block" />
           finally working as <span className="text-primary">one.</span>
-        </motion.h1>
+        </h1>
 
         <motion.p
           variants={itemVariants}
+          initial="hidden"
+          animate="visible"
           className="mx-auto mt-6 md:mt-8 md:max-w-lg 2xl:max-w-3xl lg:leading-8 text-base 2xl:text-2xl lg:text-lg md:text-md  font-[400] text-neutral-700"
           style={{ fontFamily: "var(--font-sora)" }}
         >
@@ -121,7 +83,7 @@ export default function Hero() {
           for founders and small teams that want one clear, launch-ready system.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="mt-9 sm:mt-11">
+        <motion.div variants={itemVariants} initial="hidden" animate="visible" className="mt-9 sm:mt-11">
           <Link
             href="/contact"
             className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 py-3.5 text-xs sm:text-sm font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
@@ -130,7 +92,7 @@ export default function Hero() {
             Start a Project
           </Link>
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Bottom marquee with grayscale client logos */}
       <motion.div
@@ -138,7 +100,7 @@ export default function Hero() {
         className="absolute bottom-0 left-0 right-0"
         variants={marqueeVariants}
         initial="hidden"
-        animate={loaderComplete ? "visible" : "hidden"}
+        animate="visible"
       >
         <Marquee
           play={marqueeInView}

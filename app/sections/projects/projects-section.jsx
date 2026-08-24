@@ -225,7 +225,7 @@ export default function FeaturedProjectsSection() {
                       alt={project.name}
                       fill
                       sizes="100vw"
-                      quality={70}
+                      quality={55}
                       priority={index === 0}
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.025]"
                     />
@@ -423,8 +423,7 @@ export default function FeaturedProjectsSection() {
                           alt={project.name}
                           fill
                           sizes="(min-width: 1024px) 46vw, 100vw"
-                          loading="eager"
-                          fetchPriority={index === 0 ? "high" : "auto"}
+                          loading="lazy"
                           quality={70}
                           className={`object-cover transition-all duration-500 ${
                             isActive
