@@ -41,6 +41,7 @@ export default function ShowreelSection() {
   const isPlayingRef = useRef(false);
 
   const [isMuted, setIsMuted] = useState(true);
+  const [volume, setVolume] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isCursorVisible, setIsCursorVisible] = useState(false);
@@ -176,6 +177,7 @@ export default function ShowreelSection() {
       video.muted = false;
       video.volume = 1;
       setIsMuted(false);
+      setVolume(1);
       window.lenis?.stop();
       video.play().catch(() => {});
       scheduleControlsHide();
@@ -240,6 +242,7 @@ export default function ShowreelSection() {
     video.muted = false;
     video.volume = 1;
     setIsMuted(false);
+    setVolume(1);
 
     try {
       if (player.requestFullscreen) {
@@ -289,7 +292,24 @@ export default function ShowreelSection() {
     const video = videoRef.current;
     if (!video) return;
 
-    video.muted = !video.muted;
+    const shouldMute = !video.muted;
+    video.muted = shouldMute;
+    if (!shouldMute && video.volume === 0) {
+      video.volume = 1;
+      setVolume(1);
+    }
+    setIsMuted(video.muted);
+    revealControls();
+  };
+
+  const handleVolumeChange = (event) => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const nextVolume = Number(event.target.value);
+    video.volume = nextVolume;
+    video.muted = nextVolume === 0;
+    setVolume(nextVolume);
     setIsMuted(video.muted);
     revealControls();
   };
@@ -501,18 +521,36 @@ export default function ShowreelSection() {
                       }}
                     />
 
-                    <button
-                      type="button"
-                      onClick={toggleMute}
-                      aria-label={isMuted ? "Turn sound on" : "Mute showreel"}
-                      className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white/75 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-                    >
-                      {isMuted ? (
-                        <VolumeX className="h-5 w-5" strokeWidth={1.7} />
-                      ) : (
-                        <Volume2 className="h-5 w-5" strokeWidth={1.7} />
-                      )}
-                    </button>
+                    <div className="flex shrink-0 items-center rounded-full border border-white/10 bg-black/25 pr-3 backdrop-blur-md">
+                      <button
+                        type="button"
+                        onClick={toggleMute}
+                        aria-label={isMuted ? "Turn sound on" : "Mute showreel"}
+                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white/75 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      >
+                        {isMuted ? (
+                          <VolumeX className="h-5 w-5" strokeWidth={1.7} />
+                        ) : (
+                          <Volume2 className="h-5 w-5" strokeWidth={1.7} />
+                        )}
+                      </button>
+                      <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.05"
+                        value={isMuted ? 0 : volume}
+                        onChange={handleVolumeChange}
+                        onPointerDown={clearControlsTimer}
+                        onPointerUp={revealControls}
+                        aria-label="Showreel volume"
+                        aria-valuetext={`${Math.round((isMuted ? 0 : volume) * 100)}%`}
+                        className="h-1 w-14 cursor-pointer appearance-none rounded-full accent-white sm:w-24 [&::-moz-range-thumb]:h-3 [&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-white [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-[0_0_0_3px_rgba(255,255,255,0.16)]"
+                        style={{
+                          background: `linear-gradient(to right, #ffffff 0%, #ffffff ${(isMuted ? 0 : volume) * 100}%, rgba(255,255,255,0.25) ${(isMuted ? 0 : volume) * 100}%, rgba(255,255,255,0.25) 100%)`,
+                        }}
+                      />
+                    </div>
 
                     <button
                       type="button"
