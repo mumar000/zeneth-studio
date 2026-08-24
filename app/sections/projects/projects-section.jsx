@@ -232,7 +232,7 @@ export default function FeaturedProjectsSection() {
                   </div>
                   <div className="p-4 pb-4.5 sm:p-5">
                     <p
-                      className="text-[9px] font-[700] uppercase tracking-[0.14em] text-primary"
+                      className="text-[9px] font-[700] uppercase tracking-[0.14em] text-[#F8E573]"
                       style={{ fontFamily: "var(--font-mono)" }}
                     >
                       {project.category}
@@ -445,7 +445,7 @@ export default function FeaturedProjectsSection() {
                           >
                             <div className="bg-black/60 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl">
                               <div className="flex justify-between items-start mb-2">
-                                <span className="font-mono text-xs uppercase tracking-widest text-primary">
+                                <span className="font-mono text-xs uppercase tracking-widest text-[#F8E573]">
                                   {project.category}
                                 </span>
                                 <span className="text-white/60 font-mono text-xs">
