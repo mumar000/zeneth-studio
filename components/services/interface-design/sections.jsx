@@ -117,7 +117,7 @@ export function SystemTimelineSection({ section }) {
   return (
     <section className="bg-[#f6f0fb] px-5 py-16 md:px-8 md:py-20 lg:py-24">
       <div className="mx-auto grid max-w-[1420px] gap-10 md:grid-cols-[35%_1fr] md:items-start md:gap-12 lg:gap-16">
-        <div className="md:sticky md:top-24 md:h-fit lg:top-28">
+        <div className="self-start md:sticky md:top-24 md:h-fit lg:top-28">
           <p
             className="text-[11px] font-[700] uppercase tracking-[0.09em] text-primary md:text-[13px]"
             style={{ fontFamily: "var(--font-mono)" }}

@@ -11,87 +11,87 @@ const NAV_LINKS = [
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t border-black/8 bg-white">
-
-      {/* Main content */}
-      <div className="flex flex-col items-start justify-between gap-8 px-4 pb-8 pt-10 sm:px-6 md:gap-12 md:px-14 md:pb-12 md:pt-16 lg:flex-row">
-
-        {/* Left: logo */}
+    <footer className="w-full bg-white text-[#202020]">
+      <div className="relative border-b border-[#ececec] px-5 pb-10 pt-10 sm:px-8 md:px-12 lg:h-[350px] lg:px-[2.14vw] lg:pb-0 lg:pt-0">
         <Link
           href="/"
           aria-label="Nymbor home"
-          className="flex shrink-0 items-center"
+          className="flex w-fit shrink-0 items-center lg:absolute lg:left-[2.14%] lg:top-[11%]"
         >
           <Image
             src="/nymbor-final-files/primary-logo/nymbor-logo-primary-logo.svg"
             alt="Nymbor"
             width={1480}
             height={363}
-            className="h-[42px] w-auto md:h-[58px]"
+            className="h-auto w-[210px] md:w-[250px] lg:w-[clamp(220px,14vw,280px)]"
           />
         </Link>
 
-        {/* Right end: nav + contact */}
-        <div className="grid w-full grid-cols-2 gap-6 md:flex md:w-auto md:flex-row md:gap-14 lg:gap-20">
+        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:absolute lg:left-[2.14%] lg:right-[4.2%] lg:top-0 lg:mt-0 lg:grid-cols-[minmax(0,1fr)_minmax(210px,15vw)_minmax(250px,17.45vw)] lg:gap-0">
+          <div aria-hidden="true" className="hidden lg:block" />
 
-          {/* Nav links */}
           <nav
             aria-label="Footer navigation"
-            className="flex flex-col gap-3.5 md:gap-5"
+            className="flex flex-col gap-4 lg:pt-[88px] lg:gap-[19px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[17px] font-[500] leading-none text-[#1a1a1a] transition-colors hover:text-primary md:text-[26px]"
+                className="w-fit text-[23px] font-[500] leading-none tracking-[-0.03em] transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:text-[clamp(22px,1.45vw,28px)]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* CTA + contact */}
-          <div
-            className="flex flex-col gap-4 md:gap-6"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            <p className="text-[20px] font-[600] leading-[1.2] text-[#1a1a1a] md:text-[30px] md:leading-[1.25]">
-              Let&apos;s make{" "}
-              <span className="text-primary">→</span>
+          <div className="flex flex-col lg:pt-[58px]" style={{ fontFamily: "var(--font-display)" }}>
+            <p className="max-w-[335px] text-[25px] font-[500] leading-[1.35] tracking-[-0.03em] lg:text-[clamp(24px,1.45vw,28px)]">
+              Let&apos;s make
+              <span className="ml-3 text-primary" aria-hidden="true">→</span>
               <br />
               something wonderful
             </p>
 
-            <div className="mt-1 flex flex-col gap-1.5 md:gap-2">
+            <div className="mt-8 flex flex-col gap-2 lg:mt-[42px]">
               <Link
                 href="/contact"
-                className="text-[13px] font-[400] text-[#1a1a1a] transition-colors hover:text-primary md:text-[19px]"
+                className="w-fit text-[20px] font-[500] leading-none tracking-[-0.03em] transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:text-[clamp(20px,1.45vw,28px)]"
               >
                 Submit a brief
               </Link>
               <a
                 href="mailto:contact@nymbor.com"
-                className="break-all text-[13px] font-[400] text-[#1a1a1a] transition-colors hover:text-primary md:text-[19px]"
+                className="w-fit max-w-full break-words text-[20px] font-[500] leading-none tracking-[-0.03em] transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:text-[clamp(20px,1.45vw,28px)]"
               >
                 contact@nymbor.com
               </a>
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-black/10 px-4 py-4 sm:px-6 md:px-14">
+      <div className="flex min-h-[62px] flex-col justify-center gap-3 px-5 py-4 sm:px-8 md:flex-row md:items-center md:justify-between md:py-0 md:pl-[2.14vw] md:pr-[4.2vw]">
         <span
-          className="text-[11px] text-black/40 md:text-[13px] md:text-black/35"
-          style={{ fontFamily: "var(--font-sora)" }}
+          className="text-[11px] tracking-[-0.04em] text-[#b1b1b1] md:text-[14px]"
+          style={{ fontFamily: "var(--font-mono)" }}
         >
-          Nymbor © {new Date().getFullYear()}
+          Nymbor © {new Date().getFullYear()} privacy
         </span>
-      </div>
 
+        <div
+          aria-label="Social profiles"
+          className="flex items-center gap-4 text-[11px] tracking-[-0.04em] text-[#202020] md:gap-[30px] md:text-[16px]"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          <span>Twitter</span>
+          <span aria-hidden="true" className="text-primary">✦</span>
+          <span>Instagram</span>
+          <span aria-hidden="true" className="text-primary">✦</span>
+          <span>LinkedIn</span>
+        </div>
+      </div>
     </footer>
   );
 };

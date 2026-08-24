@@ -88,12 +88,12 @@ export default function ShowreelSection() {
 
   const scheduleControlsHide = useCallback(() => {
     clearControlsTimer();
-    if (!isFullscreenRef.current || !isPlayingRef.current) return;
+    if (!isFullscreenRef.current || !isPlayingRef.current || isMobile) return;
 
     controlsTimerRef.current = window.setTimeout(() => {
       setControlsVisible(false);
     }, 2400);
-  }, [clearControlsTimer]);
+  }, [clearControlsTimer, isMobile]);
 
   const revealControls = useCallback(() => {
     setControlsVisible(true);
@@ -378,6 +378,7 @@ export default function ShowreelSection() {
               ref={videoRef}
               loop
               playsInline
+              controls={isFullscreen}
               muted={isMuted}
               poster="/showreel-poster.webp"
               preload={shouldLoadVideo ? "auto" : "none"}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import SectionIntro from "@/components/services/common/section-intro";
 
@@ -78,10 +79,12 @@ export function ProofSection({ service }) {
         <SectionIntro eyebrow={service.proofEyebrow} title={service.proofTitle} description={service.proofDescription} />
         <div className="mt-10 grid gap-4 md:mt-20 md:gap-6 lg:grid-cols-2">
           {service.proofCards.map((card, index) => (
-            <motion.article key={card.title} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }} className="overflow-hidden rounded-[14px] border border-black/10 bg-white shadow-[0_12px_32px_rgba(28,16,48,0.07)] max-md:!p-0 md:rounded-[18px]">
-              <div className="relative h-[220px] bg-[#21120d] sm:h-[320px] md:h-[545px]"><Image src={card.image} alt={card.alt} fill sizes="(min-width: 1024px) 48vw, 100vw" className="object-cover" /></div>
-              <div className="px-5 pb-6 pt-5 md:px-[60px] md:pb-14 md:pt-[58px]"><h3 className="text-[27px] font-[600] leading-[1.02] tracking-[-0.045em] text-[#202024] md:text-[50px] md:font-[700] md:leading-none md:tracking-[-0.055em]" style={{ fontFamily: "var(--font-display)" }}>{card.title}</h3><p className="mt-3 max-w-[760px] text-[13px] font-[400] leading-[1.5] tracking-[-0.015em] text-black/60 md:mt-6 md:text-[23px] md:leading-[1.45] md:tracking-[-0.035em] md:text-black" style={{ fontFamily: "var(--font-display)" }}>{card.description}</p><div className="mt-5 flex flex-wrap gap-2 border-t border-black/10 pt-4 md:mt-11 md:gap-3 md:border-0 md:pt-0">{card.tags.map((tag) => <span key={tag} className="rounded-full border border-primary/15 bg-[#eadcff]/70 px-3 py-2 text-[9px] font-[600] uppercase leading-none tracking-[0.06em] text-primary md:rounded-[8px] md:border-black md:bg-[#eadcff] md:px-4 md:py-3 md:text-[16px] md:font-[400] md:normal-case md:tracking-[0.02em] md:text-black" style={{ fontFamily: "var(--font-mono)" }}>{tag}</span>)}</div></div>
-            </motion.article>
+            <Link key={card.title} href={card.href} aria-label={`View ${card.title} case study`} className="group block overflow-hidden rounded-[14px] border border-black/10 bg-white shadow-[0_12px_32px_rgba(28,16,48,0.07)] transition-shadow hover:shadow-[0_18px_42px_rgba(28,16,48,0.14)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:rounded-[18px]">
+              <motion.article initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }}>
+                <div className="relative h-[180px] overflow-hidden bg-[#21120d] sm:h-[230px] md:h-[285px]"><Image src={card.image} alt={card.alt} fill sizes="(min-width: 1024px) 48vw, 100vw" quality={90} className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" /></div>
+                <div className="px-5 pb-5 pt-5 md:px-8 md:pb-7 md:pt-7"><h3 className="text-[26px] font-[600] leading-[1.02] tracking-[-0.045em] text-[#202024] md:text-[36px] md:font-[700] md:leading-none md:tracking-[-0.055em]" style={{ fontFamily: "var(--font-display)" }}>{card.title}</h3><p className="mt-3 max-w-[760px] text-[14px] font-[400] leading-[1.45] tracking-[-0.015em] text-black/65 md:mt-4 md:text-[17px] md:leading-[1.4] md:text-black" style={{ fontFamily: "var(--font-display)" }}>{card.description}</p><div className="mt-4 flex flex-wrap gap-2 border-t border-black/10 pt-3 md:mt-6 md:gap-2.5 md:pt-4">{card.tags.map((tag) => <span key={tag} className="rounded-full border border-primary/15 bg-[#eadcff]/70 px-2.5 py-1.5 text-[9px] font-[600] uppercase leading-none tracking-[0.06em] text-primary md:rounded-[7px] md:border-black md:bg-[#eadcff] md:px-3 md:py-2 md:text-[12px] md:font-[400] md:normal-case md:tracking-[0.02em] md:text-black" style={{ fontFamily: "var(--font-mono)" }}>{tag}</span>)}</div></div>
+              </motion.article>
+            </Link>
           ))}
         </div>
       </div>
