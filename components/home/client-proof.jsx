@@ -6,13 +6,29 @@ import {
   AnimatePresence,
   motion,
   useInView,
+  useMotionValue,
   useReducedMotion,
+  useSpring,
 } from "framer-motion";
-import { ArrowUpRight, X } from "lucide-react";
-import { FEATURED_TESTIMONIAL } from "./happy-brands";
+import { ArrowUpRight, Maximize2, X } from "lucide-react";
 
 const VIDEOS = [
-  { id: 1, src: "/testimonial-1-web.mp4", poster: null },
+  {
+    id: 1,
+    src: "/testimonial-1-web.mp4",
+    poster: null,
+    name: "Voyager Supplements",
+    logo: {
+      src: "/voyager-supplements-logo.png",
+      alt: "Voyager Supplements",
+    },
+  },
+  {
+    id: 2,
+    src: "/jack-patel-testimonial.mp4",
+    poster: null,
+    name: "Jack Patel",
+  },
 ];
 
 const STEPS = [
@@ -39,8 +55,13 @@ const STEPS = [
 function VideoCard({ video, index, onOpen }) {
   const cardRef = useRef(null);
   const videoRef = useRef(null);
+  const [isCursorVisible, setIsCursorVisible] = useState(false);
   const isInView = useInView(cardRef, { amount: 0.3 });
   const shouldReduceMotion = useReducedMotion();
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
+  const cursorXSpring = useSpring(cursorX, { stiffness: 420, damping: 34 });
+  const cursorYSpring = useSpring(cursorY, { stiffness: 420, damping: 34 });
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -53,6 +74,18 @@ function VideoCard({ video, index, onOpen }) {
     }
   }, [isInView, shouldReduceMotion, video.src]);
 
+  const handlePointerMove = (event) => {
+    if (event.pointerType === "touch") return;
+    const card = cardRef.current;
+    if (!card) return;
+
+    const bounds = card.getBoundingClientRect();
+    const coordinateScaleX = card.offsetWidth / bounds.width;
+    const coordinateScaleY = card.offsetHeight / bounds.height;
+    cursorX.set((event.clientX - bounds.left) * coordinateScaleX);
+    cursorY.set((event.clientY - bounds.top) * coordinateScaleY);
+  };
+
   return (
     <motion.div
       ref={cardRef}
@@ -60,13 +93,18 @@ function VideoCard({ video, index, onOpen }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] }}
-      className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-[18px] border border-black/10 bg-[#111] shadow-[0_18px_50px_rgba(20,12,35,0.16)] transition-[box-shadow,border-color] duration-300 hover:border-primary/45 hover:shadow-[0_24px_70px_rgba(114,33,252,0.2)] sm:rounded-[24px]"
+      onPointerMove={handlePointerMove}
+      onPointerEnter={(event) => {
+        if (event.pointerType !== "touch") setIsCursorVisible(true);
+      }}
+      onPointerLeave={() => setIsCursorVisible(false)}
+      className="group relative mx-auto aspect-[9/16] w-full max-w-[390px] cursor-pointer overflow-hidden rounded-[28px] border border-black/10 bg-[#111] shadow-[0_18px_50px_rgba(20,12,35,0.16)] transition-[box-shadow,border-color,transform] duration-300 hover:-translate-y-1 hover:border-primary/45 hover:shadow-[0_24px_70px_rgba(114,33,252,0.2)] sm:rounded-[32px] md:cursor-none"
     >
       <button
         type="button"
         onClick={() => onOpen(video.src)}
-        aria-label="Play client testimonial video"
-        className="absolute inset-0 h-full w-full cursor-pointer bg-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary"
+        aria-label={`Play ${video.name} testimonial video`}
+        className="absolute inset-0 h-full w-full cursor-pointer bg-black focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-primary md:cursor-none"
       >
         <video
           ref={videoRef}
@@ -78,15 +116,35 @@ function VideoCard({ video, index, onOpen }) {
           preload={isInView ? "metadata" : "none"}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         />
-        <span className="pointer-events-none absolute left-3 top-3 z-10 flex items-center rounded-lg border border-white/15 bg-black/35 px-2.5 py-2 shadow-lg backdrop-blur-md sm:left-5 sm:top-5 sm:rounded-xl sm:px-3.5 sm:py-2.5">
-          <Image
-            src="/voyager-supplements-logo.png"
-            alt="Voyager Supplements"
-            width={500}
-            height={195}
-            className="h-auto w-[96px] sm:w-[128px]"
-          />
-        </span>
+        {video.logo && (
+          <span className="pointer-events-none absolute left-3 top-3 z-10 flex items-center rounded-lg border border-white/15 bg-black/35 px-2.5 py-2 shadow-lg backdrop-blur-md sm:left-5 sm:top-5 sm:rounded-xl sm:px-3.5 sm:py-2.5">
+            <Image
+              src={video.logo.src}
+              alt={video.logo.alt}
+              width={500}
+              height={195}
+              className="h-auto w-[96px] sm:w-[128px]"
+            />
+          </span>
+        )}
+        <AnimatePresence>
+          {isCursorVisible && (
+            <motion.span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-0 top-0 z-30 hidden md:block"
+              style={{ x: cursorXSpring, y: cursorYSpring }}
+              initial={{ opacity: 0, scale: 0.72 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.72 }}
+              transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-full border border-black/10 bg-white/95 px-4 py-3 text-[11px] font-[600] uppercase tracking-[0.11em] text-black shadow-[0_16px_50px_rgba(0,0,0,0.24)] backdrop-blur-xl">
+                <Maximize2 className="h-4 w-4" strokeWidth={1.7} />
+                Expand video
+              </span>
+            </motion.span>
+          )}
+        </AnimatePresence>
         <span className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/75 via-black/20 to-transparent px-4 pb-4 pt-16 text-left text-white sm:px-6 sm:pb-6 sm:pt-24">
           <span>
             <span
@@ -99,7 +157,7 @@ function VideoCard({ video, index, onOpen }) {
               className="mt-1 block text-sm font-[500] tracking-[-0.02em] sm:mt-1.5 sm:text-base"
               style={{ fontFamily: "var(--font-sora)" }}
             >
-              Watch the full story
+              {video.name}
             </span>
           </span>
           <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md transition-colors duration-200 group-hover:bg-white group-hover:text-black sm:h-10 sm:w-10">
@@ -133,77 +191,39 @@ export default function ClientProof() {
   return (
     <>
       {/* ── CLIENT PROOF: video cards ── */}
-      <section className="relative z-10 w-full px-4 py-12 sm:px-6 md:px-10 md:py-24">
+      <section className="relative z-10 w-full px-4 py-8 sm:px-6 md:px-10 md:py-14">
         <div className="mx-auto max-w-[1400px]">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-6 text-center text-[10px] font-[700] uppercase tracking-[0.18em] text-primary md:mb-14 md:text-[11px] md:tracking-[0.22em]"
+            className="mb-3 text-center text-[10px] font-[700] uppercase tracking-[0.18em] text-primary md:mb-4 md:text-[11px] md:tracking-[0.22em]"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Client Proof
           </motion.p>
 
-          <div className="mx-auto grid max-w-[1180px] items-stretch gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(320px,0.65fr)]">
-            <div className="flex min-w-0 items-center">
-              {VIDEOS.map((video, i) => (
-                <VideoCard
-                  key={video.id}
-                  video={video}
-                  index={i}
-                  onOpen={setActiveVideo}
-                />
-              ))}
-            </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.06, ease: [0.25, 1, 0.5, 1] }}
+            className="mx-auto mb-6 max-w-[900px] text-center text-[32px] font-[500] leading-[1.05] tracking-[-0.04em] text-[#171717] sm:text-[42px] md:mb-10 md:text-[56px]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Listen to the stories behind the work.
+          </motion.h2>
 
-            <motion.figure
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-              className="flex min-h-[250px] flex-col justify-between rounded-[16px] border border-black bg-[#C9B8F5] p-5 sm:rounded-[20px] sm:p-6 md:min-h-[340px] md:rounded-[24px] md:p-9"
-            >
-              <Image
-                src={FEATURED_TESTIMONIAL.logo.src}
-                width={FEATURED_TESTIMONIAL.logo.w}
-                height={FEATURED_TESTIMONIAL.logo.h}
-                alt="Feroce"
-                className="h-auto w-[112px] object-contain object-left md:w-[132px]"
+          <div className="mx-auto grid max-w-[860px] grid-cols-1 items-stretch justify-items-center gap-5 sm:grid-cols-2 sm:gap-6">
+            {VIDEOS.map((video, i) => (
+              <VideoCard
+                key={video.id}
+                video={video}
+                index={i}
+                onOpen={setActiveVideo}
               />
-
-              <blockquote
-                className="my-6 max-w-[29ch] text-[22px] font-[500] leading-[1.14] tracking-[-0.035em] text-[#171717] md:my-8 md:max-w-[27ch] md:text-[34px] md:leading-[1.08] md:tracking-[-0.045em]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                &ldquo;{FEATURED_TESTIMONIAL.quote}&rdquo;
-              </blockquote>
-
-              <figcaption className="flex items-center gap-3 border-t border-black/15 pt-4">
-                <Image
-                  src={FEATURED_TESTIMONIAL.avatar}
-                  width={40}
-                  height={40}
-                  alt={FEATURED_TESTIMONIAL.name}
-                  className="rounded-[9px] object-cover ring-1 ring-black/10"
-                />
-                <span className="leading-tight">
-                  <span
-                    className="block text-[13px] font-[700] leading-[1.2] text-[#171717] md:text-[14px]"
-                    style={{ fontFamily: "var(--font-sora)" }}
-                  >
-                    {FEATURED_TESTIMONIAL.name}
-                  </span>
-                  <span
-                    className="mt-0.5 block text-[11px] leading-[1.35] text-black/60 md:mt-0 md:text-[13px]"
-                    style={{ fontFamily: "var(--font-sora)" }}
-                  >
-                    {FEATURED_TESTIMONIAL.role}
-                  </span>
-                </span>
-              </figcaption>
-            </motion.figure>
+            ))}
           </div>
         </div>
       </section>
