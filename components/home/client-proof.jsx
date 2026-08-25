@@ -98,7 +98,7 @@ function VideoCard({ video, index, onOpen }) {
         if (event.pointerType !== "touch") setIsCursorVisible(true);
       }}
       onPointerLeave={() => setIsCursorVisible(false)}
-      className="group relative mx-auto aspect-[9/16] w-full max-w-[390px] cursor-pointer overflow-hidden rounded-[28px] border border-black/10 bg-[#111] shadow-[0_18px_50px_rgba(20,12,35,0.16)] transition-[box-shadow,border-color,transform] duration-300 hover:-translate-y-1 hover:border-primary/45 hover:shadow-[0_24px_70px_rgba(114,33,252,0.2)] sm:rounded-[32px] md:cursor-none"
+      className="group relative mx-auto aspect-[3/4] w-full max-w-[300px] cursor-pointer overflow-hidden rounded-[22px] border border-black/10 bg-[#111] shadow-[0_18px_50px_rgba(20,12,35,0.16)] transition-[box-shadow,border-color,transform] duration-300 hover:-translate-y-1 hover:border-primary/45 hover:shadow-[0_24px_70px_rgba(114,33,252,0.2)] sm:aspect-[9/16] sm:max-w-[390px] sm:rounded-[32px] md:cursor-none"
     >
       <button
         type="button"
@@ -123,7 +123,7 @@ function VideoCard({ video, index, onOpen }) {
               alt={video.logo.alt}
               width={500}
               height={195}
-              className="h-auto w-[96px] sm:w-[128px]"
+              className="h-auto w-[82px] sm:w-[128px]"
             />
           </span>
         )}
