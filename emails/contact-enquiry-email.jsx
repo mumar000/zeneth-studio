@@ -93,7 +93,7 @@ export default function ContactEnquiryEmail({ submission }) {
 }
 
 const body = {
-  backgroundColor: "#f4f1f8",
+  backgroundColor: "#fff",
   color: "#1c1920",
   fontFamily:
     "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",

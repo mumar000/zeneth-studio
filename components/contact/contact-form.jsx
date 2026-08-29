@@ -435,60 +435,69 @@ export default function ContactForm() {
             </div>
           </motion.form>
         ) : (
-          <motion.div
-            key="contact-success"
-            initial={
-              shouldReduceMotion
-                ? false
-                : { opacity: 0, y: 18, filter: "blur(6px)" }
-            }
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{
-              duration: shouldReduceMotion ? 0 : 0.5,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="mx-auto flex min-h-[600px] w-full max-w-[780px] flex-col items-center justify-center rounded-[24px] border border-black/10 bg-white px-6 py-14 text-center shadow-[0_8px_22px_rgba(23,19,29,0.045)] sm:px-10"
-            role="status"
-          >
-            <motion.div
-              initial={shouldReduceMotion ? false : { scale: 0.7, rotate: -8 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{
-                duration: shouldReduceMotion ? 0 : 0.55,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-black bg-[var(--accent-yellow)] text-black shadow-[5px_5px_0_0_#171717]"
-            >
-              <Check size={34} strokeWidth={2.4} />
-            </motion.div>
-            <p
-              className="mt-9 text-[10px] font-[800] uppercase tracking-[0.15em] text-primary"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              Brief received
-            </p>
-            <h2
-              className="mt-4 max-w-[560px] text-[clamp(38px,5vw,68px)] font-[500] leading-[0.94] tracking-[-0.055em]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              It&apos;s on our radar, {formData.name.split(" ")[0]}.
-            </h2>
-            <p className="mt-6 max-w-[520px] text-[16px] leading-relaxed text-black/50">
-              We&apos;ll review the details and reply with the clearest next
-              step, usually within one or two business days.
-            </p>
-            <Link
-              href="/works"
-              className="group mt-9 inline-flex min-h-12 items-center gap-3 rounded-full border border-black/15 bg-white px-5 py-3 text-[10px] font-[800] uppercase tracking-[0.12em] transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              Explore our work
-              <ArrowUpRight
-                size={15}
-                className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              />
-            </Link>
-          </motion.div>
+         <motion.div
+  key="contact-success"
+  initial={
+    shouldReduceMotion
+      ? false
+      : { opacity: 0, y: 12, filter: "blur(4px)" }
+  }
+  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+  transition={{
+    duration: shouldReduceMotion ? 0 : 0.6,
+    ease: [0.16, 1, 0.3, 1], // Custom Apple-like cubic-bezier for buttery smoothness
+  }}
+  className="relative mx-auto flex min-h-[580px] w-full max-w-[760px] flex-col items-center justify-center overflow-hidden rounded-[32px] border border-black/[0.08] bg-[#FCFCFB] px-8 py-16 text-center shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.02)] sm:px-12"
+  role="status"
+>
+  {/* Subtle decorative background gradient aura to break up flatness */}
+  <div className="absolute -top-24 left-1/2 h-48 w-72 -translate-x-1/2 rounded-full bg-[var(--accent-yellow)]/15 blur-3xl pointer-events-none" />
+
+  {/* Success Icon */}
+
+  {/* Eyebrow badge */}
+
+  {/* Headline */}
+  <motion.h2
+    initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.2, duration: 0.5 }}
+    className="mt-5 max-w-[540px] text-[clamp(36px,4.5vw,60px)] font-[450] leading-[1.02] tracking-[-0.04em] text-black"
+    style={{ fontFamily: "var(--font-display)" }}
+  >
+    It&apos;s on our radar, <span className="italic font-[400] text-black/80">{formData.name.split(" ")[0]}</span>.
+  </motion.h2>
+
+  {/* Subtext */}
+  <motion.p
+    initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.25, duration: 0.5 }}
+    className="mt-5 max-w-[460px] text-[15px] leading-relaxed text-black/55 font-[400]"
+  >
+    We&apos;re reviewing your scope. Expect a thoughtful response and a clear next step in your inbox within 24 hours.
+  </motion.p>
+
+  {/* Action Button */}
+  <motion.div
+    initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3, duration: 0.5 }}
+  >
+    <Link
+      href="/works"
+      className="group mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-black px-6 py-3 text-[10px] font-[700] uppercase tracking-[0.15em] text-white transition-all duration-300 hover:bg-black/85 hover:shadow-[0_8px_20px_rgba(0,0,0,0.15)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+      style={{ fontFamily: "var(--font-mono)" }}
+    >
+      Explore our work
+      <ArrowUpRight
+        size={14}
+        className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+      />
+    </Link>
+  </motion.div>
+</motion.div>
+
         )}
       </AnimatePresence>
     </motion.div>
