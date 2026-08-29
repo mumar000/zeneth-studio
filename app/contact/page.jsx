@@ -1,4 +1,4 @@
-import MultiStepContactForm from "../../components/contact/multi-step-form";
+import ContactSection from "../sections/contact/contact";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -12,8 +12,8 @@ export const metadata = createPageMetadata({
 
 export default function ContactPage() {
   return (
-    <main id="main-content" className="min-h-screen bg-[#fffcf7]">
-      <MultiStepContactForm />
+    <main id="main-content" className="min-h-screen bg-white">
+      <ContactSection />
     </main>
   );
 }

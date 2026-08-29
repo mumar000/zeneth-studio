@@ -188,8 +188,11 @@ export default function MultiStepContactForm() {
     if (!EMAIL_PATTERN.test(formData.email.trim())) {
       nextErrors.email = "Enter a valid email address.";
     }
-    if (formData.phone.replace(/\D/g, "").length < 7) {
-      nextErrors.phone = "Enter a valid phone number.";
+    if (
+      formData.phone.trim() &&
+      formData.phone.replace(/\D/g, "").length < 7
+    ) {
+      nextErrors.phone = "Enter a valid phone number or leave this blank.";
     }
     return nextErrors;
   };
@@ -393,7 +396,7 @@ export default function MultiStepContactForm() {
                   />
                   <TextField
                     id="phone"
-                    label="Phone number *"
+                    label="Phone number (optional)"
                     type="tel"
                     value={formData.phone}
                     onChange={(event) => updateField("phone", event.target.value)}

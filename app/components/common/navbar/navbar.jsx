@@ -257,14 +257,16 @@ export default function Navbar() {
             </div>
           </nav>
 
-          {/* Right: CTA, same style as hero */}
-          <Link
-            href="/contact"
-            className="hidden md:inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-4 py-2 md:py-2 text-xs font-[800] uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
-            style={{ fontFamily: "var(--font-mono)" }}
-          >
-            Start a Project <ArrowRight size={15} />
-          </Link>
+          {/* The contact CTA is redundant once the visitor is on that page. */}
+          {!pathname.startsWith("/contact") && (
+            <Link
+              href="/contact"
+              className="hidden md:inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-4 py-2 md:py-2 text-xs font-[800] uppercase tracking-[0.14em] text-white shadow-[4px_4px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none"
+              style={{ fontFamily: "var(--font-mono)" }}
+            >
+              Start a Project <ArrowRight size={15} />
+            </Link>
+          )}
 
           {/* Mobile toggle */}
           <button
@@ -416,16 +418,18 @@ export default function Navbar() {
                       )}
                     </AnimatePresence>
                   </div>
-                  <div className="order-5 mt-2 border-t border-black/10 pt-2.5">
-                    <Link
-                      href="/contact"
-                      onClick={closeMobileMenu}
-                      className="flex w-full items-center justify-center gap-2 rounded-[11px] border-2 border-black bg-primary px-4 py-3 text-[11px] font-[800] uppercase tracking-[0.12em] text-white shadow-[3px_3px_0_0_#000]"
-                      style={{ fontFamily: "var(--font-mono)" }}
-                    >
-                      Start a Project →
-                    </Link>
-                  </div>
+                  {!pathname.startsWith("/contact") && (
+                    <div className="order-5 mt-2 border-t border-black/10 pt-2.5">
+                      <Link
+                        href="/contact"
+                        onClick={closeMobileMenu}
+                        className="flex w-full items-center justify-center gap-2 rounded-[11px] border-2 border-black bg-primary px-4 py-3 text-[11px] font-[800] uppercase tracking-[0.12em] text-white shadow-[3px_3px_0_0_#000]"
+                        style={{ fontFamily: "var(--font-mono)" }}
+                      >
+                        Start a Project →
+                      </Link>
+                    </div>
+                  )}
                 </nav>
               </motion.div>
             </motion.div>

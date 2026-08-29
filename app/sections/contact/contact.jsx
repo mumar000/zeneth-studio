@@ -1,101 +1,50 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import ContactForm from "@/components/contact/contact-form";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function ContactSection() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <section className="bg-[#0f0a1a] w-full flex items-center justify-center p-4 md:p-8 lg:p-12">
-      {/* Main Container */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-8xl bg-black rounded-[2rem] md:rounded-[1rem] overflow-hidden p-8 md:p-16 relative"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-          {/* Left Column: Title & Sticker Image */}
-          <div className="flex flex-col gap-10">
-            {/* Heading */}
-            <div className="flex items-center gap-4">
-              <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-white">
-                <span className="text-primary">Let’s</span> Connect
-              </h1>
-              <ArrowRight className="mt-2 h-10 w-10 text-primary md:h-14 md:w-14" />
-            </div>
+    <section className="min-h-screen bg-white pt-[76px] text-[#171717] md:pt-[88px]">
+      <div className="mx-auto grid min-h-[calc(100svh-88px)] w-full lg:grid-cols-2 lg:gap-4">
+        <ContactForm />
 
-            {/* Sticker Image Card */}
-            <div className="relative w-full  bg-white rounded-2xl p-3 md:p-4 shadow-2xl  hover:rotate-0 transition-transform duration-500 ease-out">
-              <div className="relative w-full h-full bg-[#e5e5e5] overflow-hidden">
-                <img
-                  src="/frame-1.webp"
-                  alt="Project Preview"
-                  className="w-full h-full object-cover"
-                />
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: shouldReduceMotion ? 0 : 0.65,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="flex min-h-[620px] flex-col px-6 pb-7 pt-12 sm:px-10 sm:pb-10 sm:pt-14 lg:min-h-0 lg:px-[clamp(56px,6vw,104px)] lg:pb-[clamp(40px,5vw,72px)] lg:pt-[clamp(48px,5vw,72px)]"
+        >
+          <h1
+            className="max-w-[620px] text-[clamp(48px,5.2vw,80px)] font-[700] leading-[1.02] tracking-[-0.03em] text-[#1a1a1a]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Have a project in mind?
+            <span className="mt-2 block text-primary">Let&apos;s talk.</span>
+          </h1>
 
-                {/* Overlay Text inside image (optional based on screenshot) */}
-              </div>
-            </div>
+          <div className="mt-12 aspect-video w-full overflow-hidden rounded-[24px]   bg-black lg:mt-14">
+            <video
+              className="h-full w-full object-cover"
+              autoPlay={!shouldReduceMotion}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/showreel-poster.webp"
+              aria-label="Nymbor selected work showreel"
+            >
+              <source src="/showreel.mp4" type="video/mp4" />
+            </video>
           </div>
+        </motion.div>
 
-          {/* Right Column: Form */}
-          <div className="flex flex-col justify-center">
-            <h3 className="text-3xl md:text-4xl text-white font-medium mb-12">
-              Tell us about your project
-            </h3>
-
-            <form className="space-y-10 w-full">
-              {/* Name Input */}
-              <div className="group">
-                <label className="block text-white text-lg mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="John Doe"
-                  className="w-full border-b border-gray-700 bg-transparent pb-4 text-lg text-gray-300 transition-colors placeholder:text-gray-600 focus:border-primary focus:outline-none"
-                />
-              </div>
-
-              {/* Email Input */}
-              <div className="group">
-                <label className="block text-white text-lg mb-2">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="John Doe@mail.com"
-                  className="w-full border-b border-gray-700 bg-transparent pb-4 text-lg text-gray-300 transition-colors placeholder:text-gray-600 focus:border-primary focus:outline-none"
-                />
-              </div>
-
-              {/* Message Input */}
-              <div className="group">
-                <label className="block text-white text-lg mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  rows="1"
-                  placeholder="Type Something...."
-                  className="w-full resize-none border-b border-gray-700 bg-transparent pb-4 text-lg text-gray-300 transition-colors placeholder:text-gray-600 focus:border-primary focus:outline-none"
-                />
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-4">
-                <button
-                  type="button"
-                  className="w-auto rounded-full bg-primary px-10 py-4 text-lg font-medium text-white shadow-[0_4px_20px_rgba(114,33,252,0.4)] transition-all duration-300 hover:-translate-y-1 hover:bg-primary-700 hover:shadow-[0_4px_30px_rgba(114,33,252,0.6)]"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
