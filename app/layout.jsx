@@ -22,7 +22,7 @@ export const metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.defaultTitle,
-    template: "%s | Nymbor",
+    template: "Nymbor | %s",
   },
   description: siteConfig.defaultDescription,
   applicationName: "Nymbor",
