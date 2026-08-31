@@ -5,6 +5,12 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-4 text-center sm:px-6 md:min-h-screen md:px-8">
       <div className="mx-auto w-full max-w-5xl">
+        <p
+          className="mb-5 text-[10px] font-[700] uppercase tracking-[0.16em] text-primary sm:text-xs"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          Nymbor — Independent Creative Studio
+        </p>
         <h1
           className="text-[2.75rem] font-[700] leading-[1.02] tracking-[-0.03em] text-[#1a1a1a] md:text-5xl lg:text-[5.5rem] 2xl:text-[5.8rem]"
           style={{ fontFamily: "var(--font-display)" }}

@@ -7,10 +7,13 @@ import ClientProof from "@/components/home/client-proof";
 import FaqSection from "@/components/home/faq-section";
 import PortfolioCta from "@/components/home/portfolio-cta";
 import GifSection  from "@/components/home/gif-section";
+import JsonLd from "@/components/seo/json-ld";
+import { websiteSchema } from "@/lib/seo";
 
 export default function Home() {
   return (
     <main id="main-content">
+      <JsonLd data={websiteSchema()} />
       <div className="relative">
         <Hero />
          <GifSection />
