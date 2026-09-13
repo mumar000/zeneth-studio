@@ -8,12 +8,13 @@ import FaqSection from "@/components/home/faq-section";
 import PortfolioCta from "@/components/home/portfolio-cta";
 import GifSection  from "@/components/home/gif-section";
 import JsonLd from "@/components/seo/json-ld";
-import { websiteSchema } from "@/lib/seo";
+import { faqPageSchema, websiteSchema } from "@/lib/seo";
+import { homepageFaqs } from "@/lib/homepage-faqs";
 
 export default function Home() {
   return (
     <main id="main-content">
-      <JsonLd data={websiteSchema()} />
+      <JsonLd data={[websiteSchema(), faqPageSchema(homepageFaqs)]} />
       <div className="relative">
         <Hero />
          <GifSection />

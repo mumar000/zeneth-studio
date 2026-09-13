@@ -1,38 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const FAQS = [
-  {
-    q: "Who do you work with?",
-    a: "We work with founders, small teams, and growing businesses that need a clearer brand, a stronger digital experience, or a reliable team to take both through launch.",
-  },
-  {
-    q: "Can you improve an existing brand or website?",
-    a: "Yes. We can refine what is working, identify where the experience loses clarity, and rebuild only the parts that need to change. A project does not have to start from zero.",
-  },
-  {
-    q: "What does Nymbor do?",
-    a: "We build brand identities, design clear websites and product interfaces, and develop them for launch, covering everything from visual strategy to the live experience.",
-  },
-  {
-    q: "What makes Nymbor different?",
-    a: "We connect strategy, identity, interface, and development instead of treating them as unrelated handoffs. That keeps the idea, the design, and the live result aligned.",
-  },
-  {
-    q: "Can Nymbor handle both design and development?",
-    a: "Yes. We can take a website from structure and interface design through responsive development, CMS setup, quality assurance, and launch support.",
-  },
-  {
-    q: "Which website platforms do you work with?",
-    a: "Depending on the project, we work with Webflow, Shopify, WordPress, and custom front-end stacks. We recommend the platform after understanding your content, commerce, editing, and growth needs.",
-  },
-  {
-    q: "What should I include in my project brief?",
-    a: "Share what you are building, what is not working today, the service you need, your ideal timeline, budget range, and any useful links. If the scope is still unclear, say that too.",
-  },
-];
+import { motion } from "framer-motion";
+import { homepageFaqs } from "@/lib/homepage-faqs";
 
 function FaqItem({ faq, index }) {
   const [open, setOpen] = useState(false);
@@ -78,41 +48,38 @@ function FaqItem({ faq, index }) {
         </button>
       </h3>
 
-      {/* Animated answer */}
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="answer"
-            id={`faq-panel-${index}`}
-            role="region"
-            aria-labelledby={`faq-trigger-${index}`}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              height: { type: "spring", stiffness: 380, damping: 32 },
-              opacity: { duration: 0.22, ease: "easeInOut" },
-            }}
-            style={{ overflow: "hidden" }}
+      {/* Keep answers in the HTML so search and AI crawlers can read them. */}
+      <motion.div
+        id={`faq-panel-${index}`}
+        role="region"
+        aria-labelledby={`faq-trigger-${index}`}
+        aria-hidden={!open}
+        initial={false}
+        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
+        transition={{
+          height: { type: "spring", stiffness: 380, damping: 32 },
+          opacity: { duration: 0.22, ease: "easeInOut" },
+        }}
+        className="overflow-hidden"
+      >
+        <motion.div
+          initial={false}
+          animate={{
+            y: open ? 0 : -18,
+            filter: open ? "blur(0px)" : "blur(4px)",
+          }}
+          transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
+          className="px-5 pb-5 md:px-7 md:pb-7"
+        >
+          <div className="mb-4 h-px bg-[#1a1a1a]/10 md:mb-5" />
+          <p
+            className="max-w-[560px] text-[14px] leading-[1.6] text-[#3a3a3a] md:text-[16px] md:leading-[1.75]"
+            style={{ fontFamily: "var(--font-sora)" }}
           >
-            <motion.div
-              initial={{ y: -18, filter: "blur(4px)" }}
-              animate={{ y: 0, filter: "blur(0px)" }}
-              exit={{ y: -10, filter: "blur(4px)" }}
-              transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-              className="px-5 pb-5 md:px-7 md:pb-7"
-            >
-              <div className="mb-4 h-px bg-[#1a1a1a]/10 md:mb-5" />
-              <p
-                className="max-w-[560px] text-[14px] leading-[1.6] text-[#3a3a3a] md:text-[16px] md:leading-[1.75]"
-                style={{ fontFamily: "var(--font-sora)" }}
-              >
-                {faq.a}
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {faq.a}
+          </p>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 }
@@ -145,8 +112,8 @@ export default function FaqSection() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 1, 0.5, 1] }}
             className="flex flex-col gap-[10px]"
           >
-            {FAQS.map((faq, i) => (
-              <FaqItem key={i} faq={faq} index={i} />
+            {homepageFaqs.map((faq, i) => (
+              <FaqItem key={faq.q} faq={faq} index={i} />
             ))}
           </motion.div>
         </div>

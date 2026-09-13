@@ -14,6 +14,7 @@ const NAV_ITEMS = [
 ];
 
 const SERVICE_ITEMS = [
+  { label: "All Services", href: "/services" },
   { label: "Brand Identity", href: "/services/brand-identity" },
   { label: "Web & Interface Design", href: "/services/interface-design" },
   { label: "Web Development", href: "/services/web-development" },
@@ -221,7 +222,7 @@ export default function Navbar() {
                 }`}
                 style={{ fontFamily: "var(--font-sora)" }}
               >
-                Service
+                Services
                 <ChevronDown
                   className={`h-3.5 w-3.5 transition-transform duration-200 ${
                     isDesktopServicesOpen ? "rotate-180" : ""
@@ -391,13 +392,6 @@ export default function Navbar() {
                           className="overflow-hidden"
                         >
                           <div className="mx-2 mt-1 flex flex-col gap-1 rounded-xl bg-black/[0.035] p-2">
-                            <Link
-                              href="/#services"
-                              onClick={closeMobileMenu}
-                              className="rounded-lg px-3 py-2.5 text-[13px] font-[600] text-primary transition-colors hover:bg-white/70"
-                            >
-                              All Services
-                            </Link>
                             {SERVICE_ITEMS.map((service) => (
                               <Link
                                 key={service.href}

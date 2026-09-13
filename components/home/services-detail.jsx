@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import ServicePanel from "./service-panel";
 
 const SERVICES = [
@@ -89,6 +90,16 @@ export default function ServicesDetail({
             </React.Fragment>
           ))}
         </motion.h2>
+
+        <div className="mt-6 flex justify-center md:mt-8">
+          <Link
+            href="/services"
+            className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-[12px] font-[700] uppercase tracking-[0.1em] text-black transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            View all services
+          </Link>
+        </div>
 
         <div className="mt-8 flex flex-col gap-4 md:mt-20 md:gap-5">
           {SERVICES.map((service, i) => (

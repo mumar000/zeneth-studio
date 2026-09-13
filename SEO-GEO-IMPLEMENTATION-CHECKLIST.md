@@ -189,9 +189,9 @@ Priority: High
 - [x] Twitter card metadata exists.
 - [x] Dynamic social images exist.
 - [~] Unique titles exist, but title length and keyword alignment require review.
-- [ ] Shorten the homepage title to a focused search title.
+- [~] Homepage title updated in code to `Shopify Stores & Websites Built to Convert | Nymbor`; deploy and verify the rendered production title.
 - [ ] Audit every page title for uniqueness, intent, and readable length.
-- [ ] Audit every meta description for uniqueness and conversion value.
+- [~] Homepage meta description updated and verified in the production build; remaining page descriptions still require a full editorial audit.
 - [ ] Confirm the live Google verification method.
 - [ ] Add Bing verification metadata only if DNS or import verification is not used.
 - [ ] Test social previews on LinkedIn, Facebook, X, Slack, and messaging apps.
@@ -203,8 +203,8 @@ Acceptance check: Every indexable URL has one accurate title, description, canon
 - [x] Service detail URLs are short and descriptive.
 - [x] Case-study URLs are short and descriptive.
 - [x] Canonical host redirects are working.
-- [ ] Create a crawlable `/services` hub page.
-- [ ] Add `/services` to navigation, footer, internal links, and sitemap.
+- [x] Create a crawlable `/services` hub page.
+- [x] Add `/services` to navigation, footer, internal links, and sitemap.
 - [ ] Decide whether `/works` or `/case-studies` is the permanent naming convention.
 - [ ] Create a redirect register for retired or renamed URLs.
 - [ ] Confirm trailing-slash behavior is consistent.
@@ -220,7 +220,7 @@ Acceptance check: Every important page has one permanent URL and is reachable th
 - [x] Contact API crawling is disallowed.
 - [x] The canonical sitemap is declared.
 - [x] Sitemap contains only intended indexable project pages.
-- [ ] Add the future `/services` hub to the sitemap.
+- [x] Add the `/services` hub to the sitemap.
 - [ ] Add future editorial pages automatically.
 - [ ] Add meaningful `lastModified` values when content dates can be maintained reliably.
 - [ ] Confirm CDN/firewall access for Googlebot, Bingbot, and OAI-SearchBot.
@@ -258,7 +258,7 @@ Acceptance check: Production robots and sitemap return 200, contain canonical UR
 - [ ] Add accurate specialties/knowledge areas.
 - [ ] Ensure schema does not declare unsupported awards, ratings, prices, or locations.
 - [ ] Make breadcrumb navigation visible where breadcrumb schema is used, or document why the markup remains appropriate.
-- [ ] Add FAQ schema only after the FAQ answers remain present in crawlable HTML.
+- [x] Add FAQ schema after keeping the FAQ answers present in crawlable HTML.
 - [ ] Validate every schema type with Schema.org Validator.
 - [ ] Validate Google-supported types with Rich Results Test.
 
@@ -333,26 +333,26 @@ Suggested initial topic groups to validate through research:
 - [x] Core services are introduced.
 - [x] Work examples and testimonials are present.
 - [x] A visible project CTA exists.
-- [~] FAQ questions exist, but closed answers are inserted only after interaction.
-- [ ] Shorten and focus the page title.
+- [x] FAQ questions and answers remain present in the generated HTML when the accordion is closed.
+- [~] Page title updated in code; deploy and verify it in the rendered production HTML.
 - [ ] Confirm the H1 matches the approved primary positioning.
 - [ ] Add a concise, crawlable factual summary of Nymbor.
-- [ ] Keep every FAQ answer in server-rendered/crawlable HTML while retaining accordion behavior.
-- [ ] Add approved FAQ structured data after the HTML change.
-- [ ] Add descriptive links to the Services hub and each service page.
+- [x] Keep every FAQ answer in server-rendered/crawlable HTML while retaining accordion behavior.
+- [x] Add FAQ structured data from the same shared question-and-answer source.
+- [x] Add descriptive links to the Services hub and each service page.
 - [ ] Improve trust/entity links to About, team information, and official profiles.
 
 ### Services hub
 
-- [ ] Create `/services`.
-- [ ] Add one focused H1.
-- [ ] Explain the relationship between identity, interface design, and development.
-- [ ] Add a concise section for each service with a descriptive link.
+- [x] Create `/services`.
+- [x] Add one focused H1.
+- [x] Explain the relationship between identity, interface design, and development.
+- [x] Add a concise section for each service with a descriptive link.
 - [ ] Add process, fit, deliverables, proof, and CTA content.
 - [ ] Add relevant case-study links.
-- [ ] Add unique metadata and canonical URL.
-- [ ] Add breadcrumb navigation/schema if used.
-- [ ] Add the page to navigation, footer, sitemap, and internal links.
+- [x] Add unique metadata and canonical URL.
+- [x] Add visible breadcrumb navigation and matching schema.
+- [x] Add the page to navigation, footer, sitemap, and internal links.
 
 ### Service pages
 
@@ -525,7 +525,7 @@ GEO means making Nymbor easy for AI systems to discover, understand, verify, quo
 ### Crawlable answer content
 
 - [ ] Keep important facts and answers in server-rendered HTML.
-- [ ] Fix the homepage FAQ so answers exist in HTML without requiring a click.
+- [x] Fix the homepage FAQ so answers exist in HTML without requiring a click.
 - [ ] Add clear definitions of Nymbor, its services, audience, and process.
 - [ ] Add concise answers to real commercial questions.
 - [ ] Add platform and technology expertise with supporting examples.
@@ -586,7 +586,7 @@ Acceptance check: Major AI/search crawlers can access the site, entity facts are
 - [x] Main navigation links to Home, Work, About, and service detail pages.
 - [x] Footer links to Home, About, Work, Contact, and email.
 - [~] Service and case-study relationships are not linked comprehensively.
-- [ ] Add the Services hub to navigation and footer.
+- [x] Add the Services hub to navigation and footer.
 - [ ] Add service-to-service links.
 - [ ] Add service-to-case-study links.
 - [ ] Add case-study-to-service links.
@@ -669,9 +669,9 @@ Acceptance check: Major AI/search crawlers can access the site, entity facts are
 - [ ] Submit and inspect the sitemap.
 - [ ] Install analytics and conversion events.
 - [ ] Shorten the homepage title.
-- [ ] Make homepage FAQ answers crawlable.
-- [ ] Add FAQ schema after validation.
-- [ ] Create the Services hub and update sitemap/internal links.
+- [x] Make homepage FAQ answers crawlable.
+- [x] Add FAQ schema and verify it in generated HTML.
+- [x] Create the Services hub and update sitemap/internal links.
 
 ### Sprint 2 — On-page and entity improvements
 
@@ -721,3 +721,5 @@ Acceptance check: Major AI/search crawlers can access the site, entity facts are
 | Date | Change | Verification | Owner |
 |---|---|---|---|
 | 2026-09-13 | Initial code, deployment, SEO, listing, and GEO audit documented | Build, lint, live status/redirect/metadata/robots/sitemap checks | Codex |
+| 2026-09-13 | Homepage SEO title changed to `Shopify Stores & Websites Built to Convert | Nymbor` | Awaiting deployment and live HTML verification | Codex |
+| 2026-09-13 | Updated homepage description, made FAQs crawlable, added FAQ schema, created `/services`, and connected navigation/footer/sitemap/internal links | Lint: 0 errors; production build passed; generated HTML and sitemap inspected | Codex |

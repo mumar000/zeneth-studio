@@ -11,6 +11,7 @@ const staticRoutes = [
     lastModified: "2026-09-01",
   },
   { path: "/about", changeFrequency: "yearly", priority: 0.7 },
+  { path: "/services", changeFrequency: "monthly", priority: 0.9 },
   { path: "/works", changeFrequency: "monthly", priority: 0.9 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.8 },
 ];
