@@ -15,7 +15,7 @@ export default function BrandIdentityPage() {
       <DiagnosticSection service={service} />
       <ProofSection service={service} />
       <PipelineSection service={service} />
-      <ServiceTail />
+      <ServiceTail serviceSlug="brand-identity" />
     </main>
   );
 }

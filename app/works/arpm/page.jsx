@@ -12,6 +12,7 @@ import OutcomeTestimonial from "@/components/works/arpm/outcome-testimonial";
 import OperationalReality from "@/components/works/arpm/operational-reality";
 import ProjectOverview from "@/components/works/arpm/project-overview";
 import SearchProduct from "@/components/works/arpm/search-product";
+import RelatedServices from "@/components/works/related-services";
 import JsonLd from "@/components/seo/json-ld";
 import {
   breadcrumbSchema,
@@ -65,6 +66,7 @@ export default function ArpmCaseStudyPage() {
       <GettingLive />
       <Outcome />
       <OutcomeTestimonial />
+      <RelatedServices services={["interface-design", "web-development"]} />
       <Closing />
     </main>
   );

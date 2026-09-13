@@ -11,6 +11,7 @@ import MascotGuidelines from "@/components/works/lets-grub/mascot-guidelines";
 import RealBrief from "@/components/works/lets-grub/real-brief";
 import TensionPanel from "@/components/works/lets-grub/tension-panel";
 import ThankYou from "@/components/works/lets-grub/thank-you";
+import RelatedServices from "@/components/works/related-services";
 import JsonLd from "@/components/seo/json-ld";
 import {
   breadcrumbSchema,
@@ -63,6 +64,7 @@ export default function LetsGrubCaseStudyPage() {
       <BrandPalette />
       <ImageryDirection />
       <BrandInUse />
+      <RelatedServices services={["brand-identity", "interface-design"]} />
       <ThankYou />
     </main>
   );

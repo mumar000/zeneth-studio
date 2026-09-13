@@ -16,6 +16,7 @@ export default function InterfaceDesignPage() {
       <LiveWorkSection section={service.liveWork} />
       <SystemTimelineSection section={service.systemTimeline} />
       <ServiceTail
+        serviceSlug="interface-design"
         portfolioCta={{
           eyebrow: "Looking for something more custom?",
           title: "Got a screen that looks fine but does not move people?",

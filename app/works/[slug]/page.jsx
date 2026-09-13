@@ -19,6 +19,7 @@ import SystemBoard from "../../../components/works/detail/system-board";
 import ClosingQuote from "../../../components/works/detail/closing-quote";
 import VideoStory from "../../../components/works/detail/video-story";
 import AlignmentCTA from "@/components/home/alignment-cta";
+import RelatedServices from "@/components/works/related-services";
 
 const DEDICATED_PROJECT_SLUGS = new Set([
   "spreadshop",
@@ -26,6 +27,37 @@ const DEDICATED_PROJECT_SLUGS = new Set([
   "sapphire",
   "arpm",
 ]);
+
+function getRelatedServiceSlugs(tags) {
+  const normalizedTags = tags.map((tag) => tag.toLowerCase());
+  const related = [];
+
+  if (
+    normalizedTags.some((tag) =>
+      ["brand identity", "branding", "art direction", "packaging"].includes(tag),
+    )
+  ) {
+    related.push("brand-identity");
+  }
+
+  if (
+    normalizedTags.some((tag) =>
+      ["product design", "user research", "digital product", "web design"].includes(tag),
+    )
+  ) {
+    related.push("interface-design");
+  }
+
+  if (
+    normalizedTags.some((tag) =>
+      ["full stack development", "web development", "web design"].includes(tag),
+    )
+  ) {
+    related.push("web-development");
+  }
+
+  return related;
+}
 
 export const dynamicParams = false;
 
@@ -146,6 +178,8 @@ export default async function ProjectDetailPage({ params }) {
         accent={project.accent}
         bg={project.bg}
       />
+
+      <RelatedServices services={getRelatedServiceSlugs(project.tags)} />
 
       <AlignmentCTA />
 

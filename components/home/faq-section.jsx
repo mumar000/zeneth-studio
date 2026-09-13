@@ -84,7 +84,12 @@ function FaqItem({ faq, index }) {
   );
 }
 
-export default function FaqSection() {
+export default function FaqSection({
+  faqs = homepageFaqs,
+  heading = "Frequently Asked Questions",
+}) {
+  const headingWords = heading.split(" ");
+
   return (
     <section className="relative z-10 w-full  px-4 py-14 sm:px-6 md:px-10 md:py-28">
       <div className="mx-auto max-w-[1800px]">
@@ -99,9 +104,12 @@ export default function FaqSection() {
             className="text-3xl font-[700] leading-[1.0] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:text-7xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Frequently
-            <br />Asked
-            <br />Questions
+            {headingWords.map((word, index) => (
+              <React.Fragment key={`${word}-${index}`}>
+                {index > 0 && <br />}
+                {word}
+              </React.Fragment>
+            ))}
           </motion.h2>
 
           {/* Right: accordion */}
@@ -112,7 +120,7 @@ export default function FaqSection() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 1, 0.5, 1] }}
             className="flex flex-col gap-[10px]"
           >
-            {homepageFaqs.map((faq, i) => (
+            {faqs.map((faq, i) => (
               <FaqItem key={faq.q} faq={faq} index={i} />
             ))}
           </motion.div>

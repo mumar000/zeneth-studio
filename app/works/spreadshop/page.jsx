@@ -16,6 +16,7 @@ import HomepageShowcase from "@/components/works/spreadshop/homepage-showcase";
 import FinalVerdict from "@/components/works/spreadshop/final-verdict";
 import SupportingPageGallery from "@/components/works/spreadshop/supporting-page-gallery";
 import SpreadshopMotion from "@/components/works/spreadshop/spreadshop-motion";
+import RelatedServices from "@/components/works/related-services";
 import JsonLd from "@/components/seo/json-ld";
 import {
   breadcrumbSchema,
@@ -75,6 +76,7 @@ export default function SpreadshopCaseStudyPage() {
         <FinalVerdict />
         <SupportingPageGallery />
       </SpreadshopMotion>
+      <RelatedServices services={["interface-design", "web-development"]} />
     </main>
   );
 }

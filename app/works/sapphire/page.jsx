@@ -7,6 +7,7 @@ import TheReality from "@/components/works/sapphire/the-reality";
 import TheOutcome from "@/components/works/sapphire/the-outcome";
 import TheSystem from "@/components/works/sapphire/the-system";
 import TheWorld from "@/components/works/sapphire/the-world";
+import RelatedServices from "@/components/works/related-services";
 import JsonLd from "@/components/seo/json-ld";
 import {
   breadcrumbSchema,
@@ -56,6 +57,9 @@ export default function SapphireCaseStudyPage() {
       <LaunchHandoff />
       <ClientProof />
       <TheOutcome />
+      <RelatedServices
+        services={["brand-identity", "interface-design", "web-development"]}
+      />
     </main>
   );
 }

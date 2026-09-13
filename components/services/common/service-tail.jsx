@@ -4,6 +4,58 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import FaqSection from "@/components/home/faq-section";
 import PortfolioCta from "@/components/home/portfolio-cta";
+import { serviceSeoData } from "@/lib/service-seo-data";
+
+function RelatedWork({ projects }) {
+  if (!projects?.length) return null;
+
+  return (
+    <section className="relative z-10 px-5 py-14 md:px-8 md:py-24">
+      <div className="mx-auto max-w-[1180px]">
+        <p
+          className="text-[12px] font-[700] uppercase tracking-[0.13em] text-primary"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          Related proof
+        </p>
+        <h2
+          className="mt-4 max-w-3xl text-[36px] font-[700] leading-[1] tracking-[-0.04em] text-[#202024] md:text-[64px]"
+          style={{ fontFamily: "var(--font-display)" }}
+        >
+          See the service working in real projects.
+        </h2>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 md:gap-5">
+          {projects.map((project) => (
+            <Link
+              key={project.href}
+              href={project.href}
+              className="group rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_12px_36px_rgba(28,16,48,0.06)] transition-all hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_18px_44px_rgba(28,16,48,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:p-8"
+            >
+              <span
+                className="text-[11px] font-[700] uppercase tracking-[0.12em] text-primary"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                Case study
+              </span>
+              <span
+                className="mt-4 block text-[30px] font-[650] leading-none tracking-[-0.035em] text-[#202024] md:text-[40px]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {project.title}
+              </span>
+              <span className="mt-4 block text-[15px] leading-relaxed text-black/60 md:text-[16px]">
+                {project.detail}
+              </span>
+              <span className="mt-7 inline-flex text-sm font-[700] text-black transition-colors group-hover:text-primary">
+                Read case study →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function CustomPortfolioCta({ cta }) {
   return (
@@ -62,10 +114,13 @@ function CustomPortfolioCta({ cta }) {
   );
 }
 
-export default function ServiceTail({ portfolioCta }) {
+export default function ServiceTail({ portfolioCta, serviceSlug }) {
+  const seo = serviceSeoData[serviceSlug];
+
   return (
     <>
-      <FaqSection />
+      <RelatedWork projects={seo?.relatedWork} />
+      <FaqSection faqs={seo?.faqs} heading={seo?.faqHeading || "Service Questions"} />
       {portfolioCta ? <CustomPortfolioCta cta={portfolioCta} /> : <PortfolioCta />}
     </>
   );

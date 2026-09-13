@@ -144,6 +144,7 @@ Acceptance check: Bing Webmaster Tools recognizes the canonical host and sitemap
 
 ### Analytics and conversions
 
+- [!] GA4 implementation is blocked pending a Measurement ID and analytics property access.
 - [ ] Create or confirm the GA4 property.
 - [ ] Decide whether to install GA4 directly or through Google Tag Manager.
 - [ ] Add the production measurement ID through an environment variable.
@@ -306,12 +307,13 @@ Priority: High
 
 ### Keyword and intent map
 
+- [x] Create the initial URL-level keyword and intent map in `SEO-KEYWORD-MAP.md`.
 - [ ] Complete competitor keyword research.
 - [ ] Complete Search Console query research after data is available.
-- [ ] Assign one primary intent to every indexable page.
-- [ ] Assign one primary keyword group to every indexable page.
-- [ ] Add secondary questions and related terms without keyword stuffing.
-- [ ] Prevent two pages from targeting the same primary intent without a clear reason.
+- [x] Assign one primary intent to every currently indexable page.
+- [x] Assign one primary keyword group to every currently indexable page.
+- [x] Add initial secondary questions and related terms without keyword stuffing.
+- [x] Separate service-page commercial intent from case-study proof intent.
 - [ ] Record target market and language for each page.
 
 Suggested initial topic groups to validate through research:
@@ -359,19 +361,20 @@ Suggested initial topic groups to validate through research:
 - [x] Brand Identity page exists.
 - [x] Interface Design page exists.
 - [x] Web Development page exists.
-- [x] Each service page has unique metadata and a canonical URL.
+- [x] Each service page has optimized unique metadata and a canonical URL.
 - [x] Each service page includes substantial visible content and a CTA.
-- [ ] Assign a researched primary keyword group to each page.
+- [x] Assign an initial primary keyword group to each page; refine it with Search Console and competitor data.
 - [ ] Add concise audience and use-case sections.
 - [ ] Add industries served where they are genuine.
 - [ ] Add common deliverables and clear scope boundaries.
 - [ ] Add realistic timeline information.
 - [ ] Review displayed starting prices and keep them consistent with approved commercial policy.
-- [ ] Add page-specific FAQs based on real sales questions.
+- [x] Add crawlable page-specific FAQs based on common sales questions.
+- [x] Add matching FAQPage schema from the same source as each visible FAQ section.
 - [ ] Add stronger proof and measurable outcomes.
 - [ ] Add links between related services.
-- [ ] Add links to relevant case studies.
-- [ ] Add links from relevant case studies back to service pages.
+- [x] Add descriptive links to relevant case studies.
+- [x] Add descriptive links from indexable case studies back to relevant service pages.
 
 ### About and entity page
 
@@ -585,11 +588,11 @@ Acceptance check: Major AI/search crawlers can access the site, entity facts are
 
 - [x] Main navigation links to Home, Work, About, and service detail pages.
 - [x] Footer links to Home, About, Work, Contact, and email.
-- [~] Service and case-study relationships are not linked comprehensively.
+- [x] Service and indexable case-study relationships are linked in both directions.
 - [x] Add the Services hub to navigation and footer.
 - [ ] Add service-to-service links.
-- [ ] Add service-to-case-study links.
-- [ ] Add case-study-to-service links.
+- [x] Add service-to-case-study links.
+- [x] Add case-study-to-service links.
 - [ ] Add article-to-service and article-to-case-study links.
 - [ ] Use descriptive anchor text rather than generic `learn more` text.
 - [ ] Add visible breadcrumbs where useful.
@@ -675,11 +678,11 @@ Acceptance check: Major AI/search crawlers can access the site, entity facts are
 
 ### Sprint 2 — On-page and entity improvements
 
-- [ ] Complete keyword and intent mapping.
-- [ ] Update homepage and service-page copy.
+- [~] Complete initial keyword and intent mapping; competitor and Search Console refinement remains.
+- [~] Update homepage and service-page metadata plus FAQ copy; broader page copy refinement remains.
 - [ ] Add founder/team/entity facts.
 - [ ] Link official profiles and add `sameAs` schema.
-- [ ] Improve service and case-study internal linking.
+- [x] Improve service and case-study internal linking in both directions.
 - [ ] Add privacy and required trust pages.
 - [ ] Complete image-alt and heading audit.
 
@@ -723,3 +726,4 @@ Acceptance check: Major AI/search crawlers can access the site, entity facts are
 | 2026-09-13 | Initial code, deployment, SEO, listing, and GEO audit documented | Build, lint, live status/redirect/metadata/robots/sitemap checks | Codex |
 | 2026-09-13 | Homepage SEO title changed to `Shopify Stores & Websites Built to Convert | Nymbor` | Awaiting deployment and live HTML verification | Codex |
 | 2026-09-13 | Updated homepage description, made FAQs crawlable, added FAQ schema, created `/services`, and connected navigation/footer/sitemap/internal links | Lint: 0 errors; production build passed; generated HTML and sitemap inspected | Codex |
+| 2026-09-13 | Added the initial keyword map, optimized service metadata, added service-specific crawlable FAQs/schema, and linked services with relevant case studies | Lint: 0 errors; production build passed; generated service/case-study HTML inspected | Codex |
