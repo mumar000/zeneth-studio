@@ -6,7 +6,7 @@ This map assigns one primary search intent and keyword group to each important p
 
 | URL | Primary intent | Primary keyword target | Supporting topics | Main conversion |
 |---|---|---|---|---|
-| `/` | Find a studio that can design and build a commercial website | Shopify and website design studio | High-converting websites, brand identity, interface design, website development | Start a project |
+| `/` | Find a multidisciplinary creative studio | Independent creative studio | Shopify and website design, brand identity, interface design, web development | Start a project |
 | `/services` | Compare Nymbor's services | Shopify, web design and development services | Brand identity, interface design, Webflow, WordPress, Next.js | Select a service |
 | `/services/brand-identity` | Hire a brand identity specialist | Brand identity design for growing businesses | Logo systems, visual identity, brand guidelines, typography, color | Start a brand identity project |
 | `/services/interface-design` | Hire a website or product interface designer | Conversion-focused web and interface design | Website redesign, UX/UI design, prototypes, responsive design, design systems | Start an interface project |

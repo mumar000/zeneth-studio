@@ -11,6 +11,7 @@ import { siteConfig } from "@/lib/site-config";
 const homeMetadata = createPageMetadata({
   title: siteConfig.defaultTitle,
   description: siteConfig.defaultDescription,
+  socialDescription: siteConfig.socialDescription,
   path: "/",
   eyebrow: "Brand identity · Interface design · Web development",
   imageAlt: "Nymbor — brand identity, web design, and development studio",

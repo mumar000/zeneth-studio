@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { siteConfig } from "@/lib/site-config";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -8,6 +9,11 @@ const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Work", href: "/works" },
   { label: "Contact", href: "/contact" },
+];
+
+const SOCIAL_LINKS = [
+  { label: "Instagram", href: siteConfig.socialLinks.instagram },
+  { label: "LinkedIn", href: siteConfig.socialLinks.linkedin },
 ];
 
 const Footer = () => {
@@ -81,17 +87,27 @@ const Footer = () => {
           Nymbor © {new Date().getFullYear()} privacy
         </span>
 
-        <div
+        <nav
           aria-label="Social profiles"
           className="flex items-center gap-4 text-[11px] tracking-[-0.04em] text-[#202020] md:gap-[30px] md:text-[16px]"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          <span>Twitter</span>
-          <span aria-hidden="true" className="text-primary">✦</span>
-          <span>Instagram</span>
-          <span aria-hidden="true" className="text-primary">✦</span>
-          <span>LinkedIn</span>
-        </div>
+          {SOCIAL_LINKS.map((profile, index) => (
+            <React.Fragment key={profile.href}>
+              {index > 0 && (
+                <span aria-hidden="true" className="text-primary">✦</span>
+              )}
+              <a
+                href={profile.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              >
+                {profile.label}
+              </a>
+            </React.Fragment>
+          ))}
+        </nav>
       </div>
     </footer>
   );

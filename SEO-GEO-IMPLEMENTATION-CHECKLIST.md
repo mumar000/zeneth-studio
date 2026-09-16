@@ -190,7 +190,7 @@ Priority: High
 - [x] Twitter card metadata exists.
 - [x] Dynamic social images exist.
 - [~] Unique titles exist, but title length and keyword alignment require review.
-- [~] Homepage title updated in code to `Shopify Stores & Websites Built to Convert | Nymbor`; deploy and verify the rendered production title.
+- [~] Homepage title updated in code to `Nymbor — Independent Creative Studio`; deploy and verify the rendered production title.
 - [ ] Audit every page title for uniqueness, intent, and readable length.
 - [~] Homepage meta description updated and verified in the production build; remaining page descriptions still require a full editorial audit.
 - [ ] Confirm the live Google verification method.
@@ -255,7 +255,7 @@ Acceptance check: Production robots and sitemap return 200, contain canonical UR
 - [ ] Add approved founder/team facts.
 - [ ] Add founding year when verified.
 - [ ] Add verified phone and location/service-area information where appropriate.
-- [ ] Add `sameAs` URLs for every official profile.
+- [x] Add the supplied Instagram and LinkedIn URLs to Organization and ProfessionalService `sameAs` schema.
 - [ ] Add accurate specialties/knowledge areas.
 - [ ] Ensure schema does not declare unsupported awards, ratings, prices, or locations.
 - [ ] Make breadcrumb navigation visible where breadcrumb schema is used, or document why the markup remains appropriate.
@@ -541,8 +541,8 @@ GEO means making Nymbor easy for AI systems to discover, understand, verify, quo
 ### Entity consistency
 
 - [ ] Use the same business name and description on the website and profiles.
-- [ ] Add verified official profiles to the footer.
-- [ ] Add verified official profiles through `sameAs` schema.
+- [x] Add the supplied Instagram and LinkedIn profiles to the footer.
+- [x] Add the supplied Instagram and LinkedIn profiles through `sameAs` schema.
 - [ ] Publish founder and team expertise.
 - [ ] Publish an accurate location or remote operating model.
 - [ ] Connect services, case studies, authors, and organization entities through internal links and schema.
@@ -727,3 +727,4 @@ Acceptance check: Major AI/search crawlers can access the site, entity facts are
 | 2026-09-13 | Homepage SEO title changed to `Shopify Stores & Websites Built to Convert | Nymbor` | Awaiting deployment and live HTML verification | Codex |
 | 2026-09-13 | Updated homepage description, made FAQs crawlable, added FAQ schema, created `/services`, and connected navigation/footer/sitemap/internal links | Lint: 0 errors; production build passed; generated HTML and sitemap inspected | Codex |
 | 2026-09-13 | Added the initial keyword map, optimized service metadata, added service-specific crawlable FAQs/schema, and linked services with relevant case studies | Lint: 0 errors; production build passed; generated service/case-study HTML inspected | Codex |
+| 2026-09-16 | Updated application metadata to independent creative studio positioning and linked verified Instagram/LinkedIn profiles in the footer and schema | Awaiting build and rendered HTML verification | Codex |
