@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { sapphireTestimonial } from "@/lib/testimonials";
 
 const ease = [0.22, 1, 0.36, 1];
 const serif = '"PP Editorial Old", "Romie Trial", "Times New Roman", serif';
@@ -19,7 +20,7 @@ export default function ClientProof() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.9, ease }}
-        className="mx-auto flex min-h-[470px] max-w-[1670px] items-center justify-center overflow-hidden rounded-[clamp(14px,1.04vw,20px)] bg-[#0c0c0c] px-5 py-16 text-[#fffaef] md:h-[504px] md:min-h-0 md:px-12 md:py-0"
+        className="mx-auto flex max-w-[1670px] items-center justify-center rounded-[clamp(14px,1.04vw,20px)] bg-[#0c0c0c] px-5 py-16 text-[#fffaef] md:px-12 md:py-20"
         data-node-id="201:1017"
       >
         <div
@@ -35,7 +36,7 @@ export default function ClientProof() {
             style={{ fontFamily: sans }}
             data-node-id="201:1019"
           >
-            The Client Said it better than a fake metric ever could
+            In the client’s words
           </motion.p>
 
           <motion.blockquote
@@ -44,12 +45,11 @@ export default function ClientProof() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.55 }}
             transition={{ duration: 0.85, delay: 0.2, ease }}
-            className="text-[clamp(38px,3.334vw,64px)] font-[200] italic leading-[1.1] tracking-[-0.02em]"
+            className="text-[clamp(22px,2.2vw,36px)] font-[200] italic leading-[1.5] tracking-[-0.02em]"
             style={{ fontFamily: serif }}
             data-node-id="201:1020"
           >
-            &ldquo;I love the layouts. Especially how you set up the
-            portfolio&rdquo;
+            &ldquo;{sapphireTestimonial.quote}&rdquo;
           </motion.blockquote>
 
           <motion.figcaption
@@ -61,7 +61,7 @@ export default function ClientProof() {
             style={{ fontFamily: sans }}
             data-node-id="201:1021"
           >
-            Evan Jones / Sapphire Pools
+            {sapphireTestimonial.name} / {sapphireTestimonial.role}
           </motion.figcaption>
         </div>
       </motion.figure>

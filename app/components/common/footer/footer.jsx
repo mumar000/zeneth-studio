@@ -81,11 +81,16 @@ const Footer = () => {
 
       <div className="flex min-h-[62px] flex-col justify-center gap-3 px-5 py-4 sm:px-8 md:flex-row md:items-center md:justify-between md:py-0 md:pl-[2.14vw] md:pr-[4.2vw]">
         <span
-          className="text-[11px] tracking-[-0.04em] text-[#b1b1b1] md:text-[14px]"
+          className="text-[11px] tracking-[-0.04em] text-[#666666] md:text-[14px]"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          Nymbor © {new Date().getFullYear()} privacy
+          Nymbor © {new Date().getFullYear()}
         </span>
+
+        <nav aria-label="Legal" className="flex gap-5 text-sm">
+          <Link href="/privacy" className="hover:text-primary focus-visible:outline-2 focus-visible:outline-primary">Privacy</Link>
+          <Link href="/terms" className="hover:text-primary focus-visible:outline-2 focus-visible:outline-primary">Terms</Link>
+        </nav>
 
         <nav
           aria-label="Social profiles"

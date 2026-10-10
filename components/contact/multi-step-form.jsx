@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { CONTACT_BUDGET_OPTIONS as BUDGET_OPTIONS } from "@/lib/contact/options";
 
 const SERVICE_OPTIONS = [
   "Brand Identity",
@@ -19,8 +20,6 @@ const PROJECT_TYPES = [
   "Website redesign",
   "Ongoing support",
 ];
-
-const BUDGET_OPTIONS = ["$1K–$2K", "$4K–$8K", "$10K–$20K"];
 
 const INITIAL_FORM = {
   name: "",

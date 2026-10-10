@@ -8,12 +8,14 @@ const staticRoutes = [
     changeFrequency: "monthly",
     priority: 1,
     // Update this only when the homepage content or structured data changes.
-    lastModified: "2026-09-01",
+    lastModified: "2026-10-11",
   },
   { path: "/about", changeFrequency: "yearly", priority: 0.7 },
   { path: "/services", changeFrequency: "monthly", priority: 0.9 },
   { path: "/works", changeFrequency: "monthly", priority: 0.9 },
   { path: "/contact", changeFrequency: "yearly", priority: 0.8 },
+  { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
 ];
 
 export default function sitemap() {

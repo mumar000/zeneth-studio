@@ -4,18 +4,12 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Check, Send } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { CONTACT_BUDGET_OPTIONS as BUDGET_OPTIONS } from "@/lib/contact/options";
 
 const SERVICE_OPTIONS = [
   "Brand Identity",
   "Interface Design",
   "Web Development",
-  "Not sure yet",
-];
-
-const BUDGET_OPTIONS = [
-  "$1K–$2K",
-  "$4K–$8K",
-  "$10K–$20K",
   "Not sure yet",
 ];
 
@@ -437,7 +431,8 @@ export default function ContactForm({ isHighlighted = false }) {
 
             <div className="mt-5 flex flex-col-reverse gap-3 border-t border-black/10 pt-4 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pt-5">
               <p className="max-w-none flex-1 text-center text-[12px] leading-[1.5] text-[#736d7b] sm:max-w-[300px] sm:text-left sm:text-[14px] sm:leading-[1.6] md:text-[15px]">
-                Just a conversation. No mailing lists or sales pitches.
+                Your details are used to respond to your enquiry. Read our{" "}
+                <Link href="/privacy" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-primary">Privacy Policy</Link>.
               </p>
               <button
                 type="submit"

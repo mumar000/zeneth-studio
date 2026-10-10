@@ -1,11 +1,12 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Loader() {
   const [isComplete, setIsComplete] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   const columns = 5;
 
   const handleExitComplete = () => {
@@ -16,10 +17,10 @@ export default function Loader() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsComplete(true);
-    }, 700);
+    }, shouldReduceMotion ? 0 : 700);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [shouldReduceMotion]);
 
   const columnVariants = {
     initial: {
@@ -28,9 +29,9 @@ export default function Loader() {
     exit: (i) => ({
       y: "-100%",
       transition: {
-        duration: 0.55,
+        duration: shouldReduceMotion ? 0 : 0.55,
         ease: [0.76, 0, 0.24, 1],
-        delay: i * 0.035,
+        delay: shouldReduceMotion ? 0 : i * 0.035,
       },
     }),
   };
@@ -38,7 +39,7 @@ export default function Loader() {
   return (
     <AnimatePresence mode="wait" onExitComplete={handleExitComplete}>
       {!isComplete && (
-        <div className="fixed inset-0 z-[9999] pointer-events-none flex">
+        <div aria-hidden="true" className="fixed inset-0 z-[9999] pointer-events-none flex motion-reduce:hidden">
           {Array.from({ length: columns }).map((_, i) => (
             <motion.div
               key={i}

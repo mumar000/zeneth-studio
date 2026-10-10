@@ -114,12 +114,12 @@ function CustomPortfolioCta({ cta }) {
   );
 }
 
-export default function ServiceTail({ portfolioCta, serviceSlug }) {
+export default function ServiceTail({ portfolioCta, serviceSlug, showRelatedWork = true }) {
   const seo = serviceSeoData[serviceSlug];
 
   return (
     <>
-      <RelatedWork projects={seo?.relatedWork} />
+      {showRelatedWork && <RelatedWork projects={seo?.relatedWork} />}
       <FaqSection faqs={seo?.faqs} heading={seo?.faqHeading || "Service Questions"} />
       {portfolioCta ? <CustomPortfolioCta cta={portfolioCta} /> : <PortfolioCta />}
     </>
