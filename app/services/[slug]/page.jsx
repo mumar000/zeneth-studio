@@ -5,11 +5,13 @@ import WebDevelopmentPage from "@/components/services/web-development/web-develo
 import JsonLd from "@/components/seo/json-ld";
 import { serviceSlugs, servicesDetailData } from "@/lib/services-detail-data";
 import { serviceSeoData } from "@/lib/service-seo-data";
+import { absoluteUrl } from "@/lib/site-config";
 import {
   breadcrumbSchema,
   createPageMetadata,
   faqPageSchema,
   serviceSchema,
+  webPageSchema,
 } from "@/lib/seo";
 
 const SERVICE_PAGES = {
@@ -63,6 +65,12 @@ export default async function ServicePage({ params }) {
     <>
       <JsonLd
         data={[
+          webPageSchema({
+            name: seo.title,
+            description: seo.description,
+            path,
+            mainEntity: { "@id": `${absoluteUrl(path)}#service` },
+          }),
           serviceSchema({
             name: service.label,
             description: seo.description,
@@ -73,7 +81,7 @@ export default async function ServicePage({ params }) {
             { name: "Services", path: "/services" },
             { name: service.label, path },
           ]),
-          faqPageSchema(seo.faqs),
+          faqPageSchema(seo.faqs, path),
         ]}
       />
       <PageComponent />

@@ -39,7 +39,7 @@ export default function Loader() {
   return (
     <AnimatePresence mode="wait" onExitComplete={handleExitComplete}>
       {!isComplete && (
-        <div aria-hidden="true" className="fixed inset-0 z-[9999] pointer-events-none flex motion-reduce:hidden">
+        <div aria-hidden="true" className="site-loader fixed inset-0 z-[9999] pointer-events-none flex motion-reduce:hidden">
           {Array.from({ length: columns }).map((_, i) => (
             <motion.div
               key={i}

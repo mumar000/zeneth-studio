@@ -7,6 +7,10 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: "/api/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
+      {
         source: "/:path*.mp4",
         headers: [
           { key: "Accept-Ranges", value: "bytes" },

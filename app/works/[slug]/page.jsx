@@ -9,6 +9,7 @@ import {
   breadcrumbSchema,
   caseStudySchema,
   createPageMetadata,
+  webPageSchema,
 } from "@/lib/seo";
 import DetailHero from "../../../components/works/detail/detail-hero";
 import ImagePair from "../../../components/works/detail/image-pair";
@@ -82,8 +83,8 @@ export async function generateMetadata({ params }) {
   }
 
   return createPageMetadata({
-    title: `${project.title} Case Study`,
-    description: project.tagline,
+    title: `${project.title} — ${project.category}`,
+    description: project.description,
     path: `/works/${slug}`,
     eyebrow: "Nymbor case study",
     imageAlt: `${project.title} case study by Nymbor`,
@@ -155,9 +156,10 @@ export default async function ProjectDetailPage({ params }) {
     <main id="main-content" className="relative min-h-screen bg-[#fffcf7]">
       <JsonLd
         data={[
+          webPageSchema({ name: `${project.title} — ${project.category}`, description: project.description, path }),
           caseStudySchema({
             title: project.title,
-            description: project.tagline,
+            description: project.description,
             path,
             image: project.image,
             services: project.tags,

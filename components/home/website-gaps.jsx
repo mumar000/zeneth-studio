@@ -14,12 +14,12 @@ const rows = [
     cat: "Brand",
     tone: LAVENDER,
     usual: {
-      title: "Logo file and vibes",
-      desc: "A pretty PDF, a color palette, maybe a few rules. Then the website has to guess the rest",
+      title: "The identity stops at the logo.",
+      desc: "Every new page, presentation, and post needs someone to invent the rest.",
     },
     nymbor: {
-      title: "A system the site can use.",
-      desc: "Type, spacing, sections, buttons, image style, and visual rules shaped for real pages.",
+      title: "The whole brand has a vocabulary.",
+      desc: "Logo, type, color, imagery, and layout rules give every application a recognizable starting point.",
     },
   },
   {
@@ -27,12 +27,12 @@ const rows = [
     cat: "Design",
     tone: YELLOW,
     usual: {
-      title: "Pretty screens that break.",
-      desc: "The mockup looks sharp until real content, mobile views, and the platform touch it.",
+      title: "The mockup only fits the mockup.",
+      desc: "Longer headlines, smaller screens, and real product information expose the missing decisions.",
     },
     nymbor: {
-      title: "Layouts built for the real thing.",
-      desc: "Pages are designed around the build, not fantasy sections that collapse later",
+      title: "Real content gets designed in.",
+      desc: "We work through page hierarchy, mobile layouts, and interaction states before the build begins.",
     },
   },
   {
@@ -40,12 +40,12 @@ const rows = [
     cat: "Build",
     tone: LAVENDER,
     usual: {
-      title: "The dev “gets it close.”",
-      desc: "Spacing changes. Motion disappears. The live site becomes a softer version of the idea",
+      title: "The live site loses the details.",
+      desc: "Spacing, typography, and interactions drift when design decisions get lost during handoff.",
     },
     nymbor: {
       title: "The details survive launch.",
-      desc: "The build keeps the design decisions intact, so the site does not lose its edge at the end.",
+      desc: "Design and development review the same pages, from responsive behavior to the final form submission.",
     },
   },
   {
@@ -53,12 +53,12 @@ const rows = [
     cat: "Handoff",
     tone: YELLOW,
     usual: {
-      title: "Feedback through a filter.",
-      desc: "Your notes turn into tickets, summaries, and “let me ask the team” moments.",
+      title: "Nobody knows how to update it.",
+      desc: "The project is finished, but changing a page or creating a new asset still needs an explanation.",
     },
     nymbor: {
-      title: "You talk to the people making it.",
-      desc: "Cleaner calls, fewer translations, and a project that does not need a middleman to make sense",
+      title: "Your team can take it from here.",
+      desc: "We organize the brand files, explain the CMS, and document the decisions you will need after launch.",
     },
   },
 ];
@@ -85,13 +85,13 @@ export default function WebsiteGaps() {
             className="text-[10px] font-[700] uppercase tracking-[0.16em] text-primary md:text-base md:tracking-normal"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Why This Exists
+            Why work with Nymbor
           </p>
           <h2
             className="mx-auto mt-5 max-w-[1120px] text-[32px] font-[650] leading-[1.02] tracking-[-0.04em] text-[#1a1a1a] md:mt-9 md:text-7xl md:font-[700] md:leading-[0.98] md:tracking-[-0.03em] lg:text-[80px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Most websites die in the gaps between people.
+            A good idea should survive every handoff.
           </h2>
         </motion.div>
 
@@ -112,7 +112,7 @@ export default function WebsiteGaps() {
                 className="text-[11px] font-[700] uppercase tracking-[0.1em] text-black/45 md:text-xl md:font-[400] md:tracking-[0.08em] lg:text-[24px]"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
-                The Usual Way
+                Where projects get stuck
               </span>
             </div>
             <div

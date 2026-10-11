@@ -10,15 +10,15 @@ const SERVICES = [
     price: "$1,000",
     title: "Brand Identity",
     description:
-      "For brands that look inconsistent, unclear, or too close to everyone else in the market.",
+      "Your logo, packaging, pitch deck, and homepage should look like they came from the same business. We create the identity that holds them together.",
     bullets: [
-      "Visual direction, logo system, color, type, and brand assets",
-      "Messaging basics so the brand sounds as clear as it looks",
-      "Launch-ready files and simple rules your team can actually use",
+      "A logo family, type palette, and colors with a clear point of view",
+      "Brand applications for the places your customers meet you",
+      "Organized files and guidelines your next designer can follow",
     ],
     exploreLabel: "Explore Brand Identity",
     exploreHref: "/services/brand-identity",
-    getLabel: "Get One For Your Brand",
+    getLabel: "Build Your Identity",
     getHref: "/contact",
     video: "/feroce/feroce-video.mp4",
     videoLabel: "Brand Identity showcase",
@@ -29,18 +29,18 @@ const SERVICES = [
     price: "$1,500",
     title: "Web & Interface Design",
     description:
-      "High-fidelity website and interface design for teams that need sharper pages, clearer flow, and a better experience before anything gets built.",
+      "A visitor should understand your offer before they have to work for it. We design websites and product interfaces around what people need to find, compare, and do.",
     bullets: [
-      "Fixes messy layouts, weak hierarchy, and unclear user paths",
-      "Turns your offer into clean pages people can actually understand",
-      "Best for brands with a site that exists but does not convert well",
+      "Page structure and user journeys before visual design",
+      "Responsive screens, reusable components, and interaction states",
+      "Figma designs and prototypes ready for development",
     ],
     exploreLabel: "Explore Web Design",
     exploreHref: "/services/interface-design",
-    getLabel: "Get One For Your Brand",
+    getLabel: "Plan Your Website",
     getHref: "/contact",
     image: "/projects/letsgrub/1.webp",
-    imageAlt: "Web and interface design showcase",
+    imageAlt: "Let’s Grub website and interface design",
     mediaBackdrop: "/projects/letsgrub/1.webp",
     mediaBackground: "#18b8e7",
   },
@@ -48,7 +48,7 @@ const SERVICES = [
     price: "$1,500",
     title: "Web Development",
     description:
-      "Clean responsive builds for brands that already have the design, but need the live version to keep the same polish, spacing, and intent.",
+      "The site should feel right on launch day and still be easy to update six months later. We turn approved designs into responsive websites your team can run.",
     bullets: [
       "Webflow, Shopify, WordPress, or custom front-end development",
       "Responsive build, CMS setup, interaction details, and QA",
@@ -56,7 +56,7 @@ const SERVICES = [
     ],
     exploreLabel: "Explore Development",
     exploreHref: "/services/web-development",
-    getLabel: "Get One For Your Brand",
+    getLabel: "Discuss Your Build",
     getHref: "/contact",
     video: "/web-animations-video.mp4",
     videoLabel: "Web development showcase",
@@ -67,14 +67,17 @@ const SERVICES = [
 
 export default function ServicesDetail({
   headingLines = [
-    "A focused team of designers, developers",
-    "and thinkers creating work that lasts.",
+    "From the first impression",
+    "to the final click.",
   ],
+  showHeading = true,
+  showAllLink = true,
+  cardHeadingTag = "h3",
 }) {
   return (
     <section id="services" className="relative z-10 w-full scroll-mt-28 px-3 py-14 md:py-28 lg:px-1.5">
       <div className="mx-auto max-w-[1920px]">
-        <motion.h2
+        {showHeading && <motion.h2
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -89,9 +92,9 @@ export default function ServicesDetail({
               {line}
             </React.Fragment>
           ))}
-        </motion.h2>
+        </motion.h2>}
 
-        <div className="mt-6 flex justify-center md:mt-8">
+        {showAllLink && <div className="mt-6 flex justify-center md:mt-8">
           <Link
             href="/services"
             className="rounded-full border border-black/15 bg-white px-5 py-2.5 text-[12px] font-[700] uppercase tracking-[0.1em] text-black transition-colors hover:border-black hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
@@ -99,11 +102,11 @@ export default function ServicesDetail({
           >
             View all services
           </Link>
-        </div>
+        </div>}
 
-        <div className="mt-8 flex flex-col gap-4 md:mt-20 md:gap-5">
+        <div className={`flex flex-col gap-4 md:gap-5 ${showHeading || showAllLink ? "mt-8 md:mt-20" : ""}`}>
           {SERVICES.map((service, i) => (
-            <ServicePanel key={i} {...service} index={i} />
+            <ServicePanel key={i} {...service} index={i} headingTag={cardHeadingTag} />
           ))}
         </div>
       </div>

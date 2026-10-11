@@ -18,17 +18,17 @@ import {
   breadcrumbSchema,
   caseStudySchema,
   createPageMetadata,
+  webPageSchema,
 } from "@/lib/seo";
 
-const title = "ARPM Property Platform Case Study";
+const title = "ARPM — Getting a Property Platform Over the Line";
 const description =
-  "See how Nymbor redesigned and rebuilt Associated Realty Property Management's stalled platform into a responsive, production-ready property experience.";
+  "A property platform that needed to get live. See how Nymbor redesigned ARPM’s interface and developed a responsive experience for its real estate business.";
 const path = "/works/arpm";
 
 export const metadata = createPageMetadata({
   title,
-  description:
-    "See how Nymbor redesigned and rebuilt Associated Realty Property Management's stalled platform into a responsive, production-ready property experience.",
+  description,
   path,
   eyebrow: "Interface design & development case study",
   imageAlt: "ARPM property platform redesign and development case study by Nymbor",
@@ -39,6 +39,7 @@ export default function ArpmCaseStudyPage() {
     <main id="main-content" className="overflow-x-clip bg-[#f6f4ef]">
       <JsonLd
         data={[
+          webPageSchema({ name: title, description, path }),
           caseStudySchema({
             title: "Associated Realty Property Management",
             description,

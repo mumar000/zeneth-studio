@@ -19,9 +19,9 @@ export default function InterfaceDesignPage() {
         serviceSlug="interface-design"
         portfolioCta={{
           eyebrow: "Looking for something more custom?",
-          title: "Got a screen that looks fine but does not move people?",
+          title: "Give your visitors a clearer way forward.",
           description:
-            "Send us your current active page URL, sketch mockup, or custom strategy goals. We will identify the friction points, structure the decision path, and design a pristine interface focused on action.",
+            "Share your current website, product screens, or first brief. We will work out what visitors need to understand, where the journey gets difficult, and which pages need attention.",
           label: "Start an Interface Project ->",
           href: "/contact",
         }}

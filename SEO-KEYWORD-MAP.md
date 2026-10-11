@@ -1,40 +1,45 @@
-# Nymbor SEO Keyword and Intent Map
+# Nymbor: search intent and copy direction
 
-Last updated: 2026-09-13
+Updated 12 October 2026. This replaces the previous Shopify-first positioning. Nymbor is an independent creative and digital agency serving clients worldwide through three services: brand identity, web/UI/UX design, and web development.
 
-This map assigns one primary search intent and keyword group to each important page. Keywords are editorial targets, not phrases to repeat unnaturally. Final priorities should be refined with Search Console, competitor, market, and conversion data.
+## Voice
 
-| URL | Primary intent | Primary keyword target | Supporting topics | Main conversion |
-|---|---|---|---|---|
-| `/` | Find a multidisciplinary creative studio | Independent creative studio | Shopify and website design, brand identity, interface design, web development | Start a project |
-| `/services` | Compare Nymbor's services | Shopify, web design and development services | Brand identity, interface design, Webflow, WordPress, Next.js | Select a service |
-| `/services/brand-identity` | Hire a brand identity specialist | Brand identity design for growing businesses | Logo systems, visual identity, brand guidelines, typography, color | Start a brand identity project |
-| `/services/interface-design` | Hire a website or product interface designer | Conversion-focused web and interface design | Website redesign, UX/UI design, prototypes, responsive design, design systems | Start an interface project |
-| `/services/web-development` | Hire a Shopify or website developer | Shopify and website development | Shopify development, Webflow development, WordPress development, Next.js development | Start a web development project |
-| `/works` | Review the studio's experience and proof | Brand and website design portfolio | Shopify work, UX case studies, brand identity case studies, web development work | Open a case study |
-| `/works/spreadshop` | Evaluate e-commerce UX expertise | E-commerce UX redesign case study | Creator storefront UX, user research, responsive e-commerce design | Start an interface project |
-| `/works/sapphire` | Evaluate brand and WordPress expertise | Brand identity and WordPress website case study | Service-business branding, lead-focused website, web development | Start a brand or web project |
-| `/works/arpm` | Evaluate interface and development expertise | Property platform redesign case study | Responsive platform design, property search UX, web development | Start an interface or web project |
-| `/works/lets-grub` | Evaluate brand identity expertise | Brand identity and mascot case study | Logo design, visual identity, campaign assets, digital brand system | Start a brand identity project |
-| `/works/mogulbay` | Evaluate hospitality brand and website expertise | Hospitality brand identity and website case study | Quiet-luxury branding, hospitality web design, coastal brand identity | Start a brand or web project |
-| `/about` | Verify the studio and its expertise | About Nymbor design studio | Studio approach, capabilities, team, process | Start a project |
-| `/contact` | Submit a qualified enquiry | Contact Nymbor | Project brief, brand project, Shopify project, website project | Submit the form |
+Headlines should make a point a prospective client recognizes. Supporting paragraphs should explain the work and the deliverables. Use the service name where it clarifies the offer; do not turn every heading into a list of keywords. Avoid interchangeable phrases such as “elevate your business,” invented awards, guaranteed conversions, and unverified performance figures.
 
-## Keyword guardrails
+Homepage search title: **Nymbor — Brands Worth Noticing. Websites Worth Using.**
 
-- The homepage owns broad Shopify + website studio positioning.
-- `/services` owns comparison and service-overview intent.
-- Each service page owns its specific commercial service intent.
-- Case studies target proof and example searches, not the same commercial term as their related service page.
-- Location terms must not be targeted until the real operating location, service area, and customer-market strategy are approved.
-- Do not create near-duplicate pages for minor keyword variations.
-- Do not claim measured conversion, revenue, ranking, or performance improvements without approved evidence.
+Homepage headline: **Make your brand impossible to mistake.**
 
-## Research still required
+The preferred brand name is **Nymbor**. Nymbor Creative, Nymbor Creative Studio, and Bynymbor are alternate names, not separate businesses or competing primary names. The official website is `https://www.nymbor.com`.
 
-- [ ] Export real queries and landing pages from Google Search Console after sufficient data accumulates.
-- [ ] Confirm priority countries and cities.
-- [ ] Confirm priority customer industries.
-- [ ] Compare keyword difficulty and commercial intent against named competitors.
-- [ ] Record current rankings before making large content changes.
-- [ ] Review qualified leads by landing page and search query once analytics is available.
+## Page responsibilities
+
+These are intent assignments, not measured search volumes or a promise of rankings. Refine priorities with real Search Console query and conversion data.
+
+| Page | Visitor intent | Main topics | Editorial hook |
+|---|---|---|---|
+| `/` | Find Nymbor and understand the agency | Nymbor, creative agency, digital agency; overview of the three services | Brands worth noticing. Websites worth using. |
+| `/services` | Decide where a project should start | Creative services, branding, web/UI/UX design, development | Your next chapter. Built from the brand up. |
+| `/services/brand-identity` | Hire an identity design partner | Brand identity design, logo systems, visual identity, brand guidelines, rebranding | Look like yourself. Everywhere. |
+| `/services/interface-design` | Hire a website or product interface designer | Web design, UI/UX design, responsive layouts, Figma, prototypes | Make the next click feel obvious. |
+| `/services/web-development` | Take an approved design into a working website | Website development, CMS, Webflow, WordPress, Shopify, Next.js | The design made a promise. The build should keep it. |
+| `/works` | Evaluate the agency through its work | Nymbor portfolio, branding and website projects | Different businesses. Unmistakably their own. |
+| `/works/lets-grub` | See a brand identity in context | Social dining identity, logo, mascot, brand applications | A brand that brings people together |
+| `/works/sapphire` | See an identity carried into a website | Pool business branding, WordPress, enquiry journeys | A brand ready before the portfolio |
+| `/works/arpm` | Assess interface and implementation experience | Property platform, responsive interface, development | Getting a property platform over the line |
+| `/works/spreadshop` | Assess e-commerce UX thinking | Research, user journeys, storefront UX | Rethinking the path to purchase |
+| `/works/mogulbay` | See the financial brand and interface work | Fintech identity, website and application design | A clearer way to see the numbers |
+| `/about` | Understand who Nymbor is and how it works | About Nymbor, independent creative agency, worldwide collaboration | Small team. Whole picture. |
+| `/contact` | Start a scoped project conversation | Contact Nymbor, project brief, budget, launch timeline | Bring us your next big move. |
+
+## Boundaries
+
+- The homepage represents the whole agency. Shopify is one implementation platform on the development page.
+- Global targeting does not justify city pages, fictitious offices, or unsupported local business markup.
+- Keep the current URLs; the copy update does not need a migration.
+- Keep unpublished projects unpublished and review-only projects out of the sitemap until their facts and publication status are approved.
+- Preserve client quotations. Do not rewrite testimonials as marketing claims.
+- Keep projected case-study metrics clearly labeled as projections.
+- Create platform-specific or editorial pages only when there is enough original work, expertise, and useful detail to support them.
+
+See [SEARCH-CONSOLE-SETUP.md](./SEARCH-CONSOLE-SETUP.md) for deployment, recrawling, diagnosis, and measurement steps.

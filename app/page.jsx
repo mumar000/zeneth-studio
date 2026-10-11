@@ -8,13 +8,26 @@ import FaqSection from "@/components/home/faq-section";
 import PortfolioCta from "@/components/home/portfolio-cta";
 import GifSection  from "@/components/home/gif-section";
 import JsonLd from "@/components/seo/json-ld";
-import { faqPageSchema, websiteSchema } from "@/lib/seo";
+import { createPageMetadata, faqPageSchema, webPageSchema } from "@/lib/seo";
 import { homepageFaqs } from "@/lib/homepage-faqs";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata = createPageMetadata({
+  title: siteConfig.defaultTitle,
+  description: siteConfig.defaultDescription,
+  socialDescription: siteConfig.socialDescription,
+  path: "/",
+  eyebrow: "Creative & digital agency",
+  absoluteTitle: true,
+});
 
 export default function Home() {
   return (
     <main id="main-content">
-      <JsonLd data={[websiteSchema(), faqPageSchema(homepageFaqs)]} />
+      <JsonLd data={[
+        webPageSchema({ name: siteConfig.defaultTitle, description: siteConfig.defaultDescription, path: "/" }),
+        faqPageSchema(homepageFaqs),
+      ]} />
       <div className="relative">
         <Hero />
          <GifSection />

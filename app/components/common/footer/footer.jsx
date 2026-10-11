@@ -1,13 +1,13 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "About", href: "/about" },
   { label: "Work", href: "/works" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -16,106 +16,72 @@ const SOCIAL_LINKS = [
   { label: "LinkedIn", href: siteConfig.socialLinks.linkedin },
 ];
 
-const Footer = () => {
+const linkStyle = "w-fit transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4";
+
+export default function Footer() {
   return (
-    <footer className="w-full bg-white text-[#202020]">
-      <div className="relative border-b border-[#ececec] px-5 pb-10 pt-10 sm:px-8 md:px-12 lg:h-[350px] lg:px-[2.14vw] lg:pb-0 lg:pt-0">
-        <Link
-          href="/"
-          aria-label="Nymbor home"
-          className="flex w-fit shrink-0 items-center lg:absolute lg:left-[2.14%] lg:top-[11%]"
-        >
-          <Image
-            src="/nymbor-final-files/primary-logo/nymbor-logo-primary-logo.svg"
-            alt="Nymbor"
-            width={1480}
-            height={363}
-            className="h-auto w-[210px] md:w-[250px] lg:w-[clamp(220px,14vw,280px)]"
-          />
-        </Link>
+    <footer className="border-t border-[#21182d]/10 bg-white px-4 text-[#21182d] sm:px-6 md:px-10" style={{ fontFamily: "var(--font-display)" }}>
+      <div className="mx-auto max-w-[1800px]">
+        <div className="grid gap-10 py-10 sm:grid-cols-2 sm:gap-x-12 sm:py-14 lg:grid-cols-[1.3fr_0.65fr_1fr] lg:gap-16 lg:py-16">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" aria-label="Nymbor home" className={`block ${linkStyle}`}>
+              <Image
+                src="/nymbor-final-files/primary-logo/nymbor-logo-primary-logo.svg"
+                alt="Nymbor"
+                width={1480}
+                height={363}
+                className="h-auto w-[180px] sm:w-[220px] lg:w-[240px]"
+              />
+            </Link>
+            <p className="mt-5 max-w-[290px] text-[15px] leading-[1.7] text-[#6b6472]">
+              Nymbor is a creative and digital agency for brand identity, web and UI/UX design, and web development. Working with founders and teams worldwide.
+            </p>
+          </div>
 
-        <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:absolute lg:left-[2.14%] lg:right-[4.2%] lg:top-0 lg:mt-0 lg:grid-cols-[minmax(0,1fr)_minmax(210px,15vw)_minmax(250px,17.45vw)] lg:gap-0">
-          <div aria-hidden="true" className="hidden lg:block" />
-
-          <nav
-            aria-label="Footer navigation"
-            className="flex flex-col gap-4 lg:pt-[88px] lg:gap-[19px]"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="w-fit text-[23px] font-[500] leading-none tracking-[-0.03em] transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:text-[clamp(22px,1.45vw,28px)]"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav aria-label="Footer navigation">
+            <p className="text-[10px] font-[600] uppercase tracking-[0.16em] text-[#7b7382]" style={{ fontFamily: "var(--font-mono)" }}>Explore</p>
+            <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 sm:grid-cols-1">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={`inline-block text-[17px] font-[500] leading-6 tracking-[-0.02em] ${linkStyle}`}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </nav>
 
-          <div className="flex flex-col lg:pt-[58px]" style={{ fontFamily: "var(--font-display)" }}>
-            <p className="max-w-[335px] text-[25px] font-[500] leading-[1.35] tracking-[-0.03em] lg:text-[clamp(24px,1.45vw,28px)]">
-              Let&apos;s make
-              <span className="ml-3 text-primary" aria-hidden="true">→</span>
-              <br />
-              something wonderful
+          <div className="min-w-0">
+            <p className="text-[10px] font-[600] uppercase tracking-[0.16em] text-[#7b7382]" style={{ fontFamily: "var(--font-mono)" }}>Have something in mind?</p>
+            <p className="mt-5 max-w-[330px] text-[28px] font-[500] leading-[1.15] tracking-[-0.035em] sm:text-[32px]">
+              Let’s make something wonderful.
             </p>
-
-            <div className="mt-8 flex flex-col gap-2 lg:mt-[42px]">
-              <Link
-                href="/contact"
-                className="w-fit text-[20px] font-[500] leading-none tracking-[-0.03em] transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:text-[clamp(20px,1.45vw,28px)]"
-              >
-                Submit a brief
-              </Link>
-              <a
-                href="mailto:contact@nymbor.com"
-                className="w-fit max-w-full break-words text-[20px] font-[500] leading-none tracking-[-0.03em] transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 lg:text-[clamp(20px,1.45vw,28px)]"
-              >
-                contact@nymbor.com
-              </a>
-            </div>
+            <Link href="/contact" className={`group mt-6 inline-flex min-h-11 items-center gap-3 border-b border-primary/35 pb-1 text-[16px] font-[600] text-primary ${linkStyle}`}>
+              Submit a brief
+              <ArrowUpRight aria-hidden="true" size={18} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none" />
+            </Link>
+            <a href={`mailto:${siteConfig.email}`} className={`mt-4 block max-w-full break-words text-[15px] leading-6 text-[#6b6472] ${linkStyle}`}>
+              {siteConfig.email}
+            </a>
           </div>
         </div>
-      </div>
 
-      <div className="flex min-h-[62px] flex-col justify-center gap-3 px-5 py-4 sm:px-8 md:flex-row md:items-center md:justify-between md:py-0 md:pl-[2.14vw] md:pr-[4.2vw]">
-        <span
-          className="text-[11px] tracking-[-0.04em] text-[#666666] md:text-[14px]"
-          style={{ fontFamily: "var(--font-mono)" }}
-        >
-          Nymbor © {new Date().getFullYear()}
-        </span>
-
-        <nav aria-label="Legal" className="flex gap-5 text-sm">
-          <Link href="/privacy" className="hover:text-primary focus-visible:outline-2 focus-visible:outline-primary">Privacy</Link>
-          <Link href="/terms" className="hover:text-primary focus-visible:outline-2 focus-visible:outline-primary">Terms</Link>
-        </nav>
-
-        <nav
-          aria-label="Social profiles"
-          className="flex items-center gap-4 text-[11px] tracking-[-0.04em] text-[#202020] md:gap-[30px] md:text-[16px]"
-          style={{ fontFamily: "var(--font-mono)" }}
-        >
-          {SOCIAL_LINKS.map((profile, index) => (
-            <React.Fragment key={profile.href}>
-              {index > 0 && (
-                <span aria-hidden="true" className="text-primary">✦</span>
-              )}
-              <a
-                href={profile.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-              >
+        <div className="flex flex-col gap-5 border-t border-[#21182d]/10 py-6 text-[12px] leading-5 text-[#6b6472] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
+          <p>Nymbor © {new Date().getFullYear()}</p>
+          <nav aria-label="Legal" className="flex items-center gap-5">
+            <Link href="/privacy" className={linkStyle}>Privacy</Link>
+            <Link href="/terms" className={linkStyle}>Terms</Link>
+          </nav>
+          <nav aria-label="Social profiles" className="flex flex-wrap items-center gap-5">
+            {SOCIAL_LINKS.map((profile) => (
+              <a key={profile.href} href={profile.href} target="_blank" rel="noopener noreferrer" className={`inline-flex min-h-6 items-center gap-1.5 ${linkStyle}`}>
                 {profile.label}
+                <ArrowUpRight aria-hidden="true" size={13} />
               </a>
-            </React.Fragment>
-          ))}
-        </nav>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

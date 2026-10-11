@@ -5,7 +5,7 @@ import SmoothScroll from "./components/SmoothScroll";
 import Loader from "./components/loader";
 import FloatingCTA from "@/components/works/detail/floating-cta";
 import JsonLd from "@/components/seo/json-ld";
-import { createPageMetadata, organizationSchema } from "@/lib/seo";
+import { createPageMetadata, organizationSchema, websiteSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 const homeMetadata = createPageMetadata({
@@ -14,7 +14,7 @@ const homeMetadata = createPageMetadata({
   socialDescription: siteConfig.socialDescription,
   path: "/",
   eyebrow: "Brand identity · Interface design · Web development",
-  imageAlt: "Nymbor — brand identity, web design, and development studio",
+  imageAlt: "Nymbor — branding, web design and development agency",
   absoluteTitle: true,
 });
 
@@ -23,21 +23,14 @@ export const metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.defaultTitle,
-    template: "Nymbor | %s",
+    template: "%s | Nymbor",
   },
   description: siteConfig.defaultDescription,
   applicationName: "Nymbor",
   authors: [{ name: "Nymbor" }],
   creator: "Nymbor",
   publisher: "Nymbor",
-  category: "design",
-  keywords: [
-    "brand identity studio",
-    "interface design studio",
-    "web design studio",
-    "web development studio",
-    "creative studio",
-  ],
+  category: "Creative agency",
   manifest: "/manifest.webmanifest",
   formatDetection: {
     email: false,
@@ -82,7 +75,10 @@ export default function RootLayout({ children }) {
         >
           Skip to main content
         </a>
-        <JsonLd data={organizationSchema()} />
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        <noscript>
+          <style>{`.site-loader { display: none !important; } main [style*="opacity:0"], main [style*="opacity: 0"] { opacity: 1 !important; }`}</style>
+        </noscript>
         <SmoothScroll>
           <Loader />
           <Navbar />

@@ -7,11 +7,20 @@ export default function ServiceHero({ service }) {
   return (
     <section className="relative flex w-full items-start justify-center overflow-hidden bg-[#f6f0fb] px-5 pb-14 pt-36 text-center md:min-h-[760px] md:px-8 md:pb-[90px] md:pt-[234px]">
       <motion.div
-        initial={{ opacity: 0, y: 28 }}
+        initial={false}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         className="mx-auto flex w-full max-w-[1224px] flex-col items-center"
       >
+        <nav aria-label="Breadcrumb" className="mb-6 text-[11px] text-black/55 md:text-xs">
+          <ol className="flex flex-wrap items-center justify-center gap-2">
+            <li><Link className="rounded-sm underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-primary" href="/">Home</Link></li>
+            <li aria-hidden="true">/</li>
+            <li><Link className="rounded-sm underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-primary" href="/services">Services</Link></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">{service.label}</li>
+          </ol>
+        </nav>
         <p className="flex items-center gap-3 text-[12px] font-[700] uppercase text-primary md:text-[14px]" style={{ fontFamily: "var(--font-mono)" }}>
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           {service.eyebrow}

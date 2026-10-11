@@ -2,43 +2,35 @@ import { getIndexableProjects } from "@/lib/projects-data";
 import { serviceSlugs } from "@/lib/services-detail-data";
 import { absoluteUrl, isIndexableEnvironment } from "@/lib/site-config";
 
-const staticRoutes = [
-  {
-    path: "/",
-    changeFrequency: "monthly",
-    priority: 1,
-    // Update this only when the homepage content or structured data changes.
-    lastModified: "2026-10-11",
-  },
-  { path: "/about", changeFrequency: "yearly", priority: 0.7 },
-  { path: "/services", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/works", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/contact", changeFrequency: "yearly", priority: 0.8 },
-  { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
-  { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
-];
+// Actual content revision dates, not the date of every build or crawl.
+// Update only the entry for the page whose substantive content changed.
+const contentRevisions = {
+  "/": "2026-10-12",
+  "/about": "2026-10-12",
+  "/services": "2026-10-12",
+  "/works": "2026-10-12",
+  "/contact": "2026-10-12",
+  "/services/brand-identity": "2026-10-12",
+  "/services/interface-design": "2026-10-12",
+  "/services/web-development": "2026-10-12",
+  "/works/arpm": "2026-10-12",
+  "/works/lets-grub": "2026-10-12",
+  "/works/spreadshop": "2026-10-12",
+  "/works/sapphire": "2026-10-12",
+  "/works/mogulbay": "2026-10-12",
+};
 
 export default function sitemap() {
   if (!isIndexableEnvironment()) return [];
 
-  const serviceRoutes = serviceSlugs.map((slug) => ({
-    path: `/services/${slug}`,
-    changeFrequency: "monthly",
-    priority: 0.85,
-  }));
+  const paths = [
+    "/", "/about", "/services", "/works", "/contact", "/privacy", "/terms",
+    ...serviceSlugs.map((slug) => `/services/${slug}`),
+    ...getIndexableProjects().map((project) => `/works/${project.slug}`),
+  ];
 
-  const projectRoutes = getIndexableProjects().map((project) => ({
-    path: `/works/${project.slug}`,
-    changeFrequency: "yearly",
-    priority: 0.75,
-  }));
-
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes].map((route) => ({
-    url: absoluteUrl(route.path),
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
-    ...(route.lastModified
-      ? { lastModified: new Date(route.lastModified) }
-      : {}),
+  return paths.map((path) => ({
+    url: absoluteUrl(path),
+    ...(contentRevisions[path] ? { lastModified: contentRevisions[path] } : {}),
   }));
 }

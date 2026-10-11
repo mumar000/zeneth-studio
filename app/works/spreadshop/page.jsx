@@ -22,17 +22,17 @@ import {
   breadcrumbSchema,
   caseStudySchema,
   createPageMetadata,
+  webPageSchema,
 } from "@/lib/seo";
 
-const title = "Spreadshop E-commerce UX Case Study";
+const title = "Spreadshop — Rethinking the Path to Purchase";
 const description =
-  "Explore Nymbor's research-led redesign of Spreadshop's creator storefront, from competitive analysis and user journeys to responsive e-commerce interfaces.";
+  "How should a creator storefront help people choose? Explore Nymbor’s Spreadshop UX redesign, from research and user journeys to responsive e-commerce screens.";
 const path = "/works/spreadshop";
 
 export const metadata = createPageMetadata({
   title,
-  description:
-    "Explore Nymbor's research-led redesign of Spreadshop's creator storefront, from competitive analysis and user journeys to responsive e-commerce interfaces.",
+  description,
   path,
   eyebrow: "E-commerce UX case study",
   imageAlt: "Spreadshop creator storefront UX redesign case study by Nymbor",
@@ -43,6 +43,7 @@ export default function SpreadshopCaseStudyPage() {
     <main id="main-content" className="overflow-x-clip bg-white">
       <JsonLd
         data={[
+          webPageSchema({ name: title, description, path }),
           caseStudySchema({
             title: "Spreadshop",
             description,

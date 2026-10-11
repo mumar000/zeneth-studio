@@ -120,6 +120,16 @@ export default function ServiceTail({ portfolioCta, serviceSlug, showRelatedWork
   return (
     <>
       {showRelatedWork && <RelatedWork projects={seo?.relatedWork} />}
+      <nav aria-label="Related services" className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-x-6 gap-y-3 px-5 py-6 text-sm md:px-8">
+        <span className="font-[600]">Connect the next part of your project:</span>
+        {[
+          ["brand-identity", "Brand identity"],
+          ["interface-design", "Web & UI/UX design"],
+          ["web-development", "Web development"],
+        ].filter(([slug]) => slug !== serviceSlug).map(([slug, label]) => (
+          <Link key={slug} href={`/services/${slug}`} className="text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">{label}</Link>
+        ))}
+      </nav>
       <FaqSection faqs={seo?.faqs} heading={seo?.faqHeading || "Service Questions"} />
       {portfolioCta ? <CustomPortfolioCta cta={portfolioCta} /> : <PortfolioCta />}
     </>

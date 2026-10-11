@@ -13,17 +13,17 @@ import {
   breadcrumbSchema,
   caseStudySchema,
   createPageMetadata,
+  webPageSchema,
 } from "@/lib/seo";
 
-const title = "Sapphire Pools Brand & Website Case Study";
+const title = "Sapphire Pools — A Brand Ready Before the Portfolio";
 const description =
-  "See how Nymbor built Sapphire Pools' quiet-luxury identity and lead-focused WordPress website before the new business had project photography.";
+  "A pool business with no project photography yet. See how Nymbor shaped Sapphire Pools’ identity and WordPress website around trust, clarity and enquiries.";
 const path = "/works/sapphire";
 
 export const metadata = createPageMetadata({
   title,
-  description:
-    "See how Nymbor built Sapphire Pools' quiet-luxury identity and lead-focused WordPress website before the new business had project photography.",
+  description,
   path,
   eyebrow: "Brand, web design & development case study",
   imageAlt: "Sapphire Pools brand identity and website case study by Nymbor",
@@ -34,6 +34,7 @@ export default function SapphireCaseStudyPage() {
     <main id="main-content" className="overflow-x-clip bg-[#0c0c0c]">
       <JsonLd
         data={[
+          webPageSchema({ name: title, description, path }),
           caseStudySchema({
             title: "Sapphire Pools",
             description,
