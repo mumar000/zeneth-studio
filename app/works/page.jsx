@@ -4,10 +4,10 @@ import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
 import { getIndexableProjects } from "@/lib/projects-data";
 import { absoluteUrl } from "@/lib/site-config";
 
-const title = "Selected Work — Every Brand Has Its Own Story";
-const description = "See the thinking behind Nymbor’s brand and website projects: Let’s Grub, Sapphire Pools, ARPM, Spreadshop and Mogul Bay. Explore the work and the decisions.";
+const title = "Selected Brand, Interface & Web Work";
+const description = "Explore selected Nymbor case studies across brand identity, interface design, e-commerce, and production-ready web development.";
 
-export const metadata = createPageMetadata({ title, description, path: "/works", eyebrow: "Nymbor portfolio" });
+export const metadata = createPageMetadata({ title, description, path: "/works", eyebrow: "Selected client work" });
 
 export default function WorksPage() {
   return <>

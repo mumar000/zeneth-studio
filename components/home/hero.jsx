@@ -9,24 +9,23 @@ export default function Hero() {
           className="mb-5 text-[10px] font-[700] uppercase tracking-[0.16em] text-primary sm:text-xs"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          Nymbor — Creative &amp; digital agency
+          Nymbor — Independent Creative Studio
         </p>
         <h1
           className="text-[2.75rem] font-[700] leading-[1.02] tracking-[-0.03em] text-[#1a1a1a] md:text-5xl lg:text-[5.5rem] 2xl:text-[5.8rem]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Make your <span className="text-primary">brand</span>{" "}
+          Your <span className="text-primary">brand</span> and website{" "}
           <br className="hidden md:block" />
-          impossible to mistake.
+          finally working as <span className="text-primary">one.</span>
         </h1>
 
         <p
           className="mx-auto mt-6 text-base font-[400] text-neutral-700 md:mt-8 md:max-w-lg md:text-md lg:text-lg lg:leading-8 2xl:max-w-3xl 2xl:text-2xl"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          We give your business a look people recognize and a website they know
-          how to use. Nymbor brings brand identity, UI/UX design, and web
-          development together for teams worldwide.
+          Nymbor connects brand identity, interface design, and web development
+          for founders and small teams that want one clear, launch-ready system.
         </p>
 
         <div className="mt-9 sm:mt-11">

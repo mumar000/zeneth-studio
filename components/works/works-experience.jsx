@@ -83,14 +83,8 @@ export default function WorksPage() {
           className="mx-auto max-w-[1120px] px-3 pb-9 text-center text-[clamp(38px,5.2vw,72px)] font-[650] leading-[0.98] tracking-[-0.045em] text-[#1a1a1a] sm:px-6 md:pb-11"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Different businesses. Unmistakably their own.
+          Selected brand, interface, and web work
         </h1>
-
-        <p className="mx-auto mb-10 max-w-2xl px-3 text-center text-base leading-7 text-black/60">
-          Explore Nymbor’s brand identities, website designs, and digital builds.
-          From a social dining identity to a property platform, each project
-          starts with a different problem and a different point of view.
-        </p>
 
         {/* Projects Grid */}
         <section className="pb-14 md:pb-18">

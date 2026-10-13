@@ -20,9 +20,9 @@ import {
   webPageSchema,
 } from "@/lib/seo";
 
-const title = "Let’s Grub — A Brand That Brings People Together";
+const title = "Let’s Grub Brand Identity Case Study";
 const description =
-  "A social dining idea with a personality of its own. Explore the logo, genie mascot, typography and visual identity Nymbor created for Let’s Grub.";
+  "Explore the strategy, logo, mascot, typography, color, and digital identity Nymbor created for the Let’s Grub social dining experience.";
 const path = "/works/lets-grub";
 
 export const metadata = createPageMetadata({

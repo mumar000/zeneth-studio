@@ -81,14 +81,9 @@ export default function ContactSection() {
             className="max-w-[620px] text-[clamp(48px,5.2vw,80px)] font-[700] leading-[1.02] tracking-[-0.03em] text-[#1a1a1a]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Bring us your next big move.
-            <span className="mt-2 block text-primary">We&apos;ll help shape it.</span>
+            Have a project in mind?
+            <span className="mt-2 block text-primary">Let&apos;s talk.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-black/60">
-            Tell Nymbor about the business, the brand or website you need, and
-            what is driving the change. Share a budget and timeline if you have
-            them; we can work out the brief together.
-          </p>
 
           <div className="mt-12 aspect-video w-full overflow-hidden rounded-[24px]   bg-black lg:mt-14">
             <video

@@ -16,9 +16,9 @@ import {
   webPageSchema,
 } from "@/lib/seo";
 
-const title = "Sapphire Pools — A Brand Ready Before the Portfolio";
+const title = "Sapphire Pools Brand & Website Case Study";
 const description =
-  "A pool business with no project photography yet. See how Nymbor shaped Sapphire Pools’ identity and WordPress website around trust, clarity and enquiries.";
+  "See how Nymbor built Sapphire Pools' quiet-luxury identity and lead-focused WordPress website before the new business had project photography.";
 const path = "/works/sapphire";
 
 export const metadata = createPageMetadata({

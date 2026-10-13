@@ -121,7 +121,7 @@ export default function ServiceTail({ portfolioCta, serviceSlug, showRelatedWork
     <>
       {showRelatedWork && <RelatedWork projects={seo?.relatedWork} />}
       <nav aria-label="Related services" className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-x-6 gap-y-3 px-5 py-6 text-sm md:px-8">
-        <span className="font-[600]">Connect the next part of your project:</span>
+        <span className="font-[600]">Related services:</span>
         {[
           ["brand-identity", "Brand identity"],
           ["interface-design", "Web & UI/UX design"],

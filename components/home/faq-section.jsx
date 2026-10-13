@@ -2,7 +2,7 @@ import { homepageFaqs } from "@/lib/homepage-faqs";
 
 export default function FaqSection({
   faqs = homepageFaqs,
-  heading = "Before We Begin",
+  heading = "Frequently Asked Questions",
 }) {
   return (
     <section className="relative z-10 w-full px-4 py-14 sm:px-6 md:px-10 md:py-28">

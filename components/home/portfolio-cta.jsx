@@ -121,7 +121,7 @@ export default function PortfolioCta() {
             className="text-[9px] font-[700] uppercase tracking-[0.16em] text-primary md:text-[11px] md:tracking-[0.22em]"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Your next chapter
+            Looking for something more custom?
           </motion.p>
 
           <motion.h2
@@ -132,7 +132,7 @@ export default function PortfolioCta() {
             className="mt-4 text-[32px] font-[650] leading-none tracking-[-0.04em] text-[#1a1a1a] md:mt-5 md:text-[88px] md:font-[700] md:tracking-[-0.03em]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Give your next big move a face. And a place to land.
+            We do that too.
           </motion.h2>
 
           <motion.p
@@ -143,9 +143,8 @@ export default function PortfolioCta() {
             className="mt-3 max-w-[38ch] text-[13px] leading-[1.55] text-[#1a1a1a]/55 md:mt-6 md:max-w-[480px] md:text-[17px] md:leading-[1.7]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
-            Launching a business, refreshing an identity, or rebuilding a website?
-            Send us what you have and what needs to change. We&apos;ll help define
-            the work that gets you there.
+            Send your brief. We&apos;ll look at what you have, scope it honestly,
+            and tell you if we&apos;re not the right fit.
           </motion.p>
 
           <motion.div

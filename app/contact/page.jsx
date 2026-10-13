@@ -2,8 +2,8 @@ import ContactSection from "../sections/contact/contact";
 import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
 import JsonLd from "@/components/seo/json-ld";
 
-const title = "Start a Project — Bring Us Your Next Big Move";
-const description = "A new brand, a better website, or a build waiting to happen. Tell Nymbor what you have in mind, your budget and your timeline. We’ll help define the next step.";
+const title = "Start a Project";
+const description = "Tell Nymbor what you are building. Share your brand, interface, or website brief and receive a considered next step from the studio.";
 
 export const metadata = createPageMetadata({
   title,

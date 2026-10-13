@@ -17,7 +17,7 @@ export const metadata = createPageMetadata({
   description: siteConfig.defaultDescription,
   socialDescription: siteConfig.socialDescription,
   path: "/",
-  eyebrow: "Creative & digital agency",
+  eyebrow: "Brand identity · Interface design · Web development",
   absoluteTitle: true,
 });
 

@@ -14,7 +14,7 @@ const homeMetadata = createPageMetadata({
   socialDescription: siteConfig.socialDescription,
   path: "/",
   eyebrow: "Brand identity · Interface design · Web development",
-  imageAlt: "Nymbor — branding, web design and development agency",
+  imageAlt: "Nymbor — brand identity, web design, and development studio",
   absoluteTitle: true,
 });
 
@@ -30,7 +30,7 @@ export const metadata = {
   authors: [{ name: "Nymbor" }],
   creator: "Nymbor",
   publisher: "Nymbor",
-  category: "Creative agency",
+  category: "design",
   manifest: "/manifest.webmanifest",
   formatDetection: {
     email: false,

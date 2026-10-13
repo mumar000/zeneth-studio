@@ -34,7 +34,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-5 max-w-[290px] text-[15px] leading-[1.7] text-[#6b6472]">
-              Nymbor is a creative and digital agency for brand identity, web and UI/UX design, and web development. Working with founders and teams worldwide.
+              An independent creative studio for brand identity, interface design, and web development.
             </p>
           </div>
 

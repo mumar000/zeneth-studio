@@ -25,9 +25,9 @@ import {
   webPageSchema,
 } from "@/lib/seo";
 
-const title = "Spreadshop — Rethinking the Path to Purchase";
+const title = "Spreadshop E-commerce UX Case Study";
 const description =
-  "How should a creator storefront help people choose? Explore Nymbor’s Spreadshop UX redesign, from research and user journeys to responsive e-commerce screens.";
+  "Explore Nymbor's research-led redesign of Spreadshop's creator storefront, from competitive analysis and user journeys to responsive e-commerce interfaces.";
 const path = "/works/spreadshop";
 
 export const metadata = createPageMetadata({

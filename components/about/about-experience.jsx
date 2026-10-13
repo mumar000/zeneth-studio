@@ -12,19 +12,19 @@ const approach = [
     number: "01",
     title: "Understand",
     description:
-      "We start with the offer, the audience, and the material you already have. We ask what customers need to understand and what the current brand or website makes difficult.",
+      "We get close to the business, the audience, and the decision you need people to make.",
   },
   {
     number: "02",
     title: "Define",
     description:
-      "We agree on a direction before expanding it. References, early layouts, and visual explorations give the team something concrete to discuss and decide.",
+      "We find the clearest position and turn it into a focused creative direction.",
   },
   {
     number: "03",
     title: "Make",
     description:
-      "We develop the identity, design the pages, and build the agreed experience. The same decisions are checked in the brand files, the interface, and the live browser.",
+      "We carry the direction through identity, interface, and the final live experience.",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function AboutExperience() {
               className="text-[11px] font-[500] uppercase tracking-[0.12em] text-black/45 md:text-[13px]"
               style={{ fontFamily: "var(--font-mono)" }}
             >
-              Independent creative agency
+              Independent studio
             </p>
           </motion.div>
 
@@ -76,7 +76,7 @@ export default function AboutExperience() {
             className="mt-[clamp(44px,5vw,80px)] max-w-[1100px] text-[clamp(36px,4.65vw,88px)] font-[500] leading-[0.98] tracking-[-0.05em]"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Small team. Whole picture.
+            The business should be the hard part. Explaining it should not.
           </motion.h1>
 
           <div className="mt-[clamp(56px,7vw,110px)] grid gap-8 border-t border-black/20 pt-6 md:grid-cols-12">
@@ -92,11 +92,9 @@ export default function AboutExperience() {
               className="max-w-[700px] text-[clamp(19px,1.65vw,32px)] font-[400] leading-[1.22] tracking-[-0.03em] md:col-span-7 md:col-start-6"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Nymbor is an independent creative and digital agency working with
-              founders and teams worldwide. We build brand identities, design
-              websites and product interfaces, and develop the live experience.
-              You work directly with the people shaping it, from the first
-              direction through the details that make it yours.
+              Nymbor helps ambitious businesses find a clearer position and a
+              sharper way to show up. We connect strategy, identity, interface,
+              and build so the final experience feels like one idea.
             </motion.p>
           </div>
         </div>
@@ -132,7 +130,7 @@ export default function AboutExperience() {
               className="mt-6 text-[clamp(38px,4.4vw,84px)] font-[500] leading-[0.98] tracking-[-0.05em]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Understand the business. Then make it unmistakable.
+              We work from the inside out.
             </h2>
           </motion.div>
 
@@ -177,7 +175,7 @@ export default function AboutExperience() {
               className="mt-6 max-w-[580px] text-[clamp(36px,3.75vw,72px)] font-[500] leading-[0.99] tracking-[-0.05em]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              The people in the conversation are the people doing the work.
+              A small team. A short distance between thinking and making.
             </h2>
           </motion.div>
 
@@ -277,7 +275,7 @@ export default function AboutExperience() {
               className="mt-5 max-w-[900px] text-[clamp(38px,4.2vw,80px)] font-[500] leading-[0.98] tracking-[-0.05em]"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Tell us where you want the business to go.
+              Have something difficult to explain?
             </h2>
           </div>
 

@@ -16,7 +16,7 @@ export function GET(request) {
   const title = clean(searchParams.get("title"), "Brand, interface, and web", MAX_TITLE_LENGTH);
   const eyebrow = clean(
     searchParams.get("eyebrow"),
-    "Creative & digital agency",
+    "Independent creative studio",
     MAX_EYEBROW_LENGTH,
   );
 

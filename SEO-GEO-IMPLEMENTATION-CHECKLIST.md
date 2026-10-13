@@ -1,6 +1,6 @@
 # Nymbor SEO & GEO Implementation Checklist
 
-> **12 October 2026 update:** The agency copy and technical SEO revamp is implemented and locally validated. Use [SEARCH-CONSOLE-SETUP.md](./SEARCH-CONSOLE-SETUP.md) for the current deployment and Search Console handoff and [SEO-KEYWORD-MAP.md](./SEO-KEYWORD-MAP.md) for the new editorial direction. The September assessment and completion estimates below are historical, not a current score. Live deployment, Search Console account diagnosis, and ranking changes remain unverified.
+> **13 October 2026 update:** The content rewrite was reverted at the owner’s request. The original page copy and metadata wording are restored; the technical SEO improvements remain. Use [SEARCH-CONSOLE-SETUP.md](./SEARCH-CONSOLE-SETUP.md) for the current deployment and Search Console handoff and [SEO-KEYWORD-MAP.md](./SEO-KEYWORD-MAP.md) for the historical intent map. The September assessment and completion estimates below are historical, not a current score. Live deployment, Search Console account diagnosis, and ranking changes remain unverified.
 
 Historical audit: 2026-09-13
 Canonical website: https://www.nymbor.com  

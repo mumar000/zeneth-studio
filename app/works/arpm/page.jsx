@@ -21,9 +21,9 @@ import {
   webPageSchema,
 } from "@/lib/seo";
 
-const title = "ARPM — Getting a Property Platform Over the Line";
+const title = "ARPM Property Platform Case Study";
 const description =
-  "A property platform that needed to get live. See how Nymbor redesigned ARPM’s interface and developed a responsive experience for its real estate business.";
+  "See how Nymbor redesigned and rebuilt Associated Realty Property Management's stalled platform into a responsive, production-ready property experience.";
 const path = "/works/arpm";
 
 export const metadata = createPageMetadata({

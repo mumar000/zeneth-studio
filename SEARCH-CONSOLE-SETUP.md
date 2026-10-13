@@ -1,5 +1,7 @@
 # Nymbor: launch and Google Search Console handoff
 
+Updated 13 October 2026: The content rewrite was reverted at the owner’s request; the original page copy and metadata wording are restored. Technical SEO improvements and the Search Console steps below remain applicable.
+
 Prepared 12 October 2026. The changes are in the project; they must be deployed before Google can fetch them. This document does not imply access to your Search Console account or a verified change in rankings.
 
 ## What the audit established
@@ -8,21 +10,19 @@ The public homepage returned HTTP 200. `https://nymbor.com` redirected with HTTP
 
 The previous positioning mixed an independent studio, a Shopify-focused services hub, and broader branding and website work. A public search result showed the LinkedIn company display name as “Bynymbor.” These are opportunities to improve consistency, not proof of the cause of the reported ranking problem. Only your Search Console data can establish whether the homepage is excluded, treated as a duplicate, or indexed but rarely shown for the exact brand query.
 
-## What changed in the project
+## Technical changes retained after the content rollback
 
-- Rewrote the homepage, services hub, service introductions, about/contact copy, portfolio introduction, metadata, and FAQs around Nymbor's three services and worldwide audience.
-- Gave the pages distinct editorial headlines and search titles, including **Nymbor — Brands Worth Noticing. Websites Worth Using.**
+- Restored the original page wording, FAQs, and metadata text. Homepage title: **Nymbor — Independent Creative Studio**.
 - Consolidated service providers under one `Organization` named Nymbor. Removed the separate `ProfessionalService` entity that implied a local business without a confirmed physical location. Added connected page entities, portfolio entries, and explicit Nymbor website naming.
 - Preserved the canonical host and URL paths, and added real content revision dates to the sitemap. Review-only projects remain excluded.
-- Added visible service breadcrumbs, links between related services, and service-to-project links.
+- Added visible service breadcrumbs, links between related services, and the existing service-to-project links.
 - Made FAQ answers available in server-rendered HTML with native controls that work without JavaScript. Added a no-JavaScript fallback for the loader and initially hidden content.
-- Corrected Mogul Bay's inconsistent hospitality narrative to match the existing fintech portfolio description and assets. Replaced unsupported performance promises in service copy with concrete delivery checks.
 - Added `X-Robots-Tag: noindex` to API responses and retained production/preview indexing controls. Added an explicit staging opt-out.
 - Added `npm run check:seo` to check production HTML, canonical URLs, unique titles/descriptions, headings, structured data, FAQ content, internal destinations, the sitemap, and indexing safeguards.
 
 ## 1. Deploy and confirm the public version
 
-Local validation completed for this revision:
+Historical validation of the 12 October revision (before the copy rollback):
 
 - Production build passed; all content pages are prerendered.
 - `npm run check:seo` passed for 15 indexable URLs, 16 linked internal destinations, 22 visible/schema-matched FAQ answers, review-only project exclusions, and indexing environment safeguards.
@@ -39,7 +39,7 @@ For Vercel, the production build must use `VERCEL_ENV=production`. Preview deplo
 
 After deployment, inspect the public HTML:
 
-- `/` returns 200 and the new title appears in source.
+- `/` returns 200 and the restored title appears in source.
 - The homepage has `index, follow` and canonical `https://www.nymbor.com` (a trailing slash on the homepage is equivalent).
 - Each service and case-study page points to its own canonical URL.
 - `/robots.txt` allows the public pages and names `https://www.nymbor.com/sitemap.xml`.
@@ -70,7 +70,7 @@ Read the indexed-page report first. Record:
 - Whether the page fetch succeeded.
 - The user-declared canonical and Google-selected canonical.
 
-Then choose **Test live URL**. Open the tested page's HTML and screenshot. Verify the new Nymbor title, visible headline, service explanation, internal links, and structured data. A successful live test confirms accessibility; it does not prove that Google has indexed the new version or chosen its canonical. [Google's URL Inspection guide](https://support.google.com/webmasters/answer/9012289).
+Then choose **Test live URL**. Open the tested page's HTML and screenshot. Verify the restored Nymbor title, visible headline, service explanation, internal links, and structured data. A successful live test confirms accessibility; it does not prove that Google has indexed the new version or chosen its canonical. [Google's URL Inspection guide](https://support.google.com/webmasters/answer/9012289).
 
 If the indexed homepage is excluded, use the reported reason:
 
@@ -104,7 +104,7 @@ Use **Nymbor** as the website and company display name. Keep the existing Instag
 
 Link official profiles to **https://www.nymbor.com/**. Use accurate descriptions of the same three services and the same logo. A suitable profile description is:
 
-> Nymbor is an independent creative and digital agency for brands worth noticing and websites worth using. We connect brand identity, web and UI/UX design, and development for founders and teams worldwide.
+> Nymbor is an independent creative studio for brand identity, interface design, and web development — helping founders and growing teams build clear, launch-ready digital experiences.
 
 Ask existing clients or collaborators for accurate project credits when appropriate, and link those credits to the relevant work or homepage. Publish verifiable project details as they become available. No profiles or outreach messages were changed or sent by this implementation.
 

@@ -83,8 +83,8 @@ export async function generateMetadata({ params }) {
   }
 
   return createPageMetadata({
-    title: `${project.title} — ${project.category}`,
-    description: project.description,
+    title: `${project.title} Case Study`,
+    description: project.tagline,
     path: `/works/${slug}`,
     eyebrow: "Nymbor case study",
     imageAlt: `${project.title} case study by Nymbor`,
@@ -156,10 +156,10 @@ export default async function ProjectDetailPage({ params }) {
     <main id="main-content" className="relative min-h-screen bg-[#fffcf7]">
       <JsonLd
         data={[
-          webPageSchema({ name: `${project.title} — ${project.category}`, description: project.description, path }),
+          webPageSchema({ name: `${project.title} Case Study`, description: project.tagline, path }),
           caseStudySchema({
             title: project.title,
-            description: project.description,
+            description: project.tagline,
             path,
             image: project.image,
             services: project.tags,
