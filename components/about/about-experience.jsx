@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 import { getProjectBySlug } from "@/lib/projects-data";
 import { servicesDetailData } from "@/lib/services-detail-data";
@@ -114,7 +114,7 @@ export default function AboutExperience() {
               brand, the interface and the build. You deal with me directly,
               from the first call to launch.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-5">
+            <div className="mt-9 flex flex-wrap items-center gap-x-4 gap-y-5">
               <a
                 href={siteConfig.calendarUrl}
                 target="_blank"
@@ -128,10 +128,11 @@ export default function AboutExperience() {
                 href={founder.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center gap-1.5 text-[16px] font-[600] underline decoration-black/30 underline-offset-[6px] transition-colors hover:decoration-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                aria-label={`${founder.name} on LinkedIn`}
+                title="LinkedIn"
+                className="inline-flex size-12 items-center justify-center rounded-[10px] border-2 border-black bg-white text-black shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 motion-reduce:transition-none sm:size-[52px]"
               >
-                LinkedIn profile
-                <ArrowUpRight size={17} strokeWidth={2} aria-hidden="true" />
+                <Linkedin size={20} strokeWidth={2} aria-hidden="true" />
               </a>
             </div>
           </div>
