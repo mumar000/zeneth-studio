@@ -8,14 +8,14 @@ import { useAnimationConfig } from "@/hooks/use-performance";
 
 const LOGO_HEIGHT = 30;
 const CLIENT_LOGOS = [
-  { src: "/home-logo/home-logo1.png", w: 204 },
-  { src: "/home-logo/home-logo2.png", w: 100 },
-  { src: "/home-logo/home-logo3.png", w: 150 },
-  { src: "/home-logo/home-logo4.png", w: 116 },
-  { src: "/home-logo/home-logo5.png", w: 100 },
-  { src: "/home-logo/home-logo6.png", w: 100 },
-  { src: "/home-logo/home-logo7.png", w: 100 },
-  { src: "/home-logo/home-logo8.png", w: 129 },
+  { src: "/home-logo/home-logo1.png", w: 204, name: "Féroce" },
+  { src: "/home-logo/home-logo2.png", w: 100, name: "Trion" },
+  { src: "/home-logo/home-logo3.png", w: 150, name: "Resight" },
+  { src: "/home-logo/home-logo4.png", w: 116, name: "Flight Frame" },
+  { src: "/home-logo/home-logo5.png", w: 100, name: "Fractal" },
+  { src: "/home-logo/home-logo6.png", w: 100, name: "The Nugget Spot" },
+  { src: "/home-logo/home-logo7.png", w: 100, name: "Renu" },
+  { src: "/home-logo/home-logo8.png", w: 129, name: "Fresh Picks" },
 ];
 
 export default function HeroLogoMarquee() {
@@ -49,7 +49,7 @@ export default function HeroLogoMarquee() {
             src={logo.src}
             width={logo.w}
             height={LOGO_HEIGHT}
-            alt="Client logo"
+            alt={`${logo.name} logo`}
             className="mx-7 object-contain opacity-80 grayscale sm:mx-9 md:mx-12"
           />
         ))}

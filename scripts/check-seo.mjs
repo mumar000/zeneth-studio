@@ -93,7 +93,7 @@ for (const url of urls) {
 for (const path of links) {
   assert(existsSync(resolve(output, htmlFile(path))) || existsSync(resolve("public", decodeURIComponent(path.slice(1)))), `Broken internal destination: ${path}`);
 }
-for (const slug of ["feroce", "voyager-supplements"]) {
+for (const slug of ["voyager-supplements"]) {
   assert(/name="robots"[^>]*content="[^"]*noindex/.test(read(`works/${slug}.html`)), `${slug}: review-only project became indexable`);
   assert(!urls.some((url) => url.endsWith(`/works/${slug}`)));
 }

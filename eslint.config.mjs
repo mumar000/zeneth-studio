@@ -10,6 +10,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Standalone Remotion project with its own dependencies.
+    "video/**",
   ]),
 ]);
 
