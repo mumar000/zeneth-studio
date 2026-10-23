@@ -5,19 +5,20 @@ import { absoluteUrl, isIndexableEnvironment } from "@/lib/site-config";
 // Actual content revision dates, not the date of every build or crawl.
 // Update only the entry for the page whose substantive content changed.
 const contentRevisions = {
-  "/": "2026-10-13",
-  "/about": "2026-10-13",
-  "/services": "2026-10-13",
+  "/": "2026-10-17",
+  "/about": "2026-10-17",
+  "/services": "2026-10-17",
   "/works": "2026-10-13",
-  "/contact": "2026-10-13",
-  "/services/brand-identity": "2026-10-13",
-  "/services/interface-design": "2026-10-13",
-  "/services/web-development": "2026-10-13",
+  "/contact": "2026-10-17",
+  "/services/brand-identity": "2026-10-17",
+  "/services/interface-design": "2026-10-17",
+  "/services/web-development": "2026-10-17",
   "/works/arpm": "2026-10-13",
   "/works/lets-grub": "2026-10-13",
   "/works/spreadshop": "2026-10-13",
   "/works/sapphire": "2026-10-13",
   "/works/mogulbay": "2026-10-13",
+  "/works/feroce": "2026-10-17",
 };
 
 export default function sitemap() {

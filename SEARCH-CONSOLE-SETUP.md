@@ -43,7 +43,7 @@ After deployment, inspect the public HTML:
 - The homepage has `index, follow` and canonical `https://www.nymbor.com` (a trailing slash on the homepage is equivalent).
 - Each service and case-study page points to its own canonical URL.
 - `/robots.txt` allows the public pages and names `https://www.nymbor.com/sitemap.xml`.
-- `/sitemap.xml` contains the 15 intended indexable pages. Feroce and Voyager remain review-only and excluded.
+- `/sitemap.xml` contains the 16 intended indexable pages. Voyager remains review-only and excluded.
 - Apex and HTTP domain variants redirect to the canonical HTTPS host. Keep the already-working apex redirect in the hosting settings.
 - Googlebot is not challenged or blocked by deployment protection, a firewall, or a bot rule.
 

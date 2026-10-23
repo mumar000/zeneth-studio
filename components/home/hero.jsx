@@ -1,9 +1,10 @@
 import Link from "next/link";
 import HeroLogoMarquee from "./hero-logo-marquee";
+import { siteConfig } from "@/lib/site-config";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-4 text-center sm:px-6 md:min-h-screen md:px-8">
+    <section className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-4 py-24 text-center sm:px-6 md:min-h-screen md:px-8">
       <div className="mx-auto w-full max-w-5xl">
         <p
           className="mb-5 text-[10px] font-[700] uppercase tracking-[0.16em] text-primary sm:text-xs"
@@ -28,7 +29,7 @@ export default function Hero() {
           for founders and small teams that want one clear, launch-ready system.
         </p>
 
-        <div className="mt-9 sm:mt-11">
+        <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:mt-11 sm:flex-row sm:gap-5">
           <Link
             href="/contact"
             className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-sm"
@@ -36,6 +37,15 @@ export default function Hero() {
           >
             Start a Project
           </Link>
+          <a
+            href={siteConfig.calendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-white px-7 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] text-black transition-colors duration-200 ease-out hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-sm"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            Book a 15-min call
+          </a>
         </div>
       </div>
 

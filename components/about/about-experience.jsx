@@ -1,298 +1,318 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { Linkedin } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
+import { getProjectBySlug } from "@/lib/projects-data";
+import { servicesDetailData } from "@/lib/services-detail-data";
+import { testimonials } from "@/lib/testimonials";
 
-const ease = [0.22, 1, 0.36, 1];
+const { founder } = siteConfig;
 
-const approach = [
+const recentWork = ["feroce", "lets-grub", "arpm", "spreadshop"].map(getProjectBySlug);
+
+const services = [
   {
-    number: "01",
-    title: "Understand",
+    slug: "brand-identity",
+    title: "Brand identity",
     description:
-      "We get close to the business, the audience, and the decision you need people to make.",
+      "For brands that look inconsistent, unclear, or too close to everyone else in the market.",
+    items: [
+      "Visual direction, logo system, color and type",
+      "Messaging basics so the brand sounds as clear as it looks",
+      "Launch-ready files and simple rules your team can use",
+    ],
   },
   {
-    number: "02",
-    title: "Define",
+    slug: "interface-design",
+    title: "Web and interface design",
     description:
-      "We find the clearest position and turn it into a focused creative direction.",
+      "Pages that make the offer clear and the next step obvious, designed before anything gets built.",
+    items: [
+      "Fixes messy layouts, weak hierarchy and unclear paths",
+      "Turns your offer into pages people understand",
+      "Best for sites that exist but don't convert",
+    ],
   },
   {
-    number: "03",
-    title: "Make",
+    slug: "web-development",
+    title: "Web development",
     description:
-      "We carry the direction through identity, interface, and the final live experience.",
+      "Responsive builds that keep the polish, spacing and intent of the design.",
+    items: [
+      "Webflow, Shopify, WordPress or custom front-end",
+      "CMS setup, interaction details and QA",
+      "Launch support and a clean handoff",
+    ],
   },
 ];
 
-const standards = [
-  ["Direct access", "You work with the people making the decisions and the work."],
-  ["Clear rationale", "Every major choice connects to the business and the audience."],
-  ["Useful systems", "The work remains coherent when your team starts using it."],
-  ["A real finish line", "We care about what launches, not only what looks good in a file."],
-];
+const clients = [
+  "Mogul Bay",
+  "Féroce",
+  "Trion",
+  "Resight",
+  "Flight Frame",
+  "Fractal",
+  "The Nugget Spot",
+  "Renu",
+  "Fresh Picks",
+  "Dans Les Vestiaires",
+  "Hey Bear",
+  "Lollobello",
+].map((name, index) => ({ name, src: `/about-logos/about-logo${index + 1}.webp` }));
 
-const logos = Array.from({ length: 12 }, (_, index) =>
-  `/about-logos/about-logo${index + 1}.webp`,
-);
+const clientQuote = testimonials.find(({ id }) => id === "bienvinido-onia");
+
+const display = { fontFamily: "var(--font-display)" };
+const mono = { fontFamily: "var(--font-mono)" };
+
+const buttonBase =
+  "inline-flex min-h-12 items-center justify-center rounded-[10px] border-2 border-black px-7 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 motion-reduce:transition-none sm:text-sm";
 
 export default function AboutExperience() {
-  const shouldReduceMotion = useReducedMotion();
-
-  const reveal = (delay = 0, distance = 24) => ({
-    initial: shouldReduceMotion ? false : { opacity: 0, y: distance },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.25 },
-    transition: { duration: 0.75, delay, ease },
-  });
-
   return (
-    <main id="main-content" className="overflow-x-clip bg-[#fffcf7] text-[#171717]">
-      <section className="px-4 pb-16 pt-[clamp(140px,10vw,190px)] sm:px-6 md:pb-24 lg:px-8">
-        <div className="mx-auto max-w-[1680px]">
-          <motion.div
-            {...reveal()}
-            className="flex items-center justify-between border-b border-black/20 pb-4"
-          >
-            <p
-              className="text-[11px] font-[600] uppercase tracking-[0.14em] md:text-[13px]"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              About Nymbor
-            </p>
-            <p
-              className="text-[11px] font-[500] uppercase tracking-[0.12em] text-black/45 md:text-[13px]"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              Independent studio
-            </p>
-          </motion.div>
+    <main id="main-content" className="overflow-x-clip bg-white text-[#1a1a1a]">
+      <section className="relative isolate overflow-hidden bg-white px-4 pb-16 pt-32 sm:px-6 md:pb-24 md:pt-44 lg:px-10">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute -right-32 -top-40 h-[420px] w-[420px] rounded-full bg-primary/30 blur-[110px] md:h-[640px] md:w-[640px] md:blur-[140px]" />
+          <div className="absolute -left-40 top-1/3 h-[360px] w-[360px] rounded-full bg-[#b892ff]/30 blur-[110px] md:h-[520px] md:w-[520px] md:blur-[140px]" />
+          <div className="absolute left-[38%] top-[18%] hidden h-[300px] w-[300px] rounded-full bg-[var(--accent-yellow)]/45 blur-[120px] md:block" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-white" />
+          {/* Matches the body::before texture, which this stacking context would otherwise cover. */}
+          <div className="absolute inset-0 hidden bg-[url('/bg-image.webp')] bg-repeat opacity-[0.05] md:block" />
+        </div>
 
-          <motion.h1
-            initial={false}
-            className="mt-[clamp(44px,5vw,80px)] max-w-[1100px] text-[clamp(36px,4.65vw,88px)] font-[500] leading-[0.98] tracking-[-0.05em]"
-            style={{ fontFamily: "var(--font-display)" }}
+        <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:gap-x-10 lg:gap-y-9">
+          <h1
+            className="text-balance text-[clamp(40px,4.6vw,72px)] font-[500] leading-[1.04] tracking-[-0.04em] lg:col-span-8 lg:row-start-1 lg:self-end"
+            style={display}
           >
-            The business should be the hard part. Explaining it should not.
-          </motion.h1>
+            Nymbor is a <span className="whitespace-nowrap">founder-led</span> studio
+            <br className="hidden lg:block" /> for brands and websites.
+          </h1>
 
-          <div className="mt-[clamp(56px,7vw,110px)] grid gap-8 border-t border-black/20 pt-6 md:grid-cols-12">
-            <motion.p
-              {...reveal(0.12)}
-              className="text-[12px] font-[600] uppercase tracking-[0.12em] text-black/45 md:col-span-3 md:text-[13px]"
-              style={{ fontFamily: "var(--font-mono)" }}
+          <figure className="w-full max-w-[280px] sm:max-w-[340px] lg:col-span-4 lg:col-start-9 lg:row-span-2 lg:row-start-1 lg:max-w-[380px] lg:self-end lg:justify-self-end">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[20px] bg-black/5 shadow-[0_24px_60px_-20px_rgba(64,20,140,0.35)] ring-1 ring-black/5">
+              <Image
+                src={founder.image}
+                alt={`Portrait of ${founder.name}, founder of Nymbor`}
+                fill
+                priority
+                sizes="(max-width: 639px) 280px, (max-width: 1023px) 340px, 380px"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="mt-4 text-[15px] leading-snug">
+              <span className="block font-[600]">{founder.name}</span>
+              <span className="block text-[#5f5868]">Founder, Nymbor</span>
+            </figcaption>
+          </figure>
+
+          <div className="lg:col-span-6 lg:row-start-2 lg:self-end">
+            <p className="max-w-[540px] text-[18px] leading-[1.6] text-[#4d4656] md:text-[20px]">
+              I&apos;m {founder.name}. I lead every Nymbor project myself: the
+              brand, the interface and the build. You deal with me directly,
+              from the first call to launch.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-x-4 gap-y-5">
+              <a
+                href={siteConfig.calendarUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${buttonBase} bg-primary text-white focus-visible:ring-black`}
+                style={mono}
+              >
+                Book a 15-min call
+              </a>
+              <a
+                href={founder.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${founder.name} on LinkedIn`}
+                title="LinkedIn"
+                className="inline-flex size-12 items-center justify-center rounded-[10px] border-2 border-black bg-white text-black shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 motion-reduce:transition-none sm:size-[52px]"
+              >
+                <Linkedin size={20} strokeWidth={2} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="work-heading" className="px-4 py-20 sm:px-6 md:py-28 lg:px-10">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2
+              id="work-heading"
+              className="text-[clamp(32px,3.4vw,56px)] font-[500] leading-none tracking-[-0.04em]"
+              style={display}
             >
-              What we do
-            </motion.p>
-            <motion.p
-              {...reveal(0.18)}
-              className="max-w-[700px] text-[clamp(19px,1.65vw,32px)] font-[400] leading-[1.22] tracking-[-0.03em] md:col-span-7 md:col-start-6"
-              style={{ fontFamily: "var(--font-display)" }}
+              Recent work
+            </h2>
+            <Link
+              href="/works"
+              className="text-[15px] font-[600] underline decoration-black/30 underline-offset-[6px] transition-colors hover:decoration-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
-              Nymbor helps ambitious businesses find a clearer position and a
-              sharper way to show up. We connect strategy, identity, interface,
-              and build so the final experience feels like one idea.
-            </motion.p>
+              See all work
+            </Link>
+          </div>
+
+          <ul className="mt-10 grid grid-cols-2 gap-x-4 gap-y-8 md:mt-14 lg:grid-cols-4 lg:gap-x-6">
+            {recentWork.map((project) => (
+              <li key={project.slug}>
+                <Link
+                  href={`/works/${project.slug}`}
+                  className="group block rounded-[14px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[14px] bg-black/5">
+                    <Image
+                      src={project.image}
+                      alt=""
+                      fill
+                      sizes="(max-width: 1023px) 50vw, 320px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <p className="mt-3 text-[16px] font-[600] tracking-[-0.02em] decoration-2 underline-offset-4 group-hover:underline md:text-[18px]">
+                    {project.title}
+                  </p>
+                  <p className="mt-0.5 text-[13px] text-[#5f5868] md:text-[14px]">
+                    {project.category}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="services-heading" className="px-4 pb-20 sm:px-6 md:pb-28 lg:px-10">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2
+              id="services-heading"
+              className="text-[clamp(32px,3.4vw,56px)] font-[500] leading-none tracking-[-0.04em]"
+              style={display}
+            >
+              Services
+            </h2>
+            <p className="text-[15px] text-[#5f5868]">
+              Projects start at {servicesDetailData["brand-identity"].startingPrice}.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-12 md:mt-14 md:grid-cols-3 md:gap-8 lg:gap-12">
+            {services.map((service) => (
+              <article key={service.slug} className="border-t-2 border-black pt-5">
+                <h3
+                  className="text-[24px] font-[500] leading-tight tracking-[-0.03em] md:text-[28px]"
+                  style={display}
+                >
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="decoration-2 underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    {service.title}
+                  </Link>
+                </h3>
+                <p className="mt-3 text-[16px] leading-[1.55] text-[#4d4656]">
+                  {service.description}
+                </p>
+                <ul className="mt-6 space-y-2.5 text-[15px] leading-[1.5]">
+                  {service.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section
-        className="relative overflow-hidden bg-[#17141c] px-4 py-20 text-white sm:px-6 md:py-28 lg:px-8"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 82% 8%, rgba(114, 33, 252, 0.24), transparent 34%), radial-gradient(circle at 7% 92%, rgba(114, 33, 252, 0.1), transparent 28%), linear-gradient(135deg, #17141c 0%, #21172d 48%, #141316 100%)",
-        }}
+        aria-labelledby="clients-heading"
+        className="bg-[#f4effc] px-4 py-20 sm:px-6 md:py-28 lg:px-10"
       >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)",
-            backgroundSize: "72px 72px",
-            maskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 85%)",
-          }}
-        />
-        <div className="relative z-10 mx-auto max-w-[1680px]">
-          <motion.div {...reveal()} className="max-w-[1050px]">
-            <p
-              className="text-[11px] font-[600] uppercase tracking-[0.14em] text-white/45 md:text-[13px]"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              Our approach
-            </p>
+        <div className="mx-auto grid max-w-[1320px] gap-14 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-5">
             <h2
-              className="mt-6 text-[clamp(38px,4.4vw,84px)] font-[500] leading-[0.98] tracking-[-0.05em]"
-              style={{ fontFamily: "var(--font-display)" }}
+              id="clients-heading"
+              className="text-[clamp(32px,3.4vw,56px)] font-[500] leading-none tracking-[-0.04em]"
+              style={display}
             >
-              We work from the inside out.
+              Clients
             </h2>
-          </motion.div>
-
-          <div className="mt-[clamp(52px,7vw,105px)] grid border-t border-white/20 md:grid-cols-3">
-            {approach.map((item, index) => (
-              <motion.article
-                key={item.title}
-                {...reveal(index * 0.07)}
-                className="border-b border-white/20 py-7 md:min-h-[250px] md:border-b-0 md:border-r md:px-8 md:py-9 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+            <figure className="mt-10 max-w-[480px]">
+              <blockquote
+                className="text-[20px] leading-[1.45] tracking-[-0.02em] md:text-[23px]"
+                style={display}
               >
-                <p
-                  className="text-[11px] font-[600] tracking-[0.14em] text-white/40"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  {item.number}
-                </p>
-                <h3
-                  className="mt-8 text-[clamp(30px,2.5vw,48px)] font-[500] leading-none tracking-[-0.04em]"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {item.title}
-                </h3>
-                <p className="mt-5 max-w-[390px] text-[15px] leading-[1.5] tracking-[-0.015em] text-white/55 md:text-[17px]">
-                  {item.description}
-                </p>
-              </motion.article>
-            ))}
+                <p>&ldquo;{clientQuote.quote}&rdquo;</p>
+              </blockquote>
+              <figcaption className="mt-6 flex items-center gap-3">
+                <Image
+                  src={clientQuote.avatar}
+                  width={44}
+                  height={44}
+                  alt=""
+                  className="h-11 w-11 rounded-full object-cover"
+                />
+                <span>
+                  <span className="block text-[15px] font-[600]">{clientQuote.name}</span>
+                  <span className="block text-[13px] text-[#5f5868]">{clientQuote.role}</span>
+                </span>
+              </figcaption>
+            </figure>
           </div>
+
+          <ul className="grid grid-cols-3 gap-x-6 gap-y-10 self-center sm:grid-cols-4 lg:col-span-7 lg:col-start-6 lg:gap-x-10 lg:gap-y-14">
+            {clients.map((client) => (
+              <li key={client.name} className="relative h-10 md:h-12">
+                <Image
+                  src={client.src}
+                  alt={client.name}
+                  fill
+                  sizes="(max-width: 639px) 30vw, 180px"
+                  className="object-contain opacity-75"
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <div className="mx-auto grid max-w-[1680px] gap-16 lg:grid-cols-12 lg:gap-10">
-          <motion.div {...reveal()} className="lg:col-span-5">
-            <p
-              className="text-[11px] font-[600] uppercase tracking-[0.14em] text-black/45 md:text-[13px]"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              How we work
-            </p>
+      <section className="px-4 py-20 sm:px-6 md:py-28 lg:px-10">
+        <div className="mx-auto grid max-w-[1320px] items-end gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7">
             <h2
-              className="mt-6 max-w-[580px] text-[clamp(36px,3.75vw,72px)] font-[500] leading-[0.99] tracking-[-0.05em]"
-              style={{ fontFamily: "var(--font-display)" }}
+              className="text-balance text-[clamp(40px,5vw,80px)] font-[500] leading-[1.02] tracking-[-0.04em]"
+              style={display}
             >
-              A small team. A short distance between thinking and making.
+              Tell me what you&apos;re building.
             </h2>
-          </motion.div>
-
-          <div className="border-t border-black lg:col-span-6 lg:col-start-7">
-            {standards.map(([title, description], index) => (
-              <motion.article
-                key={title}
-                {...reveal(index * 0.05, 18)}
-                className="grid gap-4 border-b border-black/20 py-6 sm:grid-cols-[42px_1fr] md:py-8"
-              >
-                <p
-                  className="text-[11px] font-[600] tracking-[0.12em] text-black/40"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  0{index + 1}
-                </p>
-                <div>
-                  <h3
-                    className="text-[clamp(21px,1.55vw,30px)] font-[500] leading-[1.08] tracking-[-0.03em]"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {title}
-                  </h3>
-                  <p className="mt-2.5 max-w-[600px] text-[14px] leading-[1.5] text-black/55 md:text-[16px]">
-                    {description}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-black/15 px-4 py-20 sm:px-6 md:py-28 lg:px-8">
-        <div className="mx-auto max-w-[1680px]">
-          <motion.div
-            {...reveal()}
-            className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
-          >
-            <div>
-              <p
-                className="text-[11px] font-[600] uppercase tracking-[0.14em] text-black/45 md:text-[13px]"
-                style={{ fontFamily: "var(--font-mono)" }}
-              >
-                Selected clients
-              </p>
-              <h2
-                className="mt-4 text-[clamp(34px,3.35vw,64px)] font-[500] leading-none tracking-[-0.045em]"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Trusted with important work.
-              </h2>
-            </div>
-            <p className="max-w-[390px] text-[14px] leading-[1.5] text-black/50 md:text-[16px]">
-              Across brand, product, and digital experiences.
+            <p className="mt-5 text-[17px] text-[#4d4656] md:text-[19px]">
+              I reply within 24 hours.
             </p>
-          </motion.div>
-
-          <div className="mt-12 grid grid-cols-2 border-l border-t border-black/15 sm:grid-cols-3 lg:grid-cols-4">
-            {logos.map((src, index) => (
-              <motion.div
-                key={src}
-                initial={shouldReduceMotion ? false : { opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.5, delay: (index % 4) * 0.035 }}
-                className="flex min-h-[105px] items-center justify-center border-b border-r border-black/15 p-5 sm:min-h-[135px] md:p-8"
-              >
-                <div className="relative h-10 w-full md:h-12">
-                  <Image
-                    src={src}
-                    alt=""
-                    fill
-                    sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw"
-                    className="object-contain opacity-60 grayscale"
-                  />
-                </div>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
-
-      <section className="px-4 pb-20 pt-8 sm:px-6 md:pb-28 lg:px-8">
-        <motion.div
-          {...reveal()}
-          className="mx-auto grid max-w-[1680px] gap-10 border-t-2 border-black pt-8 md:grid-cols-12 md:items-end"
-        >
-          <div className="md:col-span-8">
-            <p
-              className="text-[11px] font-[600] uppercase tracking-[0.14em] text-black/45 md:text-[13px]"
-              style={{ fontFamily: "var(--font-mono)" }}
-            >
-              Start a conversation
-            </p>
-            <h2
-              className="mt-5 max-w-[900px] text-[clamp(38px,4.2vw,80px)] font-[500] leading-[0.98] tracking-[-0.05em]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Have something difficult to explain?
-            </h2>
-          </div>
-
-          <div className="md:col-span-3 md:col-start-10 md:flex md:justify-end">
+          <div className="flex flex-wrap gap-5 lg:col-span-5 lg:justify-end">
             <Link
               href="/contact"
-              className="group inline-flex min-h-14 items-center gap-3 rounded-[10px] border-2 border-black bg-black px-7 py-3.5 text-[13px] font-[700] uppercase tracking-[0.1em] text-white shadow-[5px_5px_0_0_#7221fc] transition-transform duration-200 hover:translate-x-[2px] hover:translate-y-[2px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 md:text-[14px]"
-              style={{ fontFamily: "var(--font-mono)" }}
+              className={`${buttonBase} bg-primary text-white focus-visible:ring-black`}
+              style={mono}
             >
-              Tell us about it
-              <ArrowUpRight
-                className="size-5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                strokeWidth={2}
-              />
+              Start a project
             </Link>
+            <a
+              href={siteConfig.calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${buttonBase} bg-white text-black focus-visible:ring-black`}
+              style={mono}
+            >
+              Book a 15-min call
+            </a>
           </div>
-        </motion.div>
+        </div>
       </section>
     </main>
   );

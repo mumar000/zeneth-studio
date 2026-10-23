@@ -4,6 +4,7 @@ import ContactForm from "@/components/contact/contact-form";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { siteConfig } from "@/lib/site-config";
 
 export default function ContactSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -84,6 +85,18 @@ export default function ContactSection() {
             Have a project in mind?
             <span className="mt-2 block text-primary">Let&apos;s talk.</span>
           </h1>
+
+          <p className="mt-6 text-[15px] leading-[1.6] text-[#5f5868] md:text-[17px]">
+            Rather talk it through first?{" "}
+            <a
+              href={siteConfig.calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-[700] text-primary underline underline-offset-4 hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              Book a 15-minute call
+            </a>
+          </p>
 
           <div className="mt-12 aspect-video w-full overflow-hidden rounded-[24px]   bg-black lg:mt-14">
             <video

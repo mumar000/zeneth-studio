@@ -3,15 +3,15 @@ import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
 import JsonLd from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site-config";
 
-const title = "About the Studio";
-const description = "Meet Nymbor, an independent creative studio connecting strategy, brand identity, interface design, and web development from first idea to launch.";
+const title = "About Muhammad Umair & the Studio";
+const description = "Nymbor is a founder-led brand and website studio run by Muhammad Umair. Brand identity, interface design, and web development, from the first call to launch.";
 
 export const metadata = createPageMetadata({
   title,
   description,
   path: "/about",
-  eyebrow: "About the studio",
-  imageAlt: "About Nymbor, an independent creative studio",
+  eyebrow: "Founder-led brand and website studio",
+  imageAlt: "Muhammad Umair, founder of Nymbor",
 });
 
 export default function AboutPage() {

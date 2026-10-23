@@ -431,6 +431,7 @@ export default function ContactForm({ isHighlighted = false }) {
 
             <div className="mt-5 flex flex-col-reverse gap-3 border-t border-black/10 pt-4 sm:mt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:pt-5">
               <p className="max-w-none flex-1 text-center text-[12px] leading-[1.5] text-[#736d7b] sm:max-w-[300px] sm:text-left sm:text-[14px] sm:leading-[1.6] md:text-[15px]">
+                <span className="mb-1 block font-[700] text-[#1d1922]">We reply within 24 hours.</span>
                 Your details are used to respond to your enquiry. Read our{" "}
                 <Link href="/privacy" className="underline underline-offset-2 focus-visible:outline-2 focus-visible:outline-primary">Privacy Policy</Link>.
               </p>

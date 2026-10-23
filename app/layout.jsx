@@ -2,7 +2,6 @@ import "./globals.css";
 import { Navbar } from "./components/common/navbar";
 import Footer from "./components/common/footer/footer";
 import SmoothScroll from "./components/SmoothScroll";
-import Loader from "./components/loader";
 import FloatingCTA from "@/components/works/detail/floating-cta";
 import JsonLd from "@/components/seo/json-ld";
 import { createPageMetadata, organizationSchema, websiteSchema } from "@/lib/seo";
@@ -77,10 +76,9 @@ export default function RootLayout({ children }) {
         </a>
         <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <noscript>
-          <style>{`.site-loader { display: none !important; } main [style*="opacity:0"], main [style*="opacity: 0"] { opacity: 1 !important; }`}</style>
+          <style>{`main [style*="opacity:0"], main [style*="opacity: 0"] { opacity: 1 !important; }`}</style>
         </noscript>
         <SmoothScroll>
-          <Loader />
           <Navbar />
           {children}
           <Footer />

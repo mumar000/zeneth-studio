@@ -100,7 +100,7 @@ function ProtocolPanel({ title, stats }) {
         {title || "Build Protocol"}
       </p>
       <div className="mt-4 h-px bg-white/35" />
-      <div className={`mt-4 grid gap-3 ${stats.length === 2 ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
+      <div className={`mt-4 grid gap-3 ${stats.length === 2 ? "md:grid-cols-2" : stats.length > 2 ? "md:grid-cols-3" : ""}`}>
         {stats.map((stat) => (
           <div key={stat.title} className="rounded-[8px] bg-white/10 px-5 py-4 md:px-6 md:py-5">
             <p className="text-[12px] uppercase text-white/55 md:text-[14px]" style={{ fontFamily: "var(--font-display)" }}>

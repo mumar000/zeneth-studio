@@ -7,7 +7,7 @@ import ServicePanel from "./service-panel";
 
 const SERVICES = [
   {
-    price: "$1,000",
+    price: "$2,500",
     title: "Brand Identity",
     description:
       "For brands that look inconsistent, unclear, or too close to everyone else in the market.",
@@ -26,7 +26,7 @@ const SERVICES = [
     mediaBackground: "#050000",
   },
   {
-    price: "$1,500",
+    price: "$2,500",
     title: "Web & Interface Design",
     description:
       "High-fidelity website and interface design for teams that need sharper pages, clearer flow, and a better experience before anything gets built.",
@@ -45,7 +45,7 @@ const SERVICES = [
     mediaBackground: "#18b8e7",
   },
   {
-    price: "$1,500",
+    price: "$2,500",
     title: "Web Development",
     description:
       "Clean responsive builds for brands that already have the design, but need the live version to keep the same polish, spacing, and intent.",
@@ -67,8 +67,8 @@ const SERVICES = [
 
 export default function ServicesDetail({
   headingLines = [
-    "A focused team of designers, developers",
-    "and thinkers creating work that lasts.",
+    "A founder-led studio",
+    "creating work that lasts.",
   ],
   showHeading = true,
   showAllLink = true,
