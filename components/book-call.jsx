@@ -13,26 +13,37 @@ const promises = [
   "No prep needed. Bring a link, a brief or just an idea.",
 ];
 
-export default function BookCall() {
+const defaultTitle = (
+  <>
+    Tell me what you&apos;re <span className="text-primary">building.</span>
+  </>
+);
+const defaultText =
+  "Pick a time that suits you. Bring your idea, your site or your brand, and we'll tell you straight what we'd do.";
+
+// Shared "Let's talk" booking section. Pages swap the copy; the layout stays the same.
+export default function BookCall({ eyebrow = "Let's talk", title = defaultTitle, text = defaultText, badge }) {
   return (
     <section id="book" aria-labelledby="book-title" className="scroll-mt-24 px-4 pb-24 pt-4 sm:px-6 md:pb-32 md:pt-8">
       <div className="mx-auto grid max-w-[1200px] items-start gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
         <div className="lg:sticky lg:top-32">
           <Reveal className="flex flex-col gap-5">
             <span className="font-mono text-xs font-[700] uppercase leading-none tracking-[0.16em] text-primary">
-              Let&apos;s talk
+              {eyebrow}
             </span>
             <h2
               id="book-title"
               className="text-balance text-[clamp(40px,5vw,64px)] font-[700] leading-[0.98] tracking-[-0.04em]"
               style={display}
             >
-              Tell me what you&apos;re <span className="text-primary">building.</span>
+              {title}
             </h2>
-            <p className="max-w-[440px] text-[18px] leading-[1.55] text-[#4a4752]">
-              Pick a time that suits you. Bring your idea, your site or your brand, and we&apos;ll tell you
-              straight what we&apos;d do.
-            </p>
+            <p className="max-w-[440px] text-[18px] leading-[1.55] text-[#4a4752]">{text}</p>
+            {badge && (
+              <span className="self-start rounded-lg bg-[#efe6ff] px-3 py-[9px] font-mono text-xs font-[700] uppercase leading-none tracking-[0.12em] text-[#4b12b0]">
+                {badge}
+              </span>
+            )}
           </Reveal>
 
           <ul className="mt-9 flex flex-col gap-4">

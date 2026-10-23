@@ -3,7 +3,7 @@ import { ProjectsSection } from "./sections/projects";
 import GifSection from "@/components/home/gif-section";
 import Services from "@/components/home/services";
 import Testimonials from "@/components/home/testimonials";
-import BookCall from "@/components/home/book-call";
+import BookCall from "@/components/book-call";
 import JsonLd from "@/components/seo/json-ld";
 import { createPageMetadata, webPageSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";

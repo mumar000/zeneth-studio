@@ -303,11 +303,50 @@
   --animate-rise: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms) both;
   --animate-swap: rise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-pin-ping: pin-ping 2.6s ease-out calc(var(--d, 0s) + 0.4s) infinite;
-  --animate-drift: drift 22s ease-in-out infinite alternate;
+  --animate-mask-up: mask-up 0.95s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms) both;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-typing: typing 1s ease var(--d, 0ms) both;
+  --animate-typing-dot: typing-dot 0.6s ease-in-out var(--d, 0ms) 3;
+  --animate-chip-progress: chip-progress 5.5s linear both;
 
-  @keyframes drift {
+  /* Words rise out of a clipping mask, so the text never fades or blurs. */
+  @keyframes mask-up {
+    from {
+      transform: translate3d(0, 105%, 0);
+    }
+  }
+  @keyframes marquee {
     to {
-      transform: translate3d(8%, -6%, 0) scale(1.12);
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  @keyframes typing {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 6px, 0);
+    }
+    20%,
+    80% {
+      opacity: 1;
+      transform: none;
+    }
+    100% {
+      opacity: 0;
+      transform: none;
+    }
+  }
+  @keyframes typing-dot {
+    50% {
+      transform: translate3d(0, -3px, 0);
+      opacity: 1;
+    }
+  }
+  @keyframes chip-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
     }
   }
 

@@ -1,6 +1,6 @@
 import AboutHero from "@/components/about/about-hero";
 import ClientBase from "@/components/about/client-base";
-import BookCall from "@/components/about/book-call";
+import BookCall from "@/components/book-call";
 import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
 import JsonLd from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site-config";
