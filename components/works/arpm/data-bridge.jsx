@@ -20,7 +20,7 @@ const inputs = [
   },
 ];
 
-const inputTops = ["2xl:top-[19.688vw]", "2xl:top-[28.854vw]", "2xl:top-[38.021vw]"];
+const inputTops = ["2xl:top-[19.688vw]", "2xl:top-[28.568vw]", "2xl:top-[37.448vw]"];
 
 export default function DataBridge() {
   const shouldReduceMotion = useReducedMotion();
@@ -91,8 +91,8 @@ export default function DataBridge() {
 
         <div aria-hidden="true" className="hidden 2xl:block">
           <Image src="/works/arpm/data-bridge/connector-top.svg" alt="" width={174} height={173} className="absolute left-[31.094vw] top-[23.646vw] h-[8.958vw] w-[9.063vw]" />
-          <Image src="/works/arpm/data-bridge/connector-bottom.svg" alt="" width={174} height={177} className="absolute left-[31.094vw] top-[32.604vw] h-[9.167vw] w-[9.063vw]" />
-          <Image src="/works/arpm/data-bridge/input-line.svg" alt="" width={128} height={1} className="absolute left-[31.198vw] top-[32.604vw] h-px w-[6.667vw]" />
+          <Image src="/works/arpm/data-bridge/connector-bottom-aligned.svg" alt="" width={174} height={177} className="absolute left-[31.094vw] top-[32.604vw] h-[8.958vw] w-[9.063vw]" />
+          <Image src="/works/arpm/data-bridge/input-line.svg" alt="" width={128} height={1} className="absolute left-[31.094vw] top-[32.578vw] h-px w-[9.219vw]" />
           <Image src="/works/arpm/data-bridge/node-b.svg" alt="" width={20} height={20} className="absolute left-[39.792vw] top-[32.083vw] size-[1.042vw]" />
           <Image src="/works/arpm/data-bridge/node-inner.svg" alt="" width={10} height={10} className="absolute left-[40.052vw] top-[32.344vw] size-[0.521vw]" />
           <Image src="/works/arpm/data-bridge/output-line.svg" alt="" width={77} height={1} className="absolute left-[57.083vw] top-[32.604vw] h-px w-[4.01vw]" />

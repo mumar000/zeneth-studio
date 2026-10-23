@@ -58,13 +58,12 @@ export default function ClientReaction() {
         data-node-id="70:132"
       >
         <Image
-          src="/works/arpm/client-reaction/phone-4x.png"
+          src="/arpm-1.png"
           alt="The approved ARPM mobile About page displayed in an iPhone mockup"
           fill
           quality={100}
           sizes="(min-width: 1536px) 34.635vw, 430px"
-          className="object-contain"
-          style={{ clipPath: "inset(0.9% 2% 0.8% 2% round 13% 6.5%)" }}
+          className="scale-[3.2] object-contain"
         />
       </motion.div>
     </section>

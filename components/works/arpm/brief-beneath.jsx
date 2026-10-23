@@ -55,12 +55,12 @@ export default function BriefBeneath() {
         data-node-id="52:358"
       >
         <Image
-          src="/works/arpm/brief-beneath/mac-studio-4x.png"
+          src="/arpm-2.png"
           alt="The redesigned ARPM property search displayed on a Mac Studio monitor"
           fill
           quality={100}
           sizes="(min-width: 1536px) 56.25vw, 1080px"
-          className="object-contain"
+          className="scale-[1.55] object-contain"
         />
         <span
           aria-hidden="true"
