@@ -209,7 +209,7 @@ export default function ClientProof() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.06, ease: [0.25, 1, 0.5, 1] }}
-            className="mx-auto mb-6 max-w-[900px] text-center text-[32px] font-[500] leading-[1.05] tracking-[-0.04em] text-[#171717] sm:text-[42px] md:mb-10 md:text-[56px]"
+            className="home-proof-title mx-auto mb-6 max-w-[900px] text-center text-[32px] font-[500] leading-[1.05] tracking-[-0.04em] text-[#171717] sm:text-[42px] md:mb-10 md:text-[56px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Listen to the stories behind the work.
@@ -241,13 +241,13 @@ export default function ClientProof() {
               className="flex flex-col items-start justify-center bg-[#FEFEF4] px-5 py-6 text-left md:items-center md:px-20 md:py-10 md:text-center"
             >
               <h3
-                className="text-[18px] font-[500] leading-[1.15] tracking-[-0.025em] text-[#1a1a1a] md:text-[26px] md:font-[400] md:tracking-normal"
+                className="home-process-title text-[18px] font-[500] leading-[1.15] tracking-[-0.025em] text-[#1a1a1a] md:text-[26px] md:font-[400] md:tracking-normal"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {step.number} / {step.title}
               </h3>
               <p
-                className="mt-2.5 max-w-[400px] text-[13px] leading-[1.55] text-black/60 md:mt-6 md:text-[16px] md:leading-[1.3] md:text-[#3a3a3a]"
+                className="home-process-description mt-2.5 max-w-[400px] text-[13px] leading-[1.55] text-black/60 md:mt-6 md:text-[16px] md:leading-[1.3] md:text-[#3a3a3a]"
                 style={{ fontFamily: "var(--font-sora)" }}
               >
                 {step.description}

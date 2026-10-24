@@ -23,7 +23,7 @@ export const metadata = createPageMetadata({
 
 export default function Home() {
   return (
-    <main id="main-content">
+    <main id="main-content" className="home-page">
       <JsonLd data={[
         webPageSchema({ name: siteConfig.defaultTitle, description: siteConfig.defaultDescription, path: "/" }),
         faqPageSchema(homepageFaqs),

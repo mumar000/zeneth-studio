@@ -82,7 +82,7 @@ export default function ServicesDetail({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-          className="text-center text-3xl font-[700] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:text-6xl"
+          className="home-section-title text-center text-3xl font-[700] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:text-6xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {headingLines.map((line, index) => (

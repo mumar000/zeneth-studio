@@ -129,7 +129,7 @@ export default function PortfolioCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-            className="mt-4 text-[32px] font-[650] leading-none tracking-[-0.04em] text-[#1a1a1a] md:mt-5 md:text-[88px] md:font-[700] md:tracking-[-0.03em]"
+            className="home-cta-title mt-4 text-[32px] font-[650] leading-none tracking-[-0.04em] text-[#1a1a1a] md:mt-5 md:text-[88px] md:font-[700] md:tracking-[-0.03em]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             We do that too.
@@ -140,7 +140,7 @@ export default function PortfolioCta() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-3 max-w-[38ch] text-[13px] leading-[1.55] text-[#1a1a1a]/55 md:mt-6 md:max-w-[480px] md:text-[17px] md:leading-[1.7]"
+            className="home-cta-description mt-3 max-w-[38ch] text-[13px] leading-[1.55] text-[#1a1a1a]/55 md:mt-6 md:max-w-[480px] md:text-[17px] md:leading-[1.7]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             Send your brief. We&apos;ll look at what you have, scope it honestly,

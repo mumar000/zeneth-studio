@@ -51,14 +51,14 @@ export default function ServicePanel({
           </p>
 
           <Heading
-            className="mt-3 text-[36px] font-[700] leading-[0.98] tracking-[-0.03em] text-black sm:text-[42px] md:mt-5 md:text-[64px] lg:text-[clamp(3.5rem,3.55vw,4.25rem)]"
+            className="home-service-title mt-3 text-[36px] font-[700] leading-[0.98] tracking-[-0.03em] text-black sm:text-[42px] md:mt-5 md:text-[64px] lg:text-[clamp(3.5rem,3.55vw,4.25rem)]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {title}
           </Heading>
 
           <p
-            className="mt-4 max-w-[430px] text-[14px] leading-[1.5] text-black/55 md:mt-6 md:text-[18px] lg:text-[19px]"
+            className="home-service-description mt-4 max-w-[430px] text-[14px] leading-[1.5] text-black/55 md:mt-6 md:text-[18px] lg:text-[19px]"
             style={{ fontFamily: "var(--font-sora)" }}
           >
             {description}
@@ -72,7 +72,7 @@ export default function ServicePanel({
           {bullets.map((bullet) => (
             <li
               key={bullet}
-              className="flex max-w-[470px] items-center gap-3 text-[14px] leading-[1.4] text-black md:gap-7 md:text-[18px] md:leading-[1.35]"
+              className="home-service-bullet flex max-w-[470px] items-center gap-3 text-[14px] leading-[1.4] text-black md:gap-7 md:text-[18px] md:leading-[1.35]"
             >
               <motion.span
                 aria-hidden="true"

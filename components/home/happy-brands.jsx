@@ -33,10 +33,10 @@ export default function HappyBrands() {
   return (
     <section aria-labelledby="testimonials-heading" className="relative z-10 w-full px-4 py-16 sm:px-6 md:px-10 md:py-28 max-md:py-12">
       <div className="mx-auto max-w-[1320px]">
-        <div className="mb-8 border-t border-[#21182d]/15 pt-6 text-center md:mb-12 max-md:mb-6 max-md:pt-5">
+        <div className="mb-8  pt-6 text-center md:mb-12 max-md:mb-6 max-md:pt-5">
           <div>
             <p className="text-[11px] font-[700] uppercase tracking-[0.16em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>Client testimonials</p>
-            <h2 id="testimonials-heading" className="mt-4 text-[clamp(36px,4.3vw,64px)] font-[600] leading-[1.05] tracking-[-0.045em] text-[#21182d] max-md:mt-3 max-md:text-[clamp(34px,9vw,44px)]" style={{ fontFamily: "var(--font-display)" }}>
+            <h2 id="testimonials-heading" className="home-testimonials-title mt-4 text-[clamp(36px,4.3vw,64px)] font-[600] leading-[1.05] tracking-[-0.045em] text-[#21182d] max-md:mt-3 max-md:text-[clamp(34px,9vw,44px)]" style={{ fontFamily: "var(--font-display)" }}>
               Good work.<br />Lasting relationships.
             </h2>
           </div>

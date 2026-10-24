@@ -403,6 +403,95 @@ body {
   max-width: 46ch;
 }
 
+/* Fluid homepage typography: preserve desktop caps and readable mobile floors.
+   Scope shared components to the homepage; keep browser zoom and rem scaling native. */
+.home-page .home-hero-title {
+  font-size: clamp(2.75rem, calc(1.7rem + 3.4vw), 5.8rem);
+}
+
+.home-page .home-hero-description {
+  font-size: clamp(1rem, calc(0.85rem + 0.55vw), 1.5rem);
+}
+
+.home-page .home-display-title {
+  font-size: clamp(2rem, calc(1rem + 3.6vw), 5rem);
+}
+
+.home-page .home-testimonials-title {
+  font-size: clamp(2.125rem, calc(1.35rem + 2.8vw), 4rem);
+}
+
+.home-page .home-section-title {
+  font-size: clamp(1.875rem, calc(1.25rem + 2.8vw), 3.75rem);
+}
+
+.home-page .home-proof-title {
+  font-size: clamp(2rem, calc(1.4rem + 2.3vw), 3.5rem);
+}
+
+.home-page .home-faq-title {
+  font-size: clamp(1.875rem, calc(1rem + 3.4vw), 4.5rem);
+}
+
+.home-page .home-cta-title {
+  font-size: clamp(2rem, calc(1rem + 4vw), 5.5rem);
+}
+
+.home-page .home-service-title {
+  font-size: clamp(2.25rem, calc(1.5rem + 2.3vw), 4.25rem);
+}
+
+.home-page .home-card-title {
+  font-size: clamp(1.5rem, calc(1.2rem + 0.9vw), 2rem);
+}
+
+.home-page .home-process-title {
+  font-size: clamp(1.125rem, calc(0.8rem + 1vw), 1.625rem);
+}
+
+.home-page .home-card-description {
+  font-size: clamp(0.8125rem, calc(0.7rem + 0.6vw), 1.25rem);
+}
+
+.home-page .home-service-description {
+  font-size: clamp(0.875rem, calc(0.75rem + 0.5vw), 1.1875rem);
+}
+
+.home-page .home-service-bullet {
+  font-size: clamp(0.875rem, calc(0.75rem + 0.45vw), 1.125rem);
+}
+
+.home-page .home-process-description,
+.home-page .home-cta-description {
+  font-size: clamp(0.8125rem, calc(0.7rem + 0.45vw), 1.0625rem);
+}
+
+/* Keep titles and pills alongside one another as the project column narrows. */
+.projects-text-track {
+  container-type: inline-size;
+}
+
+.projects-text-row {
+  align-items: center;
+  gap: 12px;
+}
+
+.projects-text-title {
+  /* Reserve room for the pills and fit the longest name without ellipsis. */
+  font-size: min(88.59px, calc((100cqw - clamp(112px, 22cqw, 150px)) / 6.4), 8.3vh);
+}
+
+.projects-text-tags {
+  flex: 1;
+  flex-wrap: wrap;
+  gap: min(8px, 1vh);
+}
+
+.projects-text-tag {
+  font-size: clamp(8px, 1.7cqw, 12px);
+  padding: min(6px, 0.7vh) clamp(6px, 1.5cqw, 10px);
+}
+
 /* Background image at ~5% opacity without tint */
 body::before {
   content: "";

@@ -9,7 +9,7 @@ export default function FaqSection({
       <div className="mx-auto max-w-[1800px]">
         <div className="grid grid-cols-1 items-start gap-8 md:gap-12 lg:grid-cols-[2fr_3fr] lg:gap-20">
           <h2
-            className="text-3xl font-[700] leading-[1.05] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:text-7xl"
+            className="home-faq-title text-3xl font-[700] leading-[1.05] tracking-[-0.03em] text-[#1a1a1a] sm:text-4xl md:text-7xl"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {heading}

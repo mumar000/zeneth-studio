@@ -309,7 +309,7 @@ export default function FeaturedProjectsSection() {
                 </p>
               </div>
 
-              {/* Text Window Container (55vh height) */}
+              {/* Keep the text rows aligned with the scrolling project images. */}
               <div
                 className="relative w-full h-[50vh] overflow-hidden flex flex-col"
                 style={{
@@ -321,7 +321,7 @@ export default function FeaturedProjectsSection() {
               >
                 <div
                   ref={textContainerRef}
-                  className="flex flex-col pl-4"
+                  className="projects-text-track flex flex-col pl-4"
                   style={{
                     willChange: "transform",
 
@@ -337,12 +337,12 @@ export default function FeaturedProjectsSection() {
                     return (
                       <div
                         key={index}
-                        className="group flex h-[10vh] min-w-0 shrink-0 cursor-pointer items-center gap-3 xl:gap-4"
+                        className="projects-text-row group flex h-[10vh] min-w-0 shrink-0 cursor-pointer"
                         onMouseEnter={() => setHoveredIndex(realIndex)}
                         onMouseLeave={() => setHoveredIndex(null)}
                       >
                         <h3
-                          className={`min-w-0 origin-left whitespace-nowrap xl:max-w-[52%] xl:truncate 2xl:max-w-none 2xl:text-[88.59px] lg:text-6xl md:text-5xl font-[500] leading-none tracking-tight transition-colors duration-500 ease-out ${
+                          className={`projects-text-title min-w-0 shrink-0 origin-left whitespace-nowrap font-[500] leading-none tracking-tight transition-colors duration-500 ease-out ${
                             isActive
                               ? "text-white"
                               : "text-white/30"
@@ -352,7 +352,7 @@ export default function FeaturedProjectsSection() {
                           {project.name}
                         </h3>
                         <div
-                          className={`hidden min-w-0 flex-1 flex-wrap items-center gap-1.5 transition-all duration-500 xl:flex xl:max-w-[46%] 2xl:max-w-none 2xl:gap-2 ${
+                          className={`projects-text-tags flex min-w-0 items-center transition-all duration-500 ${
                             isActive
                               ? "opacity-100 translate-x-0"
                               : "opacity-0 -translate-x-3 pointer-events-none"
@@ -361,7 +361,7 @@ export default function FeaturedProjectsSection() {
                           {project.tags?.map((tag) => (
                             <span
                               key={tag.label}
-                              className="max-w-full whitespace-normal break-words rounded-md px-2 py-1.5 text-[9px] font-medium uppercase leading-[1.1] tracking-wider 2xl:whitespace-nowrap 2xl:px-2.5 2xl:text-xs"
+                              className="projects-text-tag whitespace-nowrap rounded-md font-medium uppercase leading-[1.1] tracking-wider"
                               style={{
                                 fontFamily: "var(--font-mono)",
                                 backgroundColor:

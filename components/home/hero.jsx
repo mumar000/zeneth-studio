@@ -13,7 +13,7 @@ export default function Hero() {
           Nymbor — Independent Creative Studio
         </p>
         <h1
-          className="text-[2.75rem] font-[700] leading-[1.02] tracking-[-0.03em] text-[#1a1a1a] md:text-5xl lg:text-[5.5rem] 2xl:text-[5.8rem]"
+          className="home-hero-title text-[2.75rem] font-[700] leading-[1.02] tracking-[-0.03em] text-[#1a1a1a] md:text-5xl lg:text-[5.5rem] 2xl:text-[5.8rem]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Your <span className="text-primary">brand</span> and website{" "}
@@ -22,7 +22,7 @@ export default function Hero() {
         </h1>
 
         <p
-          className="mx-auto mt-6 text-base font-[400] text-neutral-700 md:mt-8 md:max-w-lg md:text-md lg:text-lg lg:leading-8 2xl:max-w-3xl 2xl:text-2xl"
+          className="home-hero-description mx-auto mt-6 text-base font-[400] text-neutral-700 md:mt-8 md:max-w-lg md:text-md lg:text-lg lg:leading-8 2xl:max-w-3xl 2xl:text-2xl"
           style={{ fontFamily: "var(--font-sora)" }}
         >
           Nymbor connects brand identity, interface design, and web development

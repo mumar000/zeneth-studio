@@ -66,9 +66,9 @@ const rows = [
 const labelCls =
   "text-[10px] font-[700] uppercase tracking-[0.1em] text-black/45 md:text-lg md:font-[600] md:normal-case md:tracking-normal lg:text-xl";
 const titleCls =
-  "mt-2.5 font-[family-name:var(--font-display)] text-[24px] font-[500] not-italic leading-[1.08] tracking-[-0.035em] text-[#1a1a1a] md:mt-5 md:font-mono md:text-[32px] md:leading-[1.2] md:tracking-[-0.05em]";
+  "home-card-title mt-2.5 font-[family-name:var(--font-display)] text-[24px] font-[500] not-italic leading-[1.08] tracking-[-0.035em] text-[#1a1a1a] md:mt-5 md:font-mono md:text-[32px] md:leading-[1.2] md:tracking-[-0.05em]";
 const descCls =
-  "mt-2.5 max-w-[560px] text-[13px] leading-[1.5] text-black/55 md:mt-5 md:text-lg md:leading-[1.25] lg:text-[20px]";
+  "home-card-description mt-2.5 max-w-[560px] text-[13px] leading-[1.5] text-black/55 md:mt-5 md:text-lg md:leading-[1.25] lg:text-[20px]";
 
 export default function WebsiteGaps() {
   return (
@@ -88,7 +88,7 @@ export default function WebsiteGaps() {
             Why This Exists
           </p>
           <h2
-            className="mx-auto mt-5 max-w-[1120px] text-[32px] font-[650] leading-[1.02] tracking-[-0.04em] text-[#1a1a1a] md:mt-9 md:text-7xl md:font-[700] md:leading-[0.98] md:tracking-[-0.03em] lg:text-[80px]"
+            className="home-display-title mx-auto mt-5 max-w-[1120px] text-[32px] font-[650] leading-[1.02] tracking-[-0.04em] text-[#1a1a1a] md:mt-9 md:text-7xl md:font-[700] md:leading-[0.98] md:tracking-[-0.03em] lg:text-[80px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Most websites die in the gaps between people.
