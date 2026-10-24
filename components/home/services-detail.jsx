@@ -7,7 +7,7 @@ import ServicePanel from "./service-panel";
 
 const SERVICES = [
   {
-    price: "$2,500",
+    price: "$1,500",
     title: "Brand Identity",
     description:
       "For brands that look inconsistent, unclear, or too close to everyone else in the market.",
