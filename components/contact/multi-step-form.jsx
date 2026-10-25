@@ -361,7 +361,7 @@ export default function MultiStepContactForm() {
                     className="text-[11px] font-[700] uppercase tracking-[0.14em] text-black/40"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
-                    01 — The essentials
+                    01: The essentials
                   </p>
                   <h2
                     className="mt-4 text-[clamp(34px,4.4vw,64px)] font-[500] leading-[0.98] tracking-[-0.05em] text-[#171717]"
@@ -441,7 +441,7 @@ export default function MultiStepContactForm() {
                     className="text-[11px] font-[700] uppercase tracking-[0.14em] text-black/40"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
-                    02 — Project signal
+                    02: Project signal
                   </p>
                   <h2
                     className="mt-4 text-[clamp(34px,4vw,58px)] font-[500] leading-[0.99] tracking-[-0.05em]"
@@ -622,7 +622,7 @@ export default function MultiStepContactForm() {
                   className="mt-9 text-[11px] font-[700] uppercase tracking-[0.14em] text-primary"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
-                  Received — 03 / 03
+                  Received: 03 / 03
                 </p>
                 <h2
                   className="mt-4 text-[clamp(38px,4.5vw,66px)] font-[500] leading-[0.97] tracking-[-0.05em]"

@@ -32,7 +32,7 @@ const services = [
 
 const title = "Shopify, Web Design & Development Services";
 const description =
-  "Explore Nymbor's brand identity, interface design, Shopify, and web development services—connected from strategy and design through launch.";
+  "Explore Nymbor's brand identity, interface design, Shopify, and web development services, connected from strategy and design through launch.";
 
 export const metadata = createPageMetadata({
   title,

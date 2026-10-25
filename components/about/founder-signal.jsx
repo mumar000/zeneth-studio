@@ -232,7 +232,7 @@ export default function FounderSignal() {
                   5,
                 )}{" "}
                 {renderAnimatedText(
-                  "who believes most brands don't need more noise—they need clarity, restraint, and better decisions.",
+                  "who believes most brands don't need more noise. They need clarity, restraint, and better decisions.",
                   founderWordsRef,
                   false,
                   7,

@@ -13,7 +13,7 @@ const homeMetadata = createPageMetadata({
   socialDescription: siteConfig.socialDescription,
   path: "/",
   eyebrow: "Brand identity · Interface design · Web development",
-  imageAlt: "Nymbor — brand identity, web design, and development studio",
+  imageAlt: "Nymbor, brand identity, web design, and development studio",
   absoluteTitle: true,
 });
 
