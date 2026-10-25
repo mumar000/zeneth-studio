@@ -15,23 +15,12 @@ export default function Closing() {
       className="relative isolate overflow-hidden bg-[#f6f4ef] px-5 py-20 text-[#222] sm:px-8 sm:py-24 2xl:aspect-[1920/649] 2xl:px-0 2xl:py-0"
       style={{ fontFamily: '"Helvetica Now Display", "Helvetica Neue", sans-serif' }}
     >
-      <motion.p
-        initial={reducedMotion ? false : { opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.7, ease }}
-        className="text-[14px] uppercase leading-[1.2] tracking-[0.03em] text-black/60 2xl:absolute 2xl:left-[6.042vw] 2xl:top-[6.719vw]"
-      >
-        Designed and developed by
-        <span className="mt-2 block text-[24px] leading-[1.2] text-[#222]">Asad Rizvi</span>
-      </motion.p>
-
       <motion.div
         initial={reducedMotion ? false : { opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.45 }}
         transition={{ duration: 0.8, delay: 0.08, ease }}
-        className="mt-16 max-w-[900px] 2xl:absolute 2xl:left-[35.26vw] 2xl:top-[6.719vw] 2xl:mt-0 2xl:w-[59.479vw]"
+        className="max-w-[900px] 2xl:absolute 2xl:left-[35.26vw] 2xl:top-[6.719vw] 2xl:w-[59.479vw]"
       >
         <p className="inline-flex rounded-full bg-black/[0.05] px-6 py-5 text-[16px] leading-none">Associated Realty Property Management</p>
         <h2 id="arpm-closing-heading" className="mt-7 max-w-[845px] text-[clamp(42px,5.4vw,64px)] leading-[1.3] 2xl:mt-[1.563vw] 2xl:text-[3.333vw]">

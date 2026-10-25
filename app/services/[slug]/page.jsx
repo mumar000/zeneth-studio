@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import BrandIdentityPage from "@/components/services/brand-identity/brand-identity-page";
 import InterfaceDesignPage from "@/components/services/interface-design/interface-design-page";
 import WebDevelopmentPage from "@/components/services/web-development/web-development-page";
 import JsonLd from "@/components/seo/json-ld";
@@ -15,7 +14,6 @@ import {
 } from "@/lib/seo";
 
 const SERVICE_PAGES = {
-  "brand-identity": BrandIdentityPage,
   "interface-design": InterfaceDesignPage,
   "web-development": WebDevelopmentPage,
 };
@@ -23,7 +21,7 @@ const SERVICE_PAGES = {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return serviceSlugs.map((slug) => ({ slug }));
+  return serviceSlugs.filter((slug) => slug !== "brand-identity").map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {

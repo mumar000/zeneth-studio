@@ -11,7 +11,7 @@ export default function SpreadshopHero() {
   return (
     <section
       aria-labelledby="spreadshop-case-study-title"
-      className="relative isolate h-[70svh] min-h-[520px] w-full overflow-hidden bg-[#a34225] md:h-auto md:min-h-0"
+      className="relative isolate w-full overflow-hidden bg-[#a34225] pt-24 md:pt-0"
       data-node-id="1:25"
     >
       <h1 id="spreadshop-case-study-title" className="sr-only">
@@ -22,7 +22,7 @@ export default function SpreadshopHero() {
         initial={shouldReduceMotion ? false : { opacity: 0, scale: 1.018 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.15, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute inset-0 md:relative md:aspect-[1920/1258] md:w-full"
+        className="relative aspect-[1920/1258] w-full"
       >
         <Image
           src={HERO_IMAGE}
@@ -31,7 +31,7 @@ export default function SpreadshopHero() {
           priority
           quality={100}
           sizes="100vw"
-          className="object-cover object-[52%_bottom] md:object-bottom"
+          className="object-contain md:object-cover md:object-bottom"
         />
       </motion.div>
     </section>

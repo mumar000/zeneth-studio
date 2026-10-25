@@ -28,23 +28,23 @@ export function preloadCalendly() {
 }
 
 // `prefill` fills the event's first booking question, if it has one.
-function calendarUrl(prefill) {
+function calendarUrl(prefill, bookingUrl) {
   const params = new URLSearchParams({
     hide_gdpr_banner: "1",
-    hide_landing_page_details: "1",
     primary_color: "7221fc",
   });
+  if (bookingUrl === siteConfig.calendarUrl) params.set("hide_landing_page_details", "1");
   if (prefill) params.set("a1", prefill);
-  return `${siteConfig.calendarUrl}?${params}`;
+  return `${bookingUrl}?${params}`;
 }
 
 export const calendarButtonClass =
   "inline-flex min-h-[52px] items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 font-mono text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-[translate,box-shadow,background-color,color] duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-sm";
 
-export default function CalendarEmbed({ prefill = "" }) {
+export default function CalendarEmbed({ prefill = "", bookingUrl = siteConfig.calendarUrl, className = "h-[700px]" }) {
   const holderRef = useRef(null);
   const [failed, setFailed] = useState(false);
-  const url = calendarUrl(prefill);
+  const url = calendarUrl(prefill, bookingUrl);
 
   useEffect(() => {
     const holder = holderRef.current;
@@ -83,7 +83,7 @@ export default function CalendarEmbed({ prefill = "" }) {
     return (
       <div className="flex min-h-[320px] flex-col items-start justify-center gap-4 p-10">
         <p className="text-[18px] text-[#4a4752]">Pick a time that works for you.</p>
-        <a href={siteConfig.calendarUrl} target="_blank" rel="noopener noreferrer" className={calendarButtonClass}>
+        <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className={calendarButtonClass}>
           Open the calendar
         </a>
       </div>
@@ -91,7 +91,7 @@ export default function CalendarEmbed({ prefill = "" }) {
   }
 
   return (
-    <div className="relative h-[700px]">
+    <div className={`relative ${className}`}>
       {/* Placeholder behind the iframe; the widget paints over it once ready. */}
       <div aria-hidden="true" className="absolute inset-0 grid place-items-center">
         <span className="size-8 rounded-full border-[3px] border-primary/20 border-t-primary motion-safe:animate-spin" />
@@ -100,7 +100,7 @@ export default function CalendarEmbed({ prefill = "" }) {
       <noscript>
         <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 bg-white p-10">
           <p className="text-[18px] text-[#4a4752]">Pick a time that works for you.</p>
-          <a href={siteConfig.calendarUrl} className={calendarButtonClass}>
+          <a href={bookingUrl} className={calendarButtonClass}>
             Open the calendar
           </a>
         </div>

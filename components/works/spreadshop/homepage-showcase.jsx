@@ -31,11 +31,11 @@ export default function HomepageShowcase() {
         </div>
 
         <div
-          className="relative z-10 mt-12 grid items-start justify-center gap-8 sm:mt-16 md:grid-cols-[minmax(220px,390px)_minmax(0,870px)] md:gap-10 min-[1340px]:absolute min-[1340px]:left-1/2 min-[1340px]:top-[225px] min-[1340px]:mt-0 min-[1340px]:h-[5345px] min-[1340px]:w-[1343px] min-[1340px]:-translate-x-1/2 min-[1340px]:grid-cols-[390px_870px] min-[1340px]:gap-[83px]"
+          className="relative z-10 mt-12 grid grid-cols-1 items-start gap-8 sm:mt-16 md:justify-center md:grid-cols-[minmax(220px,390px)_minmax(0,870px)] md:gap-10 min-[1340px]:absolute min-[1340px]:left-1/2 min-[1340px]:top-[225px] min-[1340px]:mt-0 min-[1340px]:h-[5345px] min-[1340px]:w-[1343px] min-[1340px]:-translate-x-1/2 min-[1340px]:grid-cols-[390px_870px] min-[1340px]:gap-[83px]"
           data-node-id="10:148"
         >
           <figure
-            className="relative aspect-[390/5345] w-full overflow-hidden rounded-[10px] bg-white"
+            className="relative aspect-[3/4] w-full overflow-hidden rounded-[10px] bg-white md:aspect-[390/5345]"
             data-node-id="10:145"
           >
             <Image
@@ -48,8 +48,12 @@ export default function HomepageShowcase() {
             />
           </figure>
 
+          <a href="/works/spreadshop/homepage-mobile-enhanced.png" target="_blank" rel="noopener noreferrer" className="-mt-5 text-center font-mono text-xs uppercase tracking-[0.08em] text-[#1e1e1e] underline underline-offset-4 md:hidden">
+            View full mobile design ↗
+          </a>
+
           <figure
-            className="relative aspect-[870/5345] w-full overflow-hidden rounded-[10px]"
+            className="relative aspect-[3/4] w-full overflow-hidden rounded-[10px] md:aspect-[870/5345]"
             data-node-id="7:29"
           >
             <Image
@@ -61,6 +65,9 @@ export default function HomepageShowcase() {
               className="object-cover object-top"
             />
           </figure>
+          <a href="/works/spreadshop/homepage-desktop-enhanced.png" target="_blank" rel="noopener noreferrer" className="-mt-5 text-center font-mono text-xs uppercase tracking-[0.08em] text-[#1e1e1e] underline underline-offset-4 md:hidden">
+            View full desktop design ↗
+          </a>
         </div>
       </div>
     </section>

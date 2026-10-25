@@ -175,11 +175,13 @@ export default async function ProjectDetailPage({ params }) {
 
       {project.media.map((block, i) => renderBlock(block, i, project))}
 
-      <ClosingQuote
-        text={project.closingQuote}
-        accent={project.accent}
-        bg={project.bg}
-      />
+      {project.closingQuote && (
+        <ClosingQuote
+          text={project.closingQuote}
+          accent={project.accent}
+          bg={project.bg}
+        />
+      )}
 
       <RelatedServices services={getRelatedServiceSlugs(project.tags)} />
 

@@ -204,17 +204,17 @@ export default function AiAssistant() {
     <section
       ref={sectionRef}
       aria-labelledby="ai-title"
-      className={`group/ai mx-2 overflow-hidden rounded-[clamp(28px,4vw,64px)] bg-[#111] px-4 py-[88px] text-white sm:mx-[clamp(16px,3vw,48px)] sm:px-[clamp(16px,3vw,48px)] md:py-[clamp(96px,10vw,160px)]`}
+      className={`group/ai mx-2 overflow-hidden rounded-[clamp(28px,4vw,64px)] bg-[#111] px-3 py-16 text-white sm:mx-[clamp(16px,3vw,48px)] sm:px-[clamp(16px,3vw,48px)] md:py-[clamp(96px,10vw,160px)]`}
     >
       <div className="mx-auto max-w-[1680px]">
-        <div className="mx-auto max-w-[680px] text-center">
+        <div className="mx-auto max-w-[680px] text-left md:text-center">
           <span className="mb-[22px] block font-mono text-xs font-[700] uppercase leading-none tracking-[0.16em] text-[#b794ff]">
             Your brand, inside your AI
           </span>
-          <h2 id="ai-title" className="text-[clamp(36px,5vw,60px)] font-[700] leading-none tracking-[-0.035em]" style={display}>
+          <h2 id="ai-title" className="text-[34px] font-[700] leading-[1.08] tracking-[-0.035em] md:text-[clamp(36px,5vw,60px)] md:leading-none" style={display}>
             Your brand rules, on autopilot.
           </h2>
-          <p className="mt-[18px] text-[18px] leading-[1.55] text-[#c9c4d1]">
+          <p className="mt-[18px] text-[16px] leading-[1.55] text-[#c9c4d1] md:text-[18px]">
             We set your brand up inside Claude or ChatGPT. Then it knows your logo, colors, fonts and voice.
           </p>
         </div>
