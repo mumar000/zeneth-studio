@@ -3,7 +3,7 @@ import { ProjectsSection } from "./sections/projects";
 import GifSection from "@/components/home/gif-section";
 import Services from "@/components/home/services";
 import Testimonials from "@/components/home/testimonials";
-import BookCall from "@/components/book-call";
+import BookingCta from "@/components/services/brand-identity/booking-cta";
 import JsonLd from "@/components/seo/json-ld";
 import { createPageMetadata, webPageSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -30,7 +30,12 @@ export default function Home() {
         <ProjectsSection />
         <Services />
         <Testimonials />
-        <BookCall />
+        <BookingCta
+          eyebrow="Next slot opening"
+          heading="Work"
+          accent="With Us"
+          description="Book an intro call to walk through your project. We take a limited number of projects each month."
+        />
       </div>
     </main>
   );

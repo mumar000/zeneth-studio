@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/reveal";
+import { primaryButtonClass } from "./button-styles";
 import { servicesDetailData } from "@/lib/services-detail-data";
 
 const services = [
@@ -170,20 +171,19 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-2.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-black/10 pt-4">
+                  <div className="mt-2.5 flex flex-col items-start gap-4 border-t border-black/10 pt-5">
                     {price && (
                       <span className="text-[16px] font-[700] text-[#1a1a1a]">
                         <span className="font-[400] text-[#4a4752]">Starting at</span> {price}
                       </span>
                     )}
-                    {/* The link's ::after covers the card, so the whole card is clickable. */}
                     <Link
                       href={`/services/${service.slug}`}
                       aria-label={`Explore ${service.title}`}
-                      className="inline-flex min-h-11 items-center gap-1.5 font-mono text-xs font-[700] uppercase tracking-[0.14em] text-[#1a1a1a] after:absolute after:inset-0 after:rounded-[inherit] after:content-[''] focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-inset focus-visible:after:ring-primary group-hover:text-primary"
+                      className={primaryButtonClass}
                     >
                       Explore
-                      <span aria-hidden="true" className={`transition-transform duration-300 ${ease} group-hover:translate-x-1`}>
+                      <span aria-hidden="true">
                         →
                       </span>
                     </Link>
@@ -193,10 +193,6 @@ export default function Services() {
             );
           })}
         </div>
-
-        <Reveal as="p" className="mt-7 text-center text-[15px] text-[#4a4752]">
-          Starting prices. Your final quote depends on the project.
-        </Reveal>
       </div>
     </section>
   );

@@ -33,7 +33,7 @@ export default function RelatedCaseStudies() {
               <div className="mt-4 flex items-start justify-between gap-3">
                 <div>
                   <h3 className="font-display text-[24px] leading-[1.15] tracking-[-0.025em]">{project.title}</h3>
-                  <p className="mt-1 text-[14px] leading-[1.4] text-[#6c6965]">{project.category}</p>
+                  <p className="mt-1 text-[14px] leading-[1.4] text-[#6c6965]">{project.slug === "mogulbay" ? "AI SaaS & Brand Identity" : project.category}</p>
                 </div>
                 <span aria-hidden="true" className="grid size-9 flex-none place-items-center rounded-full border border-black/20 transition-colors group-hover:border-[#ff3d00] group-hover:bg-[#ff3d00] group-hover:text-white">↗</span>
               </div>

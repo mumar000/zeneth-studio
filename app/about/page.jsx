@@ -1,6 +1,6 @@
 import AboutHero from "@/components/about/about-hero";
 import ClientBase from "@/components/about/client-base";
-import BookCall from "@/components/book-call";
+import BookingCta from "@/components/services/brand-identity/booking-cta";
 import { breadcrumbSchema, createPageMetadata, webPageSchema } from "@/lib/seo";
 import JsonLd from "@/components/seo/json-ld";
 import { siteConfig } from "@/lib/site-config";
@@ -26,7 +26,12 @@ export default function AboutPage() {
     <main id="main-content" className="overflow-x-clip bg-[#faf7ff] text-[#1a1a1a]">
       <AboutHero />
       <ClientBase />
-      <BookCall />
+      <BookingCta
+        eyebrow="Meet the founder"
+        heading="Let's talk"
+        accent="about your project."
+        description="Book a 30-minute call with Muhammad Umair. Tell us what you're building, and we'll map the next step together."
+      />
     </main>
   </>;
 }

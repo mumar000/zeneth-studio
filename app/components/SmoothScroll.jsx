@@ -62,8 +62,8 @@ export default function SmoothScroll({ children }) {
       if (cancelled) return;
 
       lenisScroll = new Lenis({
-        lerp: 0.12,
-        wheelMultiplier: 1,
+        lerp: 0.3,
+        wheelMultiplier: 1.5,
         infinite: false,
       });
 

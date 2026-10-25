@@ -14,16 +14,16 @@ export default function FeaturedProjectsSection() {
 
   const projects = [
     {
-      name: "Spreadshop",
-      href: "/works/spreadshop",
-      image: "/works/spreadshop/hero.png",
+      name: "ARPM",
+      href: "/works/arpm",
+      image: "/works/arpm/hero/hero-card-2x.png",
       year: "",
-      category: "E-commerce UX",
+      category: "Interface + Development",
       description:
-        "A creator storefront redesigned around discoverability, trust, and conversion.",
+        "A stalled property platform redesigned, rebuilt, and brought live.",
       tags: [
-        { label: "Product Design", tone: "purple" },
-        { label: "E-commerce", tone: "yellow" },
+        { label: "Interface Design", tone: "purple" },
+        { label: "Web Development", tone: "yellow" },
       ],
     },
     {
@@ -40,31 +40,6 @@ export default function FeaturedProjectsSection() {
       ],
     },
     {
-      name: "ARPM",
-      href: "/works/arpm",
-      image: "/works/arpm/hero/hero-card-2x.png",
-      year: "",
-      category: "Interface + Development",
-      description:
-        "A stalled property platform redesigned, rebuilt, and brought live.",
-      tags: [
-        { label: "Interface Design", tone: "purple" },
-        { label: "Web Development", tone: "yellow" },
-      ],
-    },
-    {
-      name: "Mogul Bay",
-      href: "/works/mogulbay",
-      image: "/mogulbay/1.webp",
-      year: "",
-      category: "Brand + Web App",
-      description: "A fintech identity that tracks finances with clarity.",
-      tags: [
-        { label: "Brand Identity", tone: "purple" },
-        { label: "Website + Web App", tone: "yellow" },
-      ],
-    },
-    {
       name: "Let's Grub",
       href: "/works/lets-grub",
       image: "/works/lets-grub/hero/hero-4x.png",
@@ -77,7 +52,7 @@ export default function FeaturedProjectsSection() {
       ],
     },
     {
-      name: "Feroce",
+      name: "Féroce",
       href: "/works/feroce",
       image: "/feroce/branding-feroce-page-0001-1.webp",
       year: "",
@@ -86,6 +61,18 @@ export default function FeaturedProjectsSection() {
       tags: [
         { label: "Brand Identity", tone: "purple" },
         { label: "Art Direction", tone: "yellow" },
+      ],
+    },
+    {
+      name: "Mogul Bay",
+      href: "/works/mogulbay",
+      image: "/mogulbay/1.webp",
+      year: "",
+      category: "AI SaaS + Brand Identity",
+      description: "A fintech identity that tracks finances with clarity.",
+      tags: [
+        { label: "Brand Identity", tone: "purple" },
+        { label: "AI SaaS", tone: "yellow" },
       ],
     },
     // {
@@ -146,7 +133,7 @@ export default function FeaturedProjectsSection() {
             pin: stickyContainer,
             pinSpacing: false,
             anticipatePin: 1,
-            scrub: 0.8,
+            scrub: true,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               const nextIndex = Math.min(
@@ -287,7 +274,7 @@ export default function FeaturedProjectsSection() {
       <section
         ref={projectsSectionRef}
         className="relative z-50 hidden md:block"
-        style={{ height: `${projects.length * 100}vh` }}
+        style={{ height: `${100 + (projects.length - 1) * 60}vh` }}
       >
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full opacity-40 blur-[150px] pointer-events-none" />
       <div className="absolute bottom-0 left-0  w-[600px] h-[600px] bg-primary/15 rounded-full opacity-30 blur-[150px] pointer-events-none" />
@@ -335,9 +322,10 @@ export default function FeaturedProjectsSection() {
                       (hoveredIndex === null && activeIndex === realIndex);
 
                     return (
-                      <div
+                      <Link
+                        href={project.href}
                         key={index}
-                        className="projects-text-row group flex h-[10vh] min-w-0 shrink-0 cursor-pointer"
+                        className="projects-text-row group flex h-[10vh] min-w-0 shrink-0 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
                         onMouseEnter={() => setHoveredIndex(realIndex)}
                         onMouseLeave={() => setHoveredIndex(null)}
                       >
@@ -375,7 +363,7 @@ export default function FeaturedProjectsSection() {
                             </span>
                           ))}
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
@@ -407,11 +395,15 @@ export default function FeaturedProjectsSection() {
                   const isActive = hoveredIndex === index;
 
                   return (
-                    <div
+                    <Link
+                      href={project.href}
                       key={project.name}
-                      className="group relative h-[calc(82dvh-1.5rem)] w-full shrink-0 cursor-pointer overflow-hidden rounded-xl border border-white/10 shadow-2xl sm:h-[calc(82dvh-2rem)] sm:rounded-2xl md:h-[calc(82dvh-4rem)]"
+                      aria-label={`View ${project.name} case study`}
+                      className="group relative block h-[calc(82dvh-1.5rem)] w-full shrink-0 overflow-hidden rounded-xl border border-white/10 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary sm:h-[calc(82dvh-2rem)] sm:rounded-2xl md:h-[calc(82dvh-4rem)]"
                       onMouseEnter={() => setHoveredIndex(index)}
                       onMouseLeave={() => setHoveredIndex(null)}
+                      onFocus={() => setHoveredIndex(index)}
+                      onBlur={() => setHoveredIndex(null)}
                     >
                       <div
                         className={`relative w-full h-full transition-transform duration-700 ease-out ${
@@ -498,7 +490,7 @@ export default function FeaturedProjectsSection() {
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>

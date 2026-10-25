@@ -1,50 +1,36 @@
-import Link from "next/link";
+"use client";
+
 import HeroLogoMarquee from "./hero-logo-marquee";
-import { siteConfig } from "@/lib/site-config";
+import { primaryButtonClass } from "./button-styles";
+import { scrollToBook } from "@/lib/scroll-to-book";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-4 py-24 text-center sm:px-6 md:min-h-screen md:px-8">
       <div className="mx-auto w-full max-w-5xl">
-        <p
-          className="mb-5 text-[10px] font-[700] uppercase tracking-[0.16em] text-primary sm:text-xs"
-          style={{ fontFamily: "var(--font-mono)" }}
-        >
-          Nymbor — Independent Creative Studio
-        </p>
         <h1
-          className="home-hero-title text-[2.75rem] font-[700] leading-[1.02] tracking-[-0.03em] text-[#1a1a1a] md:text-5xl lg:text-[5.5rem] 2xl:text-[5.8rem]"
+          className="home-hero-title mx-auto max-w-[1000px] font-[700] leading-[0.98] tracking-[-0.04em] text-[#1a1a1a]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Your <span className="text-primary">brand</span> and website{" "}
-          <br className="hidden md:block" />
-          finally working as <span className="text-primary">one.</span>
+          Your <span className="text-primary">brand</span> and website finally working as <span className="text-primary">one.</span>
         </h1>
 
         <p
-          className="home-hero-description mx-auto mt-6 text-base font-[400] text-neutral-700 md:mt-8 md:max-w-lg md:text-md lg:text-lg lg:leading-8 2xl:max-w-3xl 2xl:text-2xl"
+          className="home-hero-description mx-auto mt-7 max-w-[520px] font-[400] leading-[1.5] text-[#4a4752]"
           style={{ fontFamily: "var(--font-sora)" }}
         >
-          Nymbor connects brand identity, interface design, and web development
-          for founders and small teams that want one clear, launch-ready system.
+          We design your brand and build your website. One team, from first sketch to launch.
         </p>
 
-        <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:mt-11 sm:flex-row sm:gap-5">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-sm"
-            style={{ fontFamily: "var(--font-mono)" }}
-          >
-            Start a Project
-          </Link>
+        <div className="mt-9 flex justify-center">
           <a
-            href={siteConfig.calendarUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-white px-7 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] text-black transition-colors duration-200 ease-out hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-sm"
-            style={{ fontFamily: "var(--font-mono)" }}
+            href="#book"
+            onClick={(event) => {
+              if (scrollToBook()) event.preventDefault();
+            }}
+            className={primaryButtonClass}
           >
-            Book a 15-min call
+            Book a 30-min call <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
