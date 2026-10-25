@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1];
+const SHOWREEL_SRC = "/showreel.mp4?v=20261025";
 
 function formatTime(value) {
   if (!Number.isFinite(value)) return "0:00";
@@ -409,7 +410,7 @@ export default function ShowreelSection() {
               onPlay={handleVideoPlay}
               onPause={handleVideoPause}
             >
-              <source src="/showreel.mp4" type="video/mp4" />
+              <source src={SHOWREEL_SRC} type="video/mp4" />
             </video>
 
             {!isFullscreen && (

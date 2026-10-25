@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -11,11 +11,21 @@ import { scrollToBook } from "@/lib/scroll-to-book";
 
 const NAV_ITEMS = [
   { label: "Work", href: "/works" },
-  { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
 ];
 
-const MOBILE_ITEMS = [{ label: "Home", href: "/" }, ...NAV_ITEMS, { label: "Contact", href: "/contact" }];
+const SERVICE_ITEMS = [
+  { label: "Brand Identity", href: "/services/brand-identity" },
+  { label: "Interface Design", href: "/services/interface-design" },
+  { label: "Web Development", href: "/services/web-development" },
+];
+
+const MOBILE_ITEMS = [
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/works" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+];
 
 const isActive = (pathname, href) =>
   href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
@@ -117,7 +127,72 @@ export default function Navbar() {
             </Link>
 
             <div className="hidden items-center gap-0.5 md:flex">
-              {NAV_ITEMS.map(({ label, href }) => {
+              {NAV_ITEMS.slice(0, 1).map(({ label, href }) => {
+                const active = isActive(pathname, href);
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    aria-current={active ? "page" : undefined}
+                    className={`inline-flex min-h-10 items-center rounded-full px-4 text-[14px] font-[500] transition-colors duration-150 hover:bg-[#171717] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
+                      active ? "bg-[#171717] text-white" : "text-[#1a1a1a]"
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
+
+              <div className="group/services relative">
+                <Link
+                  href="/services"
+                  aria-current={isActive(pathname, "/services") ? "page" : undefined}
+                  className={`inline-flex min-h-10 items-center gap-1 rounded-full px-4 text-[14px] font-[500] transition-colors duration-150 hover:bg-[#171717] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
+                    isActive(pathname, "/services")
+                      ? "bg-[#171717] text-white"
+                      : "text-[#1a1a1a]"
+                  }`}
+                >
+                  Services
+                  <ChevronDown
+                    aria-hidden="true"
+                    className="size-3.5 transition-transform duration-200 group-hover/services:rotate-180 group-focus-within/services:rotate-180"
+                    strokeWidth={2}
+                  />
+                </Link>
+
+                <div className="invisible absolute left-1/2 top-full w-[230px] -translate-x-1/2 pt-3 opacity-0 transition-[opacity,visibility,transform] duration-150 group-hover/services:visible group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:opacity-100">
+                  <div className="rounded-2xl border border-black/10 bg-white p-2 shadow-[0_18px_50px_rgba(28,16,48,0.18)]">
+                    {SERVICE_ITEMS.map(({ label, href }) => {
+                      const active = isActive(pathname, href);
+                      return (
+                        <Link
+                          key={href}
+                          href={href}
+                          aria-current={active ? "page" : undefined}
+                          className={`group/item flex min-h-11 items-center justify-between rounded-xl px-3.5 text-[14px] font-[500] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                            active
+                              ? "bg-[#171717] text-white"
+                              : "text-[#1a1a1a] hover:bg-[#f4efff] hover:text-primary"
+                          }`}
+                        >
+                          {label}
+                          <ArrowRight
+                            aria-hidden="true"
+                            className={`size-3.5 transition-transform duration-150 ${
+                              active
+                                ? "opacity-100"
+                                : "-translate-x-1 opacity-0 group-hover/item:translate-x-0 group-hover/item:opacity-100"
+                            }`}
+                          />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+
+              {NAV_ITEMS.slice(1).map(({ label, href }) => {
                 const active = isActive(pathname, href);
                 return (
                   <Link
@@ -181,7 +256,59 @@ export default function Navbar() {
                   className="absolute inset-x-4 top-[80px] max-h-[calc(100svh-96px)] overflow-y-auto rounded-3xl border border-black/10 bg-white p-2 shadow-[0_24px_70px_rgba(0,0,0,0.2)]"
                 >
                   <nav aria-label="Mobile navigation" className="flex flex-col gap-1">
-                    {MOBILE_ITEMS.map(({ label, href }) => {
+                    {MOBILE_ITEMS.slice(0, 2).map(({ label, href }) => {
+                      const active = isActive(pathname, href);
+                      return (
+                        <Link
+                          key={href}
+                          href={href}
+                          aria-current={active ? "page" : undefined}
+                          onClick={closeMobileMenu}
+                          className={`group flex min-h-12 items-center justify-between rounded-2xl px-4 text-[15px] font-[500] transition-colors ${
+                            active ? "bg-[#171717] text-white" : "text-[#1a1a1a] hover:bg-black/5"
+                          }`}
+                        >
+                          {label}
+                          <ArrowRight
+                            className={`size-4 transition-all ${
+                              active ? "opacity-100" : "-translate-x-1 opacity-25 group-hover:translate-x-0 group-hover:opacity-100"
+                            }`}
+                          />
+                        </Link>
+                      );
+                    })}
+
+                    <div className="rounded-2xl bg-[#f7f4fb] p-1.5">
+                      <Link
+                        href="/services"
+                        onClick={closeMobileMenu}
+                        className="flex min-h-11 items-center justify-between rounded-xl px-3 text-[12px] font-[700] uppercase tracking-[0.12em] text-black/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                      >
+                        Services
+                        <ArrowRight className="size-3.5" aria-hidden="true" />
+                      </Link>
+                      {SERVICE_ITEMS.map(({ label, href }) => {
+                        const active = isActive(pathname, href);
+                        return (
+                          <Link
+                            key={href}
+                            href={href}
+                            aria-current={active ? "page" : undefined}
+                            onClick={closeMobileMenu}
+                            className={`flex min-h-11 items-center justify-between rounded-xl px-3 text-[14px] font-[500] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                              active
+                                ? "bg-[#171717] text-white"
+                                : "text-[#1a1a1a] hover:bg-white"
+                            }`}
+                          >
+                            {label}
+                            <ArrowRight className="size-3.5 opacity-45" aria-hidden="true" />
+                          </Link>
+                        );
+                      })}
+                    </div>
+
+                    {MOBILE_ITEMS.slice(2).map(({ label, href }) => {
                       const active = isActive(pathname, href);
                       return (
                         <Link

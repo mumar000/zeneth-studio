@@ -34,22 +34,7 @@ export default function CustomCursor({ variant = "default", text = "" }) {
     };
   }, [cursorX, cursorY, isVisible]);
 
-  const cursorVariants = {
-    default: {
-      width: 20,
-      height: 20,
-      backgroundColor: "#000000",
-      mixBlendMode: "normal",
-    },
-    project: {
-      width: 120,
-      height: 120,
-      backgroundColor: "rgba(255, 255, 255, 0.95)",
-      mixBlendMode: "normal",
-    },
-  };
-
-  if (!isVisible) return null;
+  if (!isVisible || variant !== "project") return null;
 
   return (
     <>
@@ -62,8 +47,11 @@ export default function CustomCursor({ variant = "default", text = "" }) {
           translateX: "-50%",
           translateY: "-50%",
         }}
-        animate={variant}
-        variants={cursorVariants}
+        animate={{
+          width: 120,
+          height: 120,
+          backgroundColor: "rgba(255, 255, 255, 0.95)",
+        }}
         transition={{ type: "spring", damping: 20, stiffness: 300 }}
       >
         {variant === "project" && text && (
@@ -79,12 +67,6 @@ export default function CustomCursor({ variant = "default", text = "" }) {
         )}
       </motion.div>
 
-      {/* Hide default cursor */}
-      <style jsx global>{`
-        * {
-          cursor: none !important;
-        }
-      `}</style>
     </>
   );
 }
