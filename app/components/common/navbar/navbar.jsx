@@ -6,7 +6,6 @@ import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { scrollToBook } from "@/lib/scroll-to-book";
 
 const NAV_ITEMS = [
   { label: "Work", href: "/works" },
@@ -89,12 +88,8 @@ export default function Navbar() {
   const shouldShowNavbar = !isWorkDetailPage || hasScrolled;
   const closeMobileMenu = () => setIsMenuOpen(false);
 
-  // "Book a call" scrolls to the page's booking section when there is one,
-  // and goes to the contact page (which holds the calendar) everywhere else.
-  const handleBookClick = (event) => {
-    closeMobileMenu();
-    if (scrollToBook()) event.preventDefault();
-  };
+  // "Book a call" always goes to the contact page, which holds the calendar.
+  const handleBookClick = () => closeMobileMenu();
 
   return (
     <AnimatePresence>
