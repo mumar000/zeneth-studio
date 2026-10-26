@@ -31,6 +31,11 @@ const isActive = (pathname, href) =>
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Desktop Services dropdown. Driven by state (not CSS :hover/:focus-within) so it
+  // closes as soon as a service is picked, even while the link still has focus.
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const servicesButtonRef = useRef(null);
+  const openedByHoverRef = useRef(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
@@ -142,11 +147,41 @@ export default function Navbar() {
                 );
               })}
 
-              <div className="group/services relative">
-                {/* There's no services index page: this only opens the dropdown (hover, focus or tap). */}
+              <div
+                className="relative"
+                onMouseEnter={() => {
+                  openedByHoverRef.current = true;
+                  setIsServicesOpen(true);
+                }}
+                onMouseLeave={() => {
+                  openedByHoverRef.current = false;
+                  setIsServicesOpen(false);
+                }}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) setIsServicesOpen(false);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key !== "Escape" || !isServicesOpen) return;
+                  setIsServicesOpen(false);
+                  servicesButtonRef.current?.focus();
+                }}
+              >
+                {/* There's no services index page: this only opens the dropdown (hover, keyboard or tap). */}
                 <button
+                  ref={servicesButtonRef}
                   type="button"
                   aria-haspopup="true"
+                  aria-expanded={isServicesOpen}
+                  aria-controls="services-menu"
+                  onClick={() => {
+                    // A hover already opened it; the click that follows shouldn't close it again.
+                    if (openedByHoverRef.current) {
+                      openedByHoverRef.current = false;
+                      setIsServicesOpen(true);
+                    } else {
+                      setIsServicesOpen((open) => !open);
+                    }
+                  }}
                   className={`inline-flex min-h-10 items-center gap-1 rounded-full px-4 text-[14px] font-[500] transition-colors duration-150 hover:bg-[#171717] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
                     isActive(pathname, "/services")
                       ? "bg-[#171717] text-white"
@@ -156,12 +191,17 @@ export default function Navbar() {
                   Services
                   <ChevronDown
                     aria-hidden="true"
-                    className="size-3.5 transition-transform duration-200 group-hover/services:rotate-180 group-focus-within/services:rotate-180"
+                    className={`size-3.5 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
                     strokeWidth={2}
                   />
                 </button>
 
-                <div className="invisible absolute left-1/2 top-full w-[230px] -translate-x-1/2 pt-3 opacity-0 transition-[opacity,visibility,transform] duration-150 group-hover/services:visible group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:opacity-100">
+                <div
+                  id="services-menu"
+                  className={`absolute left-1/2 top-full w-[230px] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-150 ${
+                    isServicesOpen ? "visible opacity-100" : "invisible opacity-0"
+                  }`}
+                >
                   <div className="rounded-2xl border border-black/10 bg-white p-2 shadow-[0_18px_50px_rgba(28,16,48,0.18)]">
                     {SERVICE_ITEMS.map(({ label, href }) => {
                       const active = isActive(pathname, href);
@@ -170,6 +210,11 @@ export default function Navbar() {
                           key={href}
                           href={href}
                           aria-current={active ? "page" : undefined}
+                          onClick={(event) => {
+                            openedByHoverRef.current = false;
+                            setIsServicesOpen(false);
+                            event.currentTarget.blur();
+                          }}
                           className={`group/item flex min-h-11 items-center justify-between rounded-xl px-3.5 text-[14px] font-[500] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                             active
                               ? "bg-[#171717] text-white"

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { primaryButtonClass, secondaryButtonClass } from "./type";
+import { primaryButtonClass } from "./type";
 
 export default function ServiceHero({ service }) {
   return (
@@ -32,11 +32,6 @@ export default function ServiceHero({ service }) {
           <Link href="/contact" className={primaryButtonClass}>
             {service.ctaLabel}
           </Link>
-          {service.secondaryCtaLabel && service.secondaryCtaHref && (
-            <Link href={service.secondaryCtaHref} className={secondaryButtonClass}>
-              {service.secondaryCtaLabel}
-            </Link>
-          )}
         </div>
       </motion.div>
     </section>

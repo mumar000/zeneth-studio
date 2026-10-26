@@ -19,9 +19,9 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
+import { SHOWREEL_POSTER, SHOWREEL_SRC } from "@/lib/showreel";
 
 const ease = [0.22, 1, 0.36, 1];
-const SHOWREEL_SRC = "/showreel.mp4?v=20261025";
 
 function formatTime(value) {
   if (!Number.isFinite(value)) return "0:00";
@@ -396,7 +396,7 @@ export default function ShowreelSection() {
               loop
               playsInline
               muted={isMuted}
-              poster={shouldLoadVideo ? "/showreel-poster.webp" : undefined}
+              poster={shouldLoadVideo ? SHOWREEL_POSTER : undefined}
               preload={shouldLoadVideo ? "auto" : "none"}
               aria-label="Nymbor selected work showreel"
               className={`h-full w-full select-none ${
