@@ -2,6 +2,9 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Page Not Found",
+  description: "This page could not be found. Head back to the Nymbor homepage, browse our work, or book a call.",
+  // Don't inherit the homepage's canonical URL.
+  alternates: { canonical: null },
   robots: {
     index: false,
     follow: false,
@@ -11,7 +14,7 @@ export const metadata = {
 const RETURN_LINKS = [
   { href: "/", label: "Home" },
   { href: "/works", label: "View our work" },
-  { href: "/contact", label: "Start a project" },
+  { href: "/contact", label: "Book a call" },
 ];
 
 export default function NotFound() {

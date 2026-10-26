@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { primaryButtonClass, secondaryButtonClass } from "./type";
 
 export default function ServiceHero({ service }) {
   return (
@@ -12,37 +13,27 @@ export default function ServiceHero({ service }) {
         transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
         className="mx-auto flex w-full max-w-[1224px] flex-col items-center"
       >
-        <nav aria-label="Breadcrumb" className="mb-6 text-[11px] text-black/55 md:text-xs">
-          <ol className="flex flex-wrap items-center justify-center gap-2">
-            <li><Link className="rounded-sm underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-primary" href="/">Home</Link></li>
-            <li aria-hidden="true">/</li>
-            <li><Link className="rounded-sm underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-primary" href="/services">Services</Link></li>
-            <li aria-hidden="true">/</li>
-            <li aria-current="page">{service.label}</li>
-          </ol>
-        </nav>
-        <p className="flex items-center gap-3 text-[12px] font-[700] uppercase text-primary md:text-[14px]" style={{ fontFamily: "var(--font-mono)" }}>
+        <p className="flex items-center gap-3 font-mono text-xs font-[700] uppercase leading-none tracking-[0.16em] text-primary">
           <span className="h-1.5 w-1.5 rounded-full bg-primary" />
           {service.eyebrow}
         </p>
-        <h1 className="mt-7 max-w-[1224px] text-[38px] font-[700] leading-[1] tracking-[-0.05em] text-[#202024] sm:text-[46px] md:mt-[43px] md:text-[78px] md:leading-[0.98] md:tracking-[-0.064em] lg:text-[86px]" style={{ fontFamily: "var(--font-display)" }}>
+        <h1 className="mt-7 max-w-[1224px] text-balance text-[clamp(42px,7vw,88px)] font-[700] leading-[0.98] tracking-[-0.04em] text-[#1a1a1a] md:mt-10" style={{ fontFamily: "var(--font-display)" }}>
           {service.headline}
         </h1>
-        <p className="mt-5 max-w-[760px] text-[16px] font-[400] text-[#252528]/75 md:mt-8 md:text-[20px]" style={{ fontFamily: "var(--font-sora)" }}>
+        <p className="mt-6 max-w-[620px] text-[clamp(17px,1.6vw,20px)] leading-[1.5] text-[#4a4752] md:mt-7">
           {service.description}
         </p>
         <p
-          className="mt-4 text-[14px] font-[700] uppercase tracking-[0.08em] text-primary md:mt-5 md:text-[16px]"
-          style={{ fontFamily: "var(--font-mono)" }}
+          className="mt-4 font-mono text-xs font-[700] uppercase tracking-[0.14em] text-primary md:mt-5 md:text-sm"
         >
           Starting at {service.startingPrice}
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-[10px] md:mt-[34px]">
-          <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-[8px] border border-black bg-primary px-5 py-3 text-[11px] font-[700] uppercase tracking-[0.12em] text-white transition-colors duration-200 ease-out hover:bg-[var(--accent-yellow)] hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-[59px] md:px-[28px] md:py-4 md:text-sm md:tracking-[0.14em]" style={{ fontFamily: "var(--font-mono)" }}>
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-4 md:mt-[34px]">
+          <Link href="/contact" className={primaryButtonClass}>
             {service.ctaLabel}
           </Link>
           {service.secondaryCtaLabel && service.secondaryCtaHref && (
-            <Link href={service.secondaryCtaHref} className="inline-flex min-h-12 items-center justify-center rounded-[8px] border border-[#151225] bg-transparent px-5 py-3 text-[11px] font-[700] uppercase tracking-[0.12em] text-[#151225] transition-colors duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 md:min-h-[59px] md:px-[28px] md:py-4 md:text-[13px] md:tracking-[0.16em]" style={{ fontFamily: "var(--font-mono)" }}>
+            <Link href={service.secondaryCtaHref} className={secondaryButtonClass}>
               {service.secondaryCtaLabel}
             </Link>
           )}

@@ -77,7 +77,7 @@ export default function BoardingPassQuote({
 
           {/* Right: stub */}
           <div className="p-8 md:p-10 flex flex-col justify-between gap-6 border-t lg:border-t-0 lg:border-l border-dashed border-black/15">
-            <div className="flex items-center justify-between text-[10px] tracking-[0.2em] font-[600] uppercase text-black">
+            <div className="flex items-center justify-between text-[11px] tracking-[0.2em] font-[600] uppercase text-black">
               <span>
                 # <span className="font-[700]">{code}</span>
               </span>
@@ -94,13 +94,13 @@ export default function BoardingPassQuote({
 
             <div className="flex items-end justify-between text-black">
               <div>
-                <p className="text-[10px] tracking-[0.2em] font-[600] uppercase text-black/50">
+                <p className="text-[11px] tracking-[0.2em] font-[600] uppercase text-black/50">
                   Status
                 </p>
                 <p className="text-sm font-[600]">Verified</p>
               </div>
               <div>
-                <p className="text-[10px] tracking-[0.2em] font-[600] uppercase text-black/50">
+                <p className="text-[11px] tracking-[0.2em] font-[600] uppercase text-black/50">
                   Class
                 </p>
                 <p className="text-sm font-[600]">First</p>

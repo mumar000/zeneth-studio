@@ -183,12 +183,12 @@ export default function FeaturedProjectsSection() {
     <>
       <section className="relative z-10 bg-[#fffcf7] px-4 py-12 md:hidden">
         <div className="mx-auto max-w-xl">
-          <p
-            className="text-[10px] font-[700] uppercase tracking-[0.16em] text-primary"
+          <h2
+            className="text-xs font-[700] uppercase tracking-[0.16em] text-primary"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Featured Projects
-          </p>
+          </h2>
           <div className="mt-6 space-y-5">
             {projects.map((project, index) => (
               <motion.article
@@ -219,7 +219,7 @@ export default function FeaturedProjectsSection() {
                   </div>
                   <div className="p-4 pb-4.5 sm:p-5">
                     <p
-                      className="text-[9px] font-[700] uppercase tracking-[0.14em] text-[#F8E573]"
+                      className="text-[11px] font-[700] uppercase tracking-[0.14em] text-[#6b6470]"
                       style={{ fontFamily: "var(--font-mono)" }}
                     >
                       {project.category}
@@ -236,7 +236,7 @@ export default function FeaturedProjectsSection() {
                       </span>
                     </div>
                     <p
-                      className="mt-3 max-w-[38ch] text-[12.5px] leading-[1.5] text-black/55"
+                      className="mt-3 max-w-[38ch] text-[15px] leading-[1.5] text-black/65"
                       style={{ fontFamily: "var(--font-sora)" }}
                     >
                       {project.description}
@@ -245,7 +245,7 @@ export default function FeaturedProjectsSection() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag.label}
-                          className={`rounded-full border px-2.5 py-1.5 text-[8px] font-[700] uppercase tracking-[0.08em] ${
+                          className={`rounded-full border px-2.5 py-1.5 text-[11px] font-[700] uppercase tracking-[0.08em] ${
                             tag.tone === "yellow"
                               ? "border-black/10 bg-[var(--accent-yellow)]/70 text-black/75"
                               : "border-primary/15 bg-primary/10 text-primary"
@@ -263,7 +263,7 @@ export default function FeaturedProjectsSection() {
           </div>
           <Link
             href="/works"
-            className="mt-8 inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-5 py-3 text-[10px] font-[800] uppercase tracking-[0.12em] text-white shadow-[3px_3px_0_0_#000]"
+            className="mt-8 inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-5 py-3 text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[3px_3px_0_0_#000]"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             View All Projects
@@ -288,12 +288,12 @@ export default function FeaturedProjectsSection() {
             {/* --- LEFT SIDE (TEXT) --- */}
             <div className="relative z-20 hidden h-full min-w-0 flex-col justify-center p-6 md:flex lg:p-10 xl:p-12">
               <div className="absolute top-0 left-0 w-full p-8 lg:p-12 z-40">
-                <p
+                <h2
                   className="text-xs lg:text-sm md:text-xs font-medium uppercase tracking-wider text-primary/80"
                   style={{ fontFamily: "var(--font-sora)" }}
                 >
                   Featured Projects
-                </p>
+                </h2>
               </div>
 
               {/* Keep the text rows aligned with the scrolling project images. */}
@@ -457,7 +457,7 @@ export default function FeaturedProjectsSection() {
                                 {project.tags?.map((tag) => (
                                   <span
                                     key={tag.label}
-                                    className={`rounded-full px-2.5 py-1.5 text-[10px] font-medium uppercase leading-none tracking-wider ${
+                                    className={`rounded-full px-2.5 py-1.5 text-[11px] font-medium uppercase leading-none tracking-wider ${
                                       tag.tone === "yellow"
                                         ? "bg-[var(--accent-yellow)] text-black"
                                         : "bg-primary text-white"

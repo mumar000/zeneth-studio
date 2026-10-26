@@ -47,7 +47,7 @@ export default function FocusedBeforeAfter() {
               src="/works/spreadshop/focused-before.png"
               alt="Spreadshop storefront before the redesign"
               fill
-              quality={100}
+              quality={90}
               sizes="317px"
               className="object-cover"
             />
@@ -66,7 +66,7 @@ export default function FocusedBeforeAfter() {
               src="/works/spreadshop/focused-after.png"
               alt="Spreadshop storefront after the redesign"
               fill
-              quality={100}
+              quality={90}
               sizes="317px"
               className="object-cover"
             />

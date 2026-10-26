@@ -35,12 +35,13 @@ export default function VideoStory({ src, poster, eyebrow, title, accent }) {
           playsInline
           controls
           preload="metadata"
+          aria-label={typeof title === "string" ? title : "Client story video"}
           className="h-full w-full object-cover"
         />
         <div className="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between bg-gradient-to-b from-black/75 via-black/20 to-transparent px-6 pb-20 pt-6 text-white md:px-10 md:pt-9">
           <div>
             <p
-              className="text-[10px] font-[700] uppercase tracking-[0.22em]"
+              className="text-[11px] font-[700] uppercase tracking-[0.22em]"
               style={{ color: accent, fontFamily: "var(--font-mono)" }}
             >
               {eyebrow}

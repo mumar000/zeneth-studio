@@ -28,7 +28,7 @@ export default function TheReality() {
         <motion.p
           {...reveal()}
           className="rounded-full bg-white px-6 py-4 text-center text-[14px] font-[400] uppercase leading-[1.2] tracking-[-0.03em] md:text-[16px]"
-          style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+          style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
           data-node-id="201:62"
         >
           01 The reality
@@ -37,7 +37,7 @@ export default function TheReality() {
         <motion.p
           {...reveal(0.06)}
           className="mt-[49px] text-center text-[clamp(17px,1.25vw,24px)] font-[400] leading-[1.2] tracking-[-0.03em]"
-          style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+          style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
           data-node-id="201:58"
         >
           The brief arrived with a problem, most portfolios quietly hide.
@@ -60,7 +60,7 @@ export default function TheReality() {
         <motion.p
           {...reveal(0.18)}
           className="mt-[64px] rounded-full bg-[#cbac56] px-4 py-2.5 text-center text-[14px] font-[400] leading-[1.2] tracking-[-0.03em] md:text-[16px]"
-          style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+          style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
           data-node-id="201:59"
         >
           Evan Jones (Sapphire Pools)
@@ -93,13 +93,13 @@ export default function TheReality() {
             >
               <dt
                 className="text-[clamp(48px,3.333vw,64px)] font-[400] leading-[1.2] tracking-[-0.03em]"
-                style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+                style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
               >
                 {metric.number}
               </dt>
               <dd
                 className="mt-1 whitespace-nowrap text-[clamp(16px,1.25vw,24px)] font-[400] leading-[1.2] tracking-[-0.03em]"
-                style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+                style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
               >
                 {metric.label}
               </dd>

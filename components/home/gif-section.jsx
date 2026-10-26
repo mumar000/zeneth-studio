@@ -357,13 +357,14 @@ export default function ShowreelSection() {
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
+  // On phones the section takes the video's 16:9 shape, so its burned-in caption isn't cropped.
   return (
     <section
       ref={sectionRef}
       aria-label="Nymbor showreel"
-      className="relative h-[78svh] w-full md:h-[112vh]"
+      className="relative aspect-video w-full md:aspect-auto md:h-[112vh]"
     >
-      <div className="sticky top-0 flex h-[78svh] w-full items-center overflow-hidden bg-black md:block md:h-screen">
+      <div className="sticky top-0 flex h-full w-full items-center overflow-hidden bg-black md:block md:h-screen">
         <motion.div
           className="h-full w-full overflow-hidden bg-black"
           style={{
@@ -452,7 +453,7 @@ export default function ShowreelSection() {
                   event.stopPropagation();
                   openFullscreen();
                 }}
-                className="absolute bottom-4 left-1/2 z-20 inline-flex -translate-x-1/2 items-center gap-2 rounded-full border border-white/20 bg-black/55 px-4 py-3 text-[11px] font-[600] uppercase tracking-[0.1em] text-white backdrop-blur-xl md:hidden"
+                className="absolute right-3 top-3 z-20 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/55 px-4 py-3 text-[11px] font-[600] uppercase tracking-[0.1em] text-white backdrop-blur-xl md:hidden"
               >
                 <Maximize2 className="h-4 w-4" strokeWidth={1.7} />
                 Expand video

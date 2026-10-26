@@ -28,7 +28,7 @@ export default function BookingCta({
         </div>
 
         <div className="mx-auto mt-8 w-full max-w-[1180px] overflow-hidden rounded-[14px] border border-white/15 bg-white shadow-[0_24px_80px_rgba(0,0,0,0.18)] md:mt-10">
-          <CalendarEmbed bookingUrl={bookingUrl} className="h-[760px] md:h-[780px]" />
+          <CalendarEmbed bookingUrl={bookingUrl} className="h-[1040px] md:h-[780px]" />
         </div>
         {children}
       </div>

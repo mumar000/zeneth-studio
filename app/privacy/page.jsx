@@ -1,7 +1,7 @@
 import LegalPage from "@/components/legal/legal-page";
 import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = createPageMetadata({ title: "Privacy Policy", description: "How Nymbor handles website enquiries and contact information.", path: "/privacy" });
+export const metadata = createPageMetadata({ title: "Privacy Policy", description: "How Nymbor collects, uses and protects the information you share when you book a call or email us about a brand, interface or website project.", path: "/privacy" });
 
 export default function PrivacyPage() {
   return <LegalPage title="Privacy Policy" intro="This notice explains how information submitted through the Nymbor website is handled. For questions about your information, contact the studio using the email below." sections={[

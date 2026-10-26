@@ -44,6 +44,8 @@ export const calendarButtonClass =
 export default function CalendarEmbed({ prefill = "", bookingUrl = siteConfig.calendarUrl, className = "h-[700px]" }) {
   const holderRef = useRef(null);
   const [failed, setFailed] = useState(false);
+  // Calendly shows its own loader once the widget starts, so ours steps aside then.
+  const [widgetStarted, setWidgetStarted] = useState(false);
   const url = calendarUrl(prefill, bookingUrl);
 
   useEffect(() => {
@@ -61,6 +63,7 @@ export default function CalendarEmbed({ prefill = "", bookingUrl = siteConfig.ca
           if (cancelled) return;
           holder.replaceChildren();
           Calendly.initInlineWidget({ url, parentElement: holder });
+          setWidgetStarted(true);
         })
         .catch(() => !cancelled && setFailed(true));
     }
@@ -92,10 +95,12 @@ export default function CalendarEmbed({ prefill = "", bookingUrl = siteConfig.ca
 
   return (
     <div className={`relative ${className}`}>
-      {/* Placeholder behind the iframe; the widget paints over it once ready. */}
-      <div aria-hidden="true" className="absolute inset-0 grid place-items-center">
-        <span className="size-8 rounded-full border-[3px] border-primary/20 border-t-primary motion-safe:animate-spin" />
-      </div>
+      {/* Placeholder until the widget starts and shows its own loader. */}
+      {!widgetStarted && (
+        <div aria-hidden="true" className="absolute inset-0 grid place-items-center">
+          <span className="size-8 rounded-full border-[3px] border-primary/20 border-t-primary motion-safe:animate-spin" />
+        </div>
+      )}
       <div ref={holderRef} className="relative h-full [&_iframe]:h-full" />
       <noscript>
         <div className="absolute inset-0 flex flex-col items-start justify-center gap-4 bg-white p-10">

@@ -115,7 +115,7 @@ export default function DesignDirection() {
             src="/works/arpm/design-direction/ipad-hands-4x.png"
             alt="The modern ARPM leasing experience displayed on an iPad held in two hands"
             fill
-            quality={100}
+            quality={90}
             sizes="(min-width: 1536px) 60.625vw, (min-width: 1024px) 65vw, 125vw"
             className="object-contain"
           />

@@ -56,7 +56,7 @@ export default function ExecutiveDirection() {
               alt="The executive-approved ARPM website direction displayed across the complete Figma presentation"
               width={6944}
               height={1115}
-              quality={100}
+              quality={90}
               sizes="(min-width: 1280px) calc(100vw - 182px), 940px"
               className="h-auto w-full"
               data-node-id="56:3358"
@@ -76,7 +76,7 @@ export default function ExecutiveDirection() {
             alt="Figma design toolbar"
             width={2112}
             height={192}
-            quality={100}
+            quality={90}
             sizes="(min-width: 640px) 528px, calc(100vw - 72px)"
             className="h-auto w-full"
             data-node-id="56:3373"

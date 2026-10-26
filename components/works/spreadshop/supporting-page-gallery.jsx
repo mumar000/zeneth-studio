@@ -47,7 +47,7 @@ export default function SupportingPageGallery() {
             <div className="relative aspect-[3/4] sm:hidden">
               <Image src={page.src} alt={page.alt} fill sizes="100vw" className="object-cover object-top" />
             </div>
-            <Image src={page.src} alt={page.alt} width={page.width} height={page.height} quality={100} sizes="(min-width: 1340px) 450px, (min-width: 640px) 48vw, 100vw" className="hidden h-auto w-full sm:block" />
+            <Image src={page.src} alt={page.alt} width={page.width} height={page.height} quality={90} sizes="(min-width: 1340px) 450px, (min-width: 640px) 48vw, 100vw" className="hidden h-auto w-full sm:block" />
             <a href={page.src} target="_blank" rel="noopener noreferrer" className="block bg-[#f6f6f6] px-4 py-3 text-center font-mono text-xs uppercase tracking-[0.08em] text-[#1e1e1e] underline underline-offset-4 sm:hidden">
               View full page ↗
             </a>

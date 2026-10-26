@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1];
 const serif = '"PP Editorial Old", "Romie Trial", "Times New Roman", serif';
-const sans = '"SF Pro", "Helvetica Neue", sans-serif';
+const sans = '"Helvetica Neue", sans-serif';
 
 const pillars = [
   {

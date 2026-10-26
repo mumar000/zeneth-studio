@@ -29,7 +29,7 @@ export default function SpreadshopHero() {
           alt="Spreadshop storefront redesign displayed on a laptop in an orange studio setting"
           fill
           priority
-          quality={100}
+          quality={90}
           sizes="100vw"
           className="object-contain md:object-cover md:object-bottom"
         />

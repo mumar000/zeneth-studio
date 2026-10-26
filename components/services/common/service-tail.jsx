@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import FaqSection from "@/components/home/faq-section";
 import PortfolioCta from "@/components/home/portfolio-cta";
 import { serviceSeoData } from "@/lib/service-seo-data";
+import { primaryButtonClass } from "./type";
 
 function RelatedWork({ projects }) {
   if (!projects?.length) return null;
@@ -12,14 +13,11 @@ function RelatedWork({ projects }) {
   return (
     <section className="relative z-10 px-5 py-14 md:px-8 md:py-24">
       <div className="mx-auto max-w-[1180px]">
-        <p
-          className="text-[12px] font-[700] uppercase tracking-[0.13em] text-primary"
-          style={{ fontFamily: "var(--font-mono)" }}
-        >
+        <p className="font-mono text-xs font-[700] uppercase leading-none tracking-[0.16em] text-primary">
           Related proof
         </p>
         <h2
-          className="mt-4 max-w-3xl text-[36px] font-[700] leading-[1] tracking-[-0.04em] text-[#202024] md:text-[64px]"
+          className="mt-4 max-w-3xl text-balance text-[34px] font-[700] leading-[1.08] tracking-[-0.035em] text-[#1a1a1a] md:text-[clamp(34px,4.6vw,56px)] md:leading-none"
           style={{ fontFamily: "var(--font-display)" }}
         >
           See the service working in real projects.
@@ -31,22 +29,19 @@ function RelatedWork({ projects }) {
               href={project.href}
               className="group rounded-[16px] border border-black/10 bg-white p-6 shadow-[0_12px_36px_rgba(28,16,48,0.06)] transition-all hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_18px_44px_rgba(28,16,48,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary md:p-8"
             >
-              <span
-                className="text-[11px] font-[700] uppercase tracking-[0.12em] text-primary"
-                style={{ fontFamily: "var(--font-mono)" }}
-              >
+              <span className="font-mono text-xs font-[700] uppercase leading-none tracking-[0.12em] text-primary">
                 Case study
               </span>
               <span
-                className="mt-4 block text-[30px] font-[650] leading-none tracking-[-0.035em] text-[#202024] md:text-[40px]"
+                className="mt-4 block text-[30px] font-[700] leading-none tracking-[-0.03em] text-[#1a1a1a] md:text-[36px]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {project.title}
               </span>
-              <span className="mt-4 block text-[15px] leading-relaxed text-black/60 md:text-[16px]">
+              <span className="mt-4 block text-[15px] leading-[1.55] text-[#4a4752] md:text-[16px]">
                 {project.detail}
               </span>
-              <span className="mt-7 inline-flex text-sm font-[700] text-black transition-colors group-hover:text-primary">
+              <span className="mt-7 inline-flex font-mono text-xs font-[700] uppercase tracking-[0.14em] text-[#1a1a1a] transition-colors group-hover:text-primary">
                 Read case study →
               </span>
             </Link>
@@ -66,8 +61,7 @@ function CustomPortfolioCta({ cta }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-[12px] font-[700] uppercase tracking-[0.13em] text-primary md:text-[15px]"
-          style={{ fontFamily: "var(--font-mono)" }}
+          className="font-mono text-xs font-[700] uppercase leading-none tracking-[0.16em] text-primary"
         >
           {cta.eyebrow}
         </motion.p>
@@ -77,7 +71,7 @@ function CustomPortfolioCta({ cta }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-          className="mt-5 max-w-[1120px] text-[32px] font-[700] leading-[1.06] tracking-[-0.04em] text-[#202024] sm:text-[40px] md:mt-10 md:text-[82px] md:tracking-[-0.045em]"
+          className="mt-5 max-w-[1000px] text-balance text-[34px] font-[700] leading-[1.08] tracking-[-0.035em] text-[#1a1a1a] md:mt-6 md:text-[clamp(34px,4.6vw,56px)] md:leading-none"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {cta.title}
@@ -88,8 +82,7 @@ function CustomPortfolioCta({ cta }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-4 max-w-[760px] text-[15px] text-[#202024]/75 md:mt-7 md:text-[20px]"
-          style={{ fontFamily: "var(--font-sora)" }}
+          className="mt-4 max-w-[760px] text-[16px] leading-[1.55] text-[#4a4752] md:mt-6 md:text-[18px]"
         >
           {cta.description}
         </motion.p>
@@ -101,11 +94,7 @@ function CustomPortfolioCta({ cta }) {
           transition={{ duration: 0.6, delay: 0.22 }}
           className="mt-6 md:mt-9"
         >
-          <Link
-            href={cta.href || "/contact"}
-            className="inline-flex items-center justify-center rounded-[10px] border-2 border-black bg-primary px-7 py-3.5 text-xs font-[700] uppercase tracking-[0.14em] text-white shadow-[5px_5px_0_0_#000] transition-all duration-200 ease-out hover:translate-x-[3px] hover:translate-y-[3px] hover:bg-[var(--accent-yellow)] hover:text-black hover:shadow-[2px_2px_0_0_#000] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:text-sm"
-            style={{ fontFamily: "var(--font-mono)" }}
-          >
+          <Link href={cta.href || "/contact"} className={primaryButtonClass}>
             {cta.label}
           </Link>
         </motion.div>
@@ -127,7 +116,7 @@ export default function ServiceTail({ portfolioCta, serviceSlug, showRelatedWork
           ["interface-design", "Web & UI/UX design"],
           ["web-development", "Web development"],
         ].filter(([slug]) => slug !== serviceSlug).map(([slug, label]) => (
-          <Link key={slug} href={`/services/${slug}`} className="text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">{label}</Link>
+          <Link key={slug} href={`/services/${slug}`} className="inline-flex min-h-11 items-center font-[600] text-primary underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">{label}</Link>
         ))}
       </nav>
       <FaqSection faqs={seo?.faqs} heading={seo?.faqHeading || "Service Questions"} />

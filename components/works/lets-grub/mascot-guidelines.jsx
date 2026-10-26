@@ -72,7 +72,7 @@ export default function MascotGuidelines() {
             alt="Correct Genie usage in the Let's Grub app and a social campaign"
             width={4687}
             height={3000}
-            quality={100}
+            quality={90}
             sizes="(min-width: 1024px) 67vw, 100vw"
             className="h-auto w-full lg:w-[95.1%]"
             data-node-id="204:5565"
@@ -118,7 +118,7 @@ export default function MascotGuidelines() {
               alt="Incorrect replacement of the primary logo with the Genie"
               width={1243}
               height={795}
-              quality={100}
+              quality={90}
               sizes="(min-width: 1024px) 22vw, 50vw"
               className="h-auto w-[77%]"
               data-node-id="204:5861"
@@ -141,7 +141,7 @@ export default function MascotGuidelines() {
               alt="Genie illustration shown with an unsuitable crop"
               width={1919}
               height={2007}
-              quality={100}
+              quality={90}
               sizes="(min-width: 1024px) 33vw, 50vw"
               className="h-auto w-[80%]"
               data-node-id="204:6130"
@@ -164,7 +164,7 @@ export default function MascotGuidelines() {
               alt="Distorted Genie illustration demonstrating incorrect usage"
               width={1121}
               height={1514}
-              quality={100}
+              quality={90}
               sizes="(min-width: 1024px) 22vw, 50vw"
               className="h-auto max-h-[94%] w-auto max-w-[78%]"
               data-node-id="204:6000"

@@ -39,7 +39,7 @@ export default function RelatedServices({ services }) {
             <Link
               key={service.href}
               href={service.href}
-              className="inline-flex min-h-12 items-center rounded-full border-2 border-black bg-white px-5 py-3 text-[11px] font-[800] uppercase tracking-[0.1em] text-black transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+              className="inline-flex min-h-12 items-center rounded-full border-2 border-black bg-white px-5 py-3 text-xs font-[700] uppercase tracking-[0.14em] text-black transition-colors hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               Explore {service.label} →

@@ -5,13 +5,14 @@ import { siteConfig } from "@/lib/site-config";
 
 const navigation = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Work", href: "/works" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
 
 const socialLinks = [
-  { label: "Twitter", href: siteConfig.founder.x },
+  { label: "X", href: siteConfig.founder.x },
   { label: "Instagram", href: siteConfig.socialLinks.instagram },
   { label: "LinkedIn", href: siteConfig.socialLinks.linkedin },
 ];
@@ -33,10 +34,10 @@ export default function Footer() {
         </Link>
 
         <nav aria-label="Footer navigation">
-          <ul className="flex flex-col gap-4 lg:gap-[22px]">
+          <ul className="flex flex-col lg:gap-1.5">
             {navigation.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className={`inline-block text-[22px] font-[500] leading-[1.25] tracking-[-0.035em] transition-colors hover:text-primary lg:text-[26px] ${focusStyle}`}>
+                <Link href={item.href} className={`inline-flex min-h-11 items-center text-[22px] font-[500] leading-[1.25] tracking-[-0.035em] transition-colors hover:text-primary lg:text-[26px] ${focusStyle}`}>
                   {item.label}
                 </Link>
               </li>
@@ -52,12 +53,12 @@ export default function Footer() {
             </span>
             <span className="block">something wonderful</span>
           </Link>
-          <div className="mt-10 flex flex-col gap-1 lg:mt-11">
-            <Link href="/contact" className={`w-fit transition-colors hover:text-primary ${focusStyle}`}>
-              Submit a brief
+          <div className="mt-8 flex flex-col lg:mt-9">
+            <Link href="/contact" className={`flex min-h-11 w-fit items-center transition-colors hover:text-primary ${focusStyle}`}>
+              Book a call
             </Link>
-            <a href={`mailto:${siteConfig.email}`} className={`w-fit max-w-full break-words transition-colors hover:text-primary ${focusStyle}`}>
-              Contact@nymbor.com
+            <a href={`mailto:${siteConfig.email}`} className={`flex min-h-11 w-fit max-w-full items-center break-all transition-colors hover:text-primary ${focusStyle}`}>
+              {siteConfig.email}
             </a>
           </div>
         </div>
@@ -65,16 +66,16 @@ export default function Footer() {
 
       <div className="border-t border-[#eceaec]">
         <div className="mx-auto flex max-w-[1800px] flex-col gap-5 px-5 py-5 font-mono text-[11px] leading-5 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-9">
-          <div className="flex flex-wrap items-center gap-x-2 text-[#b8b5b8]">
+          <div className="flex flex-wrap items-center gap-x-4 text-[#6b6470]">
             <span>Nymbor studio © {new Date().getFullYear()}</span>
-            <Link href="/privacy" className={`transition-colors hover:text-primary ${focusStyle}`}>privacy</Link>
-            <Link href="/terms" className={`transition-colors hover:text-primary ${focusStyle}`}>terms</Link>
+            <Link href="/privacy" className={`inline-flex min-h-11 items-center transition-colors hover:text-primary ${focusStyle}`}>Privacy</Link>
+            <Link href="/terms" className={`inline-flex min-h-11 items-center transition-colors hover:text-primary ${focusStyle}`}>Terms</Link>
           </div>
           <nav aria-label="Social profiles" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[#272327]">
             {socialLinks.map((item, index) => (
               <span key={item.label} className="inline-flex items-center gap-5">
                 {index > 0 && <span aria-hidden="true" className="text-[17px] leading-none text-primary">✳</span>}
-                <a href={item.href} target="_blank" rel="noopener noreferrer" className={`transition-colors hover:text-primary ${focusStyle}`}>
+                <a href={item.href} target="_blank" rel="noopener noreferrer" className={`inline-flex min-h-11 items-center transition-colors hover:text-primary ${focusStyle}`}>
                   {item.label}
                 </a>
               </span>

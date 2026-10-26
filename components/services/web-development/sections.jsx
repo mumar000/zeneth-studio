@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Code2, Radio } from "lucide-react";
 import SectionIntro from "@/components/services/common/section-intro";
+import { primaryButtonClass, secondaryButtonClass } from "@/components/services/common/type";
 
 export function BuildPreview({ preview }) {
   return (
@@ -56,10 +57,10 @@ export function DiagnosticProtocolSection({ section }) {
                 <div className="flex items-start gap-5">
                   <span className="mt-0.5 text-primary">✺</span>
                   <div>
-                    <h3 className="text-[16px] font-[500] leading-[1.1] tracking-[-0.04em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>
+                    <h3 className="text-[20px] font-[700] leading-[1.15] tracking-[-0.02em] text-primary md:text-[22px]" style={{ fontFamily: "var(--font-display)" }}>
                       {row.problem}
                     </h3>
-                    <p className="mt-5 max-w-[445px] text-[16px] leading-[1.45] tracking-[0.02em] text-[#12102d]/60" style={{ fontFamily: "var(--font-display)" }}>
+                    <p className="mt-5 max-w-[445px] text-[15px] leading-[1.55] text-[#4a4752] md:text-[16px]">
                       {row.detail}
                     </p>
                   </div>
@@ -70,10 +71,10 @@ export function DiagnosticProtocolSection({ section }) {
                 <div className="flex items-start gap-4">
                   <span className="mt-0.5 text-primary">✺</span>
                   <div>
-                    <h3 className="text-[16px] font-[500] uppercase leading-[1.1] tracking-[-0.04em] text-primary" style={{ fontFamily: "var(--font-mono)" }}>
+                    <h3 className="font-mono text-xs font-[700] uppercase leading-none tracking-[0.12em] text-primary">
                       The Nymbor Fix:
                     </h3>
-                    <p className="mt-5 max-w-[445px] text-[16px] leading-[1.45] tracking-[0.02em] text-[#12102d]/60" style={{ fontFamily: "var(--font-display)" }}>
+                    <p className="mt-5 max-w-[445px] text-[15px] leading-[1.55] text-[#4a4752] md:text-[16px]">
                       {row.fix}
                     </p>
                   </div>
@@ -96,17 +97,17 @@ function ProtocolPanel({ title, stats }) {
 
   return (
     <div className="mt-auto rounded-[12px] bg-black p-6 text-white md:p-8">
-      <p className="text-[14px] uppercase tracking-[-0.03em] md:text-[16px]" style={{ fontFamily: "var(--font-display)" }}>
+      <p className="font-mono text-xs font-[700] uppercase leading-none tracking-[0.12em]">
         {title || "Build Protocol"}
       </p>
       <div className="mt-4 h-px bg-white/35" />
       <div className={`mt-4 grid gap-3 ${stats.length === 2 ? "md:grid-cols-2" : stats.length > 2 ? "md:grid-cols-3" : ""}`}>
         {stats.map((stat) => (
           <div key={stat.title} className="rounded-[8px] bg-white/10 px-5 py-4 md:px-6 md:py-5">
-            <p className="text-[12px] uppercase text-white/55 md:text-[14px]" style={{ fontFamily: "var(--font-display)" }}>
+            <p className="font-mono text-[11px] font-[700] uppercase leading-none tracking-[0.12em] text-white/55">
               {stat.label}
             </p>
-            <p className="mt-1 text-[20px] leading-none tracking-[-0.04em] md:text-[24px]" style={{ fontFamily: "var(--font-display)" }}>
+            <p className="mt-2 text-[20px] font-[700] leading-tight tracking-[-0.02em] md:text-[22px]" style={{ fontFamily: "var(--font-display)" }}>
               {stat.title}
             </p>
           </div>
@@ -126,11 +127,11 @@ function BuildCard({ card, index }) {
       className={`flex min-h-[390px] flex-col rounded-[15px] bg-white p-6 md:min-h-[520px] md:p-[54px] ${card.className}`}
     >
       <div className="flex items-start justify-between gap-6">
-        <span className="rounded-[7px] border border-black bg-[#f9f4ff] px-4 py-2 text-[13px] tracking-[-0.03em] md:text-[14px]" style={{ fontFamily: "var(--font-mono)" }}>
+        <span className="rounded-[7px] border border-black bg-[#f9f4ff] px-4 py-2 font-mono text-xs font-[700] uppercase leading-none tracking-[0.12em]">
           {card.badge}
         </span>
         {card.meta && (
-          <span className="pt-2 text-right text-[13px] uppercase tracking-[0.08em] text-black/45 md:text-[16px]" style={{ fontFamily: "var(--font-mono)" }}>
+          <span className="pt-2 text-right font-mono text-xs font-[700] uppercase tracking-[0.12em] text-[#4a4752]">
             {card.meta}
           </span>
         )}
@@ -146,7 +147,7 @@ function BuildCard({ card, index }) {
               height={card.logoHeight || 72}
               className="h-auto w-[58px] object-contain md:w-[72px]"
             />
-            <h3 className="text-[42px] font-[700] leading-none tracking-[-0.055em] text-[#202020] md:text-[48px]" style={{ fontFamily: "var(--font-display)" }}>
+            <h3 className="text-[clamp(34px,3.6vw,44px)] font-[700] leading-none tracking-[-0.035em] text-[#1a1a1a]" style={{ fontFamily: "var(--font-display)" }}>
               {card.title}
             </h3>
           </div>
@@ -159,22 +160,22 @@ function BuildCard({ card, index }) {
             className={card.logoClassName || "h-auto max-h-[108px] w-auto max-w-full object-contain"}
           />
         ) : (
-          <h3 className="max-w-[500px] text-[42px] font-[700] leading-[1.05] tracking-[-0.055em] text-[#202020] md:text-[48px]" style={{ fontFamily: "var(--font-display)" }}>
+          <h3 className="max-w-[500px] text-[clamp(34px,3.6vw,44px)] font-[700] leading-[1.05] tracking-[-0.035em] text-[#1a1a1a]" style={{ fontFamily: "var(--font-display)" }}>
             {card.title}
           </h3>
         )}
       </div>
 
-      <p className="mt-8 max-w-[650px] text-[18px] leading-[1.45] tracking-[-0.045em] text-black md:text-[20px]" style={{ fontFamily: "var(--font-sora)" }}>
+      <p className="mt-8 max-w-[650px] text-[16px] leading-[1.55] text-[#4a4752] md:text-[18px]">
         {card.description}
       </p>
 
       {card.stats ? (
         <ProtocolPanel title={card.protocolTitle} stats={card.stats} />
       ) : (
-        <div className="mt-auto flex items-center justify-between gap-5 border-t border-black/15 pt-4 text-[14px] tracking-[-0.04em] md:text-[16px]">
-          <span className="font-[600] uppercase text-primary" style={{ fontFamily: "var(--font-sora)" }}>{card.footerLeft}</span>
-          <span className="text-right text-black/55" style={{ fontFamily: "var(--font-sora)" }}>{card.footerRight}</span>
+        <div className="mt-auto flex items-center justify-between gap-5 border-t border-black/15 pt-4">
+          <span className="font-mono text-xs font-[700] uppercase tracking-[0.12em] text-primary">{card.footerLeft}</span>
+          <span className="text-right text-[14px] text-[#4a4752] md:text-[15px]">{card.footerRight}</span>
         </div>
       )}
     </motion.article>
@@ -206,13 +207,13 @@ export function SystemSynthesisSection({ section }) {
     <section className="bg-[#f9f4ff] px-5 py-12 md:px-8 md:py-16">
       <div className="mx-auto grid max-w-[1792px] gap-7 rounded-[16px] bg-[#050505] px-5 py-8 text-white md:gap-10 md:px-[74px] md:py-[76px] lg:grid-cols-[0.92fr_1.58fr] lg:items-center">
         <div>
-          <p className="text-[15px] font-[700] uppercase tracking-[0.08em] text-white" style={{ fontFamily: "var(--font-mono)" }}>
+          <p className="font-mono text-xs font-[700] uppercase leading-none tracking-[0.16em] text-white/75">
             {section.eyebrow}
           </p>
-          <h2 className="mt-7 max-w-[620px] text-[34px] font-[700] leading-[1.02] tracking-[-0.055em] md:text-[40px]" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="mt-7 max-w-[620px] text-balance text-[34px] font-[700] leading-[1.08] tracking-[-0.035em] md:text-[clamp(34px,3.4vw,44px)] md:leading-[1.02]" style={{ fontFamily: "var(--font-display)" }}>
             {section.title}
           </h2>
-          <p className="mt-6 max-w-[640px] text-[16px] leading-[1.55] tracking-[-0.035em] text-white/86" style={{ fontFamily: "var(--font-sora)" }}>
+          <p className="mt-6 max-w-[640px] text-[16px] leading-[1.6] text-white/80 md:text-[18px]">
             {section.description}
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -220,10 +221,7 @@ export function SystemSynthesisSection({ section }) {
               <Link
                 key={action.label}
                 href={action.href}
-                className={`inline-flex min-h-[58px] items-center justify-center rounded-[8px] border border-black px-7 text-[14px] font-[800] uppercase tracking-[0.12em] transition-transform hover:-translate-y-0.5 ${
-                  index === 0 ? "bg-primary text-white" : "bg-[var(--accent-yellow)] text-black"
-                }`}
-                style={{ fontFamily: "var(--font-mono)" }}
+                className={index === 0 ? primaryButtonClass : `${secondaryButtonClass} !bg-[var(--accent-yellow)]`}
               >
                 {action.label}
               </Link>
@@ -234,7 +232,7 @@ export function SystemSynthesisSection({ section }) {
           {section.cards.map((card, cardIndex) => (
             <article key={card.title} className="relative min-h-[324px] rounded-[12px] bg-[#171717] px-7 py-8">
               <div className="flex min-h-[48px] items-start justify-between gap-5">
-                <p className="text-[14px] font-[700] uppercase tracking-[0.08em] text-white/55" style={{ fontFamily: "var(--font-mono)" }}>
+                <p className="font-mono text-xs font-[700] uppercase leading-snug tracking-[0.12em] text-white/60">
                   {card.label}
                 </p>
                 {cardIndex === 0 && (
@@ -249,17 +247,16 @@ export function SystemSynthesisSection({ section }) {
                 {cardIndex === 2 && <Radio className="h-10 w-10 text-white" strokeWidth={2.2} />}
               </div>
               <div className="mt-5 h-px bg-white/35" />
-              <h3 className="mt-9 max-w-[235px] text-[25px] font-[700] leading-[0.95] tracking-[-0.055em] text-white md:text-[26px]" style={{ fontFamily: "var(--font-display)" }}>
+              <h3 className="mt-9 max-w-[235px] text-[22px] font-[700] leading-[1.12] tracking-[-0.02em] text-white md:text-[24px]" style={{ fontFamily: "var(--font-display)" }}>
                 {card.title}
               </h3>
               <ul className="mt-12 space-y-2">
                 {card.items.map((item, itemIndex) => (
                   <li
                     key={item}
-                    className={`w-fit rounded-[4px] px-4 py-2 text-[12px] tracking-[0.04em] ${
+                    className={`w-fit rounded-[4px] px-4 py-2 font-mono text-xs font-[700] leading-none tracking-[0.04em] ${
                       itemIndex === 1 ? "bg-[var(--accent-yellow)] text-black" : "bg-primary text-white"
                     }`}
-                    style={{ fontFamily: "var(--font-mono)" }}
                   >
                     - {item}
                   </li>
@@ -293,13 +290,13 @@ export function DevelopmentTimelineSection({ section }) {
               transition={{ duration: 0.65, delay: index * 0.05, ease: [0.25, 1, 0.5, 1] }}
               className="min-h-[260px] rounded-[10px] border border-black bg-white px-6 py-8 md:min-h-[350px] md:px-[56px] md:py-12"
             >
-              <span className="inline-flex rounded-[10px] border border-black bg-[#f9f4ff] px-5 py-4 text-[14px] uppercase tracking-[-0.03em]" style={{ fontFamily: "var(--font-mono)" }}>
+              <span className="inline-flex rounded-[10px] border border-black bg-[#f9f4ff] px-5 py-4 font-mono text-xs font-[700] uppercase leading-none tracking-[0.12em]">
                 Stage {step.number}
               </span>
-              <h3 className="mt-20 text-[30px] font-[700] leading-[1.1] tracking-[-0.04em] text-[#151225] md:text-[36px]" style={{ fontFamily: "var(--font-display)" }}>
+              <h3 className="mt-20 text-[24px] font-[700] leading-[1.12] tracking-[-0.02em] text-[#1a1a1a] md:text-[28px]" style={{ fontFamily: "var(--font-display)" }}>
                 {step.title}
               </h3>
-              <p className="mt-5 max-w-[430px] text-[18px] leading-[1.45] text-[#151225]/75" style={{ fontFamily: "var(--font-sora)" }}>
+              <p className="mt-5 max-w-[430px] text-[15px] leading-[1.55] text-[#4a4752] md:text-[16px]">
                 {step.body}
               </p>
             </motion.article>

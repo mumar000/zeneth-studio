@@ -143,9 +143,10 @@ export default function Navbar() {
               })}
 
               <div className="group/services relative">
-                <Link
-                  href="/services"
-                  aria-current={isActive(pathname, "/services") ? "page" : undefined}
+                {/* There's no services index page: this only opens the dropdown (hover, focus or tap). */}
+                <button
+                  type="button"
+                  aria-haspopup="true"
                   className={`inline-flex min-h-10 items-center gap-1 rounded-full px-4 text-[14px] font-[500] transition-colors duration-150 hover:bg-[#171717] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 ${
                     isActive(pathname, "/services")
                       ? "bg-[#171717] text-white"
@@ -158,7 +159,7 @@ export default function Navbar() {
                     className="size-3.5 transition-transform duration-200 group-hover/services:rotate-180 group-focus-within/services:rotate-180"
                     strokeWidth={2}
                   />
-                </Link>
+                </button>
 
                 <div className="invisible absolute left-1/2 top-full w-[230px] -translate-x-1/2 pt-3 opacity-0 transition-[opacity,visibility,transform] duration-150 group-hover/services:visible group-hover/services:opacity-100 group-focus-within/services:visible group-focus-within/services:opacity-100">
                   <div className="rounded-2xl border border-black/10 bg-white p-2 shadow-[0_18px_50px_rgba(28,16,48,0.18)]">
@@ -276,14 +277,9 @@ export default function Navbar() {
                     })}
 
                     <div className="rounded-2xl bg-[#f7f4fb] p-1.5">
-                      <Link
-                        href="/services"
-                        onClick={closeMobileMenu}
-                        className="flex min-h-11 items-center justify-between rounded-xl px-3 text-[12px] font-[700] uppercase tracking-[0.12em] text-black/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-                      >
+                      <span className="flex min-h-11 items-center px-3 text-[12px] font-[700] uppercase tracking-[0.12em] text-black/55">
                         Services
-                        <ArrowRight className="size-3.5" aria-hidden="true" />
-                      </Link>
+                      </span>
                       {SERVICE_ITEMS.map(({ label, href }) => {
                         const active = isActive(pathname, href);
                         return (

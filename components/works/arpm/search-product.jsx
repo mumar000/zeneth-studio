@@ -15,7 +15,7 @@ function SearchVisual({ src, alt, caption, reducedMotion, className = "" }) {
       className={`overflow-hidden rounded-[15px] ${className}`}
     >
       <div className="relative aspect-[709/668] overflow-hidden rounded-[15px]">
-        <Image src={src} alt={alt} fill quality={100} sizes="(min-width: 1536px) 36.927vw, 709px" className="object-cover" />
+        <Image src={src} alt={alt} fill quality={90} sizes="(min-width: 1536px) 36.927vw, 709px" className="object-cover" />
       </div>
       <figcaption className="flex min-h-[91px] items-center bg-white px-7 py-4 text-[16px] font-[400] leading-[1.4] text-black sm:text-[20px] 2xl:px-[2.24vw] 2xl:text-[1.042vw]">
         {caption}

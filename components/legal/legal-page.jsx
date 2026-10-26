@@ -5,11 +5,11 @@ export default function LegalPage({ title, intro, sections }) {
     <main id="main-content" className="px-5 pb-20 pt-36 sm:px-8 md:pb-28 md:pt-44">
       <article className="mx-auto max-w-3xl">
         <p className="text-xs font-[700] uppercase tracking-widest text-primary">Nymbor · Updated October 11, 2026</p>
-        <h1 className="mt-5 text-4xl font-[700] tracking-tight sm:text-6xl">{title}</h1>
+        <h1 className="mt-5 text-4xl font-[700] tracking-[-0.035em] sm:text-6xl" style={{ fontFamily: "var(--font-display)" }}>{title}</h1>
         <p className="mt-7 text-lg leading-relaxed text-neutral-700">{intro}</p>
         {sections.map(({ heading, body }) => (
           <section key={heading} className="mt-10">
-            <h2 className="text-2xl font-[600] tracking-tight">{heading}</h2>
+            <h2 className="text-2xl font-[700] tracking-[-0.02em]" style={{ fontFamily: "var(--font-display)" }}>{heading}</h2>
             <div className="mt-3 leading-7 text-neutral-700">{body}</div>
           </section>
         ))}

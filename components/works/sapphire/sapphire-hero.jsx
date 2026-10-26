@@ -37,7 +37,7 @@ export default function SapphireHero() {
           alt="A tranquil outdoor swimming pool surrounded by mature trees"
           fill
           priority
-          quality={82}
+          quality={75}
           sizes="100vw"
           className="object-cover object-[58%_center] md:object-center"
           data-node-id="201:46"
@@ -51,7 +51,7 @@ export default function SapphireHero() {
 
       <motion.p
         className="relative z-10 max-w-[calc(100%-40px)] px-5 pt-7 text-[12px] font-[400] leading-[1.35] tracking-[-0.02em] text-white md:absolute md:left-[clamp(24px,4.635vw,89px)] md:top-[clamp(30px,6.17vw,67px)] md:max-w-[calc(100%-48px)] md:p-0 md:text-[clamp(13px,1.25vw,24px)] md:leading-[1.2] md:tracking-[-0.03em]"
-        style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+        style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
         initial={shouldReduceMotion ? false : { opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, delay: 0.16, ease: heroEase }}
@@ -80,7 +80,7 @@ export default function SapphireHero() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-12">
           <motion.p
             className="max-w-[414px] text-[14px] font-[400] leading-[1.45] tracking-[-0.015em] text-white/85 md:text-[clamp(15px,1.042vw,20px)] md:leading-[1.2] md:tracking-[-0.03em] md:text-white"
-            style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+            style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
             initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.62, ease: heroEase }}
@@ -116,9 +116,9 @@ export default function SapphireHero() {
                 data-node-id={fact.nodeId}
               >
                 <dt
-                  className="mb-1 text-[9px] font-[500] uppercase leading-[1.2] tracking-[0.08em] text-white/50 md:text-[clamp(12px,0.833vw,16px)] md:font-[400] md:tracking-[-0.03em] md:text-white/60"
+                  className="mb-1 text-[11px] font-[500] uppercase leading-[1.2] tracking-[0.08em] text-white/50 md:text-[clamp(12px,0.833vw,16px)] md:font-[400] md:tracking-[-0.03em] md:text-white/60"
                   style={{
-                    fontFamily: '"SF Pro", "Helvetica Neue", sans-serif',
+                    fontFamily: '"Helvetica Neue", sans-serif',
                   }}
                 >
                   {fact.label}
@@ -126,7 +126,7 @@ export default function SapphireHero() {
                 <dd
                   className="text-[12px] font-[400] leading-[1.3] tracking-[-0.02em] text-white md:text-[clamp(13px,0.833vw,16px)] md:leading-[1.2] md:tracking-[-0.03em]"
                   style={{
-                    fontFamily: '"SF Pro", "Helvetica Neue", sans-serif',
+                    fontFamily: '"Helvetica Neue", sans-serif',
                   }}
                 >
                   {fact.value}

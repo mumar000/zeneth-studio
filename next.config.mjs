@@ -4,6 +4,10 @@ const nextConfig = {
     minimumCacheTTL: 604800,
     qualities: [45, 55, 65, 70, 75, 90],
   },
+  // There is no services index page; the homepage "What we do" section covers it.
+  async redirects() {
+    return [{ source: "/services", destination: "/#services", permanent: true }];
+  },
   async headers() {
     return [
       {

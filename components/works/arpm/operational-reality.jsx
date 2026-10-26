@@ -47,7 +47,7 @@ export default function OperationalReality() {
             src="/works/arpm/operational-reality/legacy-top-4x.png"
             alt="The upper portion of ARPM's legacy rentals website"
             fill
-            quality={100}
+            quality={90}
             sizes="(min-width: 1536px) 36.927vw, (min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />
@@ -65,7 +65,7 @@ export default function OperationalReality() {
             src="/works/arpm/operational-reality/legacy-bottom-4x.png"
             alt="The lower listings and operational footer of ARPM's legacy website"
             fill
-            quality={100}
+            quality={90}
             sizes="(min-width: 1536px) 36.927vw, (min-width: 1024px) 50vw, 100vw"
             className="object-cover"
           />

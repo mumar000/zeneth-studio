@@ -89,7 +89,7 @@ export default function ProjectedMetrics() {
                   {metric.label}
                 </p>
                 <p
-                  className="font-mono w-full text-[9px] leading-[13.5px] tracking-[1.98px] text-[rgba(58,58,56,0.6)] uppercase"
+                  className="font-mono w-full text-[11px] leading-[13.5px] tracking-[1.98px] text-[rgba(58,58,56,0.6)] uppercase"
                   data-node-id={metric.projectedNode}
                 >
                   projected

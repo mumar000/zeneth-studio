@@ -66,7 +66,7 @@ export default function Package() {
               <span className="flex-[1_1_200px]">
                 Brand setup in Claude or ChatGPT
               </span>
-              <span className="ml-10 whitespace-nowrap rounded-md bg-primary px-2 py-1.5 font-mono text-[10px] font-[700] leading-none tracking-[0.14em] text-white md:ml-auto">
+              <span className="ml-10 whitespace-nowrap rounded-md bg-primary px-2 py-1.5 font-mono text-[11px] font-[700] leading-none tracking-[0.14em] text-white md:ml-auto">
                 THE TWIST
               </span>
             </Reveal>

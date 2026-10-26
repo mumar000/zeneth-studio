@@ -52,7 +52,7 @@ export default function ProjectCard({
         {/* Image Container - Reduced margin/padding to match the slim border in the image */}
         <div className="relative aspect-[4/5] overflow-hidden rounded-[16px] sm:rounded-[1.8rem]">
           <motion.div
-            className="h-full w-full"
+            className="relative h-full w-full"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
@@ -69,7 +69,7 @@ export default function ProjectCard({
 
         {/* Content Area - Scaled down font and padding */}
         <div className="flex min-h-[48px] items-center justify-between gap-1.5 px-2.5 py-2 transition-colors duration-200 sm:min-h-0 sm:gap-0 sm:px-6 sm:py-4">
-          <h3 className="min-w-0 flex-1 text-[13px] font-medium leading-[1.15] tracking-[-0.025em] text-[#1a1a1a] transition-colors duration-200 group-hover:text-[var(--project-hover-text)] group-focus-within:text-[var(--project-hover-text)] sm:text-2xl sm:leading-normal sm:tracking-tight">
+          <h3 className="min-w-0 flex-1 text-[15px] font-medium leading-[1.15] tracking-[-0.025em] text-[#1a1a1a] transition-colors duration-200 group-hover:text-[var(--project-hover-text)] group-focus-within:text-[var(--project-hover-text)] sm:text-2xl sm:leading-normal sm:tracking-tight">
             {project.title}
           </h3>
 

@@ -87,7 +87,7 @@ export default function TensionPanel() {
             alt="Let's Grub mobile map interface shown inside a phone mockup"
             fill
             unoptimized
-            quality={100}
+            quality={90}
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-fill"
           />

@@ -95,7 +95,7 @@ export default function ImageryDirection() {
                     src={image.src}
                     alt={image.alt}
                     fill
-                    quality={100}
+                    quality={90}
                     sizes="(min-width: 768px) 60vw, 100vw"
                     className="object-cover"
                   />

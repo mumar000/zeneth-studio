@@ -68,7 +68,7 @@ export default function ArpmHero() {
           width={5072}
           height={3084}
           priority
-          quality={100}
+          quality={90}
           sizes="(min-width: 768px) 67vw, 165vw"
           className="h-auto w-full md:h-full"
         />

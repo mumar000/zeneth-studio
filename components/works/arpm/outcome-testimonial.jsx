@@ -18,10 +18,10 @@ export default function OutcomeTestimonial() {
       <div className="relative isolate mx-auto mt-12 aspect-[5/4] w-full max-w-[1200px] 2xl:absolute 2xl:inset-x-0 2xl:bottom-0 2xl:mt-0 2xl:h-[53.22vw] 2xl:max-w-none 2xl:aspect-auto">
         {/* Frame the visible device bounds, excluding the PNG's transparent margins. */}
         <motion.div initial={reducedMotion ? false : { opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.9, ease }} className="absolute bottom-0 right-0 z-10 aspect-[2619/2323] w-[82%] overflow-hidden 2xl:right-[4%] 2xl:w-[60%]">
-          <Image src="/arpm-2.png" alt="ARPM website on a desktop Mac Studio mockup" width={4096} height={3072} quality={100} className="absolute max-w-none" style={{ width: "156.3956%", height: "132.2428%", left: "-28.9042%", top: "-19.0702%" }} sizes="(min-width: 1536px) 94vw, 128vw" />
+          <Image src="/arpm-2.png" alt="ARPM website on a desktop Mac Studio mockup" width={4096} height={3072} quality={90} className="absolute max-w-none" style={{ width: "156.3956%", height: "132.2428%", left: "-28.9042%", top: "-19.0702%" }} sizes="(min-width: 1536px) 94vw, 128vw" />
         </motion.div>
         <motion.div initial={reducedMotion ? false : { opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.8, delay: 0.1, ease }} className="absolute bottom-0 left-0 z-20 aspect-[806/1644] w-[29%] overflow-hidden 2xl:left-[22%] 2xl:w-[20%]">
-          <Image src="/works/arpm/testimonial/phone-transparent.png" alt="ARPM property listing viewed on mobile" width={922} height={1706} quality={100} className="absolute max-w-none" style={{ width: "114.3921%", height: "103.7713%", left: "-6.4516%", top: "-1.9465%" }} sizes="(min-width: 1536px) 23vw, 34vw" />
+          <Image src="/works/arpm/testimonial/phone-transparent.png" alt="ARPM property listing viewed on mobile" width={922} height={1706} quality={90} className="absolute max-w-none" style={{ width: "114.3921%", height: "103.7713%", left: "-6.4516%", top: "-1.9465%" }} sizes="(min-width: 1536px) 23vw, 34vw" />
         </motion.div>
       </div>
     </section>

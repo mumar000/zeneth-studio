@@ -76,7 +76,6 @@ export default async function ServicePage({ params }) {
           }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Services", path: "/services" },
             { name: service.label, path },
           ]),
           faqPageSchema(seo.faqs, path),

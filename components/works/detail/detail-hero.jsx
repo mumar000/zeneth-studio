@@ -58,6 +58,7 @@ export default function DetailHero({ project }) {
               src={hero.image}
               alt={title}
               fill
+              sizes="(min-width: 1024px) 60vw, 100vw"
               className="object-cover"
               priority
             />
@@ -83,7 +84,7 @@ export default function DetailHero({ project }) {
               {tags.map((t) => (
                 <span
                   key={t}
-                  className="px-4 py-1.5 rounded-full border border-black/30 text-[10px] tracking-[0.18em] font-[600] uppercase text-black"
+                  className="px-4 py-1.5 rounded-full border border-black/30 text-[11px] tracking-[0.18em] font-[600] uppercase text-black"
                 >
                   {t}
                 </span>
@@ -124,7 +125,7 @@ export default function DetailHero({ project }) {
             {tags.map((t) => (
               <span
                 key={t}
-                className="px-3 py-1 rounded-full border border-black/30 text-[10px] tracking-[0.18em] font-[600] uppercase text-black"
+                className="px-3 py-1 rounded-full border border-black/30 text-[11px] tracking-[0.18em] font-[600] uppercase text-black"
               >
                 {t}
               </span>
@@ -152,6 +153,7 @@ export default function DetailHero({ project }) {
                 src={hero.image}
                 alt={title}
                 fill
+                sizes="100vw"
                 className="object-cover"
                 priority
               />
@@ -166,7 +168,7 @@ export default function DetailHero({ project }) {
               href={liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-3 bg-black text-white rounded-full px-5 py-2.5 text-[10px] tracking-[0.22em] font-[600] uppercase"
+              className="mt-6 inline-flex items-center gap-3 bg-black text-white rounded-full px-5 py-2.5 text-[11px] tracking-[0.22em] font-[600] uppercase"
             >
               See {title}
               <ArrowRight className="w-4 h-4" strokeWidth={2} />

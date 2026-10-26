@@ -61,7 +61,7 @@ export default function ClientReaction() {
           src="/arpm-1.png"
           alt="The approved ARPM mobile About page displayed in an iPhone mockup"
           fill
-          quality={100}
+          quality={90}
           sizes="(min-width: 1536px) 34.635vw, 430px"
           className="scale-[3.2] object-contain"
         />

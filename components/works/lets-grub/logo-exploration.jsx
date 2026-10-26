@@ -104,7 +104,7 @@ export default function LogoExploration() {
               alt={`Let's Grub logo exploration concept ${index + 1}`}
               width={concept.width}
               height={concept.height}
-              quality={100}
+              quality={90}
               sizes="(min-width: 768px) 48vw, 100vw"
               className="h-auto w-full"
             />

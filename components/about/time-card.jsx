@@ -8,7 +8,7 @@ export function SkyIcon({ country, minute, className = "size-4" }) {
 
 export function YouBadge({ className = "" }) {
   return (
-    <span className={`rounded-full bg-primary px-[7px] py-1 font-mono text-[10px] font-[700] leading-none tracking-[0.08em] text-white ${className}`}>
+    <span className={`rounded-full bg-primary px-[7px] py-1 font-mono text-[11px] font-[700] leading-none tracking-[0.08em] text-white ${className}`}>
       Your time
     </span>
   );

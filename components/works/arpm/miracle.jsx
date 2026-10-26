@@ -64,7 +64,7 @@ export default function Miracle() {
         transition={{ duration: 0.9, ease }}
         className="relative mx-auto mt-16 max-w-[811px] overflow-hidden rounded-[15px] border-[5px] border-black/10 2xl:absolute 2xl:left-[48.698vw] 2xl:top-[8.646vw] 2xl:mt-0 2xl:w-[42.24vw]"
       >
-        <Image src="/works/arpm/miracle/property-detail.png" alt="ARPM property detail showing recovered floorplan controls and gallery" width={3292} height={4336} quality={100} className="block h-auto w-full" sizes="(min-width: 1536px) 42.24vw, 811px" />
+        <Image src="/works/arpm/miracle/property-detail.png" alt="ARPM property detail showing recovered floorplan controls and gallery" width={3292} height={4336} quality={90} className="block h-auto w-full" sizes="(min-width: 1536px) 42.24vw, 811px" />
       </motion.figure>
 
       <Callout reducedMotion={reducedMotion} className="mt-5 2xl:left-[85vw] 2xl:top-[18.438vw] 2xl:mt-0">Attached galleries recovered automatically</Callout>

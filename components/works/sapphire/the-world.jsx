@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1];
 const serif = '"PP Editorial Old", "Romie Trial", "Times New Roman", serif';
-const sans = '"Messina Sans", "SF Pro", "Helvetica Neue", sans-serif';
+const sans = '"Messina Sans", "Helvetica Neue", sans-serif';
 
 const colors = [
   {
@@ -121,7 +121,7 @@ function ColorCard({ color }) {
         {color.name}
       </h3>
 
-      <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px] uppercase tracking-[-0.03em] text-[#7d7d7d] lg:mt-7 lg:text-[12.5px]">
+      <div className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-[-0.03em] text-[#7d7d7d] lg:mt-7 lg:text-[12.5px]">
         {color.traits.map((trait, index) => (
           <span key={trait} className="flex items-center gap-3">
             {index > 0 && <span className="h-3 w-px bg-[#b7b7b7]" />}
@@ -185,7 +185,7 @@ export default function TheWorld() {
         <Reveal className="mt-7" delay={0.1} nodeId="201:228">
           <p
             className="max-w-[829px] text-center text-[clamp(17px,1.25vw,24px)] font-[300] leading-[1.3] tracking-[-0.03em]"
-            style={{ fontFamily: '"SF Pro", "Helvetica Neue", sans-serif' }}
+            style={{ fontFamily: '"Helvetica Neue", sans-serif' }}
           >
             The answer was not to fake a giant past. It was to make every
             choice feel intentional: editorial type, controlled contrast,
@@ -231,7 +231,7 @@ export default function TheWorld() {
             src="/works/sapphire/world/editorial-lookbook.webp"
             alt="Sapphire editorial lookbook displayed beneath a classic car windshield wiper"
             fill
-            quality={88}
+            quality={90}
             sizes="(min-width: 1024px) 95vw, 100vw"
             className="object-cover"
           />
@@ -245,7 +245,7 @@ export default function TheWorld() {
             src="/works/sapphire/world/color-system-bg.webp"
             alt=""
             fill
-            quality={86}
+            quality={90}
             sizes="(min-width: 1024px) 95vw, 100vw"
             className="object-cover object-bottom"
           />
@@ -319,7 +319,7 @@ export default function TheWorld() {
             src="/works/sapphire/world/billboard.webp"
             alt="Sapphire Made for Moments That Matter outdoor billboard"
             fill
-            quality={88}
+            quality={90}
             sizes="(min-width: 1024px) 95vw, 100vw"
             className="object-cover"
           />

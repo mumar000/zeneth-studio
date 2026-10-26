@@ -84,7 +84,8 @@ export async function generateMetadata({ params }) {
 
   return createPageMetadata({
     title: `${project.title} Case Study`,
-    description: project.tagline,
+    // Taglines are short display lines; search results get a fuller description when there is one.
+    description: project.seoDescription || project.tagline,
     path: `/works/${slug}`,
     eyebrow: "Nymbor case study",
     imageAlt: `${project.title} case study by Nymbor`,

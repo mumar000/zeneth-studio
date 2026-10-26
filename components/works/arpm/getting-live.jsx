@@ -63,7 +63,7 @@ function StageCard({ stage, index, reducedMotion }) {
         <span>{stage.number}</span>
         {stage.logo ? <Image src={stage.logo} alt="WordPress" width={44} height={44} className="h-auto w-[38px] 2xl:w-[2.3vw]" /> : index === 0 ? <Image src="/works/arpm/getting-live/figma.png" alt="Figma" width={32} height={32} className="h-auto w-[28px] 2xl:w-[1.67vw]" /> : null}
       </div>
-      {stage.image ? <Image src={stage.image} alt="Launch stage visual" width={stage.imageWidth} height={stage.imageHeight} quality={100} className={`absolute h-auto ${stage.imageClass}`} sizes="(min-width: 1536px) 15vw, 300px" /> : <Diagram type={stage.diagram} />}
+      {stage.image ? <Image src={stage.image} alt="Launch stage visual" width={stage.imageWidth} height={stage.imageHeight} quality={90} className={`absolute h-auto ${stage.imageClass}`} sizes="(min-width: 1536px) 15vw, 300px" /> : <Diagram type={stage.diagram} />}
       <div className="absolute bottom-6 left-7 right-6 2xl:bottom-[1.51vw] 2xl:left-[1.72vw] 2xl:right-[1.25vw]">
         <h3 className="text-[20px] leading-[1.25] tracking-[0.03em] 2xl:text-[1.25vw]">{stage.title}</h3>
         <p className="mt-2 text-[15px] leading-[1.35] tracking-[0.03em] text-black/45 2xl:mt-[0.42vw] 2xl:text-[0.833vw]">{stage.description}</p>

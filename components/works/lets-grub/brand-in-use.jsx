@@ -114,7 +114,7 @@ export default function BrandInUse() {
                 alt={application.alt}
                 width={application.width}
                 height={application.height}
-                quality={100}
+                quality={90}
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="h-auto w-full"
               />

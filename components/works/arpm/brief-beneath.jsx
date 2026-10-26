@@ -58,7 +58,7 @@ export default function BriefBeneath() {
           src="/arpm-2.png"
           alt="The redesigned ARPM property search displayed on a Mac Studio monitor"
           fill
-          quality={100}
+          quality={90}
           sizes="(min-width: 1536px) 56.25vw, 1080px"
           className="scale-[1.55] object-contain"
         />

@@ -42,7 +42,7 @@ export default function Outcome() {
               const [file, alt] = phones[index];
               return (
                 <motion.figure key={file} initial={reducedMotion ? false : { y: 30 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.8, delay: column * 0.07, ease }} className="relative aspect-[548/1020] w-full shrink-0">
-                  <Image src={`/works/arpm/outcome/${file}`} alt={alt} fill quality={100} className="object-contain object-top" sizes="(min-width: 1536px) 26vw, 31vw" />
+                  <Image src={`/works/arpm/outcome/${file}`} alt={alt} fill quality={90} className="object-contain object-top" sizes="(min-width: 1536px) 26vw, 31vw" />
                 </motion.figure>
               );
             })}

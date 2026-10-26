@@ -68,16 +68,22 @@ export default function FloatingCTA() {
     };
   }, [pathname]);
 
+  // Hide while the footer or the page's own booking section is on screen, so
+  // the button never sits on top of the calendar or the footer links.
   useEffect(() => {
-    const footer = document.querySelector("footer");
-    if (!footer) return;
+    const targets = [document.querySelector("footer"), document.getElementById("book")].filter(Boolean);
+    if (!targets.length) return;
 
+    const visible = new Set();
     const observer = new IntersectionObserver(
-      ([entry]) => setFooterVisible(entry.isIntersecting),
+      (entries) => {
+        entries.forEach((entry) => (entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target)));
+        setFooterVisible(visible.size > 0);
+      },
       { rootMargin: "0px 0px 72px 0px", threshold: 0.01 },
     );
 
-    observer.observe(footer);
+    targets.forEach((target) => observer.observe(target));
     return () => observer.disconnect();
   }, [pathname]);
 

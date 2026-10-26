@@ -91,7 +91,7 @@ export default function WorksPage() {
           <div className="mx-auto mb-8 flex max-w-[1680px] justify-start md:mb-10">
             <label className="block" htmlFor="work-filter">
               <span
-                className="mb-2 block text-[10px] font-[600] uppercase tracking-[0.12em] text-black/50 md:text-[11px]"
+                className="mb-2 block text-[11px] font-[600] uppercase tracking-[0.12em] text-black/60 md:text-xs"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 Filter by service
@@ -120,6 +120,8 @@ export default function WorksPage() {
             </label>
           </div>
 
+          {/* Keeps the outline H1 → H2 → H3 for the project cards. */}
+          <h2 className="sr-only">Projects</h2>
           <motion.div
             layout
             className="mx-auto grid min-h-[360px] max-w-[1680px] grid-cols-2 items-start justify-items-center gap-x-3 gap-y-6 sm:gap-x-7 sm:gap-y-9 md:min-h-[420px] md:gap-x-10 md:gap-y-12 xl:grid-cols-4 xl:gap-x-14 xl:gap-y-16 2xl:gap-x-20"

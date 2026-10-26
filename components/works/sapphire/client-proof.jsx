@@ -5,7 +5,7 @@ import { sapphireTestimonial } from "@/lib/testimonials";
 
 const ease = [0.22, 1, 0.36, 1];
 const serif = '"PP Editorial Old", "Romie Trial", "Times New Roman", serif';
-const sans = '"SF Pro", "Helvetica Neue", sans-serif';
+const sans = '"Helvetica Neue", sans-serif';
 
 export default function ClientProof() {
   const shouldReduceMotion = useReducedMotion();

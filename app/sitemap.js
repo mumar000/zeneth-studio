@@ -7,7 +7,6 @@ import { absoluteUrl, isIndexableEnvironment } from "@/lib/site-config";
 const contentRevisions = {
   "/": "2026-10-17",
   "/about": "2026-10-17",
-  "/services": "2026-10-17",
   "/works": "2026-10-13",
   "/contact": "2026-10-17",
   "/services/brand-identity": "2026-10-17",
@@ -25,7 +24,7 @@ export default function sitemap() {
   if (!isIndexableEnvironment()) return [];
 
   const paths = [
-    "/", "/about", "/services", "/works", "/contact", "/privacy", "/terms",
+    "/", "/about", "/works", "/contact", "/privacy", "/terms",
     ...serviceSlugs.map((slug) => `/services/${slug}`),
     ...getIndexableProjects().map((project) => `/works/${project.slug}`),
   ];

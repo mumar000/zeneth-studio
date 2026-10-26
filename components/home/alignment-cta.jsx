@@ -1,175 +1,48 @@
-"use client";
-
-import { motion, useMotionValue, useSpring } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
+import Reveal from "@/components/reveal";
+import { primaryButtonClass } from "@/components/home/button-styles";
+import { siteConfig } from "@/lib/site-config";
 
-const MotionLink = motion.create(Link);
-
+// Closing call to action on the Works page and every case study. Same card
+// language as the booking sections: dark panel, mono eyebrow, display heading.
 export default function AlignmentCTA({ compact = false }) {
-  const buttonRef = useRef(null);
-
-  // Magnetic button effect
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 15, stiffness: 150 };
-  const xSpring = useSpring(x, springConfig);
-  const ySpring = useSpring(y, springConfig);
-
-  const handleMouseMove = (e) => {
-    if (!buttonRef.current) return;
-
-    const rect = buttonRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    const distanceX = e.clientX - centerX;
-    const distanceY = e.clientY - centerY;
-
-    const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
-    const maxDistance = 200;
-
-    if (distance < maxDistance) {
-      const force = (maxDistance - distance) / maxDistance;
-      x.set(distanceX * force * 0.3);
-      y.set(distanceY * force * 0.3);
-    } else {
-      x.set(0);
-      y.set(0);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
     <section
       data-project-cta-boundary
-      className={`w-full bg-white ${compact ? "py-12 md:py-16" : "py-20 md:py-24"}`}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      aria-labelledby="alignment-cta-title"
+      className={`w-full px-3 sm:px-6 ${compact ? "pb-14 pt-4 md:pb-20" : "py-14 md:py-20"}`}
     >
-      <div className={`mx-auto ${compact ? "px-0" : "px-6 md:px-12"}`}>
-        {/* White Card Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className={`mx-auto border border-black/30 bg-white ${
-            compact
-              ? "rounded-2xl px-6 py-10 sm:px-8 md:px-10 md:py-12"
-              : "rounded-3xl px-8 py-16 md:px-16 md:py-20"
-          }`}
+      <Reveal className="mx-auto max-w-[1200px] overflow-hidden rounded-[24px] bg-[#1e142c] px-6 py-12 text-center text-white sm:px-10 md:rounded-[28px] md:py-16">
+        <p className="font-mono text-xs font-[700] uppercase tracking-[0.18em] text-white/70">Work with us</p>
+        <h2
+          id="alignment-cta-title"
+          className="mx-auto mt-4 max-w-[760px] text-balance text-[clamp(32px,5vw,56px)] font-[700] leading-[1.06] tracking-[-0.04em]"
+          style={{ fontFamily: "var(--font-display)" }}
         >
-          <div className={`${compact ? "max-w-2xl" : "max-w-3xl"} mx-auto text-center`}>
-            {/* Title with animation */}
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className={`${compact ? "mb-5 text-2xl md:text-4xl" : "mb-8 text-3xl md:text-5xl lg:text-6xl"} leading-tight text-[#1a1a1a]`}
-              style={{ fontFamily: "var(--font-sora)" }}
-            >
-              <span className="italic font-romie font-[400]">Only</span>{" "}
-              <span className="font-[400]">
-                for those who demand the undeniable.
-              </span>
-            </motion.h2>
-
-            {/* Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <p
-                className={`${compact ? "mb-7 text-sm md:text-base" : "mb-10 text-lg md:text-xl"} leading-relaxed text-gray-500`}
-              >
-                We don&apos;t take on every project. We look for founders who have
-                built something great and need the visual authority to match it.
-                If that&apos;s you, let&apos;s talk.
-              </p>
-            </motion.div>
-
-            {/* Magnetic CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex justify-center"
-            >
-              <MotionLink
-                ref={buttonRef}
-                href="/contact"
-                className={`group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary font-[500] text-white shadow-lg transition-shadow duration-300 hover:shadow-xl ${
-                  compact
-                    ? "px-6 py-3 text-sm md:text-base"
-                    : "px-8 py-4 text-base md:text-lg"
-                }`}
-                style={{
-                  x: xSpring,
-                  y: ySpring,
-                  fontFamily: "var(--font-sora)",
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {/* Animated gradient background on hover */}
-                <motion.div
-                  className="absolute inset-0 bg-primary-700 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  initial={false}
-                />
-
-                {/* Shine effect */}
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                  initial={false}
-                  animate={{
-                    background: [
-                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-                    ],
-                    x: ["-100%", "200%"],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatDelay: 1,
-                  }}
-                />
-
-                {/* Button text */}
-                <span className="relative z-10">Start a Project</span>
-                <motion.span
-                  className="relative z-10 inline-flex"
-                  animate={{ x: [0, 3, 0], y: [0, -3, 0] }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <ArrowUpRight className="h-5 w-5" strokeWidth={2} />
-                </motion.span>
-
-                {/* Glow effect */}
-                <motion.div
-                  className="absolute -inset-1 -z-10 rounded-full bg-primary opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-50"
-                  initial={false}
-                />
-              </MotionLink>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
+          Only for those who demand{" "}
+          <span className="font-romie font-[400] italic tracking-[-0.03em]">the undeniable.</span>
+        </h2>
+        <p className="mx-auto mt-5 max-w-[540px] text-[16px] leading-[1.6] text-white/80 md:text-[18px]">
+          We don&apos;t take on every project. We look for founders who have built something great and need the
+          visual authority to match it. If that&apos;s you, let&apos;s talk.
+        </p>
+        <div className="mt-8 flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-7">
+          <Link href="/contact" className={`group ${primaryButtonClass}`}>
+            Book a call
+            <ArrowRight
+              aria-hidden="true"
+              className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transition-none"
+            />
+          </Link>
+          <a
+            href={`mailto:${siteConfig.email}`}
+            className="inline-flex min-h-11 items-center text-[15px] text-white/80 underline decoration-white/30 decoration-2 underline-offset-[5px] transition-colors hover:text-white hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#1e142c]"
+          >
+            {siteConfig.email}
+          </a>
+        </div>
+      </Reveal>
     </section>
   );
 }

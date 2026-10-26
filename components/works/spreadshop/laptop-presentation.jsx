@@ -14,7 +14,7 @@ export default function LaptopPresentation() {
           src="/works/spreadshop/laptop-presentation.png"
           alt="Spreadshop dashboard presented on a laptop"
           fill
-          quality={100}
+          quality={90}
           sizes="(min-width: 1920px) 1670px, calc(100vw - 48px)"
           className="object-cover"
         />

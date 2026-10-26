@@ -50,7 +50,6 @@ export default function BrandIdentityPage() {
           }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Services", path: "/services" },
             { name: service.label, path },
           ]),
           faqPageSchema(seo.faqs, path),

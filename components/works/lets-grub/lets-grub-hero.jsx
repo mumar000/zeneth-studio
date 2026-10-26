@@ -29,7 +29,7 @@ export default function LetsGrubHero() {
           alt="A diverse group of friends leaning into a circle around the words Where We Come Together"
           fill
           priority
-          quality={100}
+          quality={90}
           sizes="100vw"
           className="object-cover object-center"
         />

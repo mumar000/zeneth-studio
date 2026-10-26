@@ -1,7 +1,7 @@
 import LegalPage from "@/components/legal/legal-page";
 import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = createPageMetadata({ title: "Website Terms", description: "Information about using the Nymbor website and making project enquiries.", path: "/terms" });
+export const metadata = createPageMetadata({ title: "Website Terms", description: "The terms for using the Nymbor website, booking a call and making project enquiries about brand identity, interface design and web development.", path: "/terms" });
 
 export default function TermsPage() {
   return <LegalPage title="Website Terms" intro="These terms describe use of Nymbor’s portfolio website and project enquiry form. The details of a paid engagement are agreed separately with the studio." sections={[

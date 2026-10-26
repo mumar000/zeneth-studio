@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1];
 const serif = '"PP Editorial Old", "Romie Trial", "Times New Roman", serif';
-const sans = '"SF Pro", "Helvetica Neue", sans-serif';
+const sans = '"Helvetica Neue", sans-serif';
 
 export default function BeyondMockup() {
   const shouldReduceMotion = useReducedMotion();
@@ -70,7 +70,7 @@ export default function BeyondMockup() {
               alt="Sapphire project gallery displayed on a phone"
               width={724}
               height={1408}
-              quality={92}
+              quality={90}
               sizes="(min-width: 768px) 22vw, 30vw"
               className="h-auto w-full"
             />

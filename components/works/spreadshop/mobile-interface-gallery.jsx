@@ -26,7 +26,7 @@ export default function MobileInterfaceGallery() {
               src={screen.src}
               alt={`Spreadshop mobile interface screen ${index + 1}`}
               fill
-              quality={100}
+              quality={90}
               sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 92vw"
               className="object-contain"
             />
