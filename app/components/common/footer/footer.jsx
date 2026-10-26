@@ -68,6 +68,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-2 text-[#b8b5b8]">
             <span>Nymbor studio © {new Date().getFullYear()}</span>
             <Link href="/privacy" className={`transition-colors hover:text-primary ${focusStyle}`}>privacy</Link>
+            <Link href="/terms" className={`transition-colors hover:text-primary ${focusStyle}`}>terms</Link>
           </div>
           <nav aria-label="Social profiles" className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[#272327]">
             {socialLinks.map((item, index) => (

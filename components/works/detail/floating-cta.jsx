@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import { scrollToBook } from "@/lib/scroll-to-book";
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -112,9 +113,13 @@ export default function FloatingCTA() {
             }
             className="pointer-events-auto"
           >
+            {/* Pages with their own calendar scroll to it; everywhere else goes to the contact page. */}
             <Link
               href="/contact"
-              aria-label="Start something with Nymbor"
+              onClick={(event) => {
+                if (scrollToBook()) event.preventDefault();
+              }}
+              aria-label="Book a call with Nymbor"
               className="group flex min-h-12 items-center gap-2 rounded-full border border-white/20 py-1.5 pl-4 pr-1.5 shadow-[0_18px_48px_-14px_rgba(0,0,0,0.5)] outline-none transition-transform duration-300 hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 sm:min-h-[52px] sm:gap-3 sm:pl-5"
               style={{
                 backgroundColor: accent,

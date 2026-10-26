@@ -6,7 +6,6 @@ import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "@/lib/site-config";
 import { scrollToBook } from "@/lib/scroll-to-book";
 
 const NAV_ITEMS = [
@@ -86,7 +85,7 @@ export default function Navbar() {
   const closeMobileMenu = () => setIsMenuOpen(false);
 
   // "Book a call" scrolls to the page's booking section when there is one,
-  // and opens the calendar everywhere else.
+  // and goes to the contact page (which holds the calendar) everywhere else.
   const handleBookClick = (event) => {
     closeMobileMenu();
     if (scrollToBook()) event.preventDefault();
@@ -209,15 +208,13 @@ export default function Navbar() {
               })}
             </div>
 
-            <a
-              href={siteConfig.calendarUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               onClick={handleBookClick}
               className="ml-3 inline-flex min-h-11 items-center whitespace-nowrap rounded-full border-2 border-black bg-primary px-4 font-mono text-[11px] font-[700] uppercase leading-none tracking-[0.14em] text-white transition-colors duration-150 hover:bg-[#5a14d6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 max-[359px]:hidden sm:px-5 sm:text-xs md:ml-2"
             >
               Book a call
-            </a>
+            </Link>
 
             <button
               ref={menuButtonRef}
@@ -329,15 +326,13 @@ export default function Navbar() {
                         </Link>
                       );
                     })}
-                    <a
-                      href={siteConfig.calendarUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact"
                       onClick={handleBookClick}
                       className="mt-1 flex min-h-12 items-center justify-center rounded-2xl border-2 border-black bg-primary font-mono text-xs font-[700] uppercase tracking-[0.14em] text-white"
                     >
                       Book a call
-                    </a>
+                    </Link>
                   </nav>
                 </motion.div>
               </motion.div>
